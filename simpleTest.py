@@ -3,6 +3,6 @@
 # Theo (x)
 # Fredrik (x)
 # Hosam ()
-# Nikki ()
+# Nikki (x)
 # Daniel ()
 
