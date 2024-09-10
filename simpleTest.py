@@ -4,5 +4,5 @@
 # Fredrik (x)
 # Hosam (X)
 # Nikki (x)
-# Daniel ()
+# Daniel (x)
 
