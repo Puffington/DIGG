@@ -83,7 +83,7 @@
 
     <!-- Header Section -->
     <header>
-        <h1>Welcome to Our Websiiiite</h1>
+        <h1>Welcome to Our Websooote</h1>
     </header>
 
     <!-- Navigation Bar -->
