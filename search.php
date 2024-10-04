@@ -11,8 +11,10 @@ include("includes/templates/header.php");
 </head>
 <main>
     <div class="horizontal">
-        <div>THIS IS THE SEARCH FORM</div>
-        <div>have fun making stuff</div>
+        <div class="card">
+            <div>THIS IS THE SEARCH FORM</div>
+            <div>have fun making stuff</div>
+        </div>
     </div>
 </main>
 
