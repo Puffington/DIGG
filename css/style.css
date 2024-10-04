@@ -70,11 +70,13 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    background-color: #faf4f2;
 }
 
 .headline h1 {
     font-weight: bold;
     size: 20px;
+    margin-bottom: 40px;
 }
 
 .breadcrums {
@@ -94,33 +96,46 @@ body {
 }
 
 .menuButton{
-    margin: 5px;
-    padding: 5px;
-    width:80%;
+    margin-top: 10px;
+    padding: 10px;
+    width:30%;
+    border-radius: 50px;
+    background-color: #6E615A;
+    color: #fff;
+    border:none;
+    cursor: pointer;
+}
+.menuButton:hover{
+    background-color: #ef8271;
 }
 
 .card {
     height: fit-content;
     width:30%;
-    background-color: burlywood;
-    padding:6px;
-    margin: 6px;
+    background-color: #fff;
+    padding:15px;
+    margin: 0 12px; /* Horizontal margin for spacing between cards */
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 2px rgb(0 0 0 / .8);
 }
 
 .horizontal{
-    width: 100%;
-    background-color: aqua;
     display: flex;
+    justify-content: space-between; /* Ensures even spacing between the cards */
+    align-items: flex-start; /* Aligns cards at the top */
+    width: 100%;
+    background-color: #faf4f2;
     flex-direction: row;
-    justify-content: center;
 }
 
 @media (max-width: 800px) { /* CSS that should be displayed if width is equal to or less than 800px goes here */
     .horizontal{
         flex-direction: column;
+        align-items: center;
     }
     .card{
-        width: 80%;
+        width: 100%;
+        margin-bottom: 20px; /* Space between stacked cards */
     }
 }
 

@@ -19,20 +19,25 @@
             <div class="headline">
                 <h1>Förtroendemodellen</h1>
             </div>
+
             <div class="horizontal">
                 <div class="card">
-                    <h2>Riktlinjer</h2>
-                    <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >go to</button>
+                    <h2>Läs mer om riktlinjer för AI</h2>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
+                    <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >Riktlinjer</button>
                 </div>
                 <div class="card">
-                    <h2>Register</h2>
-                    <button type="button" class="menuButton" onclick="location.href='search.php';" >go to</button>
+                    <h2>Se vårt register med AI's</h2>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
+                    <button type="button" class="menuButton" onclick="location.href='search.php';" >Register</button>
                 </div>
                 <div class="card">
-                    <h2>Formuläret</h2>
-                    <button type="button" class="menuButton" onclick="location.href='create.php';" >go to</button>
+                    <h2>Fyll i formuläret</h2>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
+                    <button type="button" class="menuButton" onclick="location.href='create.php';" >Formuläret</button>
                 </div>
             </div>
+
         </div>
     </main>
 
