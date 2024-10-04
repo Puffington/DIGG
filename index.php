@@ -1,5 +1,5 @@
 <?php
-    include("includes/connect.php");
+    #include("includes/connect.php");
 ?>
 
 <!DOCTYPE html>
@@ -19,15 +19,6 @@
     <?php
         include("templates/header.php");
     ?>
-    <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
 
     <!-- Main Content and Sidebar -->
     <main>
