@@ -1,19 +1,24 @@
 <?php
-    #include("includes/connect.php");
+    include("includes/connect.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<?php
-    include("templates/header.php");
-?>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css"> <!-- external css, a general css theme from the "style.css" -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Digg Förtroendemodellen</title>
+</head>
+
 <body>
 
     <!-- Header Section -->
-    <header>
-        <h1>Welcome to Our Websooote (header) </h1>
-    </header>
-
+    <?php
+        include("templates/header.php");
+    ?>
     <!-- Navigation Bar -->
     <nav>
         <ul>
