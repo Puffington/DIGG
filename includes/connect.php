@@ -6,9 +6,9 @@
     //$dbName = "DIGG_SIMMS";
 
     $dbServerName = "studentmysql.miun.se";
-    $dbUserName = "DIGG_SIMMS";
-    $dbPassword = "hezron23";
-    $dbName = "DIGG_SIMMS";
+    $dbUserName = "dane2200";
+    $dbPassword = "j1tlo375";
+    $dbName = "dane2200";
 
     $conn = mysqli_connect($dbServerName, $dbUserName, $dbPassword, $dbName);
 
