@@ -48,9 +48,33 @@ main {
     padding: 20px;
 }
 
+.menuButton{
+    margin: 5px;
+    padding: 5px;
+}
+
+.card {
+    height: fit-content;
+    width:max-content;
+    background-color: burlywood;
+    padding:6px;
+    margin: 6px;
+}
+
+.horizontal{
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 800px) { /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    .horizontal{
+        flex-direction: column;
+    }
+}
+
 /* Main content */
 .content {
-    flex: 3;
+    flex: 30;
     padding: 20px;
 }
 
