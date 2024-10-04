@@ -1,8 +1,5 @@
 <footer>
-
     <!-- let's try to copy digg!! -->
-
-
     <div>
         <div>
             <div>
@@ -42,7 +39,6 @@
                 </div>
             </div>
 
-
             <div>
                 <h2>Följ oss</h2>
                 <ul class="sv-defaultlist">
@@ -58,10 +54,8 @@
                     </li>
                     <li>
                         <a href="https://www.digg.se/kunskap-och-stod/digg-play" lang="en"><span class="env-assistive-text">DIGG på&nbsp;</span><span>Digg play</span></a>
-
                     </li>
                 </ul>
-
             </div>
 
             <h2 class="sv-font-component-heading-h2" id="h-Andrawebbplatser-0">Andra webbplatser</h2>
