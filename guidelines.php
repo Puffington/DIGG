@@ -1,22 +1,39 @@
-
 <?php
 include("includes/templates/header.php");
 ?>
-<head>
-    <link rel="stylesheet" type="text/css" href="css/style.css"> <!-- external css, a general css theme from the "style.css" -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Digg Förtroendemodellen</title>
-</head>
+
+
+<!-- Main Content -->
 <main>
-    <div class="horizontal">
+    <div class="breadcrums">
+        <nav>
+            <i class="fa-solid fa-house"></i>
+            <a href="#">Förtroendemodellen</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="#">Guidelines</a>
+        </nav>
         <div>THIS IS GUIDELINES</div>
         <div>have fun making stuff</div>
+        <div class="headline">
+            <h1>Förtroendemodellen</h1>
+        </div>
+        <div class="horizontal">
+            <div class="card">
+                <h2>guidelines</h2>
+                <button type="button" class="menuButton" onclick="location.href='guidelines.php';">go to</button>
+            </div>
+            <div class="card">
+                <h2>search form</h2>
+                <button type="button" class="menuButton" onclick="location.href='search.php';">go to</button>
+            </div>
+            <div class="card">
+                <h2>Create form</h2>
+                <button type="button" class="menuButton" onclick="location.href='create.php';">go to</button>
+            </div>
+        </div>
     </div>
 </main>
 
 <?php
 include("includes/templates/footer.php");
 ?>
-
