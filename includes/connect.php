@@ -3,12 +3,12 @@
     //$dbServerName = "localhost";
     //$dbUserName = "root";
     //$dbPassword = "";
-    //$dbName = "DIGG";
+    //$dbName = "DIGG_SIMMS";
 
     $dbServerName = "studentmysql.miun.se";
-    $dbUserName = "dane2200";
-    $dbPassword = "j1tlo375";
-    $dbName = "dane2200";
+    $dbUserName = "DIGG_SIMMS";
+    $dbPassword = "hezron23";
+    $dbName = "DIGG_SIMMS";
 
     $conn = mysqli_connect($dbServerName, $dbUserName, $dbPassword, $dbName);
 
