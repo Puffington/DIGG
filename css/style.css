@@ -12,9 +12,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    padding-top: 20px;
+    padding-top: 60px;
     background-color: white;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 8px solid #6E615A;
 }
 
 /* Logo and title section */
@@ -55,13 +55,13 @@
 .header nav a {
     text-decoration: none;
     color: #333;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: normal;
     margin: 0 5px;
+    padding: 10px;
 }
 
 .header nav a:hover {
-    color: #0066cc;
     background-color: #DBD7D6;
 }
 /* Header styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/

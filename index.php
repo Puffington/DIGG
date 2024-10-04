@@ -19,7 +19,6 @@
     <?php
         include("includes/templates/header.php");
     ?>
-
     
 
     <!-- Main Content and Sidebar -->
