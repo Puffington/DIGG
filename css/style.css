@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
+    padding-top: 20px;
     background-color: white;
     border-bottom: 2px solid #ccc;
 }
@@ -35,7 +36,7 @@
 .header .title-section h1 {
     margin: 0;
     font-size: 20px;
-    font-weight: normal;
+    font-weight: heavy;
 }
 
 .header .title-section h2 {
@@ -61,6 +62,7 @@
 
 .header nav a:hover {
     color: #0066cc;
+    background-color: #DBD7D6;
 }
 /* Header styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
