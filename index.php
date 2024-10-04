@@ -15,12 +15,13 @@
     <style> 
 
     </style>
+
 </head>
 <body>
 
     <!-- Header Section -->
     <header>
-        <h1>Welcome to Our Websooote</h1>
+        <h1>Welcome to Our Websooote (header) </h1>
     </header>
 
     <!-- Navigation Bar -->
