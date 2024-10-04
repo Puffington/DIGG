@@ -19,12 +19,6 @@
     <?php
         include("includes/templates/header.php");
     ?>
-
-    
-    <!-- 
-    <a href="test.php">you can also press me, though i'm techincally not a button</a>
-    <div onclick="location.href='test.php';" style="background-color:darksalmon;">or try me, i äm a div</div>
-    -->
     
 
     <!-- Main Content and Sidebar -->
@@ -44,17 +38,6 @@
             </div>
         </div>
         
-        <!--
-        <div class="content">
-            <h2>Main Content Area</h2>
-            <p>This is where the main content of the page goes. You can add text, images, videos, or any other type of content here.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mollis lacus a velit pharetra, at tempus eros aliquam.</p>
-        </div>
-
-        <div class="sidebar">
-            <h2>Sidebar</h2>
-            <p>This is the sidebar where you can place additional content like links, advertisements, or other widgets.</p>
-        </div>-->
     </main>
 
     <!-- Footer Section -->
