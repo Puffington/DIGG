@@ -36,11 +36,11 @@
             </div>
             <div class="card">
                 <h2>search form</h2>
-                <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >go to</button>
+                <button type="button" class="menuButton" onclick="location.href='search.php';" >go to</button>
             </div>
             <div class="card">
                 <h2>Create form</h2>
-                <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >go to</button>
+                <button type="button" class="menuButton" onclick="location.href='create.php';" >go to</button>
             </div>
         </div>
         

@@ -11,7 +11,7 @@ include("includes/templates/header.php");
 </head>
 <main>
     <div class="horizontal">
-        <div>THIS IS GUIDELINES</div>
+        <div>THIS I WHERE YOU CREATE FORM</div>
         <div>have fun making stuff</div>
     </div>
 </main>

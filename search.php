@@ -11,7 +11,7 @@ include("includes/templates/header.php");
 </head>
 <main>
     <div class="horizontal">
-        <div>THIS IS GUIDELINES</div>
+        <div>THIS IS THE SEARCH FORM</div>
         <div>have fun making stuff</div>
     </div>
 </main>
