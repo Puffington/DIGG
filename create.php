@@ -1,4 +1,4 @@
-
+<!-- Header Section -->
 <?php
 include("includes/templates/header.php");
 ?>
@@ -8,12 +8,10 @@ include("includes/templates/header.php");
     <div class="breadcrums">
         <nav>
             <i class="fa-solid fa-house"></i>
-            <a href="#">Förtroendemodellen</a>
+            <a href="index.php">Förtroendemodellen</a>
             <i class="fa-solid fa-chevron-right"></i>
-            <a href="#">Create</a>
+            <a href="#">Formuläret</a>
         </nav>
-        <div>THIS IS GUIDELINES</div>
-        <div>have fun making stuff</div>
         <div class="headline">
             <h1>Förtroendemodellen</h1>
         </div>
@@ -23,7 +21,7 @@ include("includes/templates/header.php");
     </div>
 </main>
 
+<!-- Footer Section -->
 <?php
 include("includes/templates/footer.php");
 ?>
-
