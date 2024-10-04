@@ -51,24 +51,31 @@ main {
 .menuButton{
     margin: 5px;
     padding: 5px;
+    width:80%;
 }
 
 .card {
     height: fit-content;
-    width:max-content;
+    width:30%;
     background-color: burlywood;
     padding:6px;
     margin: 6px;
 }
 
 .horizontal{
+    width: 100%;
+    background-color: aqua;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 @media (max-width: 800px) { /* CSS that should be displayed if width is equal to or less than 800px goes here */
     .horizontal{
         flex-direction: column;
+    }
+    .card{
+        width: 80%;
     }
 }
 

@@ -17,15 +17,14 @@
 
     <!-- Header Section -->
     <?php
-        include("templates/header.php");
+        include("includes/templates/header.php");
     ?>
 
     
-    
+    <!-- 
     <a href="test.php">you can also press me, though i'm techincally not a button</a>
-    
     <div onclick="location.href='test.php';" style="background-color:darksalmon;">or try me, i äm a div</div>
-
+    -->
     
 
     <!-- Main Content and Sidebar -->
@@ -33,19 +32,18 @@
         <div class="horizontal">
             <div class="card">
                 <h2>guidelines</h2>
-                <button type="button" class="menuButton" onclick="location.href='test.php';" >go to</button>
+                <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >go to</button>
             </div>
             <div class="card">
                 <h2>search form</h2>
-                <button type="button" class="menuButton" onclick="location.href='test.php';" >go to</button>
+                <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >go to</button>
             </div>
             <div class="card">
                 <h2>Create form</h2>
-                <button type="button" class="menuButton" onclick="location.href='test.php';" >go to</button>
+                <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >go to</button>
             </div>
         </div>
         
-
         <!--
         <div class="content">
             <h2>Main Content Area</h2>
@@ -61,7 +59,7 @@
 
     <!-- Footer Section -->
     <?php
-        include("templates/footer.php");
+        include("includes/templates/footer.php");
     ?>
 
 </body>
