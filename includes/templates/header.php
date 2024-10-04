@@ -1,7 +1,7 @@
-<header>
+<header class="header">
      <!-- Logo and title -->
      <div class="logo-section">
-            <img src="https://via.placeholder.com/40" alt="Logo"> <!-- Replace with actual logo URL -->
+            <img src="photo/digg_small_logo.png" alt="Logo"> <!-- Replace with actual logo URL -->
             <div class="title-section">
                 <h1>Sveriges dataportal</h1>
                 <h2>Digg – Myndigheten för digital förvaltning</h2>

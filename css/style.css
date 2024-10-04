@@ -1,47 +1,75 @@
 
-/* Basic reset to remove default margins and paddings */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Header styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 2px solid #ccc;
+}
+
+/* Logo and title section */
+.header .logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.header .title-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.header .title-section h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.header .title-section h2 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: #666;
+}
+
+/* Navigation */
+.header nav {
+    display: flex;
+    gap: 15px;
+}
+
+.header nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.header nav a:hover {
+    color: #0066cc;
+}
+/* Header styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
 
-header {
-    background-color: #fff;
-    color: #000;
-    padding: 10px 0;
-    text-align: left;
-}
-
-header h1 {
-    margin: 0;
-}
-
-nav {
-    background-color: #444;
-    padding: 10px;
-}
-
-nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
 
 main {
     display: flex;
