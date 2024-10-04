@@ -23,21 +23,28 @@
 
     <!-- Main Content and Sidebar -->
     <main>
-        <div class="horizontal">
-            <div class="card">
-                <h2>guidelines</h2>
-                <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >go to</button>
+        <div class="theMainDiv">
+            <nav>
+                <a href="#">Förtroendemodellen</a>
+            </nav>
+            <div class="headline">
+                <h1>Förtroendemodellen</h1>
             </div>
-            <div class="card">
-                <h2>search form</h2>
-                <button type="button" class="menuButton" onclick="location.href='search.php';" >go to</button>
-            </div>
-            <div class="card">
-                <h2>Create form</h2>
-                <button type="button" class="menuButton" onclick="location.href='create.php';" >go to</button>
+            <div class="horizontal">
+                <div class="card">
+                    <h2>guidelines</h2>
+                    <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >go to</button>
+                </div>
+                <div class="card">
+                    <h2>search form</h2>
+                    <button type="button" class="menuButton" onclick="location.href='search.php';" >go to</button>
+                </div>
+                <div class="card">
+                    <h2>Create form</h2>
+                    <button type="button" class="menuButton" onclick="location.href='create.php';" >go to</button>
+                </div>
             </div>
         </div>
-        
     </main>
 
     <!-- Footer Section -->
