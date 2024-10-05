@@ -1,92 +1,17 @@
 <?php
-    include("includes/connect.php");
+    include("connect.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Typical Website Layout</title>
-    <style>
-        /* Basic reset to remove default margins and paddings */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        nav {
-            background-color: #444;
-            padding: 10px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        main {
-            display: flex;
-            padding: 20px;
-        }
-
-        /* Main content */
-        .content {
-            flex: 3;
-            padding: 20px;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            flex: 1;
-            background-color: #f4f4f4;
-            padding: 20px;
-            margin-left: 20px;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-        }
-    </style>
-</head>
+<?php
+    include("templates/header.php");
+?>
 <body>
 
     <!-- Header Section -->
     <header>
-        <h1>Welcome to Our Websooote</h1>
+        <h1>Welcome to Our Websooote (header) </h1>
     </header>
 
     <!-- Navigation Bar -->
@@ -114,9 +39,9 @@
     </main>
 
     <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 Our Website | All rights reserved.</p>
-    </footer>
+    <?php
+        include("templates/footer.php");
+    ?>
 
 </body>
 </html>
