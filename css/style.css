@@ -1,58 +1,161 @@
 
-/* Basic reset to remove default margins and paddings */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+/* Header styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    padding-top: 60px;
+    background-color: white;
+    border-bottom: 8px solid #6E615A;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
+/* Logo and title section */
+.header .logo-section {
+    display: flex;
+    align-items: center;
 }
 
-header h1 {
+.header img {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.header .title-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.header .title-section h1 {
     margin: 0;
+    font-size: 20px;
+    font-weight: heavy;
 }
 
-nav {
-    background-color: #444;
+.header .title-section h2 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: #666;
+}
+
+/* Navigation */
+.header nav {
+    display: flex;
+    gap: 15px;
+}
+
+.header nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0 5px;
     padding: 10px;
 }
 
-nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
+.header nav a:hover {
+    background-color: #DBD7D6;
+}
+/* Header styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+
+/* Main body styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #faf4f2;
 }
 
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
+.headline h1 {
     font-weight: bold;
+    size: 20px;
+    margin-bottom: 20px;
+    margin-top: 40px;
 }
 
-main {
-    display: flex;
+.breadcrums {
     padding: 20px;
+    padding-left: 300px;
+    padding-right: 300px;
+}
+
+.breadcrums nav a{
+    color:#333;
+    size: 13px;
+    text-decoration: none;
+}
+.breadcrums nav a:hover{
+    text-decoration: underline;
+    color: black;
+}
+
+.menuButton{
+    margin-top: 10px;
+    padding: 10px;
+    width:30%;
+    border-radius: 50px;
+    background-color: #6E615A;
+    color: #fff;
+    border:none;
+    cursor: pointer;
+}
+.menuButton:hover{
+    background-color: #ef8271;
+}
+
+.card {
+    height: fit-content;
+    width:30%;
+    background-color: #fff;
+    padding:15px;
+    margin: 0 0px; /* Horizontal margin for spacing between cards */
+    border-radius: 10px;
+    box-shadow: 3px 3px 7px 1px rgb(151, 151, 151);
+}
+
+.horizontal{
+    display: flex;
+    justify-content: space-between; /* Ensures even spacing between the cards */
+    align-items: flex-start; /* Aligns cards at the top */
+    width: 100%;
+    background-color: #faf4f2;
+    flex-direction: row;
+    margin-bottom: 70px;
+}
+
+@media (max-width: 800px) { /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    .horizontal{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width: 100%;
+        margin-bottom: 20px; /* Space between stacked cards */
+    }
+}
+
+.textTrustModel{
+    margin: 0 0px;
+    padding: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #ef8271;
 }
 
 /* Main content */
 .content {
-    flex: 3;
+    flex: 30;
     padding: 20px;
 }
+
+/* Main body styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
 /* Sidebar */
 .sidebar {
