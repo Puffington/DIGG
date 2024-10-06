@@ -1,6 +1,6 @@
 <style>
     .greyback{
-        background-color: #999999;
+        background-color: #d6d9d3;
         color: black;
     }
 
