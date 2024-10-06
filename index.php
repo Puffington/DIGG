@@ -12,6 +12,8 @@
         include("includes/templates/header.php");
     ?>
     
+    <link rel="icon" type="image/png" href="images/green.png">
+    
     <!-- Main Content -->
     <main>
         <div class="breadcrums">
