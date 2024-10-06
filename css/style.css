@@ -157,6 +157,24 @@ body {
 
 /* Main body styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
+/* Search body style """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+
+.searchList{
+    border-radius: 10px;
+    background-color: white;
+    padding: 15px;
+}
+
+.search-container{
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 50%;
+    border-color: none;
+}
+
+/* Search body style """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+
+
 /* Sidebar */
 .sidebar {
     flex: 1;
