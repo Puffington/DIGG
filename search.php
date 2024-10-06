@@ -37,7 +37,7 @@ include("includes/templates/header.php");
                     // Hardcoded data for now
                     $names = ["Skatteverket", "Göteborgs komun", "Digg", "Sundsvalls komun", "Polisen"];
                     foreach ($names as $name) {
-                        echo "<li><button onclick=\"chooseName('$name')\">" . $name . "</button></li>";
+                        echo "<li><button class='button_govName' onclick=\"chooseName('$name')\">" . $name . "</button></li>";
                     }
                     ?>
                 </ul>
@@ -65,6 +65,7 @@ include("includes/templates/header.php");
                         document.getElementById('selectedName').innerHTML = "You have chosen: " + name;
                     }
                 </script>
+
             </div>
         </div>
     </div>
