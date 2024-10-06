@@ -6,13 +6,12 @@
 <html lang="en">
 
 <body>
+<!-- <link rel="icon" type="image/png" href="images/green.png"> -->
 
     <!-- Header Section -->
     <?php
         include("includes/templates/header.php");
     ?>
-    
-    <link rel="icon" type="image/png" href="images/green.png">
     
     <!-- Main Content -->
     <main>
