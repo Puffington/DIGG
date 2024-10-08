@@ -1,8 +1,4 @@
-
 [
-    {
-        "_comment": "this is a test meta comment, since json doesn't accept comments"
-    },
     { 
         "question": "how many eyes do you have?",
         "category":"1",
@@ -17,7 +13,7 @@
         "category":"1",
         "type": "dropdown",
         "id": "2",
-        "linked":"false"
+        "linked":"0"
     },
     {
         "question": "what is your eye color?",
@@ -25,6 +21,6 @@
         "type": "multiple choiches",
         "id": "3",
         "backgroundColor": "lightyellow",
-        "linked":"false"
+        "linked":"0"
     }
 ]

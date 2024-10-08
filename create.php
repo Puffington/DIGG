@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!-- Header Section -->
 <?php
 include("includes/templates/header.php");
@@ -39,7 +40,6 @@ row-gap: 2px;
     background-color: cornflowerblue;
 }
 </style>
-
 <!-- Main Content -->
 <main>
     <div class="breadcrums">
