@@ -1,12 +1,9 @@
-<?php
-    #include("includes/connect.php");
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 
 <body>
-<!-- <link rel="icon" type="image/png" href="images/green.png"> -->
 
     <!-- Header Section -->
     <?php
