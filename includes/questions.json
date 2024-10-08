@@ -1,0 +1,30 @@
+
+[
+    {
+        "_comment": "this is a test meta comment, since json doesn't accept comments"
+    },
+    { 
+        "question": "how many eyes do you have?",
+        "category":"1",
+        "type": "boolean",
+        "id": "1",
+        "linked":"3",
+        "backgroundColor": "lightblue",
+        "options": {"seventeen":1,"one":1,"zero":0}
+    },
+    {
+        "question": "How old are you?",
+        "category":"1",
+        "type": "dropdown",
+        "id": "2",
+        "linked":"false"
+    },
+    {
+        "question": "what is your eye color?",
+        "category":"1",
+        "type": "multiple choiches",
+        "id": "3",
+        "backgroundColor": "lightyellow",
+        "linked":"false"
+    }
+]
