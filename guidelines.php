@@ -13,7 +13,7 @@ include("includes/templates/header.php");
             <a href="#">Riktlinjer</a>
         </nav>
         <div class="headline">
-            <h1>Förtroendemodellen</h1>
+            <h1>Riktlinjer för dig som ska skapa en AI</h1>
         </div>
         <div class="horizontal">
 

@@ -10,10 +10,10 @@ include("includes/templates/header.php");
             <i class="fa-solid fa-house"></i>
             <a href="index.php">Förtroendemodellen</a>
             <i class="fa-solid fa-chevron-right"></i>
-            <a href="#">Riktlinjer</a>
+            <a href="#">Formuäret</a>
         </nav>
         <div class="headline">
-            <h1>Formuäret</h1>
+            <h1>Här kan du fylla i formuäret</h1>
         </div>
         <div class="horizontal">
 
