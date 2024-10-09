@@ -67,7 +67,9 @@ row-gap: 2px;
             <div class="scroller">
                 <div class="categoryArea" id="cat1Area">
                     <button id="111" onclick="buttonClick()">try me</button>    
-                    <button id="111" onclick="getQuestions()">questions me</button>    
+                    <button id="111" onclick="getQuestions()">show all questions</button>
+                    <button id="111" onclick="builderOfElementsAddBlueprint()">question examples</button>
+
                     <div class="el">element</div>
                     <div class="el">element</div>
                     <div class="el">element</div>
@@ -97,6 +99,7 @@ row-gap: 2px;
 
         </div>
     </div>
+    <div id="examples"></div>
 </main>
 
 <!-- Footer Section -->

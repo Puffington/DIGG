@@ -39,7 +39,7 @@ window.addEventListener('load', function () {
     function changeCategories(entries, observer) {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                let test =entry.target.link.style.backgroundColor = "blue";
+                let test = entry.target.link.style.backgroundColor = "blue";
                 console.log(entry.target.link)
             }
             else {
@@ -50,9 +50,9 @@ window.addEventListener('load', function () {
     }
 })
 
-function scroller(CategoryButton){
-   CategoryButton.link.scrollIntoView({behavior:"smooth",block:"center", inline: 'start'});
-   //CategoryButton.parentNode.scrollTop = CategoryButton.offsetTop;
+function scroller(CategoryButton) {
+    CategoryButton.link.scrollIntoView({ behavior: "smooth", block: "center", inline: 'start' });
+    //CategoryButton.parentNode.scrollTop = CategoryButton.offsetTop;
 
 }
 
@@ -63,25 +63,41 @@ function buttonClick() {
 //"let" variables are thrown out the window when outside bounds
 // 
 function builderOfElementsAddBlueprint() {
-    blueprint = {}; 
+    blueprint = {};
     blueprint.question = "do you have eyes?"
     blueprint.type = "boolean"
     blueprint.id = "1"
-    blueprint.linked = "3" 
-    blueprint.options = ["yes","no"];
-
-    console.log("this is blueprint"+blueprint.question);
-
-    return builderOfElements(blueprint);
+    blueprint.linked = "3"
+    blueprint.options = ["yes", "no"];
+    console.log("this is blueprint" + blueprint.question);
+    document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
 }
 
 function builderOfElements(obj) {
+    let htmltxt = "";
+    switch (obj.type) {
+        case "boolean":
+            htmltxt = "<div class='radioQuestion'><p>" + obj.question + "</p><input type='radio' id='css' name='fav_language' value='CSS'>" +
+                "<label for='html'>YES</label><br></br>" +
+                "<input type='radio' id='css' name='fav_language' value='CSS'>" +
+                "<label for='html'>NO</label><br></br></div>"
+                break;
+        case "dropdown":
+            htmltxt = " <label for=name"+obj.id+">Choose a car:</label> "
+            "<select name=obj.id  >"+
+              "<option value=volvo>Volvo</option>"+ 
+              "<option value=saab>Saab</option>"
+              "<option value=mercedes>Mercedes</option>"+
+              "<option value=audi>Audi</option>"
+            "</select>" 
+            break;
+        default:
+            alert("question id" + obj.id + " has a wrong questions type")
+            break;
+    }
 
-    console.log("question:"+ obj.question);
-    let htmltxt = "<div class='radioQuestion'><p>"+ obj.question +"</p><input type='radio' id='css' name='fav_language' value='CSS'>" +
-    "<label for='html'>YES</label><br></br>"+
-    "<input type='radio' id='css' name='fav_language' value='CSS'>"+
-    "<label for='html'>NO</label><br></br></div>"
+    console.log("question:" + obj.question);
+
     return htmltxt;
 }
 
@@ -99,13 +115,13 @@ async function getQuestions() {
     obj.forEach(object => {
         console.log("uh")
         console.log(object.category)
-        cat = ("cat"+object.category+"Area")
+        cat = ("cat" + object.category + "Area")
         document.getElementById(cat).insertAdjacentHTML("beforeend", builderOfElements(object));
     });
 
 
     //different insertion methods
-    
+
 
     //document.getElementById(cat).innerHTML += builderOfElements();
 
