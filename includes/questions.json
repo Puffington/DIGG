@@ -1,27 +1,190 @@
 [
     { 
-        "question": "how many eyes do you have?",
+        "question": "ordinarienr",
         "category":"1",
-        "type": "boolean",
+        "type": "number",
         "id": "1",
         "linked":"3",
         "backgroundColor": "lightblue"
-        
     },
     {
-        "question": "How old are you?",
+        "question": "choose your AI system",
         "category":"1",
         "type": "dropdown",
         "id": "2",
         "linked":"0",
-        "options": ["seven","thirteen","zero"]
+        "options": ["LLM","facial scan","k-mean cluster"]
     },
     {
-        "question": "what is your eye color?",
+        "question": "Vilka grupper kommer att påverkas av AI systemet?",
+        "category":"1",
+        "type": "multi",
+        "id": "4",
+        "backgroundColor": "lightyellow",
+        "linked":"4.5",
+        "options": ["elderly","children","teens","patients"]
+    },
+    {
+        "question": "manipuleras gruppen på något sätt?",
         "category":"1",
         "type": "boolean",
-        "id": "3",
+        "id": "4.5",
         "backgroundColor": "lightyellow",
-        "linked":"0"
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "kommer information om hur modellen fungerar delas med privatpersoner och företag? ",
+        "category":"1",
+        "type": "boolean",
+        "id": "5",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "kommer information om hur modellen fungerar delas med privatpersoner och företag? ",
+        "category":"1",
+        "type": "boolean",
+        "id": "5",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "är det klarlaggt att ni får använda datan när ni utvecklar/tränar ert AI-system? ",
+        "category":"2",
+        "type": "boolean",
+        "id": "6",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "behandlar ni känsliga personuppgifter när ni utvecklar/tränar ert AI-system?",
+        "category":"2",
+        "type": "boolean",
+        "id": "7",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "Har ni gjort en riskanalys gällande risken för diskrimineringslagen utifrån vilka personer utvecklar AI-systemet?",
+        "category":"2",
+        "type": "Boolean",
+        "id": "9",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "involverar AI-systemet social scoring (ranking av individer beroende på beteende)?",
+        "category":"2",
+        "type": "Boolean",
+        "id": "27",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "involverar systemet biometrisk identifiering (t.ex. ansiktigenkänning)?",
+        "category":"2",
+        "type": "Boolean",
+        "id": "28",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "i vilket område används systemet i?",
+        "category":"2",
+        "type": "dropdown",
+        "id": "29",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": ["kritisk infratruktur","yrkessbildningsprogram","brottssbekämpning","inget av ovan"]
+    },
+    {
+        "question": "involverar systemet biometrisk identifiering (t.ex. ansiktigenkänning)?",
+        "category":"2",
+        "type": "Boolean",
+        "id": "28",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "uppdateras AI-systemet automatiskt via nya data?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "20",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "går det om man försöker att återupprepa och repoducera input och få samma reultat?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "21",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "hur mäter ni att AI systemet är tillräckligt tränat?",
+        "category":"3",
+        "type": "dropdown",
+        "id": "22",
+        "backgroundColor": "lightyellow",
+        "linked":"22.5",
+        "options": ["user tests","procentage hit","we don't"]
+    },
+    {
+        "question": "hur presterar systemet?",
+        "category":"3",
+        "type": "dropdown",
+        "id": "22.5",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": ["does it well","not sure"," no clue"]
+    },
+    {
+        "question": "finns resultat från systemtester med användare tillgängliga?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "23",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "finns det ett systematiskt sätt att säkra spårbarhet?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "24",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "finns det några licenser kopplade till AI-systemet?",
+        "category":"3",
+        "type": "dropdown",
+        "id": "25",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": ["open source","retrictiv","other option","none of the above"]
+    },
+    {
+        "question": "finns det planering för hur man ska agera då AI-systemet inte fungerar?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "26",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
     }
+
 ]

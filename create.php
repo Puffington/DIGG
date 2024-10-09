@@ -31,6 +31,9 @@ row-gap: 2px;
 .dropdownQuestion{
     background-color:goldenrod;
 }
+.multiQuestions{
+    background-color: burlywood;
+}
 .el{
     background-color: blue;
     padding:1em;
@@ -61,8 +64,8 @@ row-gap: 2px;
         </div>
         <div class="horizontal">
             <nav>
-                <div class="category" id="cat1" onclick="scroller(this)">first</div>
-                <div class="category" id="cat2" onclick="scroller(this)">second</div>
+                <div class="category" id="cat1" onclick="scroller(this)">Allmän Info</div>
+                <div class="category" id="cat2" onclick="scroller(this)">Juridik & Etik</div>
                 <div class="category" id="cat3" onclick="scroller(this)">third</div>
                 <div class="category" id="cat4" onclick="scroller(this)">fourth</div>
             </nav>
@@ -71,30 +74,15 @@ row-gap: 2px;
                     <button id="111" onclick="buttonClick()">try me</button>    
                     <button id="111" onclick="getQuestions()">show all questions</button>
                     <button id="111" onclick="builderOfElementsAddBlueprint()">question examples</button>
-
-                    <div class="el">element</div>
-                    <div class="el">element</div>
-                    <div class="el">element</div>
-                    <div class="el">element</div>
                 </div>
                 <div class="categoryArea" id="cat2Area">
 
-                    <div class="el">element</div>
-                    <div class="el">element</div>
-                    <div class="el">element</div>
-                    <div class="el">element</div>
                 </div>
                 <div class="categoryArea" id="cat3Area">
-                    <div class="el">element</div>
-                    <div class="el">element</div>
-                    <div class="el">element</div>
-                    <div class="el">element</div>
+       
                 </div>
                 <div class="categoryArea" id="cat4Area"> 
-                    <div class="el">element</div>
-                    <div class="el">element</div>
-                    <div class="el">element</div>
-                    <div class="el">element</div>
+            
                 </div>
             </div>
 
