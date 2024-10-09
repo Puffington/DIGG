@@ -25,6 +25,7 @@ margin: 5px;
 padding: 5px;
 row-gap: 2px;
 }
+
 .el{
     background-color: blue;
     padding:1em;
@@ -32,6 +33,7 @@ row-gap: 2px;
     width: 5em;
     margin:5px;
 }
+
 .category{
     background-color: bisque;
     margin: 5px;
