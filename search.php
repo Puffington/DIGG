@@ -17,14 +17,14 @@ include("includes/templates/header.php");
             <a href="#">Record</a>
         </nav>
         <div class="headline">
-            <h1>Search for an AI</h1>
+            <h1>Search for an public administration</h1>
         </div>
         <div class="horizontal">
             <div class="searchList">
 
                 <!-- Search Bar -->
                 <div class="search-container">
-                    <input type="text" id="searchBar" class="search-input" placeholder="Sök..." onkeyup="filterList()">
+                    <input type="text" id="searchBar" class="search-input" placeholder="Search..." onkeyup="filterList()">
                 </div>
 
                 <!-- List of names -->
@@ -38,15 +38,14 @@ include("includes/templates/header.php");
                     //     echo '<li>' . $row['name'] . '</li>';
                     // }
 
-                    // HARD CODED
-                    $organizations = [
-                        ["id" => 1, "name" => "Skatteverket", "info" => "Skatteverket is the tax agency in Sweden."],
-                        ["id" => 2, "name" => "Göteborgs komun", "info" => "Göteborgs komun is the municipality of Gothenburg."],
-                        ["id" => 3, "name" => "Digg", "info" => "Digg is the Agency for Digital Government in Sweden."],
-                        ["id" => 4, "name" => "Sundsvalls komun", "info" => "Sundsvalls komun is the municipality of Sundsvall."],
-                        ["id" => 5, "name" => "Polisen", "info" => "Polisen is the national police force in Sweden."]
-                    ];
+                    // Load the JSON file
+                    $json_data = file_get_contents('includes/nikki.json'); // Replace with the actual path to your JSON file
+                    $data = json_decode($json_data, true);
 
+                    // Fetch organizations from JSON file
+                    $organizations = $data['organizations'];
+                    
+                    // Loop through the organizations and display them as a list
                     foreach ($organizations as $org) {
                         echo "<li><a href='?orgId=" . $org['id'] . "'>" . $org['name'] . "</a></li>";
                     }
@@ -60,14 +59,31 @@ include("includes/templates/header.php");
                 if (isset($_GET['orgId'])) {
                     $orgId = $_GET['orgId'];
 
-                    // Loop through organizations to find the matching one
                     foreach ($organizations as $org) {
                         if ($org['id'] == $orgId) {
                             echo "<h2>" . $org['name'] . "</h2>";
-                            echo "<p>" . $org['info'] . "</p>";
+                            echo "<p>" . $org['name'] . " is selected.</p>";
+        
+                            // Fetch the associated AIs from the JSON data
+                            $ais = $data['ais'];
+                            $aiList = array_filter($ais, function ($ai) use ($orgId) {
+                                return $ai['orgId'] == $orgId;
+                            });
+        
+                            // Display the AI systems
+                            if (!empty($aiList)) {
+                                echo "<h3>AI Systems:</h3><ul>";
+                                foreach ($aiList as $ai) {
+                                    echo "<li>" . $ai['name'] . "</li>";
+                                }
+                                echo "</ul>";
+                            } else {
+                                echo "<p>No AI systems found for this organization.</p>";
+                            }
                             break;
                         }
                     }
+                    
                 } else {
                     echo "<p>Please select an organization from the list.</p>";
                 }

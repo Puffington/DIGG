@@ -1,13 +1,81 @@
-[
-
-{"id":1,"name":"Skatteverket"},
-
-{"id":2,"name":"Göteborgs komun"},
-
-{"id":3,"name":"Polisen"},
-
-{"id":4,"name":"Digg"},
-
-{"id":5,"name":"Sundsvalls komun"}
-
-]
+{
+    "organizations": [
+        {
+            "id": 1,
+            "name": "Skatteverket"
+        },
+        {
+            "id": 2,
+            "name": "Göteborgs komun"
+        },
+        {
+            "id": 3,
+            "name": "Polisen"
+        },
+        {
+            "id": 4,
+            "name": "Digg"
+        },
+        {
+            "id": 5,
+            "name": "Sundsvalls komun"
+        }
+    ],
+    "ais": [
+        {
+            "id": 1,
+            "orgId": 1,
+            "name": "nikkis Ai"
+        },
+        {
+            "id": 2,
+            "orgId": 1,
+            "name": "nikkis Ai"
+        },
+        {
+            "id": 3,
+            "orgId": 2,
+            "name": "nikkis Ai"
+        },
+        {
+            "id": 4,
+            "orgId": 2,
+            "name": "nikkis Ai"
+        },
+        {
+            "id": 5,
+            "orgId": 2,
+            "name": "nikkis Ai"
+        },
+        {
+            "id": 6,
+            "orgId": 3,
+            "name": "nikkis Ai"
+        },
+        {
+            "id": 7,
+            "orgId": 4,
+            "name": "nikkis Ai"
+        },
+        {
+            "id": 8,
+            "orgId": 4,
+            "name": "nikkis Ai"
+        },
+        {
+            "id": 9,
+            "orgId": 5,
+            "name": "nikkis Ai"
+        },
+        {
+            "id": 10,
+            "orgId": 5,
+            "name": "nikkis Ai"
+        },
+        {
+            "id": 11,
+            "orgId": 5,
+            "name": "nikkis Ai"
+        }
+    ]
+}
