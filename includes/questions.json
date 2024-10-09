@@ -115,8 +115,44 @@
         "options": []
     },
     {
-        "question": "uppdateras AI-systemet automatiskt via nya data?",
+        "question": "Har ni gjort en analy av AI-systemet utifrån ett informationsäkerhetsperspektiv?",
         "category":"3",
+        "type": "Boolean",
+        "id": "8",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "har ni klarlagt och dokumenterat andra krav som sställs för planering?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "10",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "finns ytterligare kravsällningar som inte tagits up tidigare?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "11",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "finnss det andra komponenter inbyggda i systemet som påverkar slutresultatet?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "12",
+        "backgroundColor": "lightyellow",
+        "linked":"0",
+        "options": []
+    },
+    {
+        "question": "uppdateras AI-systemet automatiskt via nya data?",
+        "category":"4",
         "type": "Boolean",
         "id": "20",
         "backgroundColor": "lightyellow",
@@ -125,7 +161,7 @@
     },
     {
         "question": "går det om man försöker att återupprepa och repoducera input och få samma reultat?",
-        "category":"3",
+        "category":"4",
         "type": "Boolean",
         "id": "21",
         "backgroundColor": "lightyellow",
@@ -134,7 +170,7 @@
     },
     {
         "question": "hur mäter ni att AI systemet är tillräckligt tränat?",
-        "category":"3",
+        "category":"4",
         "type": "dropdown",
         "id": "22",
         "backgroundColor": "lightyellow",
@@ -143,7 +179,7 @@
     },
     {
         "question": "hur presterar systemet?",
-        "category":"3",
+        "category":"4",
         "type": "dropdown",
         "id": "22.5",
         "backgroundColor": "lightyellow",
@@ -152,7 +188,7 @@
     },
     {
         "question": "finns resultat från systemtester med användare tillgängliga?",
-        "category":"3",
+        "category":"4",
         "type": "Boolean",
         "id": "23",
         "backgroundColor": "lightyellow",
@@ -161,7 +197,7 @@
     },
     {
         "question": "finns det ett systematiskt sätt att säkra spårbarhet?",
-        "category":"3",
+        "category":"4",
         "type": "Boolean",
         "id": "24",
         "backgroundColor": "lightyellow",
@@ -170,7 +206,7 @@
     },
     {
         "question": "finns det några licenser kopplade till AI-systemet?",
-        "category":"3",
+        "category":"4",
         "type": "dropdown",
         "id": "25",
         "backgroundColor": "lightyellow",
@@ -179,12 +215,11 @@
     },
     {
         "question": "finns det planering för hur man ska agera då AI-systemet inte fungerar?",
-        "category":"3",
+        "category":"4",
         "type": "Boolean",
         "id": "26",
         "backgroundColor": "lightyellow",
         "linked":"0",
         "options": []
     }
-
 ]

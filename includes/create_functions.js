@@ -5,11 +5,14 @@ window.addEventListener('load', function () {
     A2 = document.getElementById("cat2Area");
     A3 = document.getElementById("cat3Area");
     A4 = document.getElementById("cat4Area");
+    A5 = document.getElementById("cat5Area");
+
 
     cat1 = document.getElementById("cat1");
     cat2 = document.getElementById("cat2");
     cat3 = document.getElementById("cat3");
     cat4 = document.getElementById("cat4");
+    cat5 = document.getElementById("cat5");
 
     A1.link = cat1;
     cat1.link = A1;
@@ -19,6 +22,8 @@ window.addEventListener('load', function () {
     cat3.link = A3;
     A4.link = cat4;
     cat4.link = A4;
+    A5.link = cat5;
+    cat5.link = A5;
 
     const options = {
         root: document.querySelector('.scroller'),
