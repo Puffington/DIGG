@@ -5,7 +5,7 @@ include("includes/templates/header.php");
 ?>
 
 <head>
-    <script src="includes\functions.js"></script>
+    <script src="includes\create_functions.js"></script>
 </head>
 
 <style> 

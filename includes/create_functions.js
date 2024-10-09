@@ -76,7 +76,7 @@ function builderOfElementsAddBlueprint() {
     blueprint.type = "dropdown"
     blueprint.id = "2"
     blueprint.linked = "0"
-    blueprint.options = { 'seven': 1, 'three': 1, 'zero': 1 };
+    blueprint.options = ["seven","thirteen","zero"];
     console.log("this is blueprint" + blueprint.question);
     document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
 
@@ -129,8 +129,6 @@ async function getQuestions() {
 
 
     //different insertion methods
-
-
     //document.getElementById(cat).innerHTML += builderOfElements();
 
     document.getElementById(cat).style.backgroundColor = "red";
