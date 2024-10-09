@@ -8,12 +8,12 @@ include("includes/templates/header.php");
     <div class="breadcrums">
         <nav>
             <i class="fa-solid fa-house"></i>
-            <a href="index.php">Förtroendemodellen</a>
+            <a href="index.php">The Trust Model</a>
             <i class="fa-solid fa-chevron-right"></i>
-            <a href="#">Riktlinjer</a>
+            <a href="#">Guidelines</a>
         </nav>
         <div class="headline">
-            <h1>Riktlinjer för dig som ska skapa en AI</h1>
+            <h1>Guidelines for you who want to create an AI</h1>
         </div>
         <div class="horizontal">
 

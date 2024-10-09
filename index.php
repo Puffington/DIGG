@@ -15,32 +15,32 @@
         <div class="breadcrums">
             <nav>
                 <i class="fa-solid fa-house"></i>
-                <a href="index.php">Förtroendemodellen</a>
+                <a href="index.php">The Trust Model</a>
             </nav>
             <div class="headline">
-                <h1>Förtroendemodellen</h1>
+                <h1>Welocome to the Trust Model!</h1>
             </div>
 
             <div class="horizontal">
                 <div class="card">
-                    <h2>Läs mer om riktlinjer för AI</h2>
+                    <h2>Read more about guidelines for AI</h2>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
                     <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >Riktlinjer</button>
                 </div>
                 <div class="card">
-                    <h2>Se vårt register med AI's</h2>
+                    <h2>See our record of AI's</h2>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
                     <button type="button" class="menuButton" onclick="location.href='search.php';" >Register</button>
                 </div>
                 <div class="card">
-                    <h2>Fyll i formuläret</h2>
+                    <h2>Fill in the form</h2>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
                     <button type="button" class="menuButton" onclick="location.href='form.php';" >Formuläret</button>
                 </div>
             </div>
 
             <div class="headline">
-                <h1>Vad är förtroendemodellen?</h1>
+                <h1>What is the Trust Model?</h1>
             </div>
 
             <div  class="textTrustModel">
