@@ -66,12 +66,20 @@ function builderOfElementsAddBlueprint() {
     blueprint = {};
     blueprint.question = "do you have eyes?"
     blueprint.type = "boolean"
-    //blueprint.type = "dropdown"
     blueprint.id = "1"
     blueprint.linked = "3"
     blueprint.options = ["yes", "no"];
     console.log("this is blueprint" + blueprint.question);
     document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
+
+    blueprint.question = "how many eyes?"
+    blueprint.type = "dropdown"
+    blueprint.id = "2"
+    blueprint.linked = "0"
+    blueprint.options = { 'seven': 1, 'three': 1, 'zero': 1 };
+    console.log("this is blueprint" + blueprint.question);
+    document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
+
 }
 
 function builderOfElements(obj) {
@@ -82,15 +90,14 @@ function builderOfElements(obj) {
                 "<label for='html'>YES</label><br></br>" +
                 "<input type='radio' id='css' name='fav_language' value='CSS'>" +
                 "<label for='html'>NO</label><br></br></div>"
-                break;
+            break;
         case "dropdown":
-            htmltxt = " <label for=name"+obj.id+">Choose a car:</label> "
-            "<select name=obj.id  >"+
-              "<option value=volvo>Volvo</option>"+ 
-              "<option value=saab>Saab</option>"
-              "<option value=mercedes>Mercedes</option>"+
-              "<option value=audi>Audi</option>"
-            "</select>" 
+            htmltxt = " <label for=" + obj.id + ">" + obj.question + "</label> " +
+                "<select name=" + obj.id + " >";
+            obj.options.forEach(opti => {
+                htmltxt += "<option value=>" + opti.key + "</option>";
+            })
+            htmltxt += "</select>";
             break;
         default:
             alert("question id" + obj.id + " has a wrong questions type")
