@@ -159,6 +159,7 @@ body {
 
 /* Search body style """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
+/*Left side*/
 .searchList{
     padding: 15px;
 }
@@ -171,7 +172,7 @@ body {
     border: 1px solid #ddd;
 }
 #namelist{
-    height: 255px;
+    height: 300px;
     overflow-y:scroll;
 }
 #nameList li a{
@@ -184,25 +185,31 @@ body {
     background-color: #ef8271;
 }
 
-.orgAIinfo-contaner{
+/*Right side*/
+.orgAIinfoList{
     padding: 15px;
     float:left;
-    width: 50%;
+    width: 70%;
 }
 #aiList{
-    height: 255px;
-    overflow-y:scroll;
+    overflow-x: auto;
 }
 #aiList li a{
     padding: 5px;
     display: block;
     cursor: pointer;
-    background-color: #f1a99e;
+    background-color: rgb(238, 224, 224);
 }
 #aiList li a:hover{
-    background-color: #632920;
-    color: white;
+    background-color: #f1a99e;
 }
+.ai-info {
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-left: 3px solid #ef8271;
+}
+
 
 
 /* Search body style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/

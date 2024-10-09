@@ -39,7 +39,7 @@ include("includes/templates/header.php");
                     // }
 
                     // Load the JSON file
-                    $json_data = file_get_contents('includes/nikki.json'); // Replace with the actual path to your JSON file
+                    $json_data = file_get_contents('includes/nikki.json');
                     $data = json_decode($json_data, true);
 
                     // Fetch organizations from JSON file
@@ -53,7 +53,7 @@ include("includes/templates/header.php");
                 </ul>
             </div>
 
-            <div class="orgAIinfo-container">
+            <div class="orgAIinfoList">
                 <?php
                 // Check if 'orgId' is present in the URL
                 if (isset($_GET['orgId'])) {
