@@ -35,7 +35,7 @@
                 <div class="card">
                     <h2>Fill in the form</h2>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
-                    <button type="button" class="menuButton" onclick="location.href='form.php';" >Formuläret</button>
+                    <button type="button" class="menuButton" onclick="location.href='create.php';" >Formuläret</button>
                 </div>
             </div>
 

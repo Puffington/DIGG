@@ -3,6 +3,10 @@
 include("includes/templates/header.php");
 ?>
 
+<head>
+    <script src="includes\search_functions.js"></script>
+</head>
+
 <!-- Main Content -->
 <main>
     <div class="breadcrums">
@@ -34,39 +38,43 @@ include("includes/templates/header.php");
                     //     echo '<li>' . $row['name'] . '</li>';
                     // }
 
-                    // Hardcoded data for now
-                    $names = ["Skatteverket", "Göteborgs komun", "Digg", "Sundsvalls komun", "Polisen"];
-                    foreach ($names as $name) {
-                        echo "<li><a onclick=\"chooseName('$name')\">" . $name . "</a></li>";
+                    // HARD CODED
+                    $organizations = [
+                        ["id" => 1, "name" => "Skatteverket", "info" => "Skatteverket is the tax agency in Sweden."],
+                        ["id" => 2, "name" => "Göteborgs komun", "info" => "Göteborgs komun is the municipality of Gothenburg."],
+                        ["id" => 3, "name" => "Digg", "info" => "Digg is the Agency for Digital Government in Sweden."],
+                        ["id" => 4, "name" => "Sundsvalls komun", "info" => "Sundsvalls komun is the municipality of Sundsvall."],
+                        ["id" => 5, "name" => "Polisen", "info" => "Polisen is the national police force in Sweden."]
+                    ];
+
+                    foreach ($organizations as $org) {
+                        echo "<li><a href='?orgId=" . $org['id'] . "'>" . $org['name'] . "</a></li>";
                     }
                     ?>
                 </ul>
+            </div>
 
-                <!-- Display the selected name -->
-                <div class="selected-name" id="selectedName"></div>
+            <div class="orgAIinfo-container">
+                <?php
+                // Check if 'orgId' is present in the URL
+                if (isset($_GET['orgId'])) {
+                    $orgId = $_GET['orgId'];
 
-                <!-- JavaScript to filter the list -->
-                <script>
-                    function filterList() {
-                        let input = document.getElementById('searchBar').value.toLowerCase();
-                        let listItems = document.getElementById('nameList').getElementsByTagName('li');
-
-                        for (let i = 0; i < listItems.length; i++) {
-                            let item = listItems[i].textContent || listItems[i].innerText;
-                            if (item.toLowerCase().indexOf(input) > -1) {
-                                listItems[i].style.display = "";
-                            } else {
-                                listItems[i].style.display = "none";
-                            }
+                    // Loop through organizations to find the matching one
+                    foreach ($organizations as $org) {
+                        if ($org['id'] == $orgId) {
+                            echo "<h2>" . $org['name'] . "</h2>";
+                            echo "<p>" . $org['info'] . "</p>";
+                            break;
                         }
                     }
-
-                    function chooseName(name) {
-                        document.getElementById('selectedName').innerHTML = "You have chosen: " + name;
-                    }
-                </script>
+                } else {
+                    echo "<p>Please select an organization from the list.</p>";
+                }
+                ?>
 
             </div>
+
         </div>
     </div>
 </main>
