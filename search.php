@@ -44,7 +44,7 @@ include("includes/templates/header.php");
 
                     // Fetch organizations from JSON file
                     $organizations = $data['organizations'];
-                    
+
                     // Loop through the organizations and display them as a list
                     foreach ($organizations as $org) {
                         echo "<li><a href='?orgId=" . $org['id'] . "'>" . $org['name'] . "</a></li>";
@@ -63,18 +63,23 @@ include("includes/templates/header.php");
                         if ($org['id'] == $orgId) {
                             echo "<h2>" . $org['name'] . "</h2>";
                             echo "<p>" . $org['name'] . " is selected.</p>";
-        
+
                             // Fetch the associated AIs from the JSON data
                             $ais = $data['ais'];
                             $aiList = array_filter($ais, function ($ai) use ($orgId) {
                                 return $ai['orgId'] == $orgId;
                             });
-        
+
                             // Display the AI systems
                             if (!empty($aiList)) {
                                 echo "<h3>AI Systems:</h3><ul>";
                                 foreach ($aiList as $ai) {
-                                    echo "<li>" . $ai['name'] . "</li>";
+                                    echo "<li>";
+                                    echo "<button onclick=\"toggleAiInfo('ai-" . $ai['id'] . "')\">" . $ai['name'] . "</button>";
+                                    echo "<div id='ai-" . $ai['id'] . "' class='ai-info' style='display:none;'>";
+                                    echo "<p>" . $ai['info'] . "</p>";
+                                    echo "</div>";
+                                    echo "</li>";
                                 }
                                 echo "</ul>";
                             } else {
@@ -83,7 +88,6 @@ include("includes/templates/header.php");
                             break;
                         }
                     }
-                    
                 } else {
                     echo "<p>Please select an organization from the list.</p>";
                 }

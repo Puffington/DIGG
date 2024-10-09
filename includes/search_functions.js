@@ -12,3 +12,12 @@ function filterList() {
         }
     }
 }
+
+function toggleAiInfo(aiId) {
+    var x = document.getElementById(aiId);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}

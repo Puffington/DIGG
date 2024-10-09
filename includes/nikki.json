@@ -25,57 +25,68 @@
         {
             "id": 1,
             "orgId": 1,
-            "name": "nikkis Ai"
+            "name": "nikkis Ai",
+            "info": "information"
         },
         {
             "id": 2,
             "orgId": 1,
-            "name": "nikkis Ai"
+            "name": "nikkis Ai",
+            "info": "information"
         },
         {
             "id": 3,
             "orgId": 2,
-            "name": "nikkis Ai"
+            "name": "nikkis Ai",
+            "info": "information"
         },
         {
             "id": 4,
             "orgId": 2,
-            "name": "nikkis Ai"
+            "name": "nikkis Ai",
+            "info": "information"
         },
         {
             "id": 5,
             "orgId": 2,
-            "name": "nikkis Ai"
+            "name": "nikkis Ai",
+            "info": "information"
         },
         {
             "id": 6,
             "orgId": 3,
-            "name": "nikkis Ai"
+            "name": "nikkis Ai",
+            "info": "information"
         },
         {
             "id": 7,
             "orgId": 4,
-            "name": "nikkis Ai"
+            "name": "nikkis Ai",
+            "info": "information"
         },
         {
             "id": 8,
             "orgId": 4,
-            "name": "nikkis Ai"
+            "name": "nikkis Ai",
+            "info": "information"
         },
         {
             "id": 9,
             "orgId": 5,
-            "name": "nikkis Ai"
+            "name": "nikkis Ai",
+            "info": "information"
         },
         {
             "id": 10,
             "orgId": 5,
-            "name": "nikkis Ai"
+            "name": "nikkis Ai",
+            "info": "information"
         },
         {
             "id": 11,
             "orgId": 5,
-            "name": "nikkis Ai"
+            "name": "nikkis Ai",
+            "info": "information"
         }
     ]
 }
