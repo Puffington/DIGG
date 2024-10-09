@@ -56,13 +56,13 @@ row-gap: 2px;
         </div>
         <div class="horizontal">
             <nav>
-                <div class="category">first</div>
-                <div class="category">second</div>
-                <div class="category">third</div>
-                <div class="category">fourth</div>
+                <div class="category" id="cat1" onclick="scroller(this)">first</div>
+                <div class="category" id="cat2" onclick="scroller(this)">second</div>
+                <div class="category" id="cat3" onclick="scroller(this)">third</div>
+                <div class="category" id="cat4" onclick="scroller(this)">fourth</div>
             </nav>
             <div class="scroller">
-                <div class="categoryArea">
+                <div class="categoryArea" id="cat1Area">
                     <button id="111" onclick="buttonClick()">try me</button>    
                     <button id="111" onclick="getQuestions()">questions me</button>    
                     <div class="el">element</div>
@@ -70,10 +70,25 @@ row-gap: 2px;
                     <div class="el">element</div>
                     <div class="el">element</div>
                 </div>
-                <div class="el">element</div>
-                <div class="el">element</div>
-                <div class="el">element</div>
-                <div class="el">element</div>
+                <div class="categoryArea" id="cat2Area">
+
+                    <div class="el">element</div>
+                    <div class="el">element</div>
+                    <div class="el">element</div>
+                    <div class="el">element</div>
+                </div>
+                <div class="categoryArea" id="cat3Area">
+                    <div class="el">element</div>
+                    <div class="el">element</div>
+                    <div class="el">element</div>
+                    <div class="el">element</div>
+                </div>
+                <div class="categoryArea" id="cat4Area"> 
+                    <div class="el">element</div>
+                    <div class="el">element</div>
+                    <div class="el">element</div>
+                    <div class="el">element</div>
+                </div>
             </div>
 
 
