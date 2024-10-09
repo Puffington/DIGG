@@ -14,7 +14,7 @@
         "type": "dropdown",
         "id": "2",
         "linked":"0",
-        "options": "a"
+        "options": ["seven","thirteen","zero"]
     },
     {
         "question": "what is your eye color?",
