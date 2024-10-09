@@ -8,7 +8,7 @@
         $org_nr = $_POST["org_nr"];
         $org_name = $_POST["org_name"];
 
-        $sql_org = "INSERT INTO ORGANISATION (ORG_NR, NAME) VALUE ('$org_nr', '$org_name'";
+        $sql_org = "INSERT INTO ORGANISATION (ORG_NR, NAME) VALUES ('$org_nr', '$org_name'";
 
         if (mysqli_query($conn, $sql_org)){
             $organisation_id = mysqli_insert_id($conn);
