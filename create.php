@@ -28,7 +28,9 @@ row-gap: 2px;
 .radioQuestion{
     background-color: chartreuse;
 }
-
+.dropdownQuestion{
+    background-color:goldenrod;
+}
 .el{
     background-color: blue;
     padding:1em;

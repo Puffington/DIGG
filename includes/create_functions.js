@@ -80,6 +80,13 @@ function builderOfElementsAddBlueprint() {
     console.log("this is blueprint" + blueprint.question);
     document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
 
+    blueprint.question = "how many eyes?"
+    blueprint.type = "multi"
+    blueprint.id = "2"
+    blueprint.linked = "0"
+    blueprint.options = ["seven","thirteen","zero"];
+    console.log("this is blueprint" + blueprint.question);
+    document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
 }
 
 function builderOfElements(obj) {
@@ -92,20 +99,26 @@ function builderOfElements(obj) {
                 "<label for='html'>NO</label><br></br></div>"
             break;
         case "dropdown":
-            htmltxt = " <label for=" + obj.id + ">" + obj.question + "</label> " +
+            htmltxt = "<div class='dropdownQuestion'> <label  for=" + obj.id + ">" + obj.question + "</label> " +
                 "<select name=" + obj.id + " >";
             obj.options.forEach(opti => {
-                htmltxt += "<option value=>" + opti.key + "</option>";
+                htmltxt += "<option value=>" + opti + "</option>";
             })
-            htmltxt += "</select>";
+            htmltxt += "</select></div>";
+            break;
+        case "multi":
+
+            obj.options.forEach(opti => {
+                htmltxt += "<input type='checkbox' id="+obj.id+opti +" name="+opti+" value='Bike'>"+
+            "<label for='vehicle1'>"+ opti +"</label><br></br>";
+            }); 
+            
             break;
         default:
             alert("question id" + obj.id + " has a wrong questions type")
             break;
     }
-
     console.log("question:" + obj.question);
-
     return htmltxt;
 }
 
