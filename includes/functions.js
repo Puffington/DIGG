@@ -75,10 +75,10 @@ function builderOfElementsAddBlueprint() {
     return builderOfElements(blueprint);
 }
 
-function builderOfElements(obje) {
+function builderOfElements(obj) {
 
-    console.log("question:"+ obje.question);
-    let htmltxt = "<div class='radioQuestion'><p> hello there </p><input type='radio' id='css' name='fav_language' value='CSS'>" +
+    console.log("question:"+ obj.question);
+    let htmltxt = "<div class='radioQuestion'><p>"+ obj.question +"</p><input type='radio' id='css' name='fav_language' value='CSS'>" +
     "<label for='html'>YES</label><br></br>"+
     "<input type='radio' id='css' name='fav_language' value='CSS'>"+
     "<label for='html'>NO</label><br></br></div>"
@@ -96,24 +96,21 @@ async function getQuestions() {
     let obj = await (await resp).json(); //waiting for respons
     console.log(obj)
 
-
-    obj.forEach(Object => {
+    obj.forEach(object => {
         console.log("uh")
-        console.log(Object.category)
+        console.log(object.category)
+        cat = ("cat"+object.category+"Area")
+        document.getElementById(cat).insertAdjacentHTML("beforeend", builderOfElements(object));
     });
 
 
     //different insertion methods
-
-    let cat = ("cat"+obj[0].category+"Area")
-
-    document.getElementById(cat).insertAdjacentHTML("beforeend", builderOfElementsAddBlueprint());
+    
 
     //document.getElementById(cat).innerHTML += builderOfElements();
 
     document.getElementById(cat).style.backgroundColor = "red";
     console.log(document.getElementById(obj[0].category))
-
 
     //document.getElementById(obj.category).append("<div>hello there</div>")
     console.log("you pressed correctly")
