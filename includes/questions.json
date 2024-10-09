@@ -5,20 +5,21 @@
         "type": "boolean",
         "id": "1",
         "linked":"3",
-        "backgroundColor": "lightblue",
-        "options": {"seventeen":1,"one":1,"zero":0}
+        "backgroundColor": "lightblue"
+        
     },
     {
         "question": "How old are you?",
         "category":"1",
         "type": "dropdown",
         "id": "2",
-        "linked":"0"
+        "linked":"0",
+        "options": "a"
     },
     {
         "question": "what is your eye color?",
         "category":"1",
-        "type": "multiple choiches",
+        "type": "boolean",
         "id": "3",
         "backgroundColor": "lightyellow",
         "linked":"0"
