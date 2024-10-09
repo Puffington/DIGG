@@ -66,6 +66,7 @@ function builderOfElementsAddBlueprint() {
     blueprint = {};
     blueprint.question = "do you have eyes?"
     blueprint.type = "boolean"
+    //blueprint.type = "dropdown"
     blueprint.id = "1"
     blueprint.linked = "3"
     blueprint.options = ["yes", "no"];
