@@ -62,7 +62,6 @@ include("includes/templates/header.php");
                     foreach ($organizations as $org) {
                         if ($org['id'] == $orgId) {
                             echo "<h2>" . $org['name'] . "</h2>";
-                            echo "<p>" . $org['name'] . " is selected.</p>";
 
                             // Fetch the associated AIs from the JSON data
                             $ais = $data['ais'];
@@ -72,10 +71,10 @@ include("includes/templates/header.php");
 
                             // Display the AI systems
                             if (!empty($aiList)) {
-                                echo "<h3>AI Systems:</h3><ul>";
+                                echo "<h3>AI Systems:</h3><ul id='aiList'>";
                                 foreach ($aiList as $ai) {
                                     echo "<li>";
-                                    echo "<button onclick=\"toggleAiInfo('ai-" . $ai['id'] . "')\">" . $ai['name'] . "</button>";
+                                    echo "<a onclick=\"toggleAiInfo('ai-" . $ai['id'] . "')\">" . $ai['name'] . "</a>";
                                     echo "<div id='ai-" . $ai['id'] . "' class='ai-info' style='display:none;'>";
                                     echo "<p>" . $ai['info'] . "</p>";
                                     echo "</div>";

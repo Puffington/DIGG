@@ -160,10 +160,8 @@ body {
 /* Search body style """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
 .searchList{
-    border-radius: 10px;
     padding: 15px;
 }
-
 .search-input{
     margin-bottom: 7px;
     padding: 10px;
@@ -172,7 +170,6 @@ body {
     font-size: 18px;
     border: 1px solid #ddd;
 }
-
 #namelist{
     height: 255px;
     overflow-y:scroll;
@@ -186,6 +183,27 @@ body {
 #nameList li a:hover{
     background-color: #ef8271;
 }
+
+.orgAIinfo-contaner{
+    padding: 15px;
+    float:left;
+    width: 50%;
+}
+#aiList{
+    height: 255px;
+    overflow-y:scroll;
+}
+#aiList li a{
+    padding: 5px;
+    display: block;
+    cursor: pointer;
+    background-color: #f1a99e;
+}
+#aiList li a:hover{
+    background-color: #632920;
+    color: white;
+}
+
 
 /* Search body style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
