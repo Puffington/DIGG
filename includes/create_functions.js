@@ -5,11 +5,14 @@ window.addEventListener('load', function () {
     A2 = document.getElementById("cat2Area");
     A3 = document.getElementById("cat3Area");
     A4 = document.getElementById("cat4Area");
+    A5 = document.getElementById("cat5Area");
+
 
     cat1 = document.getElementById("cat1");
     cat2 = document.getElementById("cat2");
     cat3 = document.getElementById("cat3");
     cat4 = document.getElementById("cat4");
+    cat5 = document.getElementById("cat5");
 
     A1.link = cat1;
     cat1.link = A1;
@@ -19,6 +22,8 @@ window.addEventListener('load', function () {
     cat3.link = A3;
     A4.link = cat4;
     cat4.link = A4;
+    A5.link = cat5;
+    cat5.link = A5;
 
     const options = {
         root: document.querySelector('.scroller'),
@@ -56,6 +61,18 @@ function scroller(CategoryButton) {
 
 }
 
+function checkIfNumber(event) {
+    console.log("recieved " + event)
+
+    if (isNaN(event.key) || event.key == " ") {
+        console.log("NEIN, STAHP IT")
+        return false;
+    } else {
+        console.log("true")
+        return true;
+    }
+}
+
 function buttonClick() {
     console.log("you reached me!!")
 }
@@ -64,6 +81,13 @@ function buttonClick() {
 // 
 function builderOfElementsAddBlueprint() {
     blueprint = {};
+    blueprint.question = "number plz?"
+    blueprint.type = "number"
+    blueprint.id = "0"
+    blueprint.linked = "3"
+    blueprint.options = ["yes", "no"];
+    document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
+
     blueprint.question = "do you have eyes?"
     blueprint.type = "boolean"
     blueprint.id = "1"
@@ -76,7 +100,7 @@ function builderOfElementsAddBlueprint() {
     blueprint.type = "dropdown"
     blueprint.id = "2"
     blueprint.linked = "0"
-    blueprint.options = ["seven","thirteen","zero"];
+    blueprint.options = ["seven", "thirteen", "zero"];
     console.log("this is blueprint" + blueprint.question);
     document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
 
@@ -84,14 +108,17 @@ function builderOfElementsAddBlueprint() {
     blueprint.type = "multi"
     blueprint.id = "2"
     blueprint.linked = "0"
-    blueprint.options = ["seven","thirteen","zero"];
+    blueprint.options = ["seven", "thirteen", "zero"];
     console.log("this is blueprint" + blueprint.question);
     document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
 }
 
 function builderOfElements(obj) {
     let htmltxt = "";
-    switch (obj.type) {
+    switch ((obj.type).toLowerCase()) {
+        case "number":
+            htmltxt = "<div> <p>" + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
+            break;
         case "boolean":
             htmltxt = "<div class='radioQuestion'><p>" + obj.question + "</p><input type='radio' id='css' name='fav_language' value='CSS'>" +
                 "<label for='html'>YES</label><br></br>" +
@@ -107,12 +134,14 @@ function builderOfElements(obj) {
             htmltxt += "</select></div>";
             break;
         case "multi":
+            htmltxt = "<div class='multiQuestions' > <p>" + obj.question + "</p>"
 
             obj.options.forEach(opti => {
-                htmltxt += "<input type='checkbox' id="+obj.id+opti +" name="+opti+" value='Bike'>"+
-            "<label for='vehicle1'>"+ opti +"</label><br></br>";
-            }); 
-            
+                htmltxt += "<input type='checkbox' id=" + obj.id + opti + " name=" + opti + " value='Bike'>" +
+                    "<label for='vehicle1'>" + opti + "</label><br></br>";
+            });
+
+            htmltxt += "</div>"
             break;
         default:
             alert("question id" + obj.id + " has a wrong questions type")
