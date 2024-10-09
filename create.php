@@ -25,6 +25,9 @@ margin: 5px;
 padding: 5px;
 row-gap: 2px;
 }
+.radioQuestion{
+    background-color: chartreuse;
+}
 
 .el{
     background-color: blue;

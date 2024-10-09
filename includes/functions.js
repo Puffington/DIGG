@@ -62,12 +62,29 @@ function buttonClick() {
 // create html element dynamically, or use show hide
 //"let" variables are thrown out the window when outside bounds
 // 
-function builderOfElements() {
-    let htmlCode = document.createElement('div')
-    let htmltxt = '<div class="el">hello there!! you did it</div>'
-    return htmltxt
+function builderOfElementsAddBlueprint() {
+    blueprint = {}; 
+    blueprint.question = "do you have eyes?"
+    blueprint.type = "boolean"
+    blueprint.id = "1"
+    blueprint.linked = "3" 
+    blueprint.options = ["yes","no"];
 
+    console.log("this is blueprint"+blueprint.question);
+
+    return builderOfElements(blueprint);
 }
+
+function builderOfElements(obje) {
+
+    console.log("question:"+ obje.question);
+    let htmltxt = "<div class='radioQuestion'><p> hello there </p><input type='radio' id='css' name='fav_language' value='CSS'>" +
+    "<label for='html'>YES</label><br></br>"+
+    "<input type='radio' id='css' name='fav_language' value='CSS'>"+
+    "<label for='html'>NO</label><br></br></div>"
+    return htmltxt;
+}
+
 
 async function getQuestions() {
     let resp = fetch("includes/questions.json");
@@ -76,21 +93,25 @@ async function getQuestions() {
         console.log("error with getting JSON")
     }
 
-    obj = await (await resp).json();
+    let obj = await (await resp).json(); //waiting for respons
     console.log(obj)
+
 
     obj.forEach(Object => {
         console.log("uh")
         console.log(Object.category)
     });
 
+
     //different insertion methods
-    document.getElementById(obj[0].category).insertAdjacentHTML("beforeend", builderOfElements());
 
-    document.getElementById(obj[0].category).innerHTML += builderOfElements();
+    let cat = ("cat"+obj[0].category+"Area")
 
+    document.getElementById(cat).insertAdjacentHTML("beforeend", builderOfElementsAddBlueprint());
 
-    document.getElementById(obj[0].category).style.backgroundColor = "red";
+    //document.getElementById(cat).innerHTML += builderOfElements();
+
+    document.getElementById(cat).style.backgroundColor = "red";
     console.log(document.getElementById(obj[0].category))
 
 
