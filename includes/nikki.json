@@ -46,121 +46,199 @@
             "id": 1,
             "orgId": 1,
             "name": "TaxAI Pro",
-            "info": "This AI helps Skatteverket automate tax-related processes, ensuring accuracy and compliance."
+            "info": "This AI helps Skatteverket automate tax-related processes, ensuring accuracy and compliance.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 2,
             "orgId": 1,
             "name": "Deduction Analyzer",
-            "info": "An AI tool that analyzes deductions to maximize taxpayer benefits."
+            "info": "An AI tool that analyzes deductions to maximize taxpayer benefits.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 3,
             "orgId": 2,
             "name": "City Planner AI",
-            "info": "Assists Göteborgs kommun in urban planning and resource allocation."
+            "info": "Assists Göteborgs kommun in urban planning and resource allocation.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 4,
             "orgId": 2,
             "name": "Traffic Management AI",
-            "info": "Optimizes traffic flow and reduces congestion in Gothenburg."
+            "info": "Optimizes traffic flow and reduces congestion in Gothenburg.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 5,
             "orgId": 3,
             "name": "Crime Analysis AI",
-            "info": "Analyzes crime patterns to enhance public safety strategies."
+            "info": "Analyzes crime patterns to enhance public safety strategies.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 6,
             "orgId": 3,
             "name": "Patrol AI",
-            "info": "AI system that optimizes police patrol routes based on real-time data."
+            "info": "AI system that optimizes police patrol routes based on real-time data.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 7,
             "orgId": 4,
             "name": "Digital Government Assistant",
-            "info": "Streamlines public services and enhances citizen engagement."
+            "info": "Streamlines public services and enhances citizen engagement.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 8,
             "orgId": 4,
             "name": "Data Analytics AI",
-            "info": "Helps Digg analyze government data for informed decision-making."
+            "info": "Helps Digg analyze government data for informed decision-making.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 9,
             "orgId": 5,
             "name": "Community Feedback AI",
-            "info": "Gathers and analyzes citizen feedback for service improvement."
+            "info": "Gathers and analyzes citizen feedback for service improvement.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 10,
             "orgId": 5,
             "name": "Municipal Planning AI",
-            "info": "Assists with urban development projects in Sundsvall."
+            "info": "Assists with urban development projects in Sundsvall.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 11,
             "orgId": 6,
             "name": "Education Quality AI",
-            "info": "Monitors and evaluates educational programs for Umeå kommun."
+            "info": "Monitors and evaluates educational programs for Umeå kommun.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 12,
             "orgId": 6,
             "name": "Infrastructure AI",
-            "info": "Optimizes infrastructure development projects and budgets."
+            "info": "Optimizes infrastructure development projects and budgets.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 13,
             "orgId": 7,
             "name": "Visa Processing AI",
-            "info": "Automates and streamlines the visa application process."
+            "info": "Automates and streamlines the visa application process.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 14,
             "orgId": 7,
             "name": "Refugee Support AI",
-            "info": "Provides assistance and resources for refugees in Sweden."
+            "info": "Provides assistance and resources for refugees in Sweden.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 15,
             "orgId": 8,
             "name": "Road Safety AI",
-            "info": "Analyzes traffic incidents to improve road safety measures."
+            "info": "Analyzes traffic incidents to improve road safety measures.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 16,
             "orgId": 8,
             "name": "Public Transport AI",
-            "info": "Optimizes public transportation routes and schedules."
+            "info": "Optimizes public transportation routes and schedules.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 17,
             "orgId": 9,
             "name": "Coast Guard AI",
-            "info": "Monitors maritime activities and enhances border control."
+            "info": "Monitors maritime activities and enhances border control.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 18,
             "orgId": 9,
             "name": "Environmental Monitoring AI",
-            "info": "Tracks environmental changes and promotes sustainability."
+            "info": "Tracks environmental changes and promotes sustainability.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 19,
             "orgId": 10,
             "name": "Health Monitoring AI",
-            "info": "Analyzes public health data to inform policy decisions."
+            "info": "Analyzes public health data to inform policy decisions.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         },
         {
             "id": 20,
             "orgId": 10,
             "name": "Pandemic Response AI",
-            "info": "Helps manage and respond to public health emergencies."
+            "info": "Helps manage and respond to public health emergencies.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
+        },
+        {
+            "id": 21,
+            "orgId": 10,
+            "name": "Health Monitoring AI",
+            "info": "Analyzes public health data to inform policy decisions.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
+        },
+        {
+            "id": 22,
+            "orgId": 10,
+            "name": "Pandemic Response AI",
+            "info": "Helps manage and respond to public health emergencies.",
+            "date": "12-12-2012",
+            "url": "wikki.com",
+            "answers": "ABBABBABBBABBABBBABBBABABABA"
         }
     ]
 }

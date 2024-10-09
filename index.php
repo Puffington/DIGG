@@ -23,19 +23,19 @@
 
             <div class="horizontal">
                 <div class="card">
-                    <h2>Read more about guidelines for AI</h2>
+                    <h2>Read more about AI guidelines</h2>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
-                    <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >Riktlinjer</button>
+                    <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >Guidelines</button>
                 </div>
                 <div class="card">
                     <h2>See our record of AI's</h2>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
-                    <button type="button" class="menuButton" onclick="location.href='search.php';" >Register</button>
+                    <button type="button" class="menuButton" onclick="location.href='search.php';" >Our Record</button>
                 </div>
                 <div class="card">
                     <h2>Fill in the form</h2>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
-                    <button type="button" class="menuButton" onclick="location.href='create.php';" >Formuläret</button>
+                    <button type="button" class="menuButton" onclick="location.href='create.php';" >The Form</button>
                 </div>
             </div>
 

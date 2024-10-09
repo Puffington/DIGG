@@ -77,6 +77,9 @@ include("includes/templates/header.php");
                                     echo "<a onclick=\"toggleAiInfo('ai-" . $ai['id'] . "')\">" . $ai['name'] . "</a>";
                                     echo "<div id='ai-" . $ai['id'] . "' class='ai-info' style='display:none;'>";
                                     echo "<p>" . $ai['info'] . "</p>";
+                                    echo "<p>URL: " . $ai['url'] . "</p>";
+                                    echo "<p>Date: " . $ai['date'] . "</p>";
+                                    echo "<button class='menuButton'>Download Answers</botton>";
                                     echo "</div>";
                                     echo "</li>";
                                 }
