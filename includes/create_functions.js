@@ -120,13 +120,13 @@ function builderOfElements(obj) {
             htmltxt = "<div> <p>" + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             break;
         case "boolean":
-            htmltxt = "<div class='radioQuestion'><p>" + obj.question + "</p><input type='radio' id='css' name='fav_language' value='CSS'>" +
-                "<label for='html'>YES</label><br></br>" +
+            htmltxt = "<div class='radioQuestion' id=" + obj.id + "><p>" + obj.question + "</p><input type='radio' id='css' name='fav_language' value='CSS'>" +
+                "<label for='html'>YES</label>" +
                 "<input type='radio' id='css' name='fav_language' value='CSS'>" +
                 "<label for='html'>NO</label><br></br></div>"
             break;
         case "dropdown":
-            htmltxt = "<div class='dropdownQuestion'> <label  for=" + obj.id + ">" + obj.question + "</label> " +
+            htmltxt = "<div class='dropdownQuestion' id=" + obj.id + "> <label  for=" + obj.id + ">" + obj.question + "</label> " +
                 "<select name=" + obj.id + " >";
             obj.options.forEach(opti => {
                 htmltxt += "<option value=>" + opti + "</option>";
@@ -134,7 +134,7 @@ function builderOfElements(obj) {
             htmltxt += "</select></div>";
             break;
         case "multi":
-            htmltxt = "<div class='multiQuestions' > <p>" + obj.question + "</p>"
+            htmltxt = "<div class='multiQuestions' id=" + obj.id + " > <p>" + obj.question + "</p>"
 
             obj.options.forEach(opti => {
                 htmltxt += "<input type='checkbox' id=" + obj.id + opti + " name=" + opti + " value='Bike'>" +
@@ -147,12 +147,16 @@ function builderOfElements(obj) {
             alert("question id" + obj.id + " has a wrong questions type")
             break;
     }
-    console.log("question:" + obj.question);
+    //console.log("question:" + obj.question);
     return htmltxt;
 }
 
+function reveal() {
 
-async function getQuestions() {
+}
+
+//mode is you want to show all the questions, or make the questions have functionality
+async function getQuestions(mode) {
     let resp = fetch("includes/questions.json");
     console.log(resp);
     if ((await resp).statusText != "OK") {
@@ -160,21 +164,36 @@ async function getQuestions() {
     }
 
     let obj = await (await resp).json(); //waiting for respons
-    console.log(obj)
+    //console.log(obj)
+    let invisimaker = [];
 
     obj.forEach(object => {
+        if (object.linked != "") {
+            invisimaker.push(object.linked)
+        }
         console.log("uh")
         console.log(object.category)
         cat = ("cat" + object.category + "Area")
         document.getElementById(cat).insertAdjacentHTML("beforeend", builderOfElements(object));
     });
+    console.log("invisi:" + invisimaker)
+
+    if (mode = "1") {
+        console.log("INITIATING INVIBILITY")
+        invisimaker.forEach(invisId => {
+            console.log("values are:" + invisId);
+            document.getElementById(invisId).hidden = true;
+            //document.getElementById(invisId).style.backgroundColor = "black";
+
+        })
+    }
+
 
 
     //different insertion methods
     //document.getElementById(cat).innerHTML += builderOfElements();
 
     document.getElementById(cat).style.backgroundColor = "red";
-    console.log(document.getElementById(obj[0].category))
 
     //document.getElementById(obj.category).append("<div>hello there</div>")
     console.log("you pressed correctly")

@@ -4,7 +4,7 @@
         "category":"1",
         "type": "number",
         "id": "1",
-        "linked":"3",
+        "linked":"",
         "backgroundColor": "lightblue"
     },
     {
@@ -12,7 +12,7 @@
         "category":"1",
         "type": "dropdown",
         "id": "2",
-        "linked":"0",
+        "linked":"",
         "options": ["LLM","facial scan","k-mean cluster"]
     },
     {
@@ -30,7 +30,7 @@
         "type": "boolean",
         "id": "4.5",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -39,16 +39,7 @@
         "type": "boolean",
         "id": "5",
         "backgroundColor": "lightyellow",
-        "linked":"0",
-        "options": []
-    },
-    {
-        "question": "kommer information om hur modellen fungerar delas med privatpersoner och företag? ",
-        "category":"1",
-        "type": "boolean",
-        "id": "5",
-        "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -57,7 +48,7 @@
         "type": "boolean",
         "id": "6",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -66,7 +57,7 @@
         "type": "boolean",
         "id": "7",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -75,7 +66,7 @@
         "type": "Boolean",
         "id": "9",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -84,7 +75,7 @@
         "type": "Boolean",
         "id": "27",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -93,7 +84,7 @@
         "type": "Boolean",
         "id": "28",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -102,17 +93,8 @@
         "type": "dropdown",
         "id": "29",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": ["kritisk infratruktur","yrkessbildningsprogram","brottssbekämpning","inget av ovan"]
-    },
-    {
-        "question": "involverar systemet biometrisk identifiering (t.ex. ansiktigenkänning)?",
-        "category":"2",
-        "type": "Boolean",
-        "id": "28",
-        "backgroundColor": "lightyellow",
-        "linked":"0",
-        "options": []
     },
     {
         "question": "Har ni gjort en analy av AI-systemet utifrån ett informationsäkerhetsperspektiv?",
@@ -120,7 +102,7 @@
         "type": "Boolean",
         "id": "8",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -129,7 +111,7 @@
         "type": "Boolean",
         "id": "10",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -138,16 +120,70 @@
         "type": "Boolean",
         "id": "11",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
-        "question": "finnss det andra komponenter inbyggda i systemet som påverkar slutresultatet?",
+        "question": "finns det andra komponenter inbyggda i systemet som påverkar slutresultatet?",
         "category":"3",
         "type": "Boolean",
         "id": "12",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
+        "options": []
+    },
+    {
+        "question": "Kommer insamlad data delas med en tredje part?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "13",
+        "backgroundColor": "lightyellow",
+        "linked":"",
+        "options": []
+    },
+    {
+        "question": "Hur ser tillgängligheten till användbara data ut?",
+        "category":"3",
+        "type": "dropdown",
+        "id": "14",
+        "backgroundColor": "lightyellow",
+        "linked":"",
+        "options": []
+    },
+    {
+        "question": "Hur lagras datan?",
+        "category":"3",
+        "type": "dropdown",
+        "id": "15",
+        "backgroundColor": "lightyellow",
+        "linked":"",
+        "options": ["own database","on user device","third party"," none of the above"]
+    },
+    {
+        "question": "vilka metoder används för att skydda datan?",
+        "category":"3",
+        "type": "dropdown",
+        "id": "16",
+        "backgroundColor": "lightyellow",
+        "linked":"",
+        "options": []
+    },
+    {
+        "question": "Finns det krav på att data ska gallras?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "17",
+        "backgroundColor": "lightyellow",
+        "linked":"",
+        "options": []
+    },
+    {
+        "question": "Finns det risk för att data innehåller insamlingsbias?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "18",
+        "backgroundColor": "lightyellow",
+        "linked":"",
         "options": []
     },
     {
@@ -156,7 +192,7 @@
         "type": "Boolean",
         "id": "20",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -165,7 +201,7 @@
         "type": "Boolean",
         "id": "21",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -183,7 +219,7 @@
         "type": "dropdown",
         "id": "22.5",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": ["does it well","not sure"," no clue"]
     },
     {
@@ -192,7 +228,7 @@
         "type": "Boolean",
         "id": "23",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -201,7 +237,7 @@
         "type": "Boolean",
         "id": "24",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
     },
     {
@@ -210,7 +246,7 @@
         "type": "dropdown",
         "id": "25",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": ["open source","retrictiv","other option","none of the above"]
     },
     {
@@ -219,7 +255,53 @@
         "type": "Boolean",
         "id": "26",
         "backgroundColor": "lightyellow",
-        "linked":"0",
+        "linked":"",
         "options": []
+    },
+    {
+        "question": "upplyser modellen om att användare integrerar med en AI?",
+        "category":"5",
+        "type": "boolean",
+        "id": "33",
+        "backgroundColor": "lightyellow",
+        "linked":"",
+        "options": [""]
+    },
+    {
+        "question": "hur kommer AI-systemet att användas i beslutsfattande??",
+        "category":"5",
+        "type": "dropdown",
+        "id": "3",
+        "backgroundColor": "lightyellow",
+        "linked":"30",
+        "options": ["assist a human","made by itself","other option"]
+    },
+    {
+        "question": "Finns det en dokumenterad process för att informera användare eller berörda individer när AI används i Beslutsfattande?",
+        "category":"5",
+        "type": "dropdown",
+        "id": "30",
+        "backgroundColor": "lightyellow",
+        "linked":"31",
+        "options": ["assist a human","made by itself","other option"]
+    },
+    {
+        "question": "Är AI-systemet utformat för att ge förklaingar för sin beslut?",
+        "category":"5",
+        "type": "boolean",
+        "id": "31",
+        "backgroundColor": "lightyellow",
+        "linked":"32",
+        "options": ["assist a human","made by itself","other option"]
+    },
+    {
+        "question": "Är systemet föremål för mänsklig övervakning för att ingripa eller åsidosätta beslut?",
+        "category":"5",
+        "type": "boolean",
+        "id": "32",
+        "backgroundColor": "lightyellow",
+        "linked":"",
+        "options": ["assist a human","made by itself","other option"]
     }
+    
 ]
