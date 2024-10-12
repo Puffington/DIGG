@@ -5,6 +5,7 @@
         "type": "number",
         "id": "1",
         "linked":"",
+        "linkActivation":["0","0","0"],
         "backgroundColor": "lightblue"
     },
     {
@@ -13,6 +14,7 @@
         "type": "dropdown",
         "id": "2",
         "linked":"",
+        "linkActivation":["0","0","0"],
         "options": ["LLM","facial scan","k-mean cluster"]
     },
     {
@@ -22,6 +24,7 @@
         "id": "4",
         "backgroundColor": "lightyellow",
         "linked":"4.5",
+        "linkActivation":["0","1","0","1"],
         "options": ["elderly","children","teens","patients"]
     },
     {
@@ -30,6 +33,7 @@
         "type": "boolean",
         "id": "4.5",
         "backgroundColor": "lightyellow",
+        "linkActivation":["0","0"],
         "linked":"",
         "options": []
     },
@@ -40,6 +44,7 @@
         "id": "5",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -49,6 +54,7 @@
         "id": "6",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -58,6 +64,7 @@
         "id": "7",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -67,6 +74,7 @@
         "id": "9",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -76,6 +84,7 @@
         "id": "27",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -85,6 +94,7 @@
         "id": "28",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -94,6 +104,7 @@
         "id": "29",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0","0","0"],
         "options": ["kritisk infratruktur","yrkessbildningsprogram","brottssbekämpning","inget av ovan"]
     },
     {
@@ -103,6 +114,7 @@
         "id": "8",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -112,6 +124,7 @@
         "id": "10",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -121,6 +134,7 @@
         "id": "11",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -130,6 +144,7 @@
         "id": "12",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -139,6 +154,7 @@
         "id": "13",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -148,6 +164,7 @@
         "id": "14",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0","0"],
         "options": []
     },
     {
@@ -157,6 +174,7 @@
         "id": "15",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0","0"],
         "options": ["own database","on user device","third party"," none of the above"]
     },
     {
@@ -166,6 +184,7 @@
         "id": "16",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -175,6 +194,7 @@
         "id": "17",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -184,6 +204,7 @@
         "id": "18",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -193,6 +214,7 @@
         "id": "20",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -202,6 +224,7 @@
         "id": "21",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -211,6 +234,7 @@
         "id": "22",
         "backgroundColor": "lightyellow",
         "linked":"22.5",
+        "linkActivation":["0","0","0"],
         "options": ["user tests","procentage hit","we don't"]
     },
     {
@@ -220,6 +244,7 @@
         "id": "22.5",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0","0"],
         "options": ["does it well","not sure"," no clue"]
     },
     {
@@ -229,6 +254,7 @@
         "id": "23",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -238,6 +264,7 @@
         "id": "24",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -247,6 +274,7 @@
         "id": "25",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0","0"],
         "options": ["open source","retrictiv","other option","none of the above"]
     },
     {
@@ -256,6 +284,7 @@
         "id": "26",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": []
     },
     {
@@ -265,6 +294,7 @@
         "id": "33",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": [""]
     },
     {
@@ -274,16 +304,18 @@
         "id": "3",
         "backgroundColor": "lightyellow",
         "linked":"30",
+        "linkActivation":["0","1","0"],
         "options": ["assist a human","made by itself","other option"]
     },
     {
         "question": "Finns det en dokumenterad process för att informera användare eller berörda individer när AI används i Beslutsfattande?",
         "category":"5",
-        "type": "dropdown",
+        "type": "Boolean",
         "id": "30",
         "backgroundColor": "lightyellow",
         "linked":"31",
-        "options": ["assist a human","made by itself","other option"]
+        "linkActivation":["0","1"],
+        "options": []
     },
     {
         "question": "Är AI-systemet utformat för att ge förklaingar för sin beslut?",
@@ -292,7 +324,8 @@
         "id": "31",
         "backgroundColor": "lightyellow",
         "linked":"32",
-        "options": ["assist a human","made by itself","other option"]
+        "linkActivation":["1","0"],
+        "options": []
     },
     {
         "question": "Är systemet föremål för mänsklig övervakning för att ingripa eller åsidosätta beslut?",
@@ -301,6 +334,7 @@
         "id": "32",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0"],
         "options": ["assist a human","made by itself","other option"]
     }
     

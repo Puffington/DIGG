@@ -75,7 +75,7 @@ row-gap: 2px;
             <div class="scroller">
                 <div class="categoryArea" id="cat1Area">
                     <button id="111" onclick="getQuestions('1')">show some questions</button>    
-                    <button id="111" onclick="getQuestions()">show ALL questions</button>
+                    <button id="111" onclick="getQuestions('0')">show ALL questions</button>
                     <button id="111" onclick="builderOfElementsAddBlueprint()">question examples</button>
                 </div>
                 <div class="categoryArea" id="cat2Area">

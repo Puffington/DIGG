@@ -73,12 +73,70 @@ function checkIfNumber(event) {
     }
 }
 
+function dropRevelio(selector) {
+    //console.log(selector.linked)
+    //console.log(selector)
+    console.log(selector.parentNode)
+    console.log(selector.getAttribute("data-linked"))
+
+    let element = document.getElementById(selector.parentNode.getAttribute("data-linked"))
+
+    if (selector.value == "1") {
+        element.hidden = false;
+    } else {
+        element.hidden = true;
+    }
+}
+
+function multiRevelio(select) {
+
+
+    let parent = select.parentNode
+    let boxes = parent.querySelectorAll("input[type=checkbox]")
+    let stay = 0;
+    console.log(parent)
+    console.log(boxes)
+    console.log(parent.getAttribute("data-linked"))
+
+    boxes.forEach(object => {
+        if (object.checked) {
+            console.log("it is" + object.getAttribute('data-activate'))
+            if (object.getAttribute('data-activate') == 1) {
+                console.log("it is" + object.getAttribute('data-activate'))
+                stay++
+            }
+        }
+    })
+
+    console.log("stay is " + stay)
+    if (stay >= 1) {
+        document.getElementById(parent.getAttribute("data-linked")).hidden = false;
+    } else {
+        document.getElementById(parent.getAttribute("data-linked")).hidden = true;
+    }
+}
+
+function radioRevelio(button) {
+    let parent = button.parentNode;
+    let link = parent.getAttribute('data-linked');
+    console.log(parent.getAttribute('data-linked'))
+    console.log("link length: ", link.length)
+    if (link.length != 0) {
+        if (button.getAttribute('value') == 1) {
+            document.getElementById(parent.getAttribute('data-linked')).hidden = false;
+        } else {
+            document.getElementById(parent.getAttribute('data-linked')).hidden = true;
+        }
+    }
+}
+
 function buttonClick() {
     console.log("you reached me!!")
 }
+
 // create html element dynamically, or use show hide
 //"let" variables are thrown out the window when outside bounds
-// 
+
 function builderOfElementsAddBlueprint() {
     blueprint = {};
     blueprint.question = "number plz?"
@@ -120,27 +178,31 @@ function builderOfElements(obj) {
             htmltxt = "<div> <p>" + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             break;
         case "boolean":
-            htmltxt = "<div class='radioQuestion' id=" + obj.id + "><p>" + obj.question + "</p><input type='radio' id='css' name='fav_language' value='CSS'>" +
+            htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.question + "</p>" +
+                "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value=" + obj.linkActivation[0] + " onclick='radioRevelio(this)' >" +
                 "<label for='html'>YES</label>" +
-                "<input type='radio' id='css' name='fav_language' value='CSS'>" +
+                "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value=" + obj.linkActivation[1] + " onclick='radioRevelio(this)' >" +
                 "<label for='html'>NO</label><br></br></div>"
             break;
         case "dropdown":
-            htmltxt = "<div class='dropdownQuestion' id=" + obj.id + "> <label  for=" + obj.id + ">" + obj.question + "</label> " +
-                "<select name=" + obj.id + " >";
-            obj.options.forEach(opti => {
-                htmltxt += "<option value=>" + opti + "</option>";
+            htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + ">" + obj.question + "</label> " +
+                "<select name=" + obj.id + " onchange='dropRevelio(this)' >";
+            obj.options.forEach((opti, index) => {
+                htmltxt += "<option value=" + obj.linkActivation[index] + " >" + opti + "</option>";
             })
             htmltxt += "</select></div>";
             break;
         case "multi":
-            htmltxt = "<div class='multiQuestions' id=" + obj.id + " > <p>" + obj.question + "</p>"
-
-            obj.options.forEach(opti => {
-                htmltxt += "<input type='checkbox' id=" + obj.id + opti + " name=" + opti + " value='Bike'>" +
-                    "<label for='vehicle1'>" + opti + "</label><br></br>";
+            htmltxt = "<div class='multiQuestions'  id=" + obj.id + " data-linked=" + obj.linked + "> <p>" + obj.question + "</p>"
+            obj.options.forEach((opti, index) => {
+                if (obj.linkActivation.length == 0) {
+                    htmltxt += "<input type='checkbox' id=" + obj.id + index + " name=" + opti + " value=" + index + " onclick='multiRevelio(this)' >" +
+                        "<label for='vehicle1'>" + opti + "</label><br></br>";
+                } else {
+                    htmltxt += "<input type='checkbox' id=" + obj.id + index + " name=" + opti + " value=" + index + " data-activate=" + obj.linkActivation[index] + " onclick='multiRevelio(this)' >" +
+                        "<label for='vehicle1'>" + opti + "</label><br></br>";
+                }
             });
-
             htmltxt += "</div>"
             break;
         default:
@@ -176,19 +238,18 @@ async function getQuestions(mode) {
         cat = ("cat" + object.category + "Area")
         document.getElementById(cat).insertAdjacentHTML("beforeend", builderOfElements(object));
     });
-    console.log("invisi:" + invisimaker)
 
-    if (mode = "1") {
+    console.log("invisi:" + invisimaker)
+    console.log("mode is" + mode)
+
+    if (mode == "1") {
         console.log("INITIATING INVIBILITY")
         invisimaker.forEach(invisId => {
             console.log("values are:" + invisId);
             document.getElementById(invisId).hidden = true;
             //document.getElementById(invisId).style.backgroundColor = "black";
-
         })
     }
-
-
 
     //different insertion methods
     //document.getElementById(cat).innerHTML += builderOfElements();
