@@ -1,5 +1,10 @@
 
 window.addEventListener('load', function () {
+    output ={};
+    AnswerMem={};
+
+    getQuestions(1)
+
     //linking objects
     A1 = document.getElementById("cat1Area");
     A2 = document.getElementById("cat2Area");
@@ -58,7 +63,18 @@ window.addEventListener('load', function () {
 function scroller(CategoryButton) {
     CategoryButton.link.scrollIntoView({ behavior: "smooth", block: "center", inline: 'start' });
     //CategoryButton.parentNode.scrollTop = CategoryButton.offsetTop;
+}
 
+function addToMem(type,id,value){
+    switch(type){
+        case "1":
+            AnswerMem[id] = value;
+            break;
+        case "2":
+            output.orgnr = value;
+            break;
+    }
+    console.log(AnswerMem)
 }
 
 function checkIfNumber(event) {
@@ -89,8 +105,6 @@ function dropRevelio(selector) {
 }
 
 function multiRevelio(select) {
-
-
     let parent = select.parentNode
     let boxes = parent.querySelectorAll("input[type=checkbox]")
     let stay = 0;
@@ -128,12 +142,12 @@ function radioRevelio(button) {
             document.getElementById(parent.getAttribute('data-linked')).hidden = true;
         }
     }
+    AnswerMem(1,parent.id,button.value)
 }
 
 function buttonClick() {
     console.log("you reached me!!")
 }
-
 // create html element dynamically, or use show hide
 //"let" variables are thrown out the window when outside bounds
 

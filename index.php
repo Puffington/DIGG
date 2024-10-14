@@ -17,6 +17,7 @@
                 <i class="fa-solid fa-house"></i>
                 <a href="index.php">The Trust Model</a>
             </nav>
+            
             <div class="headline">
                 <h1>Welocome to the Trust Model!</h1>
             </div>
