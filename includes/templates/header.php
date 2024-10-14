@@ -16,7 +16,7 @@
 <header class="header">
     <!-- Logo and title -->
     <div class="logo-section">
-        <img src="images/digg_small_logo.png" alt="Logo"> <!-- Replace with actual logo URL -->
+        <img src="images/digg_small_logo.png" alt="Logo">
         <div class="title-section">
             <h1>Sveriges dataportal</h1>
             <h2>Digg – Myndigheten för digital förvaltning</h2>

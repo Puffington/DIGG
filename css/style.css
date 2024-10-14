@@ -255,6 +255,20 @@ form h3 {
 }
 /* Form body style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
+
+
+/* Reuslt style """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+.cat_res {
+    background-color: white;
+    padding: 15px;
+    margin: 20px;
+    float: left;
+    overflow: hidden;
+    width: 40%;
+}
+/* Result style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+
+
 /* Sidebar */
 .sidebar {
     flex: 1;

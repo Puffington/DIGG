@@ -8,50 +8,7 @@ include("includes/templates/header.php");
     <script src="includes\create_functions.js"></script>
 </head>
 
-<style> 
-.horizontal{
-    background-color: aqua;
-}
-.horizontal nav{
-    width: 30%;
-    background-color: brown;
-}
-.scroller{
-background-color: cadetblue;
-overflow-y: auto;
-width: 70%;
-height: 30em;
-margin: 5px;
-padding: 5px;
-row-gap: 2px;
-}
-.radioQuestion{
-    background-color: chartreuse;
-}
-.dropdownQuestion{
-    background-color:goldenrod;
-}
-.multiQuestions{
-    background-color: burlywood;
-}
-.el{
-    background-color: blue;
-    padding:1em;
-    height: 10em;
-    width: 5em;
-    margin:5px;
-}
 
-.category{
-    background-color: bisque;
-    margin: 5px;
-}
-.categoryArea{
-    background-color: cornflowerblue;
-    padding: 10px;
-    margin:2px;
-}
-</style>
 <!-- Main Content -->
 <main>
     <div class="breadcrums">
@@ -64,11 +21,45 @@ row-gap: 2px;
             <a href="#">Result</a>
         </nav>
         <div class="headline">
-            <h1>The Trust Model</h1>
+            <h1>The Trust Model: Results</h1>
         </div>
         <div class="horizontal">
             
-            <h1></h1>
+            <div class="cat_res">
+                <h2>General Information</h2>
+                <img src="images/handlike.png" width="50" height="60"> 
+        
+            </div>
+
+            <div class="cat_res">
+                <h2>Law of AI</h2>
+                <img src="images/dislike.png" width="50" height="60">
+            </div>
+
+            <div class="cat_res">
+                <h2>Security</h2>
+                <img src="images/handlike.png" width="50" height="60">
+            </div>
+
+            <div class="cat_res">
+                <h2>Performance</h2>
+                <img src="images/dislike.png" width="50" height="60">
+            </div>
+
+            <div class="cat_res">
+                <h2>Transparance</h2>
+                <img src="images/handlike.png" width="50" height="60">
+            </div>
+
+            <div class="cat_res">
+                <h2>Your AI is approved!</h2>
+                <!-- if program.result = true 
+                then print(congratulations heres your stamp)
+                else print(denied)-->
+                <img src="images/stampel.png" width="100" height="120">
+            </div>
+
+            <button class='menuButton'>Download Answers</botton>
 
 
         </div>
