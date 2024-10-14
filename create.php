@@ -90,7 +90,7 @@ row-gap: 2px;
                 <div class="categoryArea" id="cat5Area"> 
 
                 </div>
-                <form type="hidden" action="/submit" onsubmit="">
+                <form type="hidden" action="/something.php" onsubmit="submitAndSend()">
                 <input type="submit" value="Submit">
                 </form>
             </div>

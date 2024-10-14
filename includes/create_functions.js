@@ -1,3 +1,7 @@
+//known bugs that i should clear up in the future
+//recursive hiding of elements
+//going back when writing orgnr doesn't trigger event (should be prevented with having number maximum)
+
 
 window.addEventListener('load', function () {
     output ={};
@@ -65,26 +69,43 @@ function scroller(CategoryButton) {
     //CategoryButton.parentNode.scrollTop = CategoryButton.offsetTop;
 }
 
+/// (type of question, the id of the question, the value of the question)
 function addToMem(type,id,value){
+    console.log("addtomem:"+type+ " "+id+ " "+value)
     switch(type){
-        case "1":
-            AnswerMem[id] = value;
-            break;
-        case "2":
+        case"0":
             output.orgnr = value;
             break;
+        case "1": //boolean
+        case "2": //dropdowns
+            AnswerMem[id] = value 
+            break;
+        case "3": //multi value is divided into [index,maxArraySize]
+            if (AnswerMem[id] == undefined){
+                AnswerMem[id] = Array(value[1]).fill(0)
+            }
+            console.log(AnswerMem[id])
+            AnswerMem[id][value[0]] = +!AnswerMem[id][value[0]]
+            console.log(AnswerMem[id])
+            break;
     }
+    console.log("answermem: ")
     console.log(AnswerMem)
 }
 
 function checkIfNumber(event) {
     console.log("recieved " + event)
 
+    if(event.target.value.length >= 10){
+        return false
+    }
     if (isNaN(event.key) || event.key == " ") {
         console.log("NEIN, STAHP IT")
         return false;
     } else {
-        console.log("true")
+        console.log("testing something: ")
+        console.log(event.target.value+ event.key)
+        addToMem("0",event.target.id,event.target.value+event.key)
         return true;
     }
 }
@@ -94,23 +115,28 @@ function dropRevelio(selector) {
     //console.log(selector)
     console.log(selector.parentNode)
     console.log(selector.getAttribute("data-linked"))
-
+    let options = selector.options
     let element = document.getElementById(selector.parentNode.getAttribute("data-linked"))
 
-    if (selector.value == "1") {
+    if (options[selector.value].dataset.activate == "1") {
         element.hidden = false;
     } else {
         element.hidden = true;
     }
+
+    let arraaay = Array(options.length).fill(0);
+    arraaay[selector.value] = 1
+
+    addToMem("2",selector.parentNode.id,arraaay)
 }
 
 function multiRevelio(select) {
     let parent = select.parentNode
     let boxes = parent.querySelectorAll("input[type=checkbox]")
     let stay = 0;
-    console.log(parent)
-    console.log(boxes)
-    console.log(parent.getAttribute("data-linked"))
+    //console.log(parent)
+    //console.log(boxes)
+    //console.log(parent.getAttribute("data-linked"))
 
     boxes.forEach(object => {
         if (object.checked) {
@@ -121,28 +147,29 @@ function multiRevelio(select) {
             }
         }
     })
-
-    console.log("stay is " + stay)
+    //console.log("stay is " + stay)
     if (stay >= 1) {
         document.getElementById(parent.getAttribute("data-linked")).hidden = false;
     } else {
         document.getElementById(parent.getAttribute("data-linked")).hidden = true;
     }
+
+    addToMem("3",parent.id,[select.value,boxes.length])
 }
 
 function radioRevelio(button) {
     let parent = button.parentNode;
     let link = parent.getAttribute('data-linked');
-    console.log(parent.getAttribute('data-linked'))
-    console.log("link length: ", link.length)
+    //console.log(parent.getAttribute('data-linked'))
+    //console.log("link length: ", link.length)
     if (link.length != 0) {
-        if (button.getAttribute('value') == 1) {
+        if (button.getAttribute('data-activate') == 1) {
             document.getElementById(parent.getAttribute('data-linked')).hidden = false;
         } else {
             document.getElementById(parent.getAttribute('data-linked')).hidden = true;
         }
     }
-    AnswerMem(1,parent.id,button.value)
+    addToMem("1",parent.id,button.value)
 }
 
 function buttonClick() {
@@ -193,16 +220,16 @@ function builderOfElements(obj) {
             break;
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.question + "</p>" +
-                "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value=" + obj.linkActivation[0] + " onclick='radioRevelio(this)' >" +
+                "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)' >" +
                 "<label for='html'>YES</label>" +
-                "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value=" + obj.linkActivation[1] + " onclick='radioRevelio(this)' >" +
+                "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0  onclick='radioRevelio(this)' >" +
                 "<label for='html'>NO</label><br></br></div>"
             break;
         case "dropdown":
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + ">" + obj.question + "</label> " +
                 "<select name=" + obj.id + " onchange='dropRevelio(this)' >";
             obj.options.forEach((opti, index) => {
-                htmltxt += "<option value=" + obj.linkActivation[index] + " >" + opti + "</option>";
+                htmltxt += "<option value="+index+" data-activate="+obj.linkActivation[index]+" >" + opti + "</option>";
             })
             htmltxt += "</select></div>";
             break;
@@ -213,7 +240,7 @@ function builderOfElements(obj) {
                     htmltxt += "<input type='checkbox' id=" + obj.id + index + " name=" + opti + " value=" + index + " onclick='multiRevelio(this)' >" +
                         "<label for='vehicle1'>" + opti + "</label><br></br>";
                 } else {
-                    htmltxt += "<input type='checkbox' id=" + obj.id + index + " name=" + opti + " value=" + index + " data-activate=" + obj.linkActivation[index] + " onclick='multiRevelio(this)' >" +
+                    htmltxt += "<input type='checkbox' id=" + obj.id + index + " name=" + opti + " value=" + index + "  data-activate=" + obj.linkActivation[index] + " onclick='multiRevelio(this)' >" +
                         "<label for='vehicle1'>" + opti + "</label><br></br>";
                 }
             });
@@ -272,4 +299,17 @@ async function getQuestions(mode) {
 
     //document.getElementById(obj.category).append("<div>hello there</div>")
     console.log("you pressed correctly")
+}
+
+
+// submitting and sending to the next page
+function submitAndSend(){
+    output.answers = AnswerMem
+    let sender = document.getElementById("submit")
+    
+    console.log(output)
+    sender.value = JSON.stringify(output)
+    //sender.submit() //will send data inside to anoteher php file
+
+    //window.location.href = "something.php"
 }
