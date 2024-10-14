@@ -57,12 +57,12 @@ row-gap: 2px;
     <div class="breadcrums">
         <nav>
             <i class="fa-solid fa-house"></i>
-            <a href="index.php">Förtroendemodellen</a>
+            <a href="index.php">The Trust Model</a>
             <i class="fa-solid fa-chevron-right"></i>
-            <a href="#">Formuläret</a>
+            <a href="#">Form of the Trust Model</a>
         </nav>
         <div class="headline">
-            <h1>Förtroendemodellen</h1>
+            <h1>The Form of the Trust Model</h1>
         </div>
         <div class="horizontal">
             <nav>
@@ -99,6 +99,9 @@ row-gap: 2px;
         </div>
     </div>
     <div id="examples"></div>
+    <div>
+        <button type="button" class="menuButton" onclick="location.href='result.php';">Submit</button>
+    </div>
 </main>
 
 <!-- Footer Section -->
