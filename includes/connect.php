@@ -5,8 +5,8 @@
     //$dbPassword = "";
     //$dbName = "DIGG_SIMS";
 
-    $dbServerName = "https://6d88-92-33-209-195.ngrok-free.app/";
-    $dbUserName = "root";
+    $dbServerName = "https://6d88-92-33-209-195.ngrok-free.app/phpmyadmin";
+    $dbUserName = "";
     $dbPassword = " ";
     $dbName = "digg";
 

@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="images/greenClear.png">
     <title>Digg Förtroendemodellen</title>
     </head>
-
+    
 <header class="header">
     <!-- Logo and title -->
     <div class="logo-section">

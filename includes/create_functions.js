@@ -2,7 +2,6 @@
 //recursive hiding of elements
 //going back when writing orgnr doesn't trigger event (should be prevented with having number maximum)
 
-
 window.addEventListener('load', function () {
     output ={};
     AnswerMem={};
@@ -68,7 +67,6 @@ function scroller(CategoryButton) {
     CategoryButton.link.scrollIntoView({ behavior: "smooth", block: "center", inline: 'start' });
     //CategoryButton.parentNode.scrollTop = CategoryButton.offsetTop;
 }
-
 
 /// (type of question, the id of the question, the value of the question)
 function addToMem(type,id,value){
