@@ -1,6 +1,15 @@
 [
     
     { 
+        "question": "orgnamn",
+        "category":"1",
+        "type": "text",
+        "id": "34",
+        "linked":"",
+        "linkActivation":["0","0","0"],
+        "backgroundColor": "lightblue"
+    },
+    { 
         "question": "namn",
         "category":"1",
         "type": "text",

@@ -313,15 +313,15 @@ async function getQuestions(mode) {
     console.log("you pressed correctly")
 }
 
-
 // submitting and sending to the next page
 function submitAndSend(){
     output.answers = AnswerMem
     let sender = document.getElementById("submit")
-    
+
     console.log(output)
     sender.value = JSON.stringify(output)
+    
     //sender.submit() //will send data inside to anoteher php file
-
     window.location.href = "result.php"
 }
+
