@@ -16,7 +16,6 @@ window.addEventListener('load', function () {
     A4 = document.getElementById("cat4Area");
     A5 = document.getElementById("cat5Area");
 
-
     cat1 = document.getElementById("cat1");
     cat2 = document.getElementById("cat2");
     cat3 = document.getElementById("cat3");
@@ -326,5 +325,5 @@ function submitAndSend(){
     sender.value = JSON.stringify(output)
     //sender.submit() //will send data inside to anoteher php file
 
-    //window.location.href = "something.php"
+    window.location.href = "result.php"
 }
