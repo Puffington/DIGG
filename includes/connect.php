@@ -5,10 +5,10 @@
     //$dbPassword = "";
     //$dbName = "DIGG_SIMS";
 
-    $dbServerName = "studentmysql.miun.se";
-    $dbUserName = "dane2200";
-    $dbPassword = "hezron23";
-    $dbName = "DIGG_SIMS";
+    $dbServerName = "https://6d88-92-33-209-195.ngrok-free.app/";
+    $dbUserName = "root";
+    $dbPassword = " ";
+    $dbName = "digg";
 
     $conn = mysqli_connect($dbServerName, $dbUserName, $dbPassword, $dbName);
 
