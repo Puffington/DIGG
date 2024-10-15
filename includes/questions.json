@@ -1,11 +1,22 @@
 [
+    
+    { 
+        "question": "namn",
+        "category":"1",
+        "type": "text",
+        "id": "0",
+        "linked":"",
+        "linkActivation":["0","0","0"],
+        "backgroundColor": "lightblue"
+    },
+    
     { 
         "question": "ordinarienr",
         "category":"1",
         "type": "number",
         "id": "1",
         "linked":"",
-        "linkActivation":["0","0","0"],
+        "linkActivation":[""],
         "backgroundColor": "lightblue"
     },
     {

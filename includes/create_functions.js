@@ -64,10 +64,12 @@ window.addEventListener('load', function () {
     }
 })
 
+
 function scroller(CategoryButton) {
     CategoryButton.link.scrollIntoView({ behavior: "smooth", block: "center", inline: 'start' });
     //CategoryButton.parentNode.scrollTop = CategoryButton.offsetTop;
 }
+
 
 /// (type of question, the id of the question, the value of the question)
 function addToMem(type,id,value){
@@ -87,6 +89,9 @@ function addToMem(type,id,value){
             console.log(AnswerMem[id])
             AnswerMem[id][value[0]] = +!AnswerMem[id][value[0]]
             console.log(AnswerMem[id])
+            break;
+        case "4": //text
+            output.name = value
             break;
     }
     console.log("answermem: ")
@@ -172,6 +177,12 @@ function radioRevelio(button) {
     addToMem("1",parent.id,button.value)
 }
 
+function typing(event){
+    //console.log(event.target.value)
+    addToMem("4",event.target.id,event.target.value + event.key)
+    return true;
+}
+
 function buttonClick() {
     console.log("you reached me!!")
 }
@@ -218,6 +229,11 @@ function builderOfElements(obj) {
         case "number":
             htmltxt = "<div> <p>" + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             break;
+            
+        case "text":
+            htmltxt = "<div> <p>" + obj.question + "</p>  <input type='text' maxlength='100' name=" + obj.id + " onkeypress='return typing(event)' /><div>";
+
+        break;
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.question + "</p>" +
                 "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)' >" +
@@ -274,19 +290,19 @@ async function getQuestions(mode) {
         if (object.linked != "") {
             invisimaker.push(object.linked)
         }
-        console.log("uh")
-        console.log(object.category)
+        //console.log("uh")
+        //console.log(object.category)
         cat = ("cat" + object.category + "Area")
         document.getElementById(cat).insertAdjacentHTML("beforeend", builderOfElements(object));
     });
 
-    console.log("invisi:" + invisimaker)
-    console.log("mode is" + mode)
+    //console.log("invisi:" + invisimaker)
+    //console.log("mode is" + mode)
 
     if (mode == "1") {
         console.log("INITIATING INVIBILITY")
         invisimaker.forEach(invisId => {
-            console.log("values are:" + invisId);
+            //console.log("values are:" + invisId);
             document.getElementById(invisId).hidden = true;
             //document.getElementById(invisId).style.backgroundColor = "black";
         })
@@ -294,7 +310,6 @@ async function getQuestions(mode) {
 
     //different insertion methods
     //document.getElementById(cat).innerHTML += builderOfElements();
-
     document.getElementById(cat).style.backgroundColor = "red";
 
     //document.getElementById(obj.category).append("<div>hello there</div>")
