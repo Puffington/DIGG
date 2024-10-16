@@ -49,35 +49,23 @@ include("includes/templates/header.php");
                 if (isset($_GET['orgId'])) {
                     $orgId = $_GET['orgId'];
 
-                    foreach ($organizations as $org) {
-                        if ($org['id'] == $orgId) {
-                            echo "<h2>" . $org['name'] . "</h2>";
-
-                            // Fetch the associated AIs from the JSON data
-                            $ais = $data['ais'];
-                            $aiList = array_filter($ais, function ($ai) use ($orgId) {
-                                return $ai['orgId'] == $orgId;
-                            });
-
-                            // Display the AI systems
-                            if (!empty($aiList)) {
-                                echo "<h3>AI Systems:</h3><ul id='aiList'>";
-                                foreach ($aiList as $ai) {
-                                    echo "<li>";
-                                    echo "<a onclick=\"toggleAiInfo('ai-" . $ai['id'] . "')\">" . $ai['name'] . "</a>";
-                                    echo "<div id='ai-" . $ai['id'] . "' class='ai-info' style='display:none;'>";
-                                    echo "<p>" . $ai['info'] . "</p>";
-                                    echo "<p>URL: " . $ai['url'] . "</p>";
-                                    echo "<p>Date: " . $ai['date'] . "</p>";
-                                    echo "<button class='menuButton'>Download Answers</botton>";
-                                    echo "</div>";
-                                    echo "</li>";
-                                }
-                                echo "</ul>";
-                            } else {
-                                echo "<p>No AI systems found for this organization.</p>";
-                            }
-                            break;
+                    echo "<h3>AI Systems:</h3>";
+                    $query2 = "SELECT * FROM AI WHERE ORGANISATION_ID = $orgId";
+                    $result2 = mysqli_query($database->getConnection(), $query2);
+                    while ($ai = mysqli_fetch_assoc($result2)) {
+                        if (!empty($ai)) {
+                            echo "<ul id='aiList'><li>";
+                            echo "<a onclick=\"toggleAiInfo('ai-" . $ai['ID'] . "')\">" . $ai['NAME'] . "</a>";
+                            echo "<div id='ai-" . $ai['ID'] . "' class='ai-info' style='display:none;'>";
+                            echo "<p>test" . $ai['ID'] . "</p>";
+                            echo "<p>URL: " . $ai['URL'] . "</p>";
+                            echo "<p>Date: " . $ai['CREATED_DATE'] . "</p>";
+                            echo "<button class='menuButton'>Download Answers</botton>";
+                            echo "</div>";
+                            echo "</li>";
+                            echo "</ul>";
+                        } else {
+                            echo "<p>No AI systems found for this organization.</p>";
                         }
                     }
                 } else {
