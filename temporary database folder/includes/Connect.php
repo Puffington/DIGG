@@ -38,7 +38,6 @@ class Connect {
                 echo "Error executing query: " . $stmt->error;
                 return false;
             }
-
             $stmt->close();
         } else {
             echo "Error preparing statement: " . $this->conn->error;

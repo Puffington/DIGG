@@ -3,8 +3,8 @@
 //going back when writing orgnr doesn't trigger event (should be prevented with having number maximum)
 
 window.addEventListener('load', function () {
-    output ={};
-    AnswerMem={};
+    output = {};
+    AnswerMem = {};
 
     getQuestions(1)
 
@@ -69,18 +69,18 @@ function scroller(CategoryButton) {
 }
 
 /// (type of question, the id of the question, the value of the question)
-function addToMem(type,id,value){
-    console.log("addtomem:"+type+ " "+id+ " "+value)
-    switch(type){
-        case"0":
+function addToMem(type, id, value) {
+    console.log("addtomem:" + type + " " + id + " " + value)
+    switch (type) {
+        case "0":
             output.orgnr = value;
             break;
         case "1": //boolean
         case "2": //dropdowns
-            AnswerMem[id] = value 
+            AnswerMem[id] = value
             break;
         case "3": //multi value is divided into [index,maxArraySize]
-            if (AnswerMem[id] == undefined){
+            if (AnswerMem[id] == undefined) {
                 AnswerMem[id] = Array(value[1]).fill(0)
             }
             console.log(AnswerMem[id])
@@ -98,7 +98,7 @@ function addToMem(type,id,value){
 function checkIfNumber(event) {
     console.log("recieved " + event)
 
-    if(event.target.value.length >= 10){
+    if (event.target.value.length >= 10) {
         return false
     }
     if (isNaN(event.key) || event.key == " ") {
@@ -106,8 +106,8 @@ function checkIfNumber(event) {
         return false;
     } else {
         console.log("testing something: ")
-        console.log(event.target.value+ event.key)
-        addToMem("0",event.target.id,event.target.value+event.key)
+        console.log(event.target.value + event.key)
+        addToMem("0", event.target.id, event.target.value + event.key)
         return true;
     }
 }
@@ -129,7 +129,7 @@ function dropRevelio(selector) {
     let arraaay = Array(options.length).fill(0);
     arraaay[selector.value] = 1
 
-    addToMem("2",selector.parentNode.id,arraaay)
+    addToMem("2", selector.parentNode.id, arraaay)
 }
 
 function multiRevelio(select) {
@@ -156,7 +156,7 @@ function multiRevelio(select) {
         document.getElementById(parent.getAttribute("data-linked")).hidden = true;
     }
 
-    addToMem("3",parent.id,[select.value,boxes.length])
+    addToMem("3", parent.id, [select.value, boxes.length])
 }
 
 function radioRevelio(button) {
@@ -171,12 +171,12 @@ function radioRevelio(button) {
             document.getElementById(parent.getAttribute('data-linked')).hidden = true;
         }
     }
-    addToMem("1",parent.id,button.value)
+    addToMem("1", parent.id, button.value)
 }
 
-function typing(event){
+function typing(event) {
     //console.log(event.target.value)
-    addToMem("4",event.target.id,event.target.value + event.key)
+    addToMem("4", event.target.id, event.target.value + event.key)
     return true;
 }
 
@@ -226,11 +226,11 @@ function builderOfElements(obj) {
         case "number":
             htmltxt = "<div> <p>" + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             break;
-            
+
         case "text":
             htmltxt = "<div> <p>" + obj.question + "</p>  <input type='text' maxlength='100' name=" + obj.id + " onkeypress='return typing(event)' /><div>";
 
-        break;
+            break;
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.question + "</p>" +
                 "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)' >" +
@@ -242,7 +242,7 @@ function builderOfElements(obj) {
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + ">" + obj.question + "</label> " +
                 "<select name=" + obj.id + " onchange='dropRevelio(this)' >";
             obj.options.forEach((opti, index) => {
-                htmltxt += "<option value="+index+" data-activate="+obj.linkActivation[index]+" >" + opti + "</option>";
+                htmltxt += "<option value=" + index + " data-activate=" + obj.linkActivation[index] + " >" + opti + "</option>";
             })
             htmltxt += "</select></div>";
             break;
@@ -314,14 +314,49 @@ async function getQuestions(mode) {
 }
 
 // submitting and sending to the next page
-function submitAndSend(){
+function submitAndSend() {
+
     output.answers = AnswerMem
     let sender = document.getElementById("submit")
 
-    console.log(output)
-    sender.value = JSON.stringify(output)
+    console.log("SUBMITTING YOUR TEXT")
+    //sender.value = JSON.stringify(output)
+/*
+    allTheData = new URLSearchParams({
+        'AI': 'valueForAI',
+        'otherParam': 'anotherValue',
+        'Name':"BRYNJOLF"
+    }); //depending which one you want to send to
+*/
+    let t = new Date();
+
+    //this part is inefficient, but should work for now
+    let currentDate = t.toLocaleTimeString('en-GB', { hour: "numeric", 
+        minute: "numeric"}) + " - " + t.getDate() + "." + (t.getMonth()+1) + "." + t.getFullYear()
+    console.log(currentDate)
+
+    allTheData = new URLSearchParams();
     
+    allTheData.append('AI',"somevalue")
+    //parameters.append("organisation","somevalue")
+    allTheData.append('NAME', "geraldimus of trivia" )
+    allTheData.append("ANSWERS",JSON.stringify(output))
+    allTheData.append("ORGANISATION_ID",output.orgnr)
+    allTheData.append("URL",output.orgnr)
+    allTheData.append("VERSION",0)
+    allTheData.append("STAMP",0)
+    allTheData.append("CREATED_DATE",currentDate)
+
+    fetch('includes/db_functions.php', {
+        method: 'POST', //or GET, your choice
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: allTheData
+    }).then(response => response.text()) //error handling from gpt, because of reasons
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+
     //sender.submit() //will send data inside to anoteher php file
-    window.location.href = "result.php"
+
+    //window.location.href = "result.php"
 }
 

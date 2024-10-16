@@ -2,7 +2,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["AI"])) {
       header("Location: ./Ai.php");
@@ -12,16 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       exit(); 
   }
 }
-
-
-
-
-
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,11 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css" />
     <title>Ai Or Organisation</title>
-
-
 </head>
 <body>
-
     <nav>
       <ul class="nav-elements">
      
