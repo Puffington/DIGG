@@ -30,24 +30,14 @@ include("includes/templates/header.php");
                 <!-- List of names -->
                 <ul id="nameList">
                     <?php
-                    // Prepare to fetch data from database, but for now, we'll use hardcoded data
-                    // Example database query:
-                    // $query = "SELECT name FROM users";
-                    // $result = mysqli_query($conn, $query);
-                    // while ($row = mysqli_fetch_assoc($result)) {
-                    //     echo '<li>' . $row['name'] . '</li>';
-                    // }
+                    require("includes/connect.php");
+                    $database = new Connect("localhost", "root", "", "DIGG");
+                    $database->connect();
 
-                    // Load the JSON file
-                    $json_data = file_get_contents('includes/nikki.json');
-                    $data = json_decode($json_data, true);
-
-                    // Fetch organizations from JSON file
-                    $organizations = $data['organizations'];
-
-                    // Loop through the organizations and display them as a list
-                    foreach ($organizations as $org) {
-                        echo "<li><a href='?orgId=" . $org['id'] . "'>" . $org['name'] . "</a></li>";
+                    $query = "SELECT * FROM organisation";
+                    $result = mysqli_query($database->getConnection(), $query);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<li><a href='?orgId=" . $row['ID'] . "'>" . $row['NAME'] . "</a></li>";
                     }
                     ?>
                 </ul>
@@ -58,36 +48,34 @@ include("includes/templates/header.php");
                 // Check if 'orgId' is present in the URL
                 if (isset($_GET['orgId'])) {
                     $orgId = $_GET['orgId'];
+                    // Correct query using 'ID' instead of 'ORGANISATION_ID'
+                    $orgQuery = "SELECT * FROM organisation WHERE ID = $orgId";
 
-                    foreach ($organizations as $org) {
-                        if ($org['id'] == $orgId) {
-                            echo "<h2>" . $org['name'] . "</h2>";
+                    // Execute the query and fetch the organization name
+                    $orgResult = mysqli_query($database->getConnection(), $orgQuery);
+                    $orgName = mysqli_fetch_assoc($orgResult);
 
-                            // Fetch the associated AIs from the JSON data
-                            $ais = $data['ais'];
-                            $aiList = array_filter($ais, function ($ai) use ($orgId) {
-                                return $ai['orgId'] == $orgId;
-                            });
+                    // Output the organization name
+                    echo '<h2>' . $orgName['NAME'] . '</h2>';
+                    echo "<h3>AI Systems:</h3>";
 
-                            // Display the AI systems
-                            if (!empty($aiList)) {
-                                echo "<h3>AI Systems:</h3><ul id='aiList'>";
-                                foreach ($aiList as $ai) {
-                                    echo "<li>";
-                                    echo "<a onclick=\"toggleAiInfo('ai-" . $ai['id'] . "')\">" . $ai['name'] . "</a>";
-                                    echo "<div id='ai-" . $ai['id'] . "' class='ai-info' style='display:none;'>";
-                                    echo "<p>" . $ai['info'] . "</p>";
-                                    echo "<p>URL: " . $ai['url'] . "</p>";
-                                    echo "<p>Date: " . $ai['date'] . "</p>";
-                                    echo "<button class='menuButton'>Download Answers</botton>";
-                                    echo "</div>";
-                                    echo "</li>";
-                                }
-                                echo "</ul>";
-                            } else {
-                                echo "<p>No AI systems found for this organization.</p>";
-                            }
-                            break;
+                    // Query to fetch AI systems for the organization
+                    $query2 = "SELECT * FROM AI WHERE ORGANISATION_ID = $orgId";
+                    $result2 = mysqli_query($database->getConnection(), $query2);
+                    while ($ai = mysqli_fetch_assoc($result2)) {
+                        if (!empty($ai)) {
+                            echo "<ul id='aiList'><li>";
+                            echo "<a onclick=\"toggleAiInfo('ai-" . $ai['ID'] . "')\">" . $ai['NAME'] . "</a>";
+                            echo "<div id='ai-" . $ai['ID'] . "' class='ai-info' style='display:none;'>";
+                            echo "<p>test" . $ai['ID'] . "</p>";
+                            echo "<p>URL: " . $ai['URL'] . "</p>";
+                            echo "<p>Date: " . $ai['CREATED_DATE'] . "</p>";
+                            echo "<button class='menuButton'>Download Answers</botton>";
+                            echo "</div>";
+                            echo "</li>";
+                            echo "</ul>";
+                        } else {
+                            echo "<p>No AI systems found for this organization.</p>";
                         }
                     }
                 } else {

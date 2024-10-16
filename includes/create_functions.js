@@ -1,11 +1,19 @@
+//BUGS
 //known bugs that i should clear up in the future
 //recursive hiding of elements
 //going back when writing orgnr doesn't trigger event (should be prevented with having number maximum)
 
 
+//IMPLEMENTATIONS
+// output name
+// output stuffs
+// output AI 
+
+//
+
 window.addEventListener('load', function () {
-    output ={};
-    AnswerMem={};
+    output = {};
+    AnswerMem = {};
 
     getQuestions(1)
 
@@ -69,29 +77,35 @@ function scroller(CategoryButton) {
     //CategoryButton.parentNode.scrollTop = CategoryButton.offsetTop;
 }
 
-
 /// (type of question, the id of the question, the value of the question)
-function addToMem(type,id,value){
-    console.log("addtomem:"+type+ " "+id+ " "+value)
-    switch(type){
-        case"0":
+function addToMem(type, id, value) {
+    console.log("addtomem:" + type + " " + id + " " + value)
+    switch (type) {
+        case "0":
             output.orgnr = value;
             break;
         case "1": //boolean
         case "2": //dropdowns
-            AnswerMem[id] = value 
+            AnswerMem[id] = value
             break;
         case "3": //multi value is divided into [index,maxArraySize]
-            if (AnswerMem[id] == undefined){
+            if (AnswerMem[id] == undefined) {
                 AnswerMem[id] = Array(value[1]).fill(0)
             }
             console.log(AnswerMem[id])
             AnswerMem[id][value[0]] = +!AnswerMem[id][value[0]]
             console.log(AnswerMem[id])
             break;
-        case "4": //text
-            output.name = value
+        case "4": //ORG NAME
+            output.orgName = value
             break;
+        case "5": //AI NAME
+            output.aiName = value
+            break;
+        case "6": //URL
+            output.url = value
+            break;
+
     }
     console.log("answermem: ")
     console.log(AnswerMem)
@@ -100,7 +114,7 @@ function addToMem(type,id,value){
 function checkIfNumber(event) {
     console.log("recieved " + event)
 
-    if(event.target.value.length >= 10){
+    if (event.target.value.length >= 10) {
         return false
     }
     if (isNaN(event.key) || event.key == " ") {
@@ -108,8 +122,8 @@ function checkIfNumber(event) {
         return false;
     } else {
         console.log("testing something: ")
-        console.log(event.target.value+ event.key)
-        addToMem("0",event.target.id,event.target.value+event.key)
+        console.log(event.target.value + event.key)
+        addToMem("0", event.target.id, event.target.value + event.key)
         return true;
     }
 }
@@ -131,7 +145,7 @@ function dropRevelio(selector) {
     let arraaay = Array(options.length).fill(0);
     arraaay[selector.value] = 1
 
-    addToMem("2",selector.parentNode.id,arraaay)
+    addToMem("2", selector.parentNode.id, arraaay)
 }
 
 function multiRevelio(select) {
@@ -157,8 +171,7 @@ function multiRevelio(select) {
     } else {
         document.getElementById(parent.getAttribute("data-linked")).hidden = true;
     }
-
-    addToMem("3",parent.id,[select.value,boxes.length])
+    addToMem("3", parent.id, [select.value, boxes.length])
 }
 
 function radioRevelio(button) {
@@ -173,12 +186,15 @@ function radioRevelio(button) {
             document.getElementById(parent.getAttribute('data-linked')).hidden = true;
         }
     }
-    addToMem("1",parent.id,button.value)
+    addToMem("1", parent.id, button.value)
 }
 
-function typing(event){
+function typing(event) {
     //console.log(event.target.value)
-    addToMem("4",event.target.id,event.target.value + event.key)
+    //print(event.target.)
+    console.log("typing!!")
+    console.log(event.target.dataset)
+    addToMem(event.target.dataset.texttype, event.target.id, event.target.value + event.key)
     return true;
 }
 
@@ -228,11 +244,26 @@ function builderOfElements(obj) {
         case "number":
             htmltxt = "<div> <p>" + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             break;
-            
-        case "text":
-            htmltxt = "<div> <p>" + obj.question + "</p>  <input type='text' maxlength='100' name=" + obj.id + " onkeypress='return typing(event)' /><div>";
 
-        break;
+        case "text":
+            let tempElement;
+            switch (obj.text.toLowerCase()) {
+                case "url":
+                    tempElement = "6"
+                    break;
+                case "ai":
+                    tempElement = "5"
+                    break;
+                case "org":
+                    tempElement = "4"
+                    break;
+                default:
+                    tempElement = "1"
+            }
+
+            htmltxt = "<div> <p>" + obj.question + "</p>  <input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
+
+            break;
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.question + "</p>" +
                 "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)' >" +
@@ -244,7 +275,7 @@ function builderOfElements(obj) {
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + ">" + obj.question + "</label> " +
                 "<select name=" + obj.id + " onchange='dropRevelio(this)' >";
             obj.options.forEach((opti, index) => {
-                htmltxt += "<option value="+index+" data-activate="+obj.linkActivation[index]+" >" + opti + "</option>";
+                htmltxt += "<option value=" + index + " data-activate=" + obj.linkActivation[index] + " >" + opti + "</option>";
             })
             htmltxt += "</select></div>";
             break;
@@ -315,15 +346,64 @@ async function getQuestions(mode) {
     console.log("you pressed correctly")
 }
 
-
 // submitting and sending to the next page
-function submitAndSend(){
+function submitAndSend() {
+
     output.answers = AnswerMem
     let sender = document.getElementById("submit")
-    
-    console.log(output)
-    sender.value = JSON.stringify(output)
-    //sender.submit() //will send data inside to anoteher php file
 
-    window.location.href = "result.php"
+    console.log("SUBMITTING YOUR TEXT")
+    //sender.value = JSON.stringify(output)
+    /*
+        allTheData = new URLSearchParams({
+            'AI': 'valueForAI',
+            'otherParam': 'anotherValue',
+            'Name':"BRYNJOLF"
+        }); //depending which one you want to send to
+    */
+    let t = new Date();
+
+    //this part is inefficient, but should work for now
+    let currentDate = t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds()
+    console.log(currentDate)
+
+    console.log("orgid::" +output.orgnr)
+
+    allTheData = new URLSearchParams();
+    allTheData.append('AI', "somevalue")
+    //parameters.append("organisation","somevalue")
+    allTheData.append('NAME', output.aiName) //works
+    allTheData.append("ORGANISATION_ID", output.orgnr) //works
+    allTheData.append("URL", output.url) //works
+    allTheData.append("VERSION", 1)
+    allTheData.append("STAMP", 1)
+    allTheData.append("CREATED_DATE", currentDate) //works
+    allTheData.append("ANSWERS", JSON.stringify(output.answers)) //not implemented
+    //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
+
+    fetch('includes/db_functions.php', {
+        method: 'POST', //or GET, your choice
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: allTheData
+    }).then(response => response.text()) //error handling from gpt, because of reasons
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+
+    //sending to organisation
+    allTheData = new URLSearchParams();
+    allTheData.append("ORGANISATION","")
+    allTheData.append("ORGN_NR", output.orgnr )
+    allTheData.append("NAME", output.orgName )
+    
+    fetch('includes/db_functions.php', {
+        method: 'POST', //or GET, your choice
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: allTheData
+    }).then(response => response.text()) //error handling from gpt, because of reasons
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+
+    //sender.submit() //will send data inside to anoteher php file
+    //window.location.href = "result.php"
 }
+
