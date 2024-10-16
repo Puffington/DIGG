@@ -2,6 +2,12 @@
 //recursive hiding of elements
 //going back when writing orgnr doesn't trigger event (should be prevented with having number maximum)
 
+
+//IMPLEMENTATIONS
+
+// output name
+// output stuffs
+
 window.addEventListener('load', function () {
     output = {};
     AnswerMem = {};
@@ -331,21 +337,21 @@ function submitAndSend() {
     let t = new Date();
 
     //this part is inefficient, but should work for now
-    let currentDate = t.toLocaleTimeString('en-GB', { hour: "numeric", 
-        minute: "numeric"}) + " - " + t.getDate() + "." + (t.getMonth()+1) + "." + t.getFullYear()
+    let currentDate =   t.getFullYear() +"-"+(t.getMonth()+1) + "-" +  t.getDate()+" "+  t.getHours()+":"+t.getMinutes()+":"+t.getSeconds()
     console.log(currentDate)
 
     allTheData = new URLSearchParams();
     
     allTheData.append('AI',"somevalue")
     //parameters.append("organisation","somevalue")
-    allTheData.append('NAME', "geraldimus of trivia" )
-    allTheData.append("ANSWERS",JSON.stringify(output))
-    allTheData.append("ORGANISATION_ID",output.orgnr)
-    allTheData.append("URL",output.orgnr)
-    allTheData.append("VERSION",0)
-    allTheData.append("STAMP",0)
-    allTheData.append("CREATED_DATE",currentDate)
+    allTheData.append('NAME', "geraldimus of trivia" ) //works
+    allTheData.append("ORGANISATION_ID",output.orgnr) //works
+    allTheData.append("URL",output.orgnr) //works
+    allTheData.append("VERSION",1) 
+    allTheData.append("STAMP",1) 
+    allTheData.append("CREATED_DATE",currentDate) //works
+    allTheData.append("ANSWERS",JSON.stringify(output.answers)) //not implemented
+    //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
 
     fetch('includes/db_functions.php', {
         method: 'POST', //or GET, your choice

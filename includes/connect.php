@@ -14,7 +14,6 @@ class Connect
         $this->password = $password;
         $this->database_name = $database_name;
     }
-
     public function connect()
     {
         $this->conn = new mysqli($this->server, $this->username, $this->password, $this->database_name);
@@ -29,12 +28,13 @@ class Connect
         return $this->conn;
     }
 
-    public function insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE)
+    //$ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE
+    public function insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE,$ANSWERS)
     {
-        $sql = "INSERT INTO AI (ID, ORGANISATION_ID, NAME, URL, VERSION, STAMP, CREATED_DATE) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO AI (ID, ORGANISATION_ID, NAME, URL, VERSION, STAMP, CREATED_DATE,ANSWERS) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?,?)";
         if ($stmt = $this->conn->prepare($sql)) {
-            $stmt->bind_param("iisssss", $ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE);
+            $stmt->bind_param("iissssss", $ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE,$ANSWERS);
 
             if ($stmt->execute()) {
                 echo "Data successfully inserted into AI table.";
@@ -43,7 +43,6 @@ class Connect
                 echo "Error executing query: " . $stmt->error;
                 return false;
             }
-            $stmt->close();
         } else {
             echo "Error preparing statement: " . $this->conn->error;
             return false;
@@ -63,7 +62,6 @@ class Connect
                 echo "Error executing query: " . $stmt->error;
                 return false;
             }
-            $stmt->close();
         } else {
             echo "Error preparing statement: " . $this->conn->error;
             return false;
