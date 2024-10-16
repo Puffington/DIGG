@@ -48,8 +48,18 @@ include("includes/templates/header.php");
                 // Check if 'orgId' is present in the URL
                 if (isset($_GET['orgId'])) {
                     $orgId = $_GET['orgId'];
+                    // Correct query using 'ID' instead of 'ORGANISATION_ID'
+                    $orgQuery = "SELECT * FROM organisation WHERE ID = $orgId";
 
+                    // Execute the query and fetch the organization name
+                    $orgResult = mysqli_query($database->getConnection(), $orgQuery);
+                    $orgName = mysqli_fetch_assoc($orgResult);
+
+                    // Output the organization name
+                    echo '<h2>' . $orgName['NAME'] . '</h2>';
                     echo "<h3>AI Systems:</h3>";
+
+                    // Query to fetch AI systems for the organization
                     $query2 = "SELECT * FROM AI WHERE ORGANISATION_ID = $orgId";
                     $result2 = mysqli_query($database->getConnection(), $query2);
                     while ($ai = mysqli_fetch_assoc($result2)) {
