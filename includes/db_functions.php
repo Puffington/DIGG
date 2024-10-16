@@ -12,12 +12,9 @@ print(json_encode($_POST));
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["AI"])) {
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         print("AI worked!!!");
-
         #$data = json_decode(file_get_contents("php://input"), true); // decoding the json data, might use this for later
-
         $ID = !empty($_POST["ID"]) ? $_POST["ID"] : NULL;
         $ORGANISATION_ID = !empty($_POST["ORGANISATION_ID"]) ? $_POST["ORGANISATION_ID"] : NULL;
         $NAME = !empty($_POST["NAME"]) ? $_POST["NAME"] : NULL;
@@ -25,13 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $VERSION = !empty($_POST["VERSION"]) ? $_POST["VERSION"] : NULL;
         $STAMP = !empty($_POST["STAMP"]) ? $_POST["STAMP"] : NULL;
         $CREATED_DATE = !empty($_POST["CREATED_DATE"]) ? $_POST["CREATED_DATE"] : NULL;
-
-        $database->insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE);
+        $ANSWERS = !empty($_POST["ANSWERS"]) ? $_POST["ANSWERS"] : NULL;
+        
+        $database->insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE,$ANSWERS);
     }
       exit(); 
 
   } elseif (isset($_POST["Organisation"])) {
-
         print("ORG worked");
       if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["Send"]) ) {
         $ID = !empty($_POST["ID"]) ? $_POST["ID"] : NULL;
@@ -45,4 +42,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-<div>this is the database page</div>
+
