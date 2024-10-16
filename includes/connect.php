@@ -4,7 +4,7 @@ class Connect
     private $server = "localhost";
     private $username = "root";
     private $password = "";
-    private $database_name = "DIGG";
+    private $database_name = "digg";
     private $conn;
 
     public function __construct($server, $username, $password, $database_name)

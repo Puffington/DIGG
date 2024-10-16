@@ -30,24 +30,14 @@ include("includes/templates/header.php");
                 <!-- List of names -->
                 <ul id="nameList">
                     <?php
-                    // Prepare to fetch data from database, but for now, we'll use hardcoded data
-                    // Example database query:
-                    // $query = "SELECT name FROM users";
-                    // $result = mysqli_query($conn, $query);
-                    // while ($row = mysqli_fetch_assoc($result)) {
-                    //     echo '<li>' . $row['name'] . '</li>';
-                    // }
+                    require("includes/connect.php");
+                    $database = new Connect("localhost", "root", "", "DIGG");
+                    $database->connect();
 
-                    // Load the JSON file
-                    $json_data = file_get_contents('includes/nikki.json');
-                    $data = json_decode($json_data, true);
-
-                    // Fetch organizations from JSON file
-                    $organizations = $data['organizations'];
-
-                    // Loop through the organizations and display them as a list
-                    foreach ($organizations as $org) {
-                        echo "<li><a href='?orgId=" . $org['id'] . "'>" . $org['name'] . "</a></li>";
+                    $query = "SELECT * FROM organisation";
+                    $result = mysqli_query($database->getConnection(), $query);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<li><a href='?orgId=" . $row['ID'] . "'>" . $row['NAME'] . "</a></li>";
                     }
                     ?>
                 </ul>
