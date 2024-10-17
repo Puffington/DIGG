@@ -1,157 +1,123 @@
-[
-    
+[    
     { 
-        "question": "name for organisation",
-        "category":"1",
-        "type": "text",
-        "text":"org",
-        "id": "34",
-        "linked":"",
-        "linkActivation":["0","0","0"],
-        "backgroundColor": "lightblue"
-    },
-    { 
-        "question": "URL please",
-        "category":"1",
-        "type": "text",
-        "text":"url",
-        "id": "34",
-        "linked":"",
-        "linkActivation":["0","0","0"],
-        "backgroundColor": "lightblue"
-    },
-    { 
-        "question": "AI namn",
-        "category":"1",
-        "type": "text",
-        "text":"AI",
-        "id": "0",
-        "linked":"",
-        "linkActivation":["0","0","0"],
-        "backgroundColor": "lightblue"
-    },
-    
-    { 
-        "question": "ordinarienr",
+        "question": "registration number",
         "category":"1",
         "type": "number",
         "id": "1",
         "linked":"",
-        "linkActivation":[""],
+        "linkActivation":["0","0","0"],
         "backgroundColor": "lightblue"
     },
-    {
-        "question": "choose your AI system",
+    { 
+        "question": "organization name",
         "category":"1",
-        "type": "dropdown",
+        "type": "text",
+        "text":"org",
         "id": "2",
         "linked":"",
-        "linkActivation":["0","0","0"],
-        "options": ["LLM","facial scan","k-mean cluster"]
+        "linkActivation":["0","0","0"]
+    },
+    { 
+        "question": "Name of AI system",
+        "category":"1",
+        "type": "text",
+        "text":"AI",
+        "id": "3",
+        "linked":"",
+        "linkActivation":["0","0","0"]
+    },
+    
+    { 
+        "question": "URL",
+        "category":"1",
+        "type": "text",
+        "text":"url",
+        "id": "4",
+        "linked":"",
+        "linkActivation":[""]
     },
     {
-        "question": "Vilka grupper kommer att påverkas av AI systemet?",
+        "question": "AI system: Select AI System",
+        "category":"1",
+        "type": "dropdown",
+        "id": "5",
+        "linked":"",
+        "linkActivation":["0","0","0"],
+        "options": ["Question Answering Models",
+        "Image Recognition Models",
+        "Natural Language Processing",
+        "Sentiment Analysis Models",
+        "Image Generation Models",
+        "Speech recognition Modedls",
+        "Reinforcement Learning Models",
+        "Generative Adversarial Networks",
+        "Machine Translation Models",
+        "Object Detection Models",
+        "None of the above"]
+    },
+    {
+        "question": "Which Groups will be affected by the AI system?",
         "category":"1",
         "type": "multi",
-        "id": "4",
-        "backgroundColor": "lightyellow",
-        "linked":"4.5",
-        "linkActivation":["0","1","0","1"],
-        "options": ["elderly","children","teens","patients"]
-    },
-    {
-        "question": "manipuleras gruppen på något sätt?",
-        "category":"1",
-        "type": "boolean",
-        "id": "4.5",
-        "backgroundColor": "lightyellow",
-        "linkActivation":["0","0"],
-        "linked":"",
-        "options": []
-    },
-    {
-        "question": "kommer information om hur modellen fungerar delas med privatpersoner och företag? ",
-        "category":"1",
-        "type": "boolean",
-        "id": "5",
-        "backgroundColor": "lightyellow",
-        "linked":"",
-        "linkActivation":["0","0"],
-        "options": []
-    },
-    {
-        "question": "är det klarlaggt att ni får använda datan när ni utvecklar/tränar ert AI-system? ",
-        "category":"2",
-        "type": "boolean",
         "id": "6",
-        "backgroundColor": "lightyellow",
-        "linked":"",
+        "linked":"6A",
+        "linkActivation":["0","1","1","1","1","1","0","0","1","0","0","1","0","0","1","0"],
+        "options": ["The general public",
+        "Children and young people (under 18)",
+        "Elderly persons (65+)",
+        "People with disabilities",
+        "Ethnic minorities",
+        "Low-income individuals",
+        "Public sector (e.g., municipality, authority)",
+        "Private sector (companies)",
+        "Sensitive professional groups (e.g., healthcare staff, teachers)",
+        "Law enforcement authorities",
+        "Employees within the organization",
+        "Students or pupils",
+        "Individuals seeking jobs",
+        "Individuals applying for housing or social services",
+        "Individuals in migration management",
+        "No specific groups"]
+    },
+    {
+        "question": "Is the AI system used to manipulate the target group??",
+        "category":"1",
+        "type": "boolean",
+        "id": "6A",
         "linkActivation":["0","0"],
+        "linked":"",
         "options": []
     },
     {
-        "question": "behandlar ni känsliga personuppgifter när ni utvecklar/tränar ert AI-system?",
+        "question": "Will individuals and businesses be informed about how the AI system works?? ",
         "category":"2",
         "type": "boolean",
         "id": "7",
-        "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
         "options": []
     },
     {
-        "question": "Har ni gjort en riskanalys gällande risken för diskrimineringslagen utifrån vilka personer utvecklar AI-systemet?",
+        "question": "Is it legally established that you can use the data you want to use when developing, training, or using your AI system?",
         "category":"2",
-        "type": "Boolean",
-        "id": "9",
-        "backgroundColor": "lightyellow",
-        "linked":"",
-        "linkActivation":["0","0"],
-        "options": []
-    },
-    {
-        "question": "involverar AI-systemet social scoring (ranking av individer beroende på beteende)?",
-        "category":"2",
-        "type": "Boolean",
-        "id": "27",
-        "backgroundColor": "lightyellow",
-        "linked":"",
-        "linkActivation":["0","0"],
-        "options": []
-    },
-    {
-        "question": "involverar systemet biometrisk identifiering (t.ex. ansiktigenkänning)?",
-        "category":"2",
-        "type": "Boolean",
-        "id": "28",
-        "backgroundColor": "lightyellow",
-        "linked":"",
-        "linkActivation":["0","0"],
-        "options": []
-    },
-    {
-        "question": "i vilket område används systemet i?",
-        "category":"2",
-        "type": "dropdown",
-        "id": "29",
-        "backgroundColor": "lightyellow",
-        "linked":"",
-        "linkActivation":["0","0","0","0"],
-        "options": ["kritisk infratruktur","yrkessbildningsprogram","brottssbekämpning","inget av ovan"]
-    },
-    {
-        "question": "Har ni gjort en analy av AI-systemet utifrån ett informationsäkerhetsperspektiv?",
-        "category":"3",
-        "type": "Boolean",
+        "type": "boolean",
         "id": "8",
-        "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
         "options": []
     },
     {
-        "question": "har ni klarlagt och dokumenterat andra krav som sställs för planering?",
-        "category":"3",
+        "question": "Do you process sensitive personal data when developing, training, or using your AI system?",
+        "category":"2",
+        "type": "boolean",
+        "id": "9",
+        "linked":"",
+        "linkActivation":["0","0"],
+        "options": []
+    },
+    {
+        "question": "Have you conducted a risk analysis regarding the risk of discrimination under the Discrimination Act, of those individuals who will develop, train, and evaluate the AI system?",
+        "category":"2",
         "type": "Boolean",
         "id": "10",
         "backgroundColor": "lightyellow",
@@ -160,137 +126,144 @@
         "options": []
     },
     {
-        "question": "finns ytterligare kravsällningar som inte tagits up tidigare?",
-        "category":"3",
+        "question": "Does the AI system involve social scoring (ranking of individuals based on their behavior, characteristics, or traits)?",
+        "category":"2",
         "type": "Boolean",
         "id": "11",
-        "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
         "options": []
     },
     {
-        "question": "finns det andra komponenter inbyggda i systemet som påverkar slutresultatet?",
-        "category":"3",
+        "question": "Does the AI system use biometric identification (e.g.facial recognition) in public spaces for real-time monitoring?",
+        "category":"2",
         "type": "Boolean",
         "id": "12",
-        "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
         "options": []
     },
     {
-        "question": "Kommer insamlad data delas med en tredje part?",
+        "question": "The AI system is used in: ",
+        "category":"2",
+        "type": "dropdown",
+        "id": "13",
+        "linked":"",
+        "linkActivation":["0","0","0","0","0"],
+        "options": ["Critical infrastructure (e.g., energy, water supply) where a failure could jeopardize life or health?",
+        "Educational or vocational training programs that affect access to education or job opportunities?",
+        " Labor market, personnel management or to determine access to essential services (e.g., bank, housing)?",
+        " Law enforcement, the justice system, or migration management?",
+        "None of the above"]
+    },
+    {
+        "question": "Have you conducted an analysis of the AI system from an information security perspective?",
         "category":"3",
         "type": "Boolean",
-        "id": "13",
-        "backgroundColor": "lightyellow",
-        "linked":"",
-        "linkActivation":["0","0"],
-        "options": []
-    },
-    {
-        "question": "Hur ser tillgängligheten till användbara data ut?",
-        "category":"3",
-        "type": "dropdown",
         "id": "14",
-        "backgroundColor": "lightyellow",
-        "linked":"",
-        "linkActivation":["0","0","0"],
-        "options": []
-    },
-    {
-        "question": "Hur lagras datan?",
-        "category":"3",
-        "type": "dropdown",
-        "id": "15",
-        "backgroundColor": "lightyellow",
-        "linked":"",
-        "linkActivation":["0","0","0"],
-        "options": ["own database","on user device","third party"," none of the above"]
-    },
-    {
-        "question": "vilka metoder används för att skydda datan?",
-        "category":"3",
-        "type": "dropdown",
-        "id": "16",
-        "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
         "options": []
     },
     {
-        "question": "Finns det krav på att data ska gallras?",
+        "question": "Have you clarified and documented other requirements that are placed for planning, documentation, measurements, testing, verification, and traceability for development and operation?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "15",
+        "linked":"",
+        "linkActivation":["0","0"],
+        "options": []
+    },
+    {
+        "question": "Are there additional requirements identified based on the purpose of the AI system (e.g., performance, availability, transparency, interpretability, explainability) that have not been addressed earlier in the section?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "16",
+        "linked":"",
+        "linkActivation":["0","0"],
+        "options": []
+    },
+    {
+        "question":"Are there other components (or regulations) built into the IT system that interact with the AI system/model's results and affect the final outcome?",
         "category":"3",
         "type": "Boolean",
         "id": "17",
-        "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
         "options": []
     },
     {
-        "question": "Finns det risk för att data innehåller insamlingsbias?",
+        "question": "Will the collected data be shared with third parties?",
         "category":"3",
         "type": "Boolean",
         "id": "18",
-        "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
         "options": []
     },
     {
-        "question": "uppdateras AI-systemet automatiskt via nya data?",
-        "category":"4",
-        "type": "Boolean",
+        "question": "What is the availability of usable data like?",
+        "category":"3",
+        "type": "multi",
+        "id": "19",
+        "backgroundColor": "lightyellow",
+        "linked":"",
+        "linkActivation":["0","0","0"],
+        "options": ["Data is continuously available and unrestricted",
+        "Data is available but can only be used for a limited time (how long?)",
+        "There is a risk that the content of the data source may change over time",
+        "Data is not complete or representative for the task",
+        "None of the above"]
+    },
+    {
+        "question": "How is the data stored?",
+        "category":"3",
+        "type": "dropdown",
         "id": "20",
         "backgroundColor": "lightyellow",
         "linked":"",
-        "linkActivation":["0","0"],
-        "options": []
+        "linkActivation":["0","0","0"],
+        "options": ["Own servers",
+        "From third parties",
+        "On the user's device",
+        "We do not store any data",
+        "None of the above"]
     },
     {
-        "question": "går det om man försöker att återupprepa och repoducera input och få samma reultat?",
-        "category":"4",
-        "type": "Boolean",
+        "question": "What methods are used to protect data?",
+        "category":"3",
+        "type": "dropdown",
         "id": "21",
-        "backgroundColor": "lightyellow",
+        "linked": "",
+        "linkActivation":["0","0"],
+        "options": [
+            "Encryption during storage and transmission",
+            "Access control and authorization management",
+            "Anonymization or pseudonymization of sensitive data",
+            "Regular security audits and monitoring",
+            "None of the above"
+        ]
+    },
+    {
+        "question": "Are there requirements for data to be deleted?",
+        "category":"3",
+        "type": "Boolean",
+        "id": "22",
         "linked":"",
         "linkActivation":["0","0"],
         "options": []
     },
     {
-        "question": "hur mäter ni att AI systemet är tillräckligt tränat?",
-        "category":"4",
-        "type": "dropdown",
-        "id": "22",
-        "backgroundColor": "lightyellow",
-        "linked":"22.5",
-        "linkActivation":["0","0","0"],
-        "options": ["user tests","procentage hit","we don't"]
-    },
-    {
-        "question": "hur presterar systemet?",
-        "category":"4",
-        "type": "dropdown",
-        "id": "22.5",
-        "backgroundColor": "lightyellow",
-        "linked":"",
-        "linkActivation":["0","0","0"],
-        "options": ["does it well","not sure"," no clue"]
-    },
-    {
-        "question": "finns resultat från systemtester med användare tillgängliga?",
-        "category":"4",
+        "question": "Is there a risk that the data contains collection bias?",
+        "category":"3",
         "type": "Boolean",
         "id": "23",
-        "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
         "options": []
     },
     {
-        "question": "finns det ett systematiskt sätt att säkra spårbarhet?",
+        "question": "Is the AI system updated automatically via new data?",
         "category":"4",
         "type": "Boolean",
         "id": "24",
@@ -300,74 +273,107 @@
         "options": []
     },
     {
-        "question": "finns det några licenser kopplade till AI-systemet?",
+        "question": "Is it possible, if one tries, to repeat and reproduce the design/realization and get the same result?",
         "category":"4",
-        "type": "dropdown",
+        "type": "Boolean",
         "id": "25",
         "backgroundColor": "lightyellow",
         "linked":"",
-        "linkActivation":["0","0","0"],
-        "options": ["open source","retrictiv","other option","none of the above"]
+        "linkActivation":["0","0"],
+        "options": []
     },
     {
-        "question": "finns det planering för hur man ska agera då AI-systemet inte fungerar?",
+        "question": "How do you measure that the AI system is sufficiently trained?",
         "category":"4",
-        "type": "Boolean",
+        "type": "multi",
         "id": "26",
         "backgroundColor": "lightyellow",
         "linked":"",
+        "linkActivation":["0","0","0"],
+        "options": ["Confusion Matrix","Lift-curve","ROC-curve"]
+    },
+    {
+        "question": "Are there results from system tests with users of the system?",
+        "category":"4",
+        "type": "Boolean",
+        "id": "27",
+        "linked":"",
+        "linkActivation":["0","0","0"],
+        "options": []
+    },
+    {
+        "question": "Is there a systematic way to ensure traceability, monitoring, and results for the AI system?",
+        "category":"4",
+        "type": "Boolean",
+        "id": "28",
+        "linked":"",
         "linkActivation":["0","0"],
         "options": []
     },
     {
-        "question": "upplyser modellen om att användare integrerar med en AI?",
+        "question": "Are there any licenses associated with the AI systems or AI models included in the IT system?",
+        "category":"4",
+        "type": "Boolean",
+        "id": "29",
+        "linked":"",
+        "linkActivation":["0","0"],
+        "options": []
+    },
+    {
+        "question": "Is there planning for how to act when the AI system does not function as it should?",
+        "category":"4",
+        "type": "Boolean",
+        "id": "30",
+        "linked":"",
+        "linkActivation":[],
+        "options": []
+    },
+    {
+        "question": "Does the model inform that users are interacting with an AI?",
+        "category":"5",
+        "type": "Boolean",
+        "id": "31",
+        "linked":"",
+        "linkActivation":[],
+        "options": []
+    },
+    {
+        "question": "How will the AI system be used in decision-making?",
+        "category":"5",
+        "type": "dropdown",
+        "id": "32",
+        "linked":"33",
+        "linkActivation":["0","1","0"],
+        "options": [" To support a decision made by a human",
+        "To independently make automated decisions",
+        "None of the above"]
+    },
+    {
+        "question": "Is there a documented process for informing users or affected individuals when AI is used in decision-making?",
         "category":"5",
         "type": "boolean",
         "id": "33",
-        "backgroundColor": "lightyellow",
-        "linked":"",
-        "linkActivation":["0","0"],
-        "options": [""]
+        "linked":"35",
+        "linkActivation":[],
+        "options": []
     },
     {
-        "question": "hur kommer AI-systemet att användas i beslutsfattande??",
-        "category":"5",
-        "type": "dropdown",
-        "id": "3",
-        "backgroundColor": "lightyellow",
-        "linked":"30",
-        "linkActivation":["0","1","0"],
-        "options": ["assist a human","made by itself","other option"]
-    },
-    {
-        "question": "Finns det en dokumenterad process för att informera användare eller berörda individer när AI används i Beslutsfattande?",
+        "question": "Is the AI system designed to give explanations for its decisions (explainability)?",
         "category":"5",
         "type": "Boolean",
-        "id": "30",
-        "backgroundColor": "lightyellow",
-        "linked":"31",
-        "linkActivation":["0","1"],
+        "id": "34",
+        "linked":"",
+        "linkActivation":[],
         "options": []
     },
     {
-        "question": "Är AI-systemet utformat för att ge förklaingar för sin beslut?",
+        "question": "Is the system subject to human oversight to intervene or override decisions?",
         "category":"5",
         "type": "boolean",
-        "id": "31",
-        "backgroundColor": "lightyellow",
-        "linked":"32",
-        "linkActivation":["1","0"],
-        "options": []
-    },
-    {
-        "question": "Är systemet föremål för mänsklig övervakning för att ingripa eller åsidosätta beslut?",
-        "category":"5",
-        "type": "boolean",
-        "id": "32",
+        "id": "35",
         "backgroundColor": "lightyellow",
         "linked":"",
-        "linkActivation":["0","0"],
-        "options": ["assist a human","made by itself","other option"]
+        "linkActivation":[],
+        "options": []
     }
-    
 ]
