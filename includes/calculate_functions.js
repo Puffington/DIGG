@@ -38,10 +38,14 @@ window.addEventListener('load', async function () {
     for(const key in answers) {
         console.log("key:" + key + " val:" + answers[key])
 
+        if(stamp.includes(key)){
+            stamp.splice(stamp.indexOf(key),1);
+        }
+
         if (high.has(key)) {
             console.log(answers[key][high.get(key)])
             if(answers[key].length == 1){
-                if (val == high.get(ind)) {
+                if (answers[key] == high.get(key)) {
                     console.log("HIGH RISK DETECTED!!!")
                     console.log("it has id:" + key)
                 }
@@ -54,9 +58,7 @@ window.addEventListener('load', async function () {
             }
         }
         if (unnaceptable.has(key)) {
-
             if(answers[key].length == 1){
-                
                 if (answers[key] == unnaceptable.get(key)) {
                     console.log("UNACC DETECTED!!!")
                     console.log("it has id:" + key)
@@ -69,6 +71,14 @@ window.addEventListener('load', async function () {
                 }
             }
         }
+    }
+
+    if(stamp.length != 0){
+        console.log("DIDNT answer important questions");
+        console.log(stamp)
+
+    }else{
+        console.log("ALL IMPORTANT ANSWERS DONE");
     }
 
     //du måste skriva någonting
