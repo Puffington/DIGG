@@ -277,7 +277,7 @@
         "type": "dropdown",
         "id": "21",
         "linked": "",
-        "linkActivation":["0","0"],
+        "linkActivation":["0","0","0","0","0"],
         "risk":[],
         "stamp":"1",
         "options": [
