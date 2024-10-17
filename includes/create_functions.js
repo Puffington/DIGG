@@ -144,10 +144,12 @@ function dropRevelio(selector) {
     let options = selector.options
     let element = document.getElementById(selector.parentNode.getAttribute("data-linked"))
 
-    if (options[selector.value].dataset.activate == "1") {
+    if (options[selector.value].dataset.activate == "1" ) {
         element.hidden = false;
     } else {
-        element.hidden = true;
+        if(element != null) {
+            element.hidden = true;
+        }
     }
 
     let arraaay = Array(options.length).fill(0);
