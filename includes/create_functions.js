@@ -11,6 +11,7 @@
 // being able to double check, if Organisation already exists, if it does, don't resend
 // Question 5A: version? what type? (text/number)
 // 26A utveckla...
+// selected dropdown no answer?
 
 //Nikki
 // unmark a yes/no answer
@@ -63,6 +64,11 @@ window.addEventListener('load', function () {
 
     //change colours depending on intersection amount
     function changeCategories(entries, observer) {
+        let c1 = "#ef8271";
+        let c2 = "#ef8271";
+        let c3 = "#ef8271";
+        let c4 = "#ef8271";
+        let c5 = "#ef8271";
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.link.style.backgroundColor = "#ef8271";
@@ -292,11 +298,11 @@ function builderOfElements(obj) {
         // Dropdown
         case "dropdown":
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + "><p>" + temp + obj.id + ". " + obj.question + "</p></label> " +
-                "<select name=" + obj.id + " onchange='dropRevelio(this)' >" + "<option value='' disabled selected>Choose category</option>";  // Default option;
+                "<select name=" + obj.id + " onchange='dropRevelio(this)' >";  // Default option;
             obj.options.forEach((opti, index) => {
                 htmltxt += "<option value=" + index + " data-activate=" + obj.linkActivation[index] + " >" + opti + "</option>";
             })
-            htmltxt += "</select></div>";
+            htmltxt += "<option value='' hidden selected>Choose category</option></select></div>";
             break;
         
         // Multi

@@ -249,7 +249,7 @@ body {
 }
 .categoryArea {
     padding: 10px;
-    background: linear-gradient(0deg, rgba(255,255,255,0.9808298319327731) 58%, rgba(239,130,113,1) 97%);
+    background: rgb(255,255,255);
 }
 
 .submitFormButton{
