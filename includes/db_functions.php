@@ -27,9 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $database->insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE,$ANSWERS);
     }
       exit(); 
-
   } elseif (isset($_POST["ORGANISATION"])) {
         print("ORG worked");
+        
+
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $ID = !empty($_POST["ID"]) ? $_POST["ID"] : NULL;
@@ -42,6 +43,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
+#IF NOT EXISTS(Select ProductName from Productsnew where ProductName='Jeera Rice')
+#BEGIN
+#INSERT INTO Productsnew (ProductName,SupplierID,CategoryID,Unit,Price) Values ('Jeera Rice',1,7,'7,5 kg',120)
+#END
+
+
+
 ?>
-
-

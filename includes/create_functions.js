@@ -1,15 +1,16 @@
 //BUGS
-//known bugs that i should clear up in the future
 //recursive hiding of elements
 //going back when writing orgnr doesn't trigger event (should be prevented with having number maximum)
-
+//can't see linked variables?
 
 //IMPLEMENTATIONS
-// output name
-// output stuffs
-// output AI 
+// output name - done
+// output stuffs - done
+// output AI  - done
+// sometimes doesn't fill in the organisation_ID, it says it ha too long of a variable?
+// being able to double check, if Organisation already exists, if it does, don't resend
+// 
 
-//
 
 window.addEventListener('load', function () {
     output = {};
@@ -117,12 +118,13 @@ function checkIfNumber(event) {
     if (event.target.value.length >= 10) {
         return false
     }
+
     if (isNaN(event.key) || event.key == " ") {
         console.log("NEIN, STAHP IT")
         return false;
     } else {
-        console.log("testing something: ")
-        console.log(event.target.value + event.key)
+        //console.log("testing something: ")
+        //console.log(event.target.value + event.key)
         addToMem("0", event.target.id, event.target.value + event.key)
         return true;
     }
