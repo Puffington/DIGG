@@ -57,11 +57,11 @@ window.addEventListener('load', function () {
     function changeCategories(entries, observer) {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                let test = entry.target.link.style.backgroundColor = "blue";
+                let test = entry.target.link.style.backgroundColor = "#ef8271";
                 console.log(entry.target.link)
             }
             else {
-                entry.target.link.style.backgroundColor = "brown";
+                entry.target.link.style.backgroundColor = "white";
             }
             console.log(entry.target.id)
         })

@@ -209,9 +209,6 @@ body {
     background-color: #ffffff;
     border-left: 3px solid #ef8271;
 }
-
-
-
 /* Search body style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
 /* Form body style """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
@@ -254,6 +251,56 @@ form h3 {
     margin-bottom: 20px;
 }
 /* Form body style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+
+
+
+/* Create style """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+
+#formNav{
+    width: 30%;
+    background-color: white;
+}
+.scroller{
+background-color: #ef8271;
+overflow-y: auto;
+width: 70%;
+height: 30em;
+padding: 5px;
+row-gap: 2px;
+}
+.radioQuestion{
+    background-color: chartreuse;
+}
+.dropdownQuestion{
+    background-color:goldenrod;
+}
+.multiQuestions{
+    background-color: burlywood;
+}
+.el{
+    background-color: blue;
+    padding:1em;
+    height: 10em;
+    width: 5em;
+    margin:5px;
+}
+
+.category{
+    padding: 15px;
+}
+.categoryArea{
+    background-color: white;
+    padding: 10px;
+    margin:15px;
+}
+
+.l111{
+    padding:15px;
+    color: white;
+    background-color: #6E615A;
+}
+
+/* Create style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
 
 
