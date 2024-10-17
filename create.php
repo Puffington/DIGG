@@ -45,7 +45,7 @@ include("includes/templates/header.php");
 
                 </div> <!--  action="result.php" -->
                 <form type="hidden" onclick="submitAndSend(this)">
-                    <input type="button" value="test">
+                    <input type="button" class="submitFormButton" value="Submit">
                 </form>
             </div>
         </div>

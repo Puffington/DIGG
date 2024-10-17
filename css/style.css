@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #6E615A;
 }
 
 /* Header styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
@@ -187,7 +188,7 @@ body {
 }
 
 #nameList li a {
-    color: #000;
+    color:#6E615A;
     padding: 5px;
     display: block;
     cursor: pointer;
@@ -294,6 +295,19 @@ form h3 {
     padding: 10px;
 }
 
+.submitFormButton{
+    background-color: #ef8271;
+    border: 3px solid #ef8271;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+}
+.submitFormButton:hover{
+    background-color: white;
+    color: #ef8271;
+    cursor: pointer;
+}
+
 .el {
     background-color: blue;
     padding: 1em;
@@ -305,6 +319,7 @@ form h3 {
 /* different divs of inputs */
 .divtxtInput, .radioQuestion, .dropdownQuestion, .multiQuestions {
     padding-top: 25px;
+    color:#6E615A;
 }
 
 /*Bool*/
@@ -364,7 +379,7 @@ form h3 {
         padding-left: 15px;
         padding-right: 15px;
         margin: 5px;
-        border: 1px solid #6E615A;
+        border: 1px solid #6e615a7e;
         color: #6E615A;
         border-radius: 14px;
         background-color: white;
@@ -373,7 +388,8 @@ form h3 {
         text-align: center;
     }
     .button-like:hover {
-        background-color: #b1a6a0;
+        background-color: #ef8271;
+        color: white;
     }
     .button-like:active {
         background-color: white;
