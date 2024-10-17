@@ -251,6 +251,7 @@ function builderOfElements(obj) {
             htmltxt = "<div class='divtxtInput'> <p>" + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             break;
 
+        // Text
         case "text":
             let tempElement;
             switch (obj.text.toLowerCase()) {
@@ -270,6 +271,8 @@ function builderOfElements(obj) {
             htmltxt = "<div class='divtxtInput'> <p>" + obj.question + "</p>  <input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
 
             break;
+        
+        // Bool
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.question + "</p>" +
                 "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" +
@@ -277,6 +280,8 @@ function builderOfElements(obj) {
                 "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0  onclick='radioRevelio(this)' >" +
                 "<label for='" + obj.id + "N' class='ynQ'>No</label></div>";
             break;
+
+        // Dropdown
         case "dropdown":
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + ">" + obj.question + "</label> " +
                 "<select name=" + obj.id + " onchange='dropRevelio(this)' >" + "<option value='' disabled selected>Choose category</option>";  // Default option;
@@ -285,6 +290,8 @@ function builderOfElements(obj) {
             })
             htmltxt += "</select></div>";
             break;
+        
+        // Multi
         case "multi":
             htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + obj.question + "</p>";
             obj.options.forEach((opti, index) => {
@@ -347,7 +354,7 @@ async function getQuestions(mode) {
 
     //different insertion methods
     //document.getElementById(cat).innerHTML += builderOfElements();
-    //document.getElementById(cat).style.backgroundColor = "red";
+    document.getElementById(cat).style.backgroundColor = "red";
 
     //document.getElementById(obj.category).append("<div>hello there</div>")
     console.log("you pressed correctly")
