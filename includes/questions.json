@@ -97,7 +97,7 @@
         "type": "boolean",
         "id": "6A",
         "linkActivation":["0","0"],
-        "risk":[{"u":1}],
+        "risk":[["u",1]],
         "stamp":"1",
         "linked":"",
         "options": []
@@ -131,7 +131,7 @@
         "id": "9",
         "linked":"",
         "linkActivation":["0","0"],
-        "risk":[{"h":1}],
+        "risk":[["h",1]],
         "stamp":"1",
         "options": []
     },
@@ -143,7 +143,7 @@
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
-        "risk":[{"h":0}],
+        "risk":[["h",0]],
         "stamp":"1",
         "options": []
     },
@@ -154,7 +154,7 @@
         "id": "11",
         "linked":"",
         "linkActivation":["0","0"],
-        "risk":[{"u":1}],
+        "risk":[["u",1]],
         "stamp":"1",
         "options": []
     },
@@ -165,7 +165,7 @@
         "id": "12",
         "linked":"",
         "linkActivation":["0","0"],
-        "risk":[{"u":1}],
+        "risk":[["u",1]],
         "stamp":"1",
         "options": []
     },
@@ -321,7 +321,6 @@
         "risk":[],
         "stamp":"1",
         "options": []
-        
     },
     {
         "question": "Is it possible, if one tries, to repeat and reproduce the design/realization and get the same result?",
@@ -331,7 +330,7 @@
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
-        "risk":[{"h":0}],
+        "risk":[["h",0]],
         "stamp":"1",
         "options": []
     },
