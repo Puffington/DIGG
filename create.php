@@ -30,10 +30,7 @@ include("includes/templates/header.php");
             </nav>
             <div class="scroller">
                 <div class="categoryArea" id="cat1Area">
-                    <p>Theo's buttons: </p>
-                    <button class="l111" onclick="getQuestions('1')">show some questions</button>
-                    <button class="l111" onclick="getQuestions('0')">show ALL questions</button>
-                    <button class="l111" onclick="builderOfElementsAddBlueprint()">question examples</button>
+                
                 </div>
                 <div class="categoryArea" id="cat2Area">
 

@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -64,6 +62,7 @@
 .header nav a:hover {
     background-color: #DBD7D6;
 }
+
 /* Header styles END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
 /* Main body styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
@@ -86,62 +85,71 @@ body {
     padding-right: 300px;
 }
 
-.breadcrums nav a{
-    color:#333;
+.breadcrums nav a {
+    color: #333;
     size: 13px;
     text-decoration: none;
 }
-.breadcrums nav a:hover{
+
+.breadcrums nav a:hover {
     text-decoration: underline;
     color: black;
 }
 
-.menuButton{
+.menuButton {
     margin-top: 10px;
     padding: 10px;
-    width:30%;
+    width: 30%;
     border-radius: 50px;
     background-color: #6E615A;
     color: #fff;
-    border:none;
+    border: none;
     cursor: pointer;
 }
-.menuButton:hover{
+
+.menuButton:hover {
     background-color: #ef8271;
 }
 
 .card {
     height: fit-content;
-    width:30%;
+    width: 30%;
     background-color: #fff;
-    padding:15px;
-    margin: 0 0px; /* Horizontal margin for spacing between cards */
+    padding: 15px;
+    margin: 0 0px;
+    /* Horizontal margin for spacing between cards */
     border-radius: 10px;
     box-shadow: 3px 3px 7px 1px rgb(151, 151, 151);
 }
 
-.horizontal{
+.horizontal {
     display: flex;
-    justify-content: space-between; /* Ensures even spacing between the cards */
-    align-items: flex-start; /* Aligns cards at the top */
+    justify-content: space-between;
+    /* Ensures even spacing between the cards */
+    align-items: flex-start;
+    /* Aligns cards at the top */
     width: 100%;
     background-color: #faf4f2;
     flex-direction: row;
     margin-bottom: 70px;
 }
 
-@media (max-width: 800px) { /* CSS that should be displayed if width is equal to or less than 800px goes here */
-    .horizontal{
+@media (max-width: 800px) {
+
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    .horizontal {
         flex-direction: column;
         align-items: center;
     }
-    .card{
+
+    .card {
         width: 100%;
-        margin-bottom: 20px; /* Space between stacked cards */
+        margin-bottom: 20px;
+        /* Space between stacked cards */
     }
 }
 
-.textTrustModel{
+.textTrustModel {
     margin: 0 0px;
     padding: 20px;
     border-radius: 10px;
@@ -160,10 +168,11 @@ body {
 /* Search body style """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
 /*Left side*/
-.searchList{
+.searchList {
     padding: 15px;
 }
-.search-input{
+
+.search-input {
     margin-bottom: 7px;
     padding: 10px;
     border-radius: 15px;
@@ -171,44 +180,52 @@ body {
     font-size: 18px;
     border: 1px solid #ddd;
 }
-#namelist{
+
+#namelist {
     height: 300px;
-    overflow-y:scroll;
+    overflow-y: scroll;
 }
-#nameList li a{
+
+#nameList li a {
     color: #000;
     padding: 5px;
     display: block;
     cursor: pointer;
 }
-#nameList li a:hover{
+
+#nameList li a:hover {
     background-color: #ef8271;
 }
 
 /*Right side*/
-.orgAIinfoList{
+.orgAIinfoList {
     padding: 15px;
-    float:left;
+    float: left;
     width: 70%;
 }
-#aiList{
+
+#aiList {
     overflow-x: auto;
 }
-#aiList li a{
+
+#aiList li a {
     padding: 5px;
     display: block;
     cursor: pointer;
     background-color: rgb(238, 224, 224);
 }
-#aiList li a:hover{
+
+#aiList li a:hover {
     background-color: #f1a99e;
 }
+
 .ai-info {
     margin-top: 5px;
     padding: 10px;
     background-color: #ffffff;
     border-left: 3px solid #ef8271;
 }
+
 /* Search body style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
 /* Form body style """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
@@ -235,7 +252,7 @@ form input {
     border-radius: 20px;
 }
 
-input[type="submit"]{
+input[type="submit"] {
     height: 35px;
     margin-top: 20px;
     border: none;
@@ -250,68 +267,75 @@ form h3 {
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
+
 /* Form body style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
 
 
 /* Create style """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
-#formNav{
+#formNav {
     width: 30%;
-    background-color: white;
 }
-.scroller{
-background-color: #ef8271;
-overflow-y: auto;
-width: 70%;
-height: 30em;
-padding: 5px;
-row-gap: 2px;
+
+.scroller {
+    overflow-y: auto;
+    width: 70%;
+    height: 30em;
+    padding-left: 5px;
+    row-gap: 2px;
 }
-.radioQuestion{
-    padding: 5px;
+
+/* different divs of inputs */
+.divtxtInput, .radioQuestion, .dropdownQuestion, .multiQuestions {
+    padding-top: 25px;
 }
-.ynQ{
+
+.ynQ {
     padding-right: 20px;
     padding-left: 5px;
 }
-.dropdownQuestion{
+
+
+.dropdownQuestion select,
+.divtxtInput input{
+    border-radius: 14px;
+    border: 1px solid #6E615A;
+    background-color: white;
     padding: 5px;
+    color: #6e615a;
 }
-.multiQuestions{
-    padding: 5px;
+
+.dropdownQuestion select{
+    box-shadow: 1px 1px 3px 1px rgb(151, 151, 151);
+    border-color: white;
 }
-.el{
+
+.el {
     background-color: blue;
-    padding:1em;
+    padding: 1em;
     height: 10em;
     width: 5em;
-    margin:5px;
+    margin: 5px;
 }
 
-.category{
+.category {
     padding: 15px;
 }
-.categoryArea{
-    background-color: white;
-    padding: 10px;
-    margin:15px;
-}
 
-.l111{
-    padding:15px;
-    color: white;
-    background-color: #6E615A;
+.categoryArea {
+    border-top: 3px solid #ef8271;
+    padding: 10px;
 }
 
 .button-like {
     display: inline-block;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin: 5px;
     border: 1px solid #6E615A;
     color: #6E615A;
-    border-radius: 10px;
+    border-radius: 14px;
     background-color: white;
     cursor: pointer;
     user-select: none;
@@ -326,7 +350,7 @@ row-gap: 2px;
     background-color: white;
 }
 
-input[type="checkbox"]:checked + label.button-like {
+input[type="checkbox"]:checked+label.button-like {
     background-color: #6e615a;
     color: white;
     border-color: #6E615A;
@@ -346,6 +370,7 @@ input[type="checkbox"]:checked + label.button-like {
     overflow: hidden;
     width: 40%;
 }
+
 /* Result style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
 
@@ -358,7 +383,8 @@ input[type="checkbox"]:checked + label.button-like {
 }
 
 footer {
-    background-color: #d6d9d3;;
+    background-color: #d6d9d3;
+    ;
     color: black;
     text-align: center;
     padding: 10px;

@@ -248,7 +248,7 @@ function builderOfElements(obj) {
     let htmltxt = "";
     switch ((obj.type).toLowerCase()) {
         case "number":
-            htmltxt = "<div> <p>" + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
+            htmltxt = "<div class='divtxtInput'> <p>" + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             break;
 
         case "text":
@@ -267,7 +267,7 @@ function builderOfElements(obj) {
                     tempElement = "1"
             }
 
-            htmltxt = "<div> <p>" + obj.question + "</p>  <input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
+            htmltxt = "<div class='divtxtInput'> <p>" + obj.question + "</p>  <input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
 
             break;
         case "boolean":
@@ -275,11 +275,11 @@ function builderOfElements(obj) {
                 "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" +
                 "<label for='" + obj.id + "Y' class='ynQ'>Yes</label>" +
                 "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0  onclick='radioRevelio(this)' >" +
-                "<label for='" + obj.id + "N' class='ynQ'>No</label><br></br></div>";
+                "<label for='" + obj.id + "N' class='ynQ'>No</label></div>";
             break;
         case "dropdown":
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + ">" + obj.question + "</label> " +
-                "<select name=" + obj.id + " onchange='dropRevelio(this)' >";
+                "<select name=" + obj.id + " onchange='dropRevelio(this)' >" + "<option value='' disabled selected>Choose category</option>";  // Default option;
             obj.options.forEach((opti, index) => {
                 htmltxt += "<option value=" + index + " data-activate=" + obj.linkActivation[index] + " >" + opti + "</option>";
             })
