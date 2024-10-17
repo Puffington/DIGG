@@ -347,7 +347,7 @@ async function getQuestions(mode) {
 
     //different insertion methods
     //document.getElementById(cat).innerHTML += builderOfElements();
-    document.getElementById(cat).style.backgroundColor = "red";
+    //document.getElementById(cat).style.backgroundColor = "red";
 
     //document.getElementById(obj.category).append("<div>hello there</div>")
     console.log("you pressed correctly")

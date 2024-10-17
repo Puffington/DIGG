@@ -6,7 +6,8 @@
         "id": "1",
         "linked":"",
         "linkActivation":["0","0","0"],
-        "backgroundColor": "lightblue"
+        "risk":[],
+        "stamp":"1"
     },
     { 
         "question": "organization name",
@@ -15,7 +16,10 @@
         "text":"org",
         "id": "2",
         "linked":"",
-        "linkActivation":["0","0","0"]
+        "linkActivation":["0","0","0"],
+        "risk":[],
+        "stamp":"0"
+
     },
     { 
         "question": "Name of AI system",
@@ -24,7 +28,9 @@
         "text":"AI",
         "id": "3",
         "linked":"",
-        "linkActivation":["0","0","0"]
+        "linkActivation":["0","0","0"],
+        "risk":[],
+        "stamp":"0"
     },
     
     { 
@@ -34,7 +40,9 @@
         "text":"url",
         "id": "4",
         "linked":"",
-        "linkActivation":[""]
+        "linkActivation":[""],
+        "risk":[],
+        "stamp":"0"
     },
     {
         "question": "AI system: Select AI System",
@@ -43,6 +51,8 @@
         "id": "5",
         "linked":"",
         "linkActivation":["0","0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": ["Question Answering Models",
         "Image Recognition Models",
         "Natural Language Processing",
@@ -62,6 +72,8 @@
         "id": "6",
         "linked":"6A",
         "linkActivation":["0","1","1","1","1","1","0","0","1","0","0","1","0","0","1","0"],
+        "risk":[],
+        "stamp":"1",
         "options": ["The general public",
         "Children and young people (under 18)",
         "Elderly persons (65+)",
@@ -85,6 +97,8 @@
         "type": "boolean",
         "id": "6A",
         "linkActivation":["0","0"],
+        "risk":[{"u":1}],
+        "stamp":"1",
         "linked":"",
         "options": []
     },
@@ -95,6 +109,8 @@
         "id": "7",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": []
     },
     {
@@ -104,6 +120,8 @@
         "id": "8",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"1",
         "options": []
     },
     {
@@ -113,6 +131,8 @@
         "id": "9",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[{"h":1}],
+        "stamp":"1",
         "options": []
     },
     {
@@ -123,6 +143,8 @@
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[{"h":0}],
+        "stamp":"1",
         "options": []
     },
     {
@@ -132,6 +154,8 @@
         "id": "11",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[{"u":1}],
+        "stamp":"1",
         "options": []
     },
     {
@@ -141,6 +165,8 @@
         "id": "12",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[{"u":1}],
+        "stamp":"1",
         "options": []
     },
     {
@@ -150,6 +176,8 @@
         "id": "13",
         "linked":"",
         "linkActivation":["0","0","0","0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": ["Critical infrastructure (e.g., energy, water supply) where a failure could jeopardize life or health?",
         "Educational or vocational training programs that affect access to education or job opportunities?",
         " Labor market, personnel management or to determine access to essential services (e.g., bank, housing)?",
@@ -163,6 +191,8 @@
         "id": "14",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"1",
         "options": []
     },
     {
@@ -172,6 +202,8 @@
         "id": "15",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"1",
         "options": []
     },
     {
@@ -181,6 +213,8 @@
         "id": "16",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": []
     },
     {
@@ -190,6 +224,8 @@
         "id": "17",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": []
     },
     {
@@ -199,6 +235,8 @@
         "id": "18",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"1",
         "options": []
     },
     {
@@ -209,6 +247,8 @@
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": ["Data is continuously available and unrestricted",
         "Data is available but can only be used for a limited time (how long?)",
         "There is a risk that the content of the data source may change over time",
@@ -223,6 +263,8 @@
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": ["Own servers",
         "From third parties",
         "On the user's device",
@@ -236,6 +278,8 @@
         "id": "21",
         "linked": "",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"1",
         "options": [
             "Encryption during storage and transmission",
             "Access control and authorization management",
@@ -251,6 +295,8 @@
         "id": "22",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": []
     },
     {
@@ -260,6 +306,8 @@
         "id": "23",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": []
     },
     {
@@ -270,7 +318,10 @@
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"1",
         "options": []
+        
     },
     {
         "question": "Is it possible, if one tries, to repeat and reproduce the design/realization and get the same result?",
@@ -280,6 +331,8 @@
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[{"h":0}],
+        "stamp":"1",
         "options": []
     },
     {
@@ -290,6 +343,8 @@
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": ["Confusion Matrix","Lift-curve","ROC-curve"]
     },
     {
@@ -299,6 +354,8 @@
         "id": "27",
         "linked":"",
         "linkActivation":["0","0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": []
     },
     {
@@ -308,6 +365,8 @@
         "id": "28",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": []
     },
     {
@@ -317,6 +376,8 @@
         "id": "29",
         "linked":"",
         "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"0",
         "options": []
     },
     {
@@ -326,6 +387,8 @@
         "id": "30",
         "linked":"",
         "linkActivation":[],
+        "risk":[],
+        "stamp":"1",
         "options": []
     },
     {
@@ -335,6 +398,8 @@
         "id": "31",
         "linked":"",
         "linkActivation":[],
+        "risk":[],
+        "stamp":"1",
         "options": []
     },
     {
@@ -342,8 +407,10 @@
         "category":"5",
         "type": "dropdown",
         "id": "32",
+        "stamp":"1",
         "linked":"33",
         "linkActivation":["0","1","0"],
+        "risk":[],
         "options": [" To support a decision made by a human",
         "To independently make automated decisions",
         "None of the above"]
@@ -355,6 +422,8 @@
         "id": "33",
         "linked":"35",
         "linkActivation":[],
+        "risk":[],
+        "stamp":"0",
         "options": []
     },
     {
@@ -364,6 +433,8 @@
         "id": "34",
         "linked":"",
         "linkActivation":[],
+        "risk":[],
+        "stamp":"0",
         "options": []
     },
     {
@@ -371,9 +442,10 @@
         "category":"5",
         "type": "boolean",
         "id": "35",
-        "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":[],
+        "risk":[],
+        "stamp":"0",
         "options": []
     }
 ]
