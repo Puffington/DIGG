@@ -5,6 +5,47 @@ include("includes/templates/header.php");
 
 ?>
 
+<style>
+    form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: flex;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+form input {
+    width: 90%;
+    padding: 7px;
+    border: none;
+    border: 1px, solid grey;
+    border-radius: 20px;
+}
+
+input[type="submit"] {
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color: mediumblue;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+form h3 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+</style>
+
 <main>
     <div class="breadcrums">
         <nav>

@@ -22,11 +22,11 @@ include("includes/templates/header.php");
         </div>
         <div class="horizontal">
             <nav id="formNav">
-                <div class="category" id="cat1" onclick="scroller(this)">Allmän Info</div>
-                <div class="category" id="cat2" onclick="scroller(this)">Juridik & Etik</div>
-                <div class="category" id="cat3" onclick="scroller(this)">Säkerhet</div>
-                <div class="category" id="cat4" onclick="scroller(this)">Prestanda</div>
-                <div class="category" id="cat5" onclick="scroller(this)">Transparens</div>
+                <div class="category" id="cat1" onclick="scroller(this)">General Information</div>
+                <div class="category" id="cat2" onclick="scroller(this)">Law and Justice</div>
+                <div class="category" id="cat3" onclick="scroller(this)">Security</div>
+                <div class="category" id="cat4" onclick="scroller(this)">Performance</div>
+                <div class="category" id="cat5" onclick="scroller(this)">Transparancy</div>
             </nav>
             <div class="scroller">
                 <div class="categoryArea" id="cat1Area">
