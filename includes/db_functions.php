@@ -45,15 +45,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
+<<<<<<< Updated upstream
 /*
+=======
+>>>>>>> Stashed changes
 ///Requires (ID , VARIABLE, NewVALUE)
 if($_SERVER["REQUEST_METHOD"] == "UPDATE") {
 
     $ID = $_POST["ID"];
     $VARIABLE = $_POST["VARIABLE"];
     $VALUE = $_POST["VALUE"];
+<<<<<<< Updated upstream
     $database->updateVariable($ID,$VARIABLE,$VALUE); 
 }*/
+=======
+
+    $database->updateVariable($ID,$VARIABLE,$VALUE);
+    
+}
+>>>>>>> Stashed changes
 
 
 #IF NOT EXISTS(Select ProductName from Productsnew where ProductName='Jeera Rice')
