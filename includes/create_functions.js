@@ -1,12 +1,16 @@
-//known bugs that i should clear up in the future
+//BUGS
 //recursive hiding of elements
 //going back when writing orgnr doesn't trigger event (should be prevented with having number maximum)
-
+//can't see linked variables?
 
 //IMPLEMENTATIONS
+// output name - done
+// output stuffs - done
+// output AI  - done
+// sometimes doesn't fill in the organisation_ID, it says it ha too long of a variable?
+// being able to double check, if Organisation already exists, if it does, don't resend
+// 
 
-// output name
-// output stuffs
 
 window.addEventListener('load', function () {
     output = {};
@@ -93,9 +97,16 @@ function addToMem(type, id, value) {
             AnswerMem[id][value[0]] = +!AnswerMem[id][value[0]]
             console.log(AnswerMem[id])
             break;
-        case "4": //text
-            output.name = value
+        case "4": //ORG NAME
+            output.orgName = value
             break;
+        case "5": //AI NAME
+            output.aiName = value
+            break;
+        case "6": //URL
+            output.url = value
+            break;
+
     }
     console.log("answermem: ")
     console.log(AnswerMem)
@@ -107,12 +118,13 @@ function checkIfNumber(event) {
     if (event.target.value.length >= 10) {
         return false
     }
+
     if (isNaN(event.key) || event.key == " ") {
         console.log("NEIN, STAHP IT")
         return false;
     } else {
-        console.log("testing something: ")
-        console.log(event.target.value + event.key)
+        //console.log("testing something: ")
+        //console.log(event.target.value + event.key)
         addToMem("0", event.target.id, event.target.value + event.key)
         return true;
     }
@@ -161,7 +173,6 @@ function multiRevelio(select) {
     } else {
         document.getElementById(parent.getAttribute("data-linked")).hidden = true;
     }
-
     addToMem("3", parent.id, [select.value, boxes.length])
 }
 
@@ -182,7 +193,10 @@ function radioRevelio(button) {
 
 function typing(event) {
     //console.log(event.target.value)
-    addToMem("4", event.target.id, event.target.value + event.key)
+    //print(event.target.)
+    console.log("typing!!")
+    console.log(event.target.dataset)
+    addToMem(event.target.dataset.texttype, event.target.id, event.target.value + event.key)
     return true;
 }
 
@@ -234,7 +248,22 @@ function builderOfElements(obj) {
             break;
 
         case "text":
-            htmltxt = "<div> <p>" + obj.question + "</p>  <input type='text' maxlength='100' name=" + obj.id + " onkeypress='return typing(event)' /><div>";
+            let tempElement;
+            switch (obj.text.toLowerCase()) {
+                case "url":
+                    tempElement = "6"
+                    break;
+                case "ai":
+                    tempElement = "5"
+                    break;
+                case "org":
+                    tempElement = "4"
+                    break;
+                default:
+                    tempElement = "1"
+            }
+
+            htmltxt = "<div> <p>" + obj.question + "</p>  <input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
 
             break;
         case "boolean":
@@ -327,30 +356,31 @@ function submitAndSend() {
 
     console.log("SUBMITTING YOUR TEXT")
     //sender.value = JSON.stringify(output)
-/*
-    allTheData = new URLSearchParams({
-        'AI': 'valueForAI',
-        'otherParam': 'anotherValue',
-        'Name':"BRYNJOLF"
-    }); //depending which one you want to send to
-*/
+    /*
+        allTheData = new URLSearchParams({
+            'AI': 'valueForAI',
+            'otherParam': 'anotherValue',
+            'Name':"BRYNJOLF"
+        }); //depending which one you want to send to
+    */
     let t = new Date();
 
     //this part is inefficient, but should work for now
-    let currentDate =   t.getFullYear() +"-"+(t.getMonth()+1) + "-" +  t.getDate()+" "+  t.getHours()+":"+t.getMinutes()+":"+t.getSeconds()
+    let currentDate = t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds()
     console.log(currentDate)
 
+    console.log("orgid::" +output.orgnr)
+
     allTheData = new URLSearchParams();
-    
-    allTheData.append('AI',"somevalue")
+    allTheData.append('AI', "somevalue")
     //parameters.append("organisation","somevalue")
-    allTheData.append('NAME', "geraldimus of trivia" ) //works
-    allTheData.append("ORGANISATION_ID",output.orgnr) //works
-    allTheData.append("URL",output.orgnr) //works
-    allTheData.append("VERSION",1) 
-    allTheData.append("STAMP",1) 
-    allTheData.append("CREATED_DATE",currentDate) //works
-    allTheData.append("ANSWERS",JSON.stringify(output.answers)) //not implemented
+    allTheData.append('NAME', output.aiName) //works
+    allTheData.append("ORGANISATION_ID", output.orgnr) //works
+    allTheData.append("URL", output.url) //works
+    allTheData.append("VERSION", 1)
+    allTheData.append("STAMP", 1)
+    allTheData.append("CREATED_DATE", currentDate) //works
+    allTheData.append("ANSWERS", JSON.stringify(output.answers)) //not implemented
     //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
 
     fetch('includes/db_functions.php', {
@@ -361,8 +391,21 @@ function submitAndSend() {
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
 
-    //sender.submit() //will send data inside to anoteher php file
+    //sending to organisation
+    allTheData = new URLSearchParams();
+    allTheData.append("ORGANISATION","")
+    allTheData.append("ORGN_NR", output.orgnr )
+    allTheData.append("NAME", output.orgName )
+    
+    fetch('includes/db_functions.php', {
+        method: 'POST', //or GET, your choice
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: allTheData
+    }).then(response => response.text()) //error handling from gpt, because of reasons
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
 
+    //sender.submit() //will send data inside to anoteher php file
     //window.location.href = "result.php"
 }
 

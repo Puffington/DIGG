@@ -35,9 +35,11 @@ class Connect
                     VALUES (?, ?, ?, ?, ?, ?, ?,?)";
         if ($stmt = $this->conn->prepare($sql)) {
             $stmt->bind_param("iissssss", $ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE,$ANSWERS);
-
+            
             if ($stmt->execute()) {
                 echo "Data successfully inserted into AI table.";
+                $new_id = $this->conn->insert_id;
+                echo $new_id;
                 return true;
             } else {
                 echo "Error executing query: " . $stmt->error;

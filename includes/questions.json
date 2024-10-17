@@ -1,18 +1,30 @@
 [
     
     { 
-        "question": "orgnamn",
+        "question": "name for organisation",
         "category":"1",
         "type": "text",
+        "text":"org",
         "id": "34",
         "linked":"",
         "linkActivation":["0","0","0"],
         "backgroundColor": "lightblue"
     },
     { 
-        "question": "namn",
+        "question": "URL please",
         "category":"1",
         "type": "text",
+        "text":"url",
+        "id": "34",
+        "linked":"",
+        "linkActivation":["0","0","0"],
+        "backgroundColor": "lightblue"
+    },
+    { 
+        "question": "AI namn",
+        "category":"1",
+        "type": "text",
+        "text":"AI",
         "id": "0",
         "linked":"",
         "linkActivation":["0","0","0"],
