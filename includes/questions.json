@@ -1,6 +1,6 @@
 [    
     { 
-        "question": "registration number",
+        "question": "Registration number",
         "category":"1",
         "type": "number",
         "id": "1",
@@ -10,7 +10,7 @@
         "stamp":"1"
     },
     { 
-        "question": "organization name",
+        "question": "Organization name",
         "category":"1",
         "type": "text",
         "text":"org",
