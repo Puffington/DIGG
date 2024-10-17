@@ -286,29 +286,12 @@ form h3 {
     row-gap: 2px;
 }
 
-/* different divs of inputs */
-.divtxtInput, .radioQuestion, .dropdownQuestion, .multiQuestions {
-    padding-top: 25px;
+.category {
+    padding: 15px;
 }
-
-.ynQ {
-    padding-right: 20px;
-    padding-left: 5px;
-}
-
-
-.dropdownQuestion select,
-.divtxtInput input{
-    border-radius: 14px;
-    border: 1px solid #6E615A;
-    background-color: white;
-    padding: 5px;
-    color: #6e615a;
-}
-
-.dropdownQuestion select{
-    box-shadow: 1px 1px 3px 1px rgb(151, 151, 151);
-    border-color: white;
+.categoryArea {
+    border-top: 3px solid #ef8271;
+    padding: 10px;
 }
 
 .el {
@@ -319,43 +302,88 @@ form h3 {
     margin: 5px;
 }
 
-.category {
-    padding: 15px;
+/* different divs of inputs */
+.divtxtInput, .radioQuestion, .dropdownQuestion, .multiQuestions {
+    padding-top: 25px;
 }
 
-.categoryArea {
-    border-top: 3px solid #ef8271;
-    padding: 10px;
-}
+/*Bool*/
+    .ynQ {
+        padding-right: 20px;
+        padding-left: 5px;
+    }
+    /* Hide the default radio button */
+    input[type="radio"] {
+        appearance: none; /* Removes default radio button styling */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: #fff;
+        border: 2px solid #6E615A;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        position: relative;
+        margin-right: 10px;
+    }
+    input[type="radio"]:checked {
+        border-color: #ef8271;
+    }
+    input[type="radio"]:checked::before {
+        content: '';
+        display: block;
+        background-color: #ef8271;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+/**/
 
-.button-like {
-    display: inline-block;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 5px;
-    border: 1px solid #6E615A;
-    color: #6E615A;
-    border-radius: 14px;
-    background-color: white;
-    cursor: pointer;
-    user-select: none;
-    text-align: center;
-}
+/*Dropdown*/
+    .dropdownQuestion select,
+    .divtxtInput input{
+        border-radius: 14px;
+        border: 1px solid #6E615A;
+        background-color: white;
+        padding: 5px;
+        color: #6e615a;
+    }
+    .dropdownQuestion select{
+        box-shadow: 1px 1px 3px 1px rgb(151, 151, 151);
+        border-color: white;
+    }
+/**/
 
-.button-like:hover {
-    background-color: #b1a6a0;
-}
-
-.button-like:active {
-    background-color: white;
-}
-
-input[type="checkbox"]:checked+label.button-like {
-    background-color: #6e615a;
-    color: white;
-    border-color: #6E615A;
-}
-
+/*Multi*/
+    .button-like {
+        display: inline-block;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin: 5px;
+        border: 1px solid #6E615A;
+        color: #6E615A;
+        border-radius: 14px;
+        background-color: white;
+        cursor: pointer;
+        user-select: none;
+        text-align: center;
+    }
+    .button-like:hover {
+        background-color: #b1a6a0;
+    }
+    .button-like:active {
+        background-color: white;
+    }
+    input[type="checkbox"]:checked+label.button-like {
+        background-color: #6e615a;
+        color: white;
+        border-color: #6E615A;
+    }
+/**/
 
 /* Create style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
