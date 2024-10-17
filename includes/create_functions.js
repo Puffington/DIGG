@@ -399,9 +399,6 @@ function submitAndSend() {
     /*.then(response => response.text()) //error handling from gpt, because of reasons
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
-<<<<<<< Updated upstream
-    */
-=======
 
 
     //
@@ -417,8 +414,7 @@ function submitAndSend() {
     }).then(response => response.text()) //error handling from gpt, because of reasons
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
-
->>>>>>> Stashed changes
+*/
     //sender.submit() //will send data inside to anoteher php file
     //console.log(JSON.stringify(output.answers))
     sessionStorage.setItem('output', JSON.stringify(output.answers));
