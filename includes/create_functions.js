@@ -354,21 +354,14 @@ function submitAndSend() {
     let sender = document.getElementById("submit")
 
     console.log("SUBMITTING YOUR TEXT")
-    //sender.value = JSON.stringify(output)
-    /*
-        allTheData = new URLSearchParams({
-            'AI': 'valueForAI',
-            'otherParam': 'anotherValue',
-            'Name':"BRYNJOLF"
-        }); //depending which one you want to send to
-    */
+
     let t = new Date();
 
     //this part is inefficient, but should work for now
     let currentDate = t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds()
     console.log(currentDate)
 
-    console.log("orgid::" +output.orgnr)
+    console.log("orgid::" + output.orgnr)
 
     allTheData = new URLSearchParams();
     allTheData.append('AI', "somevalue")
@@ -394,10 +387,10 @@ function submitAndSend() {
 */
     //sending to organisation
     allTheData = new URLSearchParams();
-    allTheData.append("ORGANISATION","")
-    allTheData.append("ORGN_NR", output.orgnr )
-    allTheData.append("NAME", output.orgName )
-    
+    allTheData.append("ORGANISATION", "")
+    allTheData.append("ORGN_NR", output.orgnr)
+    allTheData.append("NAME", output.orgName)
+
     fetch('includes/db_functions.php', {
         method: 'POST', //or GET, your choice
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -406,7 +399,26 @@ function submitAndSend() {
     /*.then(response => response.text()) //error handling from gpt, because of reasons
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
+<<<<<<< Updated upstream
     */
+=======
+
+
+    //
+    allTheData = new URLSearchParams();
+    allTheData.append("ID", 29)
+    allTheData.append("VARIABLE", "URL")
+    allTheData.append("VALUE", "THINGAMABOB")
+
+    fetch('includes/db_functions.php', {
+        method: 'UPDATE', //or GET, your choice
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: allTheData
+    }).then(response => response.text()) //error handling from gpt, because of reasons
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+
+>>>>>>> Stashed changes
     //sender.submit() //will send data inside to anoteher php file
     //console.log(JSON.stringify(output.answers))
     sessionStorage.setItem('output', JSON.stringify(output.answers));

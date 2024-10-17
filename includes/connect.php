@@ -69,6 +69,12 @@ class Connect
             return false;
         }
     }
+
+    //WILL ONLY UPDATE AI TABLE... hopefully...
+    public function updateVariable($ID,$VARIABLE,$VALUE){
+        $sql = "UPDATE ai SET $VARIABLE = $VALUE WHERE ID = '$ID'";
+        $this->conn->query($sql);
+    }
 }
 ?>
 
