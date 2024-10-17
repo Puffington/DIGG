@@ -10,6 +10,9 @@ print("HEEEEEY YOU MADE IT i can post errors here!!!");
 print("post:");
 print(json_encode($_POST));
 
+
+
+///Does NOT require ID, in fact DON'T put in an ID!! 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["AI"])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -29,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       exit(); 
   } elseif (isset($_POST["ORGANISATION"])) {
         print("ORG worked");
-        
 
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -42,6 +44,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       exit(); 
   }
 }
+
+/*
+///Requires (ID , VARIABLE, NewVALUE)
+if($_SERVER["REQUEST_METHOD"] == "UPDATE") {
+
+    $ID = $_POST["ID"];
+    $VARIABLE = $_POST["VARIABLE"];
+    $VALUE = $_POST["VALUE"];
+    $database->updateVariable($ID,$VARIABLE,$VALUE); 
+}*/
+
 
 #IF NOT EXISTS(Select ProductName from Productsnew where ProductName='Jeera Rice')
 #BEGIN

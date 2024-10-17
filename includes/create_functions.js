@@ -11,7 +11,6 @@
 // being able to double check, if Organisation already exists, if it does, don't resend
 // 
 
-
 window.addEventListener('load', function () {
     output = {};
     AnswerMem = {};
@@ -351,7 +350,7 @@ async function getQuestions(mode) {
 // submitting and sending to the next page
 function submitAndSend() {
 
-    output.answers = AnswerMem
+    output.answers = AnswerMem;
     let sender = document.getElementById("submit")
 
     console.log("SUBMITTING YOUR TEXT")
@@ -384,13 +383,15 @@ function submitAndSend() {
     //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
 
     fetch('includes/db_functions.php', {
-        method: 'POST', //or GET, your choice
+        method: 'POST', //or GET, your choice ---UPDATE
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData
-    }).then(response => response.text()) //error handling from gpt, because of reasons
+    })
+    
+    /*.then(response => response.text()) //error handling from gpt, because of reasons
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
-
+*/
     //sending to organisation
     allTheData = new URLSearchParams();
     allTheData.append("ORGANISATION","")
@@ -401,11 +402,14 @@ function submitAndSend() {
         method: 'POST', //or GET, your choice
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData
-    }).then(response => response.text()) //error handling from gpt, because of reasons
+    }) 
+    /*.then(response => response.text()) //error handling from gpt, because of reasons
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
-
+    */
     //sender.submit() //will send data inside to anoteher php file
-    //window.location.href = "result.php"
+    //console.log(JSON.stringify(output.answers))
+    sessionStorage.setItem('output', JSON.stringify(output.answers));
+    window.location.href = "calculations.php"
 }
 
