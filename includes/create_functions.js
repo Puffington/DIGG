@@ -9,6 +9,11 @@
 // output AI  - done
 // sometimes doesn't fill in the organisation_ID, it says it ha too long of a variable?
 // being able to double check, if Organisation already exists, if it does, don't resend
+// Question 5A: version? what type? (text/number)
+// 26A utveckla...
+
+//Nikki
+// unmark a yes/no answer
 // 
 
 window.addEventListener('load', function () {
@@ -267,10 +272,10 @@ function builderOfElements(obj) {
             break;
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.question + "</p>" +
-                "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)' >" +
-                "<label for='html'>YES</label>" +
+                "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" +
+                "<label for='" + obj.id + "Y' class='ynQ'>Yes</label>" +
                 "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0  onclick='radioRevelio(this)' >" +
-                "<label for='html'>NO</label><br></br></div>"
+                "<label for='" + obj.id + "N' class='ynQ'>No</label><br></br></div>";
             break;
         case "dropdown":
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + ">" + obj.question + "</label> " +
@@ -281,17 +286,18 @@ function builderOfElements(obj) {
             htmltxt += "</select></div>";
             break;
         case "multi":
-            htmltxt = "<div class='multiQuestions'  id=" + obj.id + " data-linked=" + obj.linked + "> <p>" + obj.question + "</p>"
+            htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + obj.question + "</p>";
             obj.options.forEach((opti, index) => {
                 if (obj.linkActivation.length == 0) {
-                    htmltxt += "<input type='checkbox' id=" + obj.id + index + " name=" + opti + " value=" + index + " onclick='multiRevelio(this)' >" +
-                        "<label for='vehicle1'>" + opti + "</label><br></br>";
+                    htmltxt += "<input type='checkbox' id='" + obj.id + index + "' name='" + opti + "' value='" + index + "' onclick='multiRevelio(this)' hidden>" +
+                        "<label for='" + obj.id + index + "' class='button-like'>" + opti + "</label>";
                 } else {
-                    htmltxt += "<input type='checkbox' id=" + obj.id + index + " name=" + opti + " value=" + index + "  data-activate=" + obj.linkActivation[index] + " onclick='multiRevelio(this)' >" +
-                        "<label for='vehicle1'>" + opti + "</label><br></br>";
+                    htmltxt += "<input type='checkbox' id='" + obj.id + index + "' name='" + opti + "' value='" + index + "' data-activate='" + obj.linkActivation[index] + "' onclick='multiRevelio(this)' hidden>" +
+                        "<label for='" + obj.id + index + "' class='button-like'>" + opti + "</label>";
                 }
             });
-            htmltxt += "</div>"
+            htmltxt += "</div>";
+
             break;
         default:
             alert("question id" + obj.id + " has a wrong questions type")
@@ -380,7 +386,7 @@ function submitAndSend() {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData
     })
-    
+
     /*.then(response => response.text()) //error handling from gpt, because of reasons
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
@@ -395,7 +401,7 @@ function submitAndSend() {
         method: 'POST', //or GET, your choice
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData
-    }) 
+    })
     /*.then(response => response.text()) //error handling from gpt, because of reasons
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));

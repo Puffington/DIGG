@@ -269,13 +269,17 @@ padding: 5px;
 row-gap: 2px;
 }
 .radioQuestion{
-    background-color: chartreuse;
+    padding: 5px;
+}
+.ynQ{
+    padding-right: 20px;
+    padding-left: 5px;
 }
 .dropdownQuestion{
-    background-color:goldenrod;
+    padding: 5px;
 }
 .multiQuestions{
-    background-color: burlywood;
+    padding: 5px;
 }
 .el{
     background-color: blue;
@@ -299,6 +303,35 @@ row-gap: 2px;
     color: white;
     background-color: #6E615A;
 }
+
+.button-like {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 5px;
+    border: 1px solid #6E615A;
+    color: #6E615A;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+}
+
+.button-like:hover {
+    background-color: #b1a6a0;
+}
+
+.button-like:active {
+    background-color: white;
+}
+
+input[type="checkbox"]:checked + label.button-like {
+    background-color: #6e615a;
+    color: white;
+    border-color: #6E615A;
+}
+
 
 /* Create style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
