@@ -245,30 +245,30 @@ body {
 }
 .category {
     padding: 15px;
-    color: white;
+    color: #695F59;
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 #cat1{
-    background-color: #B8F7D4;
-    border: 5px solid #B8F7D4;
+    background-color: #F7E4E1;
+    border: 5px solid #F7E4E1;
 }
 #cat2{
-    background-color: #6FE7DB;
-    border: 5px solid #6FE7DB;
+    background-color: #F4E0CE;
+    border: 5px solid #F4E0CE;
 }
 #cat3{
-    background-color: #7FA6EE;
-    border: 5px solid #7FA6EE;
+    background-color: #E9BE95;
+    border: 5px solid #E9BE95;
 }
 #cat4{
-    background-color: #835AF1;
-    border: 5px solid #835AF1;
+    background-color: #E3A79C;
+    border: 5px solid #E3A79C;
 }
 #cat5{
-    background-color: #1230AE;
-    border: 5px solid #1230AE;
+    background-color: #CD7A6E;
+    border: 5px solid #CD7A6E;
 }
 /*#cat1{
     background-color: #fca89c;
@@ -302,24 +302,24 @@ body {
     font-size: 30px;
 }
 #cat1Area{
-    border-left: 5px solid #B8F7D4;
-    border-top: 25px solid #B8F7D4;
+    border-left: 5px solid #F7E4E1;
+    border-top: 25px solid #F7E4E1;
 }
 #cat2Area{
-    border-left: 5px solid #6FE7DB;
-    border-top: 25px solid #6FE7DB;
+    border-left: 5px solid #F4E0CE;
+    border-top: 25px solid #F4E0CE;
 }
 #cat3Area{
-    border-left: 5px solid #7FA6EE;
-    border-top: 25px solid #7FA6EE;
+    border-left: 5px solid #E9BE95;
+    border-top: 25px solid #E9BE95;
 }
 #cat4Area{
-    border-left: 5px solid #835AF1;
-    border-top: 25px solid #835AF1;
+    border-left: 5px solid #E3A79C;
+    border-top: 25px solid #E3A79C;
 }
 #cat5Area{
-    border-left: 5px solid #1230AE;
-    border-top: 25px solid #1230AE;
+    border-left: 5px solid #CD7A6E;
+    border-top: 25px solid #CD7A6E;
 }
 
 /*#cat1Area{
@@ -344,8 +344,8 @@ body {
 }*/
 
 .submitFormButton{
-    background-color: #ef8271;
-    border: 3px solid #ef8271;
+    background-color: #7B8574;
+    border: 3px solid #7B8574;
     color: white;
     font-weight: bold;
     font-size: medium;
@@ -356,7 +356,7 @@ body {
 }
 .submitFormButton:hover{
     background-color: white;
-    color: #ef8271;
+    color: #7B8574;
     cursor: pointer;
 }
 
