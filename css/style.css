@@ -251,6 +251,26 @@ body {
     margin-bottom: 20px;
 }
 #cat1{
+    background-color: #B8F7D4;
+    border: 5px solid #B8F7D4;
+}
+#cat2{
+    background-color: #6FE7DB;
+    border: 5px solid #6FE7DB;
+}
+#cat3{
+    background-color: #7FA6EE;
+    border: 5px solid #7FA6EE;
+}
+#cat4{
+    background-color: #835AF1;
+    border: 5px solid #835AF1;
+}
+#cat5{
+    background-color: #1230AE;
+    border: 5px solid #1230AE;
+}
+/*#cat1{
     background-color: #fca89c;
     border: 5px solid #fca89c;
 }
@@ -269,7 +289,7 @@ body {
 #cat5{
     background-color: #8f2514;
     border: 5px solid #8f2514;
-}
+}*/
 
 .categoryArea {
     padding: 10px;
@@ -282,7 +302,28 @@ body {
     font-size: 30px;
 }
 #cat1Area{
-    border-left: 5px solid #fca89c;
+    border-left: 5px solid #B8F7D4;
+    border-top: 25px solid #B8F7D4;
+}
+#cat2Area{
+    border-left: 5px solid #6FE7DB;
+    border-top: 25px solid #6FE7DB;
+}
+#cat3Area{
+    border-left: 5px solid #7FA6EE;
+    border-top: 25px solid #7FA6EE;
+}
+#cat4Area{
+    border-left: 5px solid #835AF1;
+    border-top: 25px solid #835AF1;
+}
+#cat5Area{
+    border-left: 5px solid #1230AE;
+    border-top: 25px solid #1230AE;
+}
+
+/*#cat1Area{
+    border-left: 5px solid #B8F7D4;
     border-top: 25px solid #fca89c;
 }
 #cat2Area{
@@ -300,7 +341,7 @@ body {
 #cat5Area{
     border-left: 5px solid #8f2514;
     border-top: 25px solid #8f2514;
-}
+}*/
 
 .submitFormButton{
     background-color: #ef8271;
