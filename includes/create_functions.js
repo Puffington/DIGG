@@ -443,6 +443,6 @@ function submitAndSend() {
     //sender.submit() //will send data inside to anoteher php file
     //console.log(JSON.stringify(output.answers))
     sessionStorage.setItem('output', JSON.stringify(output.answers));
-    window.location.href = "calculations.php"
+    window.location.href = "result.php"
 }
 
