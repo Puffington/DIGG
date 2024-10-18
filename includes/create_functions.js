@@ -64,20 +64,15 @@ window.addEventListener('load', function () {
 
     //change colours depending on intersection amount
     function changeCategories(entries, observer) {
-        let c1 = "#ef8271";
-        let c2 = "#ef8271";
-        let c3 = "#ef8271";
-        let c4 = "#ef8271";
-        let c5 = "#ef8271";
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.link.style.backgroundColor = "#ef8271";
-                entry.target.link.style.color = "#FFFFFF";
+                entry.target.link.style.backgroundColor = "#ffffff";
+                entry.target.link.style.color = "#6E615A";
                 console.log(entry.target.link)
             }
             else {
-                entry.target.link.style.backgroundColor = "white";
-                entry.target.link.style.color = "#6E615A";
+                entry.target.link.style.backgroundColor = "";
+                entry.target.link.style.color = "#ffffff";
             }
             console.log(entry.target.id)
         })

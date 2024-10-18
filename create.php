@@ -30,19 +30,19 @@ include("includes/templates/header.php");
             </nav>
             <div class="scroller">
                 <div class="categoryArea" id="cat1Area">
-                
+                    <h1>General Information</h1>
                 </div>
                 <div class="categoryArea" id="cat2Area">
-
+                    <h1>Law and Justice</h1>
                 </div>
                 <div class="categoryArea" id="cat3Area">
-
+                    <h1>Security</h1>
                 </div>
                 <div class="categoryArea" id="cat4Area">
-
+                    <h1>Performance</h>
                 </div>
                 <div class="categoryArea" id="cat5Area">
-
+                    <h1>Transparancy</h1>
                 </div> <!--  action="result.php" -->
                 <form type="hidden" onclick="submitAndSend(this)">
                     <input type="button" class="submitFormButton" value="Submit">

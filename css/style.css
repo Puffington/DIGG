@@ -243,13 +243,62 @@ body {
     padding-left: 5px;
     row-gap: 2px;
 }
-
 .category {
     padding: 15px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
+#cat1{
+    background-color: #fca89c;
+    border: 5px solid #fca89c;
+}
+#cat2{
+    background-color: #ff8c7a;
+    border: 5px solid #ff8c7a;
+}
+#cat3{
+    background-color: #fc6d57;
+    border: 5px solid #fc6d57;
+}
+#cat4{
+    background-color: #c74936;
+    border: 5px solid #c74936;
+}
+#cat5{
+    background-color: #8f2514;
+    border: 5px solid #8f2514;
+}
+
 .categoryArea {
     padding: 10px;
+    padding-left: 30px;
     background: rgb(255,255,255);
+    margin-bottom: 70px;
+    font-size: 20px;
+}
+.categoryArea h1{
+    font-size: 30px;
+}
+#cat1Area{
+    border-left: 5px solid #fca89c;
+    border-top: 5px solid #fca89c;
+}
+#cat2Area{
+    border-left: 5px solid #ff8c7a;
+    border-top: 5px solid #ff8c7a;
+}
+#cat3Area{
+    border-left: 5px solid #fc6d57;
+    border-top: 5px solid #fc6d57;
+}
+#cat4Area{
+    border-left: 5px solid #c74936;
+    border-top: 5px solid #c74936;
+}
+#cat5Area{
+    border-left: 5px solid #8f2514;
+    border-top: 5px solid #8f2514;
 }
 
 .submitFormButton{
@@ -279,7 +328,7 @@ body {
 
 /* different divs of inputs */
 .divtxtInput, .radioQuestion, .dropdownQuestion, .multiQuestions {
-    padding-top: 25px;
+    padding-bottom: 25px;
     color:#6E615A;
 }
 
@@ -290,7 +339,7 @@ body {
     }
     /* Hide the default radio button */
     input[type="radio"] {
-        appearance: none; /* Removes default radio button styling */
+        appearance: none; 
         -webkit-appearance: none;
         -moz-appearance: none;
         background-color: #fff;
