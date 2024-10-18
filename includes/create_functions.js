@@ -70,15 +70,18 @@ window.addEventListener('load', function () {
 
         // First, reset all category links to their default state
         document.querySelectorAll('.category').forEach((cat) => {
-            cat.style.backgroundColor = "";
-            cat.style.color = "";
+            //cat.style.backgroundColor = "";
+            //cat.style.color = "";
         });
     
         // Check all entries to see which one is intersecting
         entries.forEach((entry) => {
+
             if (entry.isIntersecting) {
                 intersectingEntry = entry;  // Store the intersecting entry
-
+            }else{
+                entry.target.link.style.backgroundColor = "";
+                entry.target.link.style.color = "";
             }
             console.log(entry.target.id)
             console.log(entry)
@@ -91,7 +94,7 @@ window.addEventListener('load', function () {
             console.log("!!!!!",intersectingEntry);
         }
         else{
-            console.log("fel");
+            console.log("fel")
         }
         
         /*/ First, reset all category links to their default state
