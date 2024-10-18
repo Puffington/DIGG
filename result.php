@@ -30,7 +30,7 @@ include("includes/templates/header.php");
                 <div class="category" id="cat2">Law and Justice</div>
                 <div class="category" id="cat3">Security</div>
                 <div class="category" id="cat4">Performance</div>
-                <div class="category" id="cat5">Transparancy</div>
+                <div class="category" id="cat5">Transparency</div>
             </nav>
             <div class="left_res">
                 
@@ -40,7 +40,9 @@ include("includes/templates/header.php");
                     then print(congratulations heres your stamp)
                     else print(denied)-->
                     <img src="images/stampel.png" width="100" height="120">
+                    <div id="messageHolder"></div>
                 </div>
+                
 
                 <button class='menuButton'>Download Answers</botton>
             </div>

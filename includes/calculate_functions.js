@@ -23,12 +23,14 @@ window.addEventListener('load', async function () {
     let unnaceptable = new Map();
     let stamp = [];
 
+    let fail = false;
+
     //this part could be made more dynamically, but not necessary right now
     answerchecks = [[],[],[],[],[]];
 
     questions.forEach(element => {
 
-        if("text" in element){ //
+        if("text" in element || element.type == "number"){ // don't count names and numbers
         }else{
             answerchecks[element.category -1].push(element.id);
         }
@@ -53,6 +55,10 @@ window.addEventListener('load', async function () {
     console.log("hello world")
     console.log(answers)
 
+
+    let HIGHRISK = [];
+    let UNACCEPTABLE =[];
+
     //for (const key in OBJECT)
 
     for(const key in answers) {
@@ -74,12 +80,14 @@ window.addEventListener('load', async function () {
                 if (answers[key] == high.get(key)) {
                     console.log("HIGH RISK DETECTED!!!")
                     console.log("it has id:" + key)
+                    HIGHRISK.push(key);
                 }
             }else{
                 
                 if (answers[key][high.get(key)] == "1") {
                     console.log("HIGH RISK DETECTED!!!")
                     console.log("it has id:" + key)
+                    HIGHRISK.push(key);
                 }
             }
         }
@@ -88,12 +96,14 @@ window.addEventListener('load', async function () {
                 if (answers[key] == unnaceptable.get(key)) {
                     console.log("UNACC DETECTED!!!")
                     console.log("it has id:" + key)
+                    UNACCEPTABLE.push(key)
                 }
             }else{
 
                 if (answers[key][unnaceptable.get(key)] == "1") {
                     console.log("UNACC DETECTED!!!")
                     console.log("it has id:" + key)
+                    UNACCEPTABLE.push(key)
                 }
             }
         }
@@ -118,6 +128,27 @@ window.addEventListener('load', async function () {
     }
 
     console.log(answerchecks)
+
+    if(HIGHRISK.length > 0){
+        //it is highrisk
+        htmlTxt = "<div> This AI has been deemed high risk because of question ";
+        
+        for (val in HIGHRISK){
+            htmlTxt += HIGHRISK[val] + " ";
+        }
+
+        htmlTxt += "</div>";
+        document.getElementById("messageHolder").insertAdjacentHTML("beforeend", htmlTxt); 
+    }
+    if(UNACCEPTABLE.length > 0){
+        htmlTxt = "<div> This AI has been deemed AN UNACCEPTABLE RISK because of question ";
+        for (val in UNACCEPTABLE){
+            htmlTxt += UNACCEPTABLE[val] + " ";
+        }
+        htmlTxt += "</div>";
+        document.getElementById("messageHolder").insertAdjacentHTML("beforeend", htmlTxt); 
+    }
+
 
     //du måste skriva någonting
     //unnaceptable risk
