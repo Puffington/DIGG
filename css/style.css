@@ -234,14 +234,16 @@ body {
 
 #formNav {
     width: 20%;
+    position: sticky;
+    top: 100px;  
 }
 
 .scroller {
-    overflow-y: auto;
     width: 80%;
-    height: 30em;
     padding-left: 5px;
     row-gap: 2px;
+    max-height: 100vh;
+    overflow: auto;
 }
 .category {
     padding: 15px;

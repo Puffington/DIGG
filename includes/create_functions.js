@@ -50,8 +50,8 @@ window.addEventListener('load', function () {
 
     const options = {
         root: document.querySelector('.scroller'),
-        rootMargin: "0px",
-        threshold: 0.1,
+        threshold: 0.1,  // At least 50% of the section needs to be visible
+        //rootMargin: "0px 0px -90% 0px"
     };
 
     const observer = new IntersectionObserver(changeCategories, options);
@@ -65,6 +65,40 @@ window.addEventListener('load', function () {
 
     //change colours depending on intersection amount
     function changeCategories(entries, observer) {
+        
+        let intersectingEntry = null;  // To track the currently intersecting entry
+
+        // First, reset all category links to their default state
+        document.querySelectorAll('.category').forEach((cat) => {
+            cat.style.backgroundColor = "";
+            cat.style.color = "";
+        });
+    
+        // Check all entries to see which one is intersecting
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                intersectingEntry = entry;  // Store the intersecting entry
+
+            }
+            console.log(entry.target.id)
+            console.log(entry)
+        });
+    
+        // If we have an intersecting entry, apply the styles
+        if (intersectingEntry) {
+            intersectingEntry.target.link.style.backgroundColor = "#ffffff";
+            intersectingEntry.target.link.style.color = "#6E615A";
+            console.log("!!!!!",intersectingEntry);
+        }
+        else{
+            console.log("fel");
+        }
+        
+        /*/ First, reset all category links to their default state
+        document.querySelectorAll('.category').forEach((cat) => {
+            cat.style.backgroundColor = "";
+            cat.style.color = "";
+        });
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.link.style.backgroundColor = "#ffffff";
@@ -73,10 +107,9 @@ window.addEventListener('load', function () {
             }
             else {
                 entry.target.link.style.backgroundColor = "";
-                entry.target.link.style.color = "#ffffff";
             }
             console.log(entry.target.id)
-        })
+        })*/
     }
 })
 
@@ -146,10 +179,10 @@ function dropRevelio(selector) {
     let options = selector.options
     let element = document.getElementById(selector.parentNode.getAttribute("data-linked"))
 
-    if (options[selector.value].dataset.activate == "1" ) {
+    if (options[selector.value].dataset.activate == "1") {
         element.hidden = false;
     } else {
-        if(element != null) {
+        if (element != null) {
             element.hidden = true;
         }
     }
@@ -253,7 +286,7 @@ function builderOfElementsAddBlueprint() {
 function builderOfElements(obj) {
     let htmltxt = "";
     let temp = "";
-    if (obj.stamp == 1){
+    if (obj.stamp == 1) {
         temp = "*";
     }
 
@@ -283,7 +316,7 @@ function builderOfElements(obj) {
             htmltxt = "<div class='divtxtInput'> <p>" + temp + obj.id + ". " + obj.question + "</p>  <input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
 
             break;
-        
+
         // Bool
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + temp + obj.id + ". " + obj.question + "</p>" +
@@ -302,7 +335,7 @@ function builderOfElements(obj) {
             })
             htmltxt += "<option value='' hidden selected>Choose category</option></select></div>";
             break;
-        
+
         // Multi
         case "multi":
             htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + temp + obj.id + ". " + obj.question + "</p>";
