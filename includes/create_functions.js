@@ -50,7 +50,7 @@ window.addEventListener('load', function () {
 
     const options = {
         //root: document.querySelector('.scroller'),
-        threshold: 0.1, 
+        threshold: 0.1,
     };
 
     const observer = new IntersectionObserver(changeCategories, options);
@@ -64,19 +64,19 @@ window.addEventListener('load', function () {
 
     //change colours depending on intersection amount
     function changeCategories(entries, observer) {
-        
+
         let intersectingEntry = null;  // To track the currently intersecting entry
-    
+
         // Check all entries to see which one is intersecting
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 intersectingEntry = entry;  // Store the intersecting entry
-            }else{
+            } else {
                 entry.target.link.style.backgroundColor = "";
                 entry.target.link.style.color = "";
             }
         });
-    
+
         // If we have an intersecting entry, apply the styles
         if (intersectingEntry) {
             intersectingEntry.target.link.style.backgroundColor = "#ffffff";
@@ -388,28 +388,7 @@ function submitAndSend() {
     //this part is inefficient, but should work for now
     let currentDate = t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds()
     console.log(currentDate)
-
     console.log("orgid::" + output.orgnr)
-
-    allTheData = new URLSearchParams();
-    allTheData.append('AI', "somevalue")
-    //parameters.append("organisation","somevalue")
-    allTheData.append('NAME', output.aiName) //works
-    allTheData.append("ORGANISATION_ID", output.orgnr) //works
-    allTheData.append("URL", output.url) //works
-    allTheData.append("VERSION", 1)
-    allTheData.append("STAMP", 1)
-    allTheData.append("CREATED_DATE", currentDate) //works
-    allTheData.append("ANSWERS", JSON.stringify(output.answers)) //not implemented
-    //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
-
-    fetch('includes/db_functions.php', {
-        method: 'POST', //or GET, your choice ---UPDATE
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: allTheData
-    }).then(response =>  response.text()) //error handling from gpt, because of reasons
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
 
     //sending to organisation
     allTheData = new URLSearchParams();
@@ -417,17 +396,42 @@ function submitAndSend() {
     allTheData.append("ORGN_NR", output.orgnr)
     allTheData.append("NAME", output.orgName)
 
+    let temporaryID;
+
     fetch('includes/db_functions.php', {
         method: 'POST', //or GET, your choice
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData
-    }).then(response =>  response.text()) //error handling from gpt, because of reasons
+    }).then(response => response.text()) //error handling from gpt, because of reasons
         .then(data => {
             sessionStorage.setItem('output', JSON.stringify(output));
-            window.location.href = "result.php"
+            //window.location.href = "result.php"
             console.log(data)
+            temporaryID = data;
+            allTheData = new URLSearchParams();
+            allTheData.append('AI', "somevalue")
+            //parameters.append("organisation","somevalue")
+            allTheData.append('NAME', output.aiName) //works
+            allTheData.append("ORGANISATION_ID", temporaryID) //works
+            console.log("tempidär:" + temporaryID);
+            allTheData.append("URL", output.url) //works
+            allTheData.append("VERSION", 1)
+            allTheData.append("STAMP", 1)
+            allTheData.append("CREATED_DATE", currentDate) //works
+            allTheData.append("ANSWERS", JSON.stringify(output.answers)) //not implemented
+            //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
+
+            fetch('includes/db_functions.php', {
+                method: 'POST', //or GET, your choice ---UPDATE
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: allTheData
+            }).then(response => response.text()) //error handling from gpt, because of reasons
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+
         })
         .catch(error => console.error('Error:', error));
+
 
 
     /*
@@ -451,6 +455,6 @@ function submitAndSend() {
     //sender.submit() //will send data inside to anoteher php file
     //console.log(JSON.stringify(output.answers))
 
-    
+
 }
 

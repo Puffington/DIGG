@@ -6,9 +6,8 @@ require("connect.php");
 #ini_set('display_errors', '1');
 $database = new Connect("localhost", "root", "", "DIGG");
 $database->connect();
-print("HEEEEEY YOU MADE IT i can post errors here!!!");
-print("post:");
-print(json_encode($_POST));
+
+#print(json_encode($_POST));
 
 
 
@@ -16,7 +15,6 @@ print(json_encode($_POST));
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["AI"])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        print("AI worked!!!");
         #$data = json_decode(file_get_contents("php://input"), true); // decoding the json data, might use this for later
         $ID = !empty($_POST["ID"]) ? $_POST["ID"] : NULL; //not actually needed
         $ORGANISATION_ID = !empty($_POST["ORGANISATION_ID"]) ? $_POST["ORGANISATION_ID"] : NULL;
@@ -31,8 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
       exit(); 
   } elseif (isset($_POST["ORGANISATION"])) {
-        print("ORG worked");
-
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $ID = !empty($_POST["ID"]) ? $_POST["ID"] : NULL;

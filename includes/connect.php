@@ -58,7 +58,9 @@ class Connect
             $stmt->bind_param("iis", $ID, $ORGN_NR, $NAME);
 
             if ($stmt->execute()) {
-                echo "Data successfully inserted into Organisation table.";
+                #echo "Data successfully inserted into Organisation table.";
+                $new_id = $this->conn->insert_id;
+                echo $new_id;
                 return true;
             } else {
                 echo "Error executing query: " . $stmt->error;
