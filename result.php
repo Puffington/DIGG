@@ -25,12 +25,12 @@ include("includes/templates/header.php");
             <h1>The Trust Model: Results</h1>
         </div>
         <div class="horizontal">
-            <nav id="formNav">
-                <div class="category" id="cat1" >General Information</div>
-                <div class="category" id="cat2" >Law and Justice</div>
-                <div class="category" id="cat3" >Security</div>
-                <div class="category" id="cat4" >Performance</div>
-                <div class="category" id="cat5" >Transparancy</div>
+            <nav id="formNav_result">
+                <div class="category" id="cat1">General Information</div>
+                <div class="category" id="cat2">Law and Justice</div>
+                <div class="category" id="cat3">Security</div>
+                <div class="category" id="cat4">Performance</div>
+                <div class="category" id="cat5">Transparancy</div>
             </nav>
             <div class="left_res">
                 

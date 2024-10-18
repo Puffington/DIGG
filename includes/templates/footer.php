@@ -10,11 +10,11 @@
         color: inherit;
     }
     footer {
-    background-color: #ffffff;
-    border-top: 1px solid #6e615a;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+        background-color: #ffffff;
+        border-top: 1px solid #6e615a;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
     }
 </style>
 <footer>
