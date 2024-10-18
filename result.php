@@ -26,16 +26,16 @@ include("includes/templates/header.php");
         </div>
         <div class="horizontal">
             <nav id="formNav">
-                <div class="category" id="cat1" onclick="scroller(this)">General Information</div>
-                <div class="category" id="cat2" onclick="scroller(this)">Law and Justice</div>
-                <div class="category" id="cat3" onclick="scroller(this)">Security</div>
-                <div class="category" id="cat4" onclick="scroller(this)">Performance</div>
-                <div class="category" id="cat5" onclick="scroller(this)">Transparancy</div>
+                <div class="category" id="cat1" >General Information</div>
+                <div class="category" id="cat2" >Law and Justice</div>
+                <div class="category" id="cat3" >Security</div>
+                <div class="category" id="cat4" >Performance</div>
+                <div class="category" id="cat5" >Transparancy</div>
             </nav>
             <div class="left_res">
                 
                 <div class="cat_res">
-                    <h2>Your AI is approved!</h2>
+                    <h2 id="resultText">Your AI is approved!</h2>
                     <!-- if program.result = true 
                     then print(congratulations heres your stamp)
                     else print(denied)-->

@@ -6,11 +6,7 @@
 //  (stamp questions) - have to be answered to continue
 //  red if unnaceptable - what parts? 
 //  high risk - requirements?
-//  
-
 // dynamic questions- when to count them in to the calculations
-
-
 
 window.addEventListener('load', async function () {
 
@@ -52,15 +48,10 @@ window.addEventListener('load', async function () {
         }
     });
 
+    answerMemory = answerchecks;
+
     console.log("hello world")
     console.log(answers)
-
-    if("orgName" in output){
-        answerchecks
-    }
-
-
-
 
     //for (const key in OBJECT)
 
@@ -106,11 +97,22 @@ window.addEventListener('load', async function () {
         }
     }
 
+
+
+
+    //will now check what parts worked... or not
+
+    let cats = ["cat1","cat2","cat3","cat4","cat5"];
+
+    for(let i=0; i<cats.length;i++) {
+        htmlTxt = "<div>" +answerMemory[i].length +" / "+ answerchecks[i].length +"</div>";
+        document.getElementById(cats[i]).insertAdjacentHTML("beforeend", htmlTxt);        
+    };
+
     if(stamp.length != 0){
-        console.log("DIDNT answer important questions");
-        console.log(stamp)
+        this.document.getElementById("resultText").textContent = "ALL STAMPS ARE NOT DONE, YE SHOITE"
     }else{
-        console.log("ALL IMPORTANT ANSWERS DONE");
+        this.document.getElementById("resultText").textContent = "YE DID IT, GOOD ON YA!!"
     }
 
     console.log(answerchecks)
