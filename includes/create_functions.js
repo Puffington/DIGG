@@ -49,9 +49,8 @@ window.addEventListener('load', function () {
     cat5.link = A5;
 
     const options = {
-        root: document.querySelector('.scroller'),
-        threshold: 0.1,  // At least 50% of the section needs to be visible
-        //rootMargin: "0px 0px -90% 0px"
+        //root: document.querySelector('.scroller'),
+        threshold: 0.1, 
     };
 
     const observer = new IntersectionObserver(changeCategories, options);
@@ -67,52 +66,22 @@ window.addEventListener('load', function () {
     function changeCategories(entries, observer) {
         
         let intersectingEntry = null;  // To track the currently intersecting entry
-
-        // First, reset all category links to their default state
-        document.querySelectorAll('.category').forEach((cat) => {
-            //cat.style.backgroundColor = "";
-            //cat.style.color = "";
-        });
     
         // Check all entries to see which one is intersecting
         entries.forEach((entry) => {
-
             if (entry.isIntersecting) {
                 intersectingEntry = entry;  // Store the intersecting entry
             }else{
                 entry.target.link.style.backgroundColor = "";
                 entry.target.link.style.color = "";
             }
-            console.log(entry.target.id)
-            console.log(entry)
         });
     
         // If we have an intersecting entry, apply the styles
         if (intersectingEntry) {
             intersectingEntry.target.link.style.backgroundColor = "#ffffff";
             intersectingEntry.target.link.style.color = "#6E615A";
-            console.log("!!!!!",intersectingEntry);
         }
-        else{
-            console.log("fel")
-        }
-        
-        /*/ First, reset all category links to their default state
-        document.querySelectorAll('.category').forEach((cat) => {
-            cat.style.backgroundColor = "";
-            cat.style.color = "";
-        });
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.link.style.backgroundColor = "#ffffff";
-                entry.target.link.style.color = "#6E615A";
-                console.log(entry.target.link)
-            }
-            else {
-                entry.target.link.style.backgroundColor = "";
-            }
-            console.log(entry.target.id)
-        })*/
     }
 })
 
