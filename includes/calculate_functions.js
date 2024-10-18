@@ -1,5 +1,18 @@
+//things to do
+//make so that the fetch things happen first, and after they're done, then you can continue
+//possibly change so that a specific amount of questions are answered. DUNNO
+
+//  yellow if not answered all questions (being able to keep all questions in check)
+//  (stamp questions) - have to be answered to continue
+//  red if unnaceptable - what parts? 
+//  high risk - requirements?
+//  
+
+// dynamic questions- when to count them in to the calculations
+
+
+
 window.addEventListener('load', async function () {
-    //linking objects
 
     let questions = fetch("includes/questions.json");
     console.log(questions);
@@ -8,13 +21,22 @@ window.addEventListener('load', async function () {
     }
 
     questions = await (await questions).json(); //waiting for respons
-    let answers = JSON.parse(sessionStorage.getItem('output'));
-
+    let output = JSON.parse(sessionStorage.getItem('output'));
+    let answers = output.answers
     let high = new Map();
     let unnaceptable = new Map();
     let stamp = [];
 
+    //this part could be made more dynamically, but not necessary right now
+    answerchecks = [[],[],[],[],[]];
+
     questions.forEach(element => {
+
+        if("text" in element){
+        }else{
+            answerchecks[element.category -1].push(element.id);
+        }
+        
         if (element.stamp == "1") { //checking that all these have been answered
             stamp.push(element.id)
         }
@@ -33,11 +55,22 @@ window.addEventListener('load', async function () {
     console.log("hello world")
     console.log(answers)
 
+    if("orgName" in output){
+        answerchecks
+    }
+
+
+
+
     //for (const key in OBJECT)
 
     for(const key in answers) {
-        console.log("key:" + key + " val:" + answers[key])
-
+        answerchecks.forEach(element => {
+            if(element.includes(key)){
+                element.splice(element.indexOf(key),1)
+            }
+        })
+       console.log("key:" + key + " val:" + answers[key])
         if(stamp.includes(key)){
             stamp.splice(stamp.indexOf(key),1);
         }
@@ -76,14 +109,14 @@ window.addEventListener('load', async function () {
     if(stamp.length != 0){
         console.log("DIDNT answer important questions");
         console.log(stamp)
-
     }else{
         console.log("ALL IMPORTANT ANSWERS DONE");
     }
 
+    console.log(answerchecks)
+
     //du måste skriva någonting
     //unnaceptable risk
     //high risk
-
     //low risk / transparency req / minimal risk
 })

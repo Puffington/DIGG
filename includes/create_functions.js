@@ -12,6 +12,7 @@
 // Question 5A: version? what type? (text/number)
 // 26A utveckla...
 // selected dropdown no answer?
+// one question has how the data is stored, another is about data security measures, if you answer not vasing, then question is useless 
 
 //Nikki
 // unmark a yes/no answer
