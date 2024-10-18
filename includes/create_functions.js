@@ -264,7 +264,7 @@ function builderOfElements(obj) {
     switch ((obj.type).toLowerCase()) {
         // Number
         case "number":
-            htmltxt = "<div class='divtxtInput'> <p>" + temp + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
+            htmltxt = "<div class='divtxtInput'> <p>" + temp + obj.id + ". " + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             break;
 
         // Text
