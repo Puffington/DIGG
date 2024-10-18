@@ -39,7 +39,7 @@ include("includes/templates/header.php");
                     <h1>Security</h1>
                 </div>
                 <div class="categoryArea" id="cat4Area">
-                    <h1>Performance</h>
+                    <h1>Performance</h1>
                 </div>
                 <div class="categoryArea" id="cat5Area">
                     <h1>Transparancy</h1>

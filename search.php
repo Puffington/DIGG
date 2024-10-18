@@ -36,6 +36,7 @@ include("includes/templates/header.php");
 
                     $query = "SELECT * FROM organisation";
                     $result = mysqli_query($database->getConnection(), $query);
+
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<li><a href='?orgId=" . $row['ID'] . "'>" . $row['NAME'] . "</a></li>";
                     }
