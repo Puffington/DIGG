@@ -117,7 +117,8 @@ window.addEventListener('load', async function () {
     let cats = ["cat1","cat2","cat3","cat4","cat5"];
 
     for(let i=0; i<cats.length;i++) {
-        htmlTxt = "<div>" +answerMemory[i].length +" / "+ answerchecks[i].length +"</div>";
+        //htmlTxt = "<div>" +answerMemory[i].length +" / "+ answerchecks[i].length +"</div>";
+        htmlTxt = "<div>" + (answerMemory[i].length - answerchecks[i].length) +" out of "+answerMemory[i].length+" answered </div>"
         document.getElementById(cats[i]).insertAdjacentHTML("beforeend", htmlTxt);        
     };
 
