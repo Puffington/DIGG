@@ -28,7 +28,7 @@ window.addEventListener('load', async function () {
 
     questions.forEach(element => {
 
-        if("text" in element){
+        if("text" in element){ //
         }else{
             answerchecks[element.category -1].push(element.id);
         }
@@ -48,7 +48,7 @@ window.addEventListener('load', async function () {
         }
     });
 
-    answerMemory = answerchecks;
+    answerMemory = structuredClone(answerchecks);
 
     console.log("hello world")
     console.log(answers)
@@ -56,11 +56,13 @@ window.addEventListener('load', async function () {
     //for (const key in OBJECT)
 
     for(const key in answers) {
-        answerchecks.forEach(element => {
-            if(element.includes(key)){
-                element.splice(element.indexOf(key),1)
+
+        for(let thing in answerchecks){  //checks all available answers, and if answered
+            if(answerchecks[thing].includes(key)){
+                answerchecks[thing].splice(answerchecks[thing].indexOf(key),1);  
             }
-        })
+        }
+
        console.log("key:" + key + " val:" + answers[key])
         if(stamp.includes(key)){
             stamp.splice(stamp.indexOf(key),1);
