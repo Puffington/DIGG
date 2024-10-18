@@ -1,21 +1,27 @@
 <style>
-    .greyback{
-        background-color: #d6d9d3;
+    .whiteback{
+        background-color: #ffffff;
         color: black;
     }
-
     .sv-defaultlist{
         list-style-type: none;
     }
     .linku{
         color: inherit;
     }
+    footer {
+    background-color: #ffffff;
+    border-top: 1px solid #6e615a;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    }
 </style>
 <footer>
     <!-- let's try to copy digg!! -->
     <div>
-        <div class="horizontal greyback">
-            <div>
+        <div class="horizontal whiteback">
+            <div class="info">
                 <h2>Kontakta oss</h2>
                 <p><a class="linku" href="mailto:info@digg.se">info@digg.se</a></p>
                 <p>
