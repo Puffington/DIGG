@@ -381,9 +381,7 @@ async function getQuestions(mode) {
 function submitAndSend() {
 
     output.answers = AnswerMem;
-    let sender = document.getElementById("submit")
-
-    console.log("SUBMITTING YOUR TEXT")
+    //let sender = document.getElementById("submit")
 
     let t = new Date();
 
@@ -409,12 +407,10 @@ function submitAndSend() {
         method: 'POST', //or GET, your choice ---UPDATE
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData
-    })
-
-    /*.then(response => response.text()) //error handling from gpt, because of reasons
+    }).then(response =>  response.text()) //error handling from gpt, because of reasons
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
-*/
+
     //sending to organisation
     allTheData = new URLSearchParams();
     allTheData.append("ORGANISATION", "")
@@ -425,15 +421,18 @@ function submitAndSend() {
         method: 'POST', //or GET, your choice
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData
-    })
-    /*.then(response => response.text()) //error handling from gpt, because of reasons
-        .then(data => console.log(data))
+    }).then(response =>  response.text()) //error handling from gpt, because of reasons
+        .then(data => {
+            sessionStorage.setItem('output', JSON.stringify(output));
+            window.location.href = "result.php"
+            console.log(data)
+        })
         .catch(error => console.error('Error:', error));
 
 
-    //
+    /*
     allTheData = new URLSearchParams();
-    allTheData.append("ID", 29)
+    allTheData.append("ID", "")
     allTheData.append("VARIABLE", "URL")
     allTheData.append("VALUE", "THINGAMABOB")
 
@@ -442,12 +441,16 @@ function submitAndSend() {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData
     }).then(response => response.text()) //error handling from gpt, because of reasons
-        .then(data => console.log(data))
+        .then(data => {
+            console.log("orgdata:"+data)
+            sessionStorage.setItem('output', JSON.stringify(output));
+            //window.location.href = "result.php"
+        })
         .catch(error => console.error('Error:', error));
 */
     //sender.submit() //will send data inside to anoteher php file
     //console.log(JSON.stringify(output.answers))
-    sessionStorage.setItem('output', JSON.stringify(output));
-    window.location.href = "result.php"
+
+    
 }
 
