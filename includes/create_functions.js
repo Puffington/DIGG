@@ -377,6 +377,28 @@ async function getQuestions(mode) {
     console.log("you pressed correctly")
 }
 
+
+async function pdfing() {
+    allTheData = new URLSearchParams();
+    allTheData.append("PDF","test")
+    //allTheData.append("QUESTIONS",await objQuestions)
+    allTheData.append("ANSWERS", JSON.stringify(AnswerMem)) //not implemented
+    //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
+
+    console.log(AnswerMem)
+
+    fetch('includes/pdf_functions.php', {
+        method: 'POST', //or GET, your choice ---UPDATE
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: allTheData
+    }).then(response => response.text()) //error handling from gpt, because of reasons
+        .then(data => {
+            console.log(data)
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
 // submitting and sending to the next page
 function submitAndSend() {
 
@@ -426,13 +448,13 @@ function submitAndSend() {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: allTheData
             }).then(response => response.text()) //error handling from gpt, because of reasons
-                .then(data => console.log(data))
+                .then(data => {
+                    window.location.href = "result.php"
+                    console.log(data)
+                })
                 .catch(error => console.error('Error:', error));
-
         })
         .catch(error => console.error('Error:', error));
-
-
 
     /*
     allTheData = new URLSearchParams();

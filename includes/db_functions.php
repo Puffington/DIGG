@@ -10,10 +10,9 @@ $database->connect();
 #print(json_encode($_POST));
 
 
-
 ///Does NOT require ID, in fact DON'T put in an ID!! 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (isset($_POST["AI"])) {
+
+if (isset($_POST["AI"])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         #$data = json_decode(file_get_contents("php://input"), true); // decoding the json data, might use this for later
         $ID = !empty($_POST["ID"]) ? $_POST["ID"] : NULL; //not actually needed
@@ -24,22 +23,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $STAMP = !empty($_POST["STAMP"]) ? $_POST["STAMP"] : NULL;
         $CREATED_DATE = !empty($_POST["CREATED_DATE"]) ? $_POST["CREATED_DATE"] : NULL;
         $ANSWERS = !empty($_POST["ANSWERS"]) ? $_POST["ANSWERS"] : NULL;
-        
-        $database->insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE,$ANSWERS);
+
+        $database->insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $ANSWERS);
     }
-      exit(); 
-  } elseif (isset($_POST["ORGANISATION"])) {
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    exit();
+} elseif (isset($_POST["ORGANISATION"])) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $ID = !empty($_POST["ID"]) ? $_POST["ID"] : NULL;
         $ORGN_NR = !empty($_POST["ORGN_NR"]) ? $_POST["ORGN_NR"] : NULL;
         $NAME = !empty($_POST["NAME"]) ? $_POST["NAME"] : NULL;
-        
+
         $database->insertIntoOrganisationTable($ID, $ORGN_NR, $NAME);
     }
-      exit(); 
-  }
+    exit();
+}elseif(isset($_POST["PDF"])){
+    echo("you got to the right area!!! hosam can code here");
+    
+
+    //QUESTIONS - has all the JSON questions, Parse them and then create pdf from them
+    //ANSWERS - has all the answers from the form, in the form  of {ID,VALUE}, use  a  "for each" os similar to iterate through each answer
+    //ex. having OBJECT.ID will give value you can even iterate through every ID from the questions if you want
+
+    $ANSWERS = json_decode($_POST["ANSWERS"], true);
+    $QUESTIONS = json_decode(file_get_contents("questions.json"),true);
+
+    #echo("answers:  ". json_encode($ANSWERS)); //here you can see the structure of answers
+    #echo("   questions:  ".json_encode($QUESTIONS)); //here you can see the structure of questions
+
+    foreach ($ANSWERS as $key => $value) {
+        echo( $key ." - ". $value . "   ");
+    }
+
+    if ($QUESTIONS !== null && is_array($QUESTIONS)) {
+        // Loop through the array of objects
+        foreach ($QUESTIONS as $object) {
+            if(isset($object['id']))
+            echo("id ".$object['id']);
+        }
+    } else {
+        // Handle error (e.g., log, show error message)
+        echo "Failed to decode JSON or no data available.";
+    }
+
+
+
+
+
 }
+
+
+
 
 /*
 ///Requires (ID , VARIABLE, NewVALUE)
@@ -56,7 +90,3 @@ if($_SERVER["REQUEST_METHOD"] == "UPDATE") {
 #BEGIN
 #INSERT INTO Productsnew (ProductName,SupplierID,CategoryID,Unit,Price) Values ('Jeera Rice',1,7,'7,5 kg',120)
 #END
-
-
-
-?>

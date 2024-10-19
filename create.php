@@ -49,8 +49,8 @@ include("includes/templates/header.php");
                 </form>
             </div>
         </div>
-
     </div>
+    <button onclick="pdfing()">hosams pdf</button>
     <div id="examples"></div>
 </main>
 
