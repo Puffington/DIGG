@@ -31,10 +31,10 @@ include("includes/templates/header.php");
                 <ul id="nameList">
                     <?php
                     require("includes/connect.php");
-                    $database = new Connect("localhost", "root", "", "DIGG");
+                    $database = new Connect("195.26.252.179", "digg2024", "diggsims24", "digg");
                     $database->connect();
 
-                    $query = "SELECT * FROM organisation";
+                    $query = "SELECT * FROM Organisation";
                     $result = mysqli_query($database->getConnection(), $query);
 
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -50,7 +50,7 @@ include("includes/templates/header.php");
                 if (isset($_GET['orgId'])) {
                     $orgId = $_GET['orgId'];
                     // Correct query using 'ID' instead of 'ORGANISATION_ID'
-                    $orgQuery = "SELECT * FROM organisation WHERE ID = $orgId";
+                    $orgQuery = "SELECT * FROM Organisation WHERE ID = $orgId";
 
                     // Execute the query and fetch the organization name
                     $orgResult = mysqli_query($database->getConnection(), $orgQuery);
