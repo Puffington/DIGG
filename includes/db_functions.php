@@ -4,7 +4,7 @@ require("connect.php");
 
 #error_reporting(E_ALL);
 #ini_set('display_errors', '1');
-$database = new Connect("https://vmi2212026.contaboserver.netcd/", "root", "diggsims24", "digg");
+$database = new Connect("localhost", "root", "", "digg");
 $database->connect();
 
 #print(json_encode($_POST));
