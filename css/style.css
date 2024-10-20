@@ -449,16 +449,33 @@ form{
 
 
 /* Reuslt style """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
-.cat_res {
-    background-color: white;
-    padding: 15px;
-    width: 40%;
+#option_buttons {
+    position: absolute;
+    bottom: 40px; /* Fixes the button 20px from the bottom of the #left_result */
 }
-.left_res{
+#option_buttons button{
+    margin-left: 20px;
+}
+#left_result {
+    position: relative;
+    background-color: white;
     width: 80%;
-    height: 30em;
-    padding-left: 5px;
+    padding: 55px;
     row-gap: 2px;
+    flex: 1;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 7px 1px rgb(151, 151, 151);
+}
+.nrAnsweredQ, #explanationText{
+    font-size: 17px;
+    font-weight: lighter;
+}
+#horizontal_result{
+    display: flex;
+    align-items: stretch;
 }
 
 /* Result style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/

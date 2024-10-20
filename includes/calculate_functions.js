@@ -26,15 +26,15 @@ window.addEventListener('load', async function () {
     let fail = false;
 
     //this part could be made more dynamically, but not necessary right now
-    answerchecks = [[],[],[],[],[]];
+    answerchecks = [[], [], [], [], []];
 
     questions.forEach(element => {
 
-        if("text" in element || element.type == "number"){ // don't count names and numbers
-        }else{
-            answerchecks[element.category -1].push(element.id);
+        if ("text" in element || element.type == "number") { // don't count names and numbers
+        } else {
+            answerchecks[element.category - 1].push(element.id);
         }
-        
+
         if (element.stamp == "1") { //checking that all these have been answered
             stamp.push(element.id)
         }
@@ -57,33 +57,33 @@ window.addEventListener('load', async function () {
 
 
     let HIGHRISK = [];
-    let UNACCEPTABLE =[];
+    let UNACCEPTABLE = [];
 
     //for (const key in OBJECT)
 
-    for(const key in answers) {
+    for (const key in answers) {
 
-        for(let thing in answerchecks){  //checks all available answers, and if answered
-            if(answerchecks[thing].includes(key)){
-                answerchecks[thing].splice(answerchecks[thing].indexOf(key),1);  
+        for (let thing in answerchecks) {  //checks all available answers, and if answered
+            if (answerchecks[thing].includes(key)) {
+                answerchecks[thing].splice(answerchecks[thing].indexOf(key), 1);
             }
         }
 
-       console.log("key:" + key + " val:" + answers[key])
-        if(stamp.includes(key)){
-            stamp.splice(stamp.indexOf(key),1);
+        console.log("key:" + key + " val:" + answers[key])
+        if (stamp.includes(key)) {
+            stamp.splice(stamp.indexOf(key), 1);
         }
 
         if (high.has(key)) {
             console.log(answers[key][high.get(key)])
-            if(answers[key].length == 1){
+            if (answers[key].length == 1) {
                 if (answers[key] == high.get(key)) {
                     console.log("HIGH RISK DETECTED!!!")
                     console.log("it has id:" + key)
                     HIGHRISK.push(key);
                 }
-            }else{
-                
+            } else {
+
                 if (answers[key][high.get(key)] == "1") {
                     console.log("HIGH RISK DETECTED!!!")
                     console.log("it has id:" + key)
@@ -92,13 +92,13 @@ window.addEventListener('load', async function () {
             }
         }
         if (unnaceptable.has(key)) {
-            if(answers[key].length == 1){
+            if (answers[key].length == 1) {
                 if (answers[key] == unnaceptable.get(key)) {
                     console.log("UNACC DETECTED!!!")
                     console.log("it has id:" + key)
                     UNACCEPTABLE.push(key)
                 }
-            }else{
+            } else {
 
                 if (answers[key][unnaceptable.get(key)] == "1") {
                     console.log("UNACC DETECTED!!!")
@@ -114,40 +114,69 @@ window.addEventListener('load', async function () {
 
     //will now check what parts worked... or not
 
-    let cats = ["cat1","cat2","cat3","cat4","cat5"];
+    let cats = ["cat1", "cat2", "cat3", "cat4", "cat5"];
 
-    for(let i=0; i<cats.length;i++) {
+    for (let i = 0; i < cats.length; i++) {
         //htmlTxt = "<div>" +answerMemory[i].length +" / "+ answerchecks[i].length +"</div>";
-        htmlTxt = "<div>" + (answerMemory[i].length - answerchecks[i].length) +" out of "+answerMemory[i].length+" answered </div>"
-        document.getElementById(cats[i]).insertAdjacentHTML("beforeend", htmlTxt);        
+        htmlTxt = "<div class='nrAnsweredQ'>" + (answerMemory[i].length - answerchecks[i].length) + " out of " + answerMemory[i].length + " answered</div>"
+        document.getElementById(cats[i]).insertAdjacentHTML("beforeend", htmlTxt);
     };
 
-    if(stamp.length != 0){
-        this.document.getElementById("resultText").textContent = "ALL STAMPS ARE NOT DONE, YE SHOITE"
-    }else{
-        this.document.getElementById("resultText").textContent = "YE DID IT, GOOD ON YA!!"
+    if (stamp.length != 0) {
+        this.document.getElementById("resultText").textContent = "YOUR AI HAS BEEN DENIED."//ALL STAMPS ARE NOT DONE, YE SHOITE
+        this.document.getElementById("explanationText").textContent = "Your AI-system is not fulfilling all requirements." //Something more perhaps
+        this.document.getElementById("suggestion").textContent = "Retake the test or go back to main."
+
+        // Create a Home button element
+        let buttonHome = document.createElement("button");
+        buttonHome.textContent = "Go to Homepage";
+        buttonHome.classList.add("menuButton");
+        buttonHome.onclick = function () {
+            window.location.href = "index.php";
+        };
+        document.getElementById("option_buttons").appendChild(buttonHome);
+
+        // Create a Form button element
+        let buttonForm = document.createElement("button");
+        buttonForm.textContent = "Go to The From";
+        buttonForm.classList.add("menuButton");
+        buttonForm.onclick = function () {
+            window.location.href = "create.php";
+        };
+        document.getElementById("option_buttons").appendChild(buttonForm);
+    } else {
+        this.document.getElementById("resultText").textContent = "YOUR AI HAS BEEN ACCEPTED!"//YE DID IT, GOOD ON YA!!
+        this.document.getElementById("explanationText").textContent = "Now, your AI-system can be found in our record. Feel free to use our Stamp of Quality." //Something more perhaps
+        //this.document.getElementById("suggestion").textContent = ""
+
+        // Add an image
+        let img = document.createElement("img");
+        img.src = "images/stampel.png";
+        img.width = 100;
+        img.height = 120;
+        document.getElementById("left_result").appendChild(img);
     }
 
     console.log(answerchecks)
 
-    if(HIGHRISK.length > 0){
+    if (HIGHRISK.length > 0) {
         //it is highrisk
         htmlTxt = "<div> This AI has been deemed high risk because of question ";
-        
-        for (val in HIGHRISK){
+
+        for (val in HIGHRISK) {
             htmlTxt += HIGHRISK[val] + " ";
         }
 
         htmlTxt += "</div>";
-        document.getElementById("messageHolder").insertAdjacentHTML("beforeend", htmlTxt); 
+        document.getElementById("messageHolder").insertAdjacentHTML("beforeend", htmlTxt);
     }
-    if(UNACCEPTABLE.length > 0){
+    if (UNACCEPTABLE.length > 0) {
         htmlTxt = "<div> This AI has been deemed AN UNACCEPTABLE RISK because of question ";
-        for (val in UNACCEPTABLE){
+        for (val in UNACCEPTABLE) {
             htmlTxt += UNACCEPTABLE[val] + " ";
         }
         htmlTxt += "</div>";
-        document.getElementById("messageHolder").insertAdjacentHTML("beforeend", htmlTxt); 
+        document.getElementById("messageHolder").insertAdjacentHTML("beforeend", htmlTxt);
     }
 
 

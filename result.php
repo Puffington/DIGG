@@ -13,6 +13,8 @@ include("includes/templates/header.php");
 <!-- Main Content -->
 <main>
     <div class="breadcrums">
+
+        <!-- Navigation -->
         <nav>
             <i class="fa-solid fa-house"></i>&emsp;
             <a href="index.php">The Trust Model</a>&emsp;
@@ -21,10 +23,15 @@ include("includes/templates/header.php");
             <i class="fa-solid fa-chevron-right"></i>&emsp;
             <a href="#">Result</a>
         </nav>
+
         <div class="headline">
             <h1>The Trust Model: Results</h1>
         </div>
-        <div class="horizontal">
+
+        <!-- Content -->
+        <div class="horizontal" id="horizontal_result">
+
+            <!-- Categories -->
             <nav id="formNav_result">
                 <div class="category" id="cat1">General Information</div>
                 <div class="category" id="cat2">Law and Justice</div>
@@ -32,19 +39,24 @@ include("includes/templates/header.php");
                 <div class="category" id="cat4">Performance</div>
                 <div class="category" id="cat5">Transparency</div>
             </nav>
-            <div class="left_res">
+
+            <!-- Left Side of the Result Page -->
+            <div class="left_res" id="left_result">
                 
+                <!-- Info depending on the result -->
                 <div class="cat_res">
-                    <h2 id="resultText">Your AI is approved!</h2>
-                    <!-- if program.result = true 
-                    then print(congratulations heres your stamp)
-                    else print(denied)-->
-                    <img src="images/stampel.png" width="100" height="120">
+                    <h2 id="resultText"></h2>
+                    <p id="explanationText"></p>
+                    <div id="suggestion"></div>
                     <div id="messageHolder"></div>
                 </div>
                 
+                <!-- Options depending on the result -->
+                <div id="option_buttons">
+                    <button class='menuButton'>Download Answers</botton>
+                </div>
 
-                <button class='menuButton'>Download Answers</botton>
+                
             </div>
 
         </div>
