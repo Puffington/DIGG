@@ -45,7 +45,7 @@ include("includes/templates/header.php");
                     <h1>Transparancy</h1>
                 </div> <!--  action="result.php" -->
                 <form type="hidden" onclick="submitAndSend(this)">
-                    <input type="button" class="submitFormButton" value="Submit">
+                    <input type="button" class="menuButton" id="submitFormButton" value="Submit your answers!">
                 </form>
             </div>
         </div>

@@ -73,7 +73,6 @@
 
 /* Main body styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 body {
-    font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #faf4f2;
 }
@@ -105,10 +104,13 @@ body {
 .menuButton {
     margin-top: 10px;
     padding: 10px;
-    width: 30%;
+    padding-left: 25px;
+    padding-right: 25px;
     border-radius: 50px;
     background-color: #6E615A;
     color: #fff;
+    font-size: 17px;
+    font-weight: bold;
     border: none;
     cursor: pointer;
 }
@@ -156,11 +158,18 @@ body {
 }
 
 .textTrustModel {
-    margin: 0 0px;
+    margin-right: 30px;
     padding: 20px;
     border-radius: 10px;
     border-style: solid;
     border-color: #ef8271;
+    font-size: 17px;
+}
+.chatgpt{
+    margin-top: 10px;
+    color:black;
+    font-size: 14px;
+    font-style: italic;
 }
 
 /* Main content */
@@ -261,6 +270,7 @@ body {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
+    border-radius: 10px;
     box-shadow: 3px 3px 7px 1px rgb(151, 151, 151);
 }
 #cat1{
@@ -287,6 +297,7 @@ body {
 .categoryArea {
     padding: 10px;
     padding-left: 30px;
+    padding-right: 50px;
     background: #FFFFFF;
     margin-bottom: 70px;
     margin-left: 10px;
@@ -320,18 +331,19 @@ body {
     border-top: 5px solid #FBD0D0;
 }
 
-.submitFormButton{
+form{
+    padding-left: 30px;
+}
+#submitFormButton{
     background-color: #7B8574;
     border: 3px solid #7B8574;
     color: white;
-    font-weight: bold;
-    font-size: medium;
-    width: 50%;
-    padding: 7px;
-    border-radius: 20px;
-    margin-top: 20px;
+    font-size: 20px;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
-.submitFormButton:hover{
+#submitFormButton:hover{
     background-color: white;
     color: #7B8574;
     cursor: pointer;
@@ -347,7 +359,7 @@ body {
 
 /* different divs of inputs */
 .divtxtInput, .radioQuestion, .dropdownQuestion, .multiQuestions {
-    padding-bottom: 35px;
+    padding-bottom: 25px;
     color:#6E615A;
 }
 
