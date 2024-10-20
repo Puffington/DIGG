@@ -21,6 +21,10 @@ class Connect
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error);
         }
+        else {
+            echo "Connection successfully established!";
+        }
+        
     }
 
     public function getConnection()
