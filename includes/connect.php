@@ -1,8 +1,8 @@
 <?php
 class Connect
 {
-    private $server = "195.26.252.179/DIGG/";
-    private $username = "root";
+    private $server = "195.26.252.179";
+    private $username = "digg2024";
     private $password = "diggsims24";
     private $database_name = "digg";
     private $conn;
