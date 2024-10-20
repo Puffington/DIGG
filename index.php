@@ -14,7 +14,7 @@
     <main>
         <div class="breadcrums">
             <nav>
-                <i class="fa-solid fa-house"></i>
+                <i class="fa-solid fa-house"></i>&emsp;
                 <a href="index.php">The Trust Model</a>
             </nav>
             
