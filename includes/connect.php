@@ -22,7 +22,7 @@ class Connect
             die("Connection failed: " . $this->conn->connect_error);
         }
         else{
-            echo "Connection successfully established!";
+            //echo "Connection successfully established!";
         }
         
         

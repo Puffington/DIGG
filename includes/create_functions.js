@@ -79,8 +79,8 @@ window.addEventListener('load', function () {
 
         // If we have an intersecting entry, apply the styles
         if (intersectingEntry) {
-            intersectingEntry.target.link.style.backgroundColor = "#ffffff";
-            intersectingEntry.target.link.style.color = "#6E615A";
+            intersectingEntry.target.link.style.backgroundColor = "#6E615A";
+            intersectingEntry.target.link.style.color = "#FFFFFF";
         }
     }
 })
@@ -257,15 +257,15 @@ function builderOfElementsAddBlueprint() {
 
 function builderOfElements(obj) {
     let htmltxt = "";
-    let temp = "";
+    let mandantoryQ = "";
     if (obj.stamp == 1) {
-        temp = "*";
+        mandantoryQ = "<span style='color:red;'>*</span>";
     }
 
     switch ((obj.type).toLowerCase()) {
         // Number
         case "number":
-            htmltxt = "<div class='divtxtInput'> <p>" + temp + obj.id + ". " + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
+            htmltxt = "<div class='divtxtInput'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             break;
 
         // Text
@@ -285,13 +285,13 @@ function builderOfElements(obj) {
                     tempElement = "1"
             }
 
-            htmltxt = "<div class='divtxtInput'> <p>" + temp + obj.id + ". " + obj.question + "</p>  <input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
+            htmltxt = "<div class='divtxtInput'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>  <input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
 
             break;
 
         // Bool
         case "boolean":
-            htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + temp + obj.id + ". " + obj.question + "</p>" +
+            htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>" +
                 "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" +
                 "<label for='" + obj.id + "Y' class='ynQ'>Yes</label>" +
                 "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0  onclick='radioRevelio(this)' >" +
@@ -300,7 +300,7 @@ function builderOfElements(obj) {
 
         // Dropdown
         case "dropdown":
-            htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + "><p>" + temp + obj.id + ". " + obj.question + "</p></label> " +
+            htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + "><p>" + mandantoryQ + obj.id + ". " + obj.question + "</p></label> " +
                 "<select name=" + obj.id + " onchange='dropRevelio(this)' >";  // Default option;
             obj.options.forEach((opti, index) => {
                 htmltxt += "<option value=" + index + " data-activate=" + obj.linkActivation[index] + " >" + opti + "</option>";
@@ -310,7 +310,7 @@ function builderOfElements(obj) {
 
         // Multi
         case "multi":
-            htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + temp + obj.id + ". " + obj.question + "</p>";
+            htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>";
             obj.options.forEach((opti, index) => {
                 if (obj.linkActivation.length == 0) {
                     htmltxt += "<input type='checkbox' id='" + obj.id + index + "' name='" + opti + "' value='" + index + "' onclick='multiRevelio(this)' hidden>" +

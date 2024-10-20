@@ -37,6 +37,7 @@ include("includes/templates/header.php");
                     $query = "SELECT * FROM Organisation";
                     $result = mysqli_query($database->getConnection(), $query);
 
+                    // List all organizations
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<li><a href='?orgId=" . $row['ID'] . "'>" . $row['NAME'] . "</a></li>";
                     }
@@ -49,7 +50,6 @@ include("includes/templates/header.php");
                 // Check if 'orgId' is present in the URL
                 if (isset($_GET['orgId'])) {
                     $orgId = $_GET['orgId'];
-                    // Correct query using 'ID' instead of 'ORGANISATION_ID'
                     $orgQuery = "SELECT * FROM Organisation WHERE ID = $orgId";
 
                     // Execute the query and fetch the organization name
