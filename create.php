@@ -8,6 +8,12 @@ include("includes/templates/header.php");
     <script src="includes\create_functions.js"></script>
 </head>
 
+<style>
+    .readmore{
+        display: none;
+    }
+</style>
+
 <!-- Main Content -->
 <main>
     <div class="breadcrums">

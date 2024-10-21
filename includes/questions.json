@@ -7,7 +7,8 @@
         "linked":"",
         "linkActivation":["0","0","0"],
         "risk":[],
-        "stamp":"0"
+        "stamp":"0",
+        "readmore":""
     },
     { 
         "question": "Organization name",
@@ -18,7 +19,8 @@
         "linked":"",
         "linkActivation":["0","0","0"],
         "risk":[],
-        "stamp":"0"
+        "stamp":"0",
+        "readmore":""
 
     },
     { 
@@ -30,7 +32,8 @@
         "linked":"",
         "linkActivation":["0","0","0"],
         "risk":[],
-        "stamp":"0"
+        "stamp":"0",
+        "readmore":""
     },
     
     { 
@@ -42,7 +45,8 @@
         "linked":"",
         "linkActivation":[""],
         "risk":[],
-        "stamp":"0"
+        "stamp":"0",
+        "readmore":""
     },
     {
         "question": "AI system: Select AI System",
@@ -53,6 +57,7 @@
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": ["Question Answering Models",
         "Image Recognition Models",
         "Natural Language Processing",
@@ -74,6 +79,7 @@
         "linkActivation":["0","1","1","1","1","1","0","0","1","0","0","1","0","0","1","0"],
         "risk":[],
         "stamp":"1",
+        "readmore":"",
         "options": ["The general public",
         "Children and young people (under 18)",
         "Elderly persons (65+)",
@@ -99,6 +105,7 @@
         "linkActivation":["0","0"],
         "risk":[["u",1]],
         "stamp":"1",
+        "readmore":"",
         "linked":"",
         "options": []
     },
@@ -111,6 +118,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": []
     },
     {
@@ -122,6 +130,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"1",
+        "readmore":"",
         "options": []
     },
     {
@@ -133,6 +142,7 @@
         "linkActivation":["0","0"],
         "risk":[["h",1]],
         "stamp":"1",
+        "readmore":"",
         "options": []
     },
     {
@@ -145,6 +155,7 @@
         "linkActivation":["0","0"],
         "risk":[["h",0]],
         "stamp":"1",
+        "readmore":"",
         "options": []
     },
     {
@@ -156,6 +167,7 @@
         "linkActivation":["0","0"],
         "risk":[["u",1]],
         "stamp":"1",
+        "readmore":"",
         "options": []
     },
     {
@@ -167,6 +179,7 @@
         "linkActivation":["0","0"],
         "risk":[["u",1]],
         "stamp":"1",
+        "readmore":"",
         "options": []
     },
     {
@@ -178,6 +191,7 @@
         "linkActivation":["0","0","0","0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": ["Critical infrastructure (e.g., energy, water supply) where a failure could jeopardize life or health?",
         "Educational or vocational training programs that affect access to education or job opportunities?",
         " Labor market, personnel management or to determine access to essential services (e.g., bank, housing)?",
@@ -193,6 +207,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"1",
+        "readmore":"",
         "options": []
     },
     {
@@ -204,6 +219,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"1",
+        "readmore":"",
         "options": []
     },
     {
@@ -215,6 +231,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": []
     },
     {
@@ -226,6 +243,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": []
     },
     {
@@ -237,6 +255,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"1",
+        "readmore":"",
         "options": []
     },
     {
@@ -249,6 +268,7 @@
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": ["Data is continuously available and unrestricted",
         "Data is available but can only be used for a limited time (how long?)",
         "There is a risk that the content of the data source may change over time",
@@ -265,6 +285,7 @@
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": ["Own servers",
         "From third parties",
         "On the user's device",
@@ -280,6 +301,7 @@
         "linkActivation":["0","0","0","0","0"],
         "risk":[],
         "stamp":"1",
+        "readmore":"",
         "options": [
             "Encryption during storage and transmission",
             "Access control and authorization management",
@@ -297,6 +319,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": []
     },
     {
@@ -308,6 +331,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": []
     },
     {
@@ -320,6 +344,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"1",
+        "readmore":"",
         "options": []
     },
     {
@@ -332,6 +357,7 @@
         "linkActivation":["0","0"],
         "risk":[["h",0]],
         "stamp":"1",
+        "readmore":"",
         "options": []
     },
     {
@@ -344,6 +370,7 @@
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": ["Confusion Matrix","Lift-curve","ROC-curve"]
     },
     {
@@ -355,6 +382,7 @@
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": []
     },
     {
@@ -366,6 +394,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": []
     },
     {
@@ -377,6 +406,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": []
     },
     {
@@ -388,6 +418,7 @@
         "linkActivation":[],
         "risk":[],
         "stamp":"1",
+        "readmore":"",
         "options": []
     },
     {
@@ -399,6 +430,7 @@
         "linkActivation":[],
         "risk":[],
         "stamp":"1",
+        "readmore":"",
         "options": []
     },
     {
@@ -407,6 +439,7 @@
         "type": "dropdown",
         "id": "32",
         "stamp":"1",
+        "readmore":"",
         "linked":"33",
         "linkActivation":["0","1","0"],
         "risk":[],
@@ -423,6 +456,7 @@
         "linkActivation":[],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": []
     },
     {
@@ -434,6 +468,7 @@
         "linkActivation":[],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": []
     },
     {
@@ -445,6 +480,7 @@
         "linkActivation":[],
         "risk":[],
         "stamp":"0",
+        "readmore":"",
         "options": []
     }
 ]
