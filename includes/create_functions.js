@@ -438,6 +438,8 @@ function submitAndSend() {
             allTheData.append("ORGANISATION_ID", temporaryID) //works
 
             console.log("tempidär:" + temporaryID);
+            sessionStorage.setItem('dbID', JSON.stringify(structuredClone(temporaryID)));
+
             allTheData.append("URL", output.url) //works
             allTheData.append("VERSION", 1)
             allTheData.append("STAMP", 1)
@@ -451,8 +453,9 @@ function submitAndSend() {
                 body: allTheData
             }).then(response => response.text()) //error handling from gpt, because of reasons
                 .then(data => {
-                    //window.location.href = "result.php"
-                    console.log(data)
+                    
+                    window.location.href = "result.php"
+                    //console.log(data)
                 })
                 .catch(error => console.error('Error:', error));
         })

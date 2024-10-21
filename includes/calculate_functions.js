@@ -109,9 +109,6 @@ window.addEventListener('load', async function () {
         }
     }
 
-
-
-
     //will now check what parts worked... or not
 
     let cats = ["cat1", "cat2", "cat3", "cat4", "cat5"];
@@ -185,3 +182,22 @@ window.addEventListener('load', async function () {
     //high risk
     //low risk / transparency req / minimal risk
 })
+
+
+function qrCode(){
+    console.log("hello")
+    let leID = JSON.parse(sessionStorage.getItem("dbID"))
+    console.log("THE ID IS");
+    console.log(leID);
+    //JSON.parse(sessionStorage.getItem('output'));
+    htmlTxt = "<h3>Here is a qr code for your database ID</h3>"
+    htmlTxt += "<img src='https://api.qrserver.com/v1/create-qr-code/?data="+ 6 +"&amp;size=100x100' alt='' title='' />"
+    document.getElementById("left_result").insertAdjacentHTML("beforeend",htmlTxt)
+
+
+    
+
+
+
+
+}
