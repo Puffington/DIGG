@@ -165,6 +165,9 @@ body {
     border-color: #ef8271;
     font-size: 17px;
 }
+.textTrustModel p{
+    margin-bottom: 7px;
+}
 .chatgpt{
     margin-top: 10px;
     color:black;
@@ -367,7 +370,7 @@ form{
 }
 
 .el {
-    background-color: blue;
+    background-color: black;
     padding: 1em;
     height: 10em;
     width: 5em;
