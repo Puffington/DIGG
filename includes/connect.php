@@ -55,8 +55,20 @@ class Connect
             return false;
         }
     }
+
     public function insertIntoOrganisationTable($ID, $ORGN_NR, $NAME)
     {
+        //check for duplicates first
+        $check_sql = "SELECT ID FROM Organisation WHERE ORGN_NR = '$ORGN_NR'";
+        $result = $this->conn->query($check_sql);
+        
+        if($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $currentID = $row['ID'];
+            echo($currentID);
+            return $currentID;
+        }
+
         $sql = "INSERT INTO Organisation (ID, ORGN_NR, NAME) 
                     VALUES (?, ?, ?)";
         if ($stmt = $this->conn->prepare($sql)) {
