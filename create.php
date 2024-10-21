@@ -10,7 +10,7 @@ include("includes/templates/header.php");
 
 <style>
     .readmore{
-        display: none;
+        background-color: aqua;
     }
 </style>
 
@@ -56,6 +56,7 @@ include("includes/templates/header.php");
             </div>
         </div>
     </div>
+
     <button onclick="pdfing()">hosams pdf</button>
     <div id="examples"></div>
 </main>

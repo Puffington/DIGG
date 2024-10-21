@@ -292,6 +292,8 @@ function builderOfElements(obj) {
         // Bool
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>" +
+                "<div><p class='readmore' hidden='true' >"+obj.readmore+"</p><button onclick='readmore(this)'>readmore</button></div>"+
+
                 "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" +
                 "<label for='" + obj.id + "Y' class='ynQ'>Yes</label>" +
                 "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0  onclick='radioRevelio(this)' >" +
@@ -301,7 +303,8 @@ function builderOfElements(obj) {
         // Dropdown
         case "dropdown":
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + "><p>" + mandantoryQ + obj.id + ". " + obj.question + "</p></label> " +
-                "<select name=" + obj.id + " onchange='dropRevelio(this)' >";  // Default option;
+            "<div><p class='readmore' hidden='true' >"+obj.readmore+"</p><button onclick='readmore(this)'>readmore</button></div>"+    
+            "<select name=" + obj.id + " onchange='dropRevelio(this)' >";  // Default option;
             obj.options.forEach((opti, index) => {
                 htmltxt += "<option value=" + index + " data-activate=" + obj.linkActivation[index] + " >" + opti + "</option>";
             })
@@ -310,7 +313,8 @@ function builderOfElements(obj) {
 
         // Multi
         case "multi":
-            htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>";
+            htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>"+
+            "<div><p class='readmore' hidden='true' >"+obj.readmore+"</p><button onclick='readmore(this)'>readmore</button></div>";
             obj.options.forEach((opti, index) => {
                 if (obj.linkActivation.length == 0) {
                     htmltxt += "<input type='checkbox' id='" + obj.id + index + "' name='" + opti + "' value='" + index + "' onclick='multiRevelio(this)' hidden>" +
@@ -333,6 +337,20 @@ function builderOfElements(obj) {
 
 function reveal() {
 
+}
+
+
+function readmore(thing){
+    console.log("pressed")
+   let parent = thing.parentNode
+   let textbox = parent.querySelector('p')
+
+   console.log(textbox)
+   if(textbox.hidden){
+    textbox.hidden = false;
+   }else{
+    textbox.hidden = true;
+   }
 }
 
 //mode is you want to show all the questions, or make the questions have functionality
