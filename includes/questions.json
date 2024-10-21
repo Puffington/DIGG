@@ -8,7 +8,7 @@
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":""
+        "readmore":"This number identifies the organization responsible for developing or operating the AI system. It ensures traceability and accountability, which are key principles in the AI Act and GDPR regulations."
     },
     { 
         "question": "Organization name",
@@ -20,7 +20,7 @@
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":""
+        "readmore":"The organization’s name is important for compliance with transparency regulations, ensuring that all stakeholders know who is responsible for the AI system."
 
     },
     { 
@@ -33,7 +33,7 @@
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":""
+        "readmore":"The name should clearly indicate the AI system to ensure traceability and facilitate audits or reviews required by the AI Act."
     },
     
     { 
@@ -46,10 +46,10 @@
         "linkActivation":[""],
         "risk":[],
         "stamp":"0",
-        "readmore":""
+        "readmore":"Transparency is a fundamental requirement under the AI Act, ensuring that users and affected individuals understand the system’s capabilities, limitations, and decision-making processes."
     },
     {
-        "question": "AI system: Select AI System",
+        "question": "Select AI System",
         "category":"1",
         "type": "dropdown",
         "id": "5",
@@ -57,7 +57,7 @@
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":"",
+        "readmore":" The AI system type determines its risk category under the AI Act, which classifies AI into risk levels (e.g., minimal, limited, high). High-risk systems (e.g., biometric or employment-related systems) face stricter requirements.",
         "options": ["Question Answering Models",
         "Image Recognition Models",
         "Natural Language Processing",
@@ -79,7 +79,7 @@
         "linkActivation":["0","1","1","1","1","1","0","0","1","0","0","1","0","0","1","0"],
         "risk":[],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"Identifying affected groups ensures the system complies with ethical principles of fairness and non-discrimination, outlined in the AI Act, especially for high-risk applications like healthcare, education, or law enforcement.",
         "options": ["The general public",
         "Children and young people (under 18)",
         "Elderly persons (65+)",
@@ -98,7 +98,7 @@
         "No specific groups"]
     },
     {
-        "question": "Is the AI system used to manipulate the target group??",
+        "question": "Is the AI system used to manipulate the target group?",
         "category":"1",
         "type": "boolean",
         "id": "6A",
@@ -106,7 +106,7 @@
         "risk":[["u",1]],
         "stamp":"1",
         "readmore":"",
-        "linked":"",
+        "linked":"Manipulating target groups may involve deceptive practices, violating transparency and fairness obligations under the AI Act. Such practices may be subject to strict regulations, particularly in high-risk applications.",
         "options": []
     },
     {
@@ -118,7 +118,11 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"0",
+<<<<<<< Updated upstream
         "readmore":"BLALALALALLALALALLALALLA",
+=======
+        "readmore":"Transparency is a fundamental requirement under the AI Act, ensuring that users and affected individuals understand the system’s decision-making processes, capabilities, and limitations.",
+>>>>>>> Stashed changes
         "options": []
     },
     {
@@ -130,7 +134,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"Data usage must comply with GDPR and the AI Act, ensuring lawful use of personal data with explicit consent. This is especially important for high-risk systems.",
         "options": []
     },
     {
@@ -142,7 +146,7 @@
         "linkActivation":["0","0"],
         "risk":[["h",1]],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"Processing sensitive data (e.g., racial or health data) requires strict safeguards under the GDPR and AI Act, including impact assessments and user consent.",
         "options": []
     },
     {
@@ -155,7 +159,7 @@
         "linkActivation":["0","0"],
         "risk":[["h",0]],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"AI systems should be evaluated for potential bias and discrimination, as mandated by both the AI Act and national discrimination laws, ensuring fairness for vulnerable or marginalized groups.",
         "options": []
     },
     {
@@ -167,7 +171,7 @@
         "linkActivation":["0","0"],
         "risk":[["u",1]],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"Social scoring, ranking individuals based on behavior or traits, is highly regulated or prohibited under the AI Act, particularly if it leads to unfair treatment or discrimination.",
         "options": []
     },
     {
@@ -179,7 +183,7 @@
         "linkActivation":["0","0"],
         "risk":[["u",1]],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"Biometric identification, especially in public spaces, is considered high-risk under the AI Act and may require special permission",
         "options": []
     },
     {
@@ -191,7 +195,7 @@
         "linkActivation":["0","0","0","0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":"",
+        "readmore":"The sector where the AI system is used determines its risk category. Critical infrastructure, law enforcement, or educational applications are high-risk and face stringent oversight under the AI Act.",
         "options": ["Critical infrastructure (e.g., energy, water supply) where a failure could jeopardize life or health?",
         "Educational or vocational training programs that affect access to education or job opportunities?",
         " Labor market, personnel management or to determine access to essential services (e.g., bank, housing)?",
@@ -207,7 +211,7 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"Information security is essential for ensuring that AI systems do not expose users or data to unauthorized access. The AI Act mandates that high-risk systems implement robust security measures.",
         "options": []
     },
     {
@@ -219,11 +223,11 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"Thorough documentation of the AI system’s planning and testing is required under the AI Act, ensuring traceability and compliance, especially for high-risk systems.",
         "options": []
     },
     {
-        "question": "Are there additional requirements identified based on the purpose of the AI system (e.g., performance, availability, transparency, interpretability, explainability) that have not been addressed earlier in the section?",
+        "question":"Are there other components (or regulations) built into the IT system that interact with the AI system/model's results and affect the final outcome?",
         "category":"3",
         "type": "Boolean",
         "id": "16",
@@ -231,44 +235,32 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":"",
-        "options": []
-    },
-    {
-        "question":"Are there other components (or regulations) built into the IT system that interact with the AI system/model's results and affect the final outcome?",
-        "category":"3",
-        "type": "Boolean",
-        "id": "17",
-        "linked":"",
-        "linkActivation":["0","0"],
-        "risk":[],
-        "stamp":"0",
-        "readmore":"",
+        "readmore":"Understanding how other IT components influence AI results helps ensure the transparency and fairness mandated by the AI Act, especially in critical sectors like healthcare or employment.",
         "options": []
     },
     {
         "question": "Will the collected data be shared with third parties?",
         "category":"3",
         "type": "Boolean",
-        "id": "18",
+        "id": "17",
         "linked":"",
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"Data sharing with third parties must comply with GDPR and AI Act requirements, ensuring data is handled lawfully and transparently, especially when sensitive information is involved.",
         "options": []
     },
     {
         "question": "What is the availability of usable data like?",
         "category":"3",
         "type": "multi",
-        "id": "19",
+        "id": "18",
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":"",
+        "readmore":"Data availability and quality are crucial for the reliable functioning of AI systems. Under the AI Act, high-risk systems must ensure their data is up-to-date and representative to prevent biases.",
         "options": ["Data is continuously available and unrestricted",
         "Data is available but can only be used for a limited time (how long?)",
         "There is a risk that the content of the data source may change over time",
@@ -279,13 +271,13 @@
         "question": "How is the data stored?",
         "category":"3",
         "type": "dropdown",
-        "id": "20",
+        "id": "19",
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":"",
+        "readmore":"Data storage methods must comply with GDPR and the AI Act, ensuring security, transparency, and protection against unauthorized access or data breaches.",
         "options": ["Own servers",
         "From third parties",
         "On the user's device",
@@ -296,12 +288,12 @@
         "question": "What methods are used to protect data?",
         "category":"3",
         "type": "dropdown",
-        "id": "21",
+        "id": "20",
         "linked": "",
         "linkActivation":["0","0","0","0","0"],
         "risk":[],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"The AI Act and GDPR mandate robust data protection measures, including encryption and access control, particularly for high-risk systems handling sensitive data.",
         "options": [
             "Encryption during storage and transmission",
             "Access control and authorization management",
@@ -314,79 +306,91 @@
         "question": "Are there requirements for data to be deleted?",
         "category":"3",
         "type": "Boolean",
-        "id": "22",
+        "id": "21",
         "linked":"",
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":"",
+        "readmore":"Data deletion must comply with GDPR principles such as data minimization and right to erasure, ensuring personal data is not retained longer than necessary.",
         "options": []
     },
     {
         "question": "Is there a risk that the data contains collection bias?",
         "category":"3",
         "type": "Boolean",
-        "id": "23",
+        "id": "22",
         "linked":"",
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":"",
+        "readmore":"The AI Act encourages developers to assess and mitigate collection bias to prevent discrimination, ensuring that AI systems are fair and inclusive.",
         "options": []
     },
     {
         "question": "Is the AI system updated automatically via new data?",
         "category":"4",
         "type": "Boolean",
-        "id": "24",
+        "id": "23",
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"Automated updates can enhance AI performance, but the AI Act requires that updates maintain system safety, transparency, and do not introduce new risks or biases.",
         "options": []
     },
     {
         "question": "Is it possible, if one tries, to repeat and reproduce the design/realization and get the same result?",
         "category":"4",
         "type": "Boolean",
-        "id": "25",
+        "id": "24",
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
         "risk":[["h",0]],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"The AI Act encourages reproducibility to ensure reliability, especially in high-risk applications. Consistent results are critical for system validation and user trust.",
         "options": []
     },
     {
         "question": "How do you measure that the AI system is sufficiently trained?",
         "category":"4",
         "type": "multi",
-        "id": "26",
+        "id": "25",
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":"",
+        "readmore":"Proper training metrics ensure that AI systems perform reliably. The AI Act requires regular performance evaluations for high-risk systems, using established methods like confusion matrices.",
         "options": ["Confusion Matrix","Lift-curve","ROC-curve"]
     },
     {
         "question": "Are there results from system tests with users of the system?",
         "category":"4",
         "type": "Boolean",
-        "id": "27",
+        "id": "26",
         "linked":"",
         "linkActivation":["0","0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":"",
+        "readmore":"User testing ensures that the AI system works as intended in real-world conditions. The AI Act encourages human oversight and validation of high-risk systems.",
         "options": []
     },
     {
         "question": "Is there a systematic way to ensure traceability, monitoring, and results for the AI system?",
+        "category":"4",
+        "type": "Boolean",
+        "id": "27",
+        "linked":"",
+        "linkActivation":["0","0"],
+        "risk":[],
+        "stamp":"0",
+        "readmore":"Traceability is key to compliance with the AI Act, ensuring that system operations and decisions can be audited, especially in high-risk contexts.",
+        "options": []
+    },
+    {
+        "question": "Are there any licenses associated with the AI systems or AI models included in the IT system?",
         "category":"4",
         "type": "Boolean",
         "id": "28",
@@ -394,23 +398,23 @@
         "linkActivation":["0","0"],
         "risk":[],
         "stamp":"0",
-        "readmore":"",
-        "options": []
-    },
-    {
-        "question": "Are there any licenses associated with the AI systems or AI models included in the IT system?",
-        "category":"4",
-        "type": "Boolean",
-        "id": "29",
-        "linked":"",
-        "linkActivation":["0","0"],
-        "risk":[],
-        "stamp":"0",
-        "readmore":"",
+        "readmore":"Licensing ensures compliance with intellectual property and regulatory requirements, particularly for AI systems governed by the AI Act or similar frameworks.",
         "options": []
     },
     {
         "question": "Is there planning for how to act when the AI system does not function as it should?",
+        "category":"4",
+        "type": "Boolean",
+        "id": "29",
+        "linked":"",
+        "linkActivation":[],
+        "risk":[],
+        "stamp":"1",
+        "readmore":"Contingency plans are essential under the AI Act for high-risk systems, ensuring that malfunctions are handled without compromising user safety or rights.",
+        "options": []
+    },
+    {
+        "question": "Is the AI-system optimzed after initial training/test?",
         "category":"4",
         "type": "Boolean",
         "id": "30",
@@ -418,7 +422,7 @@
         "linkActivation":[],
         "risk":[],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"Continuous optimization after initial training or testing can improve the AI system's performance over time. However, the AI Act requires that such optimization does not introduce new risks or compromise the system’s transparency and accountability. High-risk systems should undergo rigorous validation and re-assessment to ensure they remain compliant with safety and fairness standards.",
         "options": []
     },
     {
@@ -430,17 +434,41 @@
         "linkActivation":[],
         "risk":[],
         "stamp":"1",
-        "readmore":"",
+        "readmore":"Transparency about AI involvement is required by the AI Act, ensuring users know when they are interacting with automated systems, particularly in decision-making contexts.",
+        "options": []
+    },
+    {
+        "question": "Does the model inform that it's generated content (if it does generate) is made by an AI?",
+        "category":"5",
+        "type": "dropdown",
+        "id": "32",
+        "linked":"",
+        "linkActivation":[],
+        "risk":[],
+        "stamp":"1",
+        "readmore":"Transparency about AI involvement is required by the AI Act, ensuring users know when they are interacting with automated systems, particularly in decision-making contexts.",
+        "options": ["Yes, the user is informed", "No, the user is not informed", "Ai model does not generate content"]
+    },
+    {
+        "question": "Is the AI system designed to give explanations for its decisions (explainability)?",
+        "category":"5",
+        "type": "Boolean",
+        "id": "33",
+        "linked":"",
+        "linkActivation":[],
+        "risk":[],
+        "stamp":"0",
+        "readmore":"Explainability is crucial for building trust and accountability in AI systems, particularly in high-risk areas like healthcare or law enforcement, as mandated by the AI Act",
         "options": []
     },
     {
         "question": "How will the AI system be used in decision-making?",
         "category":"5",
         "type": "dropdown",
-        "id": "32",
+        "id": "34",
         "stamp":"1",
-        "readmore":"",
-        "linked":"33",
+        "readmore":"The AI Act distinguishes between AI systems that support human decision-making and those that make autonomous decisions, with stricter regulations for the latter.",
+        "linked":"35",
         "linkActivation":["0","1","0"],
         "risk":[],
         "options": [" To support a decision made by a human",
@@ -451,36 +479,24 @@
         "question": "Is there a documented process for informing users or affected individuals when AI is used in decision-making?",
         "category":"5",
         "type": "boolean",
-        "id": "33",
-        "linked":"35",
-        "linkActivation":[],
+        "id": "35",
+        "linked":"36",
+        "linkActivation":["1","1"],
         "risk":[],
         "stamp":"0",
-        "readmore":"",
-        "options": []
-    },
-    {
-        "question": "Is the AI system designed to give explanations for its decisions (explainability)?",
-        "category":"5",
-        "type": "Boolean",
-        "id": "34",
-        "linked":"",
-        "linkActivation":[],
-        "risk":[],
-        "stamp":"0",
-        "readmore":"",
+        "readmore":"Transparency in AI-based decision-making is a core principle of the AI Act, ensuring that affected individuals understand how AI influences decisions.",
         "options": []
     },
     {
         "question": "Is the system subject to human oversight to intervene or override decisions?",
         "category":"5",
         "type": "boolean",
-        "id": "35",
+        "id": "36",
         "linked":"",
         "linkActivation":[],
         "risk":[],
         "stamp":"0",
-        "readmore":"",
+        "readmore":"Human oversight is a key safeguard required by the AI Act, particularly for high-risk AI systems that may affect individuals’ rights or well-being.",
         "options": []
     }
 ]
