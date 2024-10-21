@@ -431,10 +431,12 @@ function submitAndSend() {
             console.log(data)
             temporaryID = data;
             allTheData = new URLSearchParams();
+
             allTheData.append('AI', "somevalue")
             //parameters.append("organisation","somevalue")
             allTheData.append('NAME', output.aiName) //works
             allTheData.append("ORGANISATION_ID", temporaryID) //works
+
             console.log("tempidär:" + temporaryID);
             allTheData.append("URL", output.url) //works
             allTheData.append("VERSION", 1)
@@ -449,7 +451,7 @@ function submitAndSend() {
                 body: allTheData
             }).then(response => response.text()) //error handling from gpt, because of reasons
                 .then(data => {
-                    window.location.href = "result.php"
+                    //window.location.href = "result.php"
                     console.log(data)
                 })
                 .catch(error => console.error('Error:', error));
