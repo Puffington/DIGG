@@ -9,9 +9,13 @@ include("includes/templates/header.php");
 </head>
 
 <style>
+    *{
+        transition: 0.5s ease;
+    }
     .readmore{
         background-color: aqua;
     }
+
 </style>
 
 <!-- Main Content -->

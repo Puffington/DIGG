@@ -27,10 +27,11 @@ window.addEventListener('load', async function () {
 
     //this part could be made more dynamically, but not necessary right now
     answerchecks = [[], [], [], [], []];
+    links = [];
 
     questions.forEach(element => {
 
-        if ("text" in element || element.type == "number") { // don't count names and numbers
+        if ("text" in element || element.type == "number" || element.id in links) { // don't count names and numbers
         } else {
             answerchecks[element.category - 1].push(element.id);
         }
@@ -38,10 +39,14 @@ window.addEventListener('load', async function () {
         if (element.stamp == "1") { //checking that all these have been answered
             stamp.push(element.id)
         }
-        if (element.risk.length > 0) { //pushing all possible risks into array variables
-            console.log(element.risk.length) //temporarily one question can only have one unacc or h
-            let identification = element.id
 
+        if(element.linked.length != 0){
+            links.push(element.linked)
+        }
+
+        if (element.risk.length > 0) { //pushing all possible risks into array variables
+            //temporarily one question can only have one unacc or h
+            let identification = element.id
             if (element.risk[0][0] == "u") {
                 unnaceptable.set(identification, element.risk[0][1]);
             } else {
@@ -54,7 +59,6 @@ window.addEventListener('load', async function () {
 
     console.log("hello world")
     console.log(answers)
-
 
     let HIGHRISK = [];
     let UNACCEPTABLE = [];
@@ -178,7 +182,7 @@ window.addEventListener('load', async function () {
         htmlTxt += "</div>";
         document.getElementById("messageHolder").insertAdjacentHTML("beforeend", htmlTxt);
     }
-    
+
     //du måste skriva någonting
     //unnaceptable risk
     //high risk
