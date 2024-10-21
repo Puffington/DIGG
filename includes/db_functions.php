@@ -20,7 +20,7 @@ if (isset($_POST["AI"])) {
         $NAME = !empty($_POST["NAME"]) ? $_POST["NAME"] : NULL;
         $URL = !empty($_POST["URL"]) ? $_POST["URL"] : NULL;
         $VERSION = !empty($_POST["VERSION"]) ? $_POST["VERSION"] : NULL;
-        $STAMP = !empty($_POST["STAMP"]) ? $_POST["STAMP"] : NULL;
+        $STAMP = !empty($_POST["STAMP"]) ? $_POST["STAMP"] : 0;
         $CREATED_DATE = !empty($_POST["CREATED_DATE"]) ? $_POST["CREATED_DATE"] : NULL;
         $ANSWERS = !empty($_POST["ANSWERS"]) ? $_POST["ANSWERS"] : NULL;
 

@@ -119,6 +119,9 @@ window.addEventListener('load', async function () {
         document.getElementById(cats[i]).insertAdjacentHTML("beforeend", htmlTxt);
     };
 
+    console.log(stamp);
+    console.log("THE STAMP LENGTH"+stamp.length);
+
     if (stamp.length != 0) {
         this.document.getElementById("resultText").textContent = "YOUR AI HAS BEEN DENIED."//ALL STAMPS ARE NOT DONE, YE SHOITE
         this.document.getElementById("explanationText").textContent = "Your AI-system is not fulfilling all requirements." //Something more perhaps
