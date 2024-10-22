@@ -457,10 +457,15 @@ form{
         padding-left: 10px;
         color: #6e615a;
         font-size: 17px;
+        max-width: 250px; 
+        text-overflow: ellipsis; 
+        overflow: hidden; 
+        white-space: nowrap; 
     }
     .dropdownQuestion select{
         box-shadow: 3px 3px 7px 1px rgb(151, 151, 151);
         border-color: white;
+        overflow-y: auto;
     }
 /**/
 
