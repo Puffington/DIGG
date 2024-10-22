@@ -126,7 +126,7 @@ window.addEventListener('load', async function () {
     console.log(stamp);
     console.log("THE STAMP LENGTH"+stamp.length);
 
-    if (stamp.length != 0) {
+    if (stamp.length != 0 || UNACCEPTABLE.length > 0) {
         this.document.getElementById("resultText").textContent = "YOUR AI HAS BEEN DENIED."//ALL STAMPS ARE NOT DONE, YE SHOITE
         this.document.getElementById("explanationText").textContent = "Your AI-system is not fulfilling all requirements." //Something more perhaps
         this.document.getElementById("suggestion").textContent = "Retake the test or go back to main."
