@@ -81,7 +81,7 @@ window.addEventListener('load', function () {
 
         // If we have an intersecting entry, apply the styles
         if (intersectingEntry) {
-            intersectingEntry.target.link.style.backgroundColor = "#6E615A";
+            intersectingEntry.target.link.style.backgroundColor = "#000000";
             intersectingEntry.target.link.style.color = "#FFFFFF";
         }
     }
@@ -294,19 +294,18 @@ function builderOfElements(obj) {
         // Bool
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>" +
-                "<div><p class='readmore' hidden='true' >"+obj.readmore+"</p><button onclick='readmore(this)'>readmore</button></div>"+
+                "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
 
-                "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" +
-                "<label for='" + obj.id + "Y' class='ynQ'>Yes</label>" +
-                "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0  onclick='radioRevelio(this)' >" +
-                "<label for='" + obj.id + "N' class='ynQ'>No</label></div>";
+                "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "Y' class='ynQ'>Yes</label>" +
+                "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "N' class='ynQ'>No</label></div>";
+
             break;
 
         // Dropdown
         case "dropdown":
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + "><p>" + mandantoryQ + obj.id + ". " + obj.question + "</p></label> " +
-            "<div><p class='readmore' hidden='true' >"+obj.readmore+"</p><button onclick='readmore(this)'>readmore</button></div>"+    
-            "<select name=" + obj.id + " onchange='dropRevelio(this)' >";  // Default option;
+                "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                "<select name=" + obj.id + " onchange='dropRevelio(this)' >";  // Default option;
             obj.options.forEach((opti, index) => {
                 htmltxt += "<option value=" + index + " data-activate=" + obj.linkActivation[index] + " >" + opti + "</option>";
             })
@@ -315,8 +314,8 @@ function builderOfElements(obj) {
 
         // Multi
         case "multi":
-            htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>"+
-            "<div><p class='readmore' hidden='true' >"+obj.readmore+"</p><button onclick='readmore(this)'>readmore</button></div>";
+            htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>" +
+                "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>";
             obj.options.forEach((opti, index) => {
                 if (obj.linkActivation.length == 0) {
                     htmltxt += "<input type='checkbox' id='" + obj.id + index + "' name='" + opti + "' value='" + index + "' onclick='multiRevelio(this)' hidden>" +
@@ -342,18 +341,21 @@ function reveal() {
 }
 
 
-function readmore(thing){
-    console.log("pressed")
-   let parent = thing.parentNode
-   let textbox = parent.querySelector('p')
+function readmore(thing) {
+    console.log("pressed");
+    let parent = thing.parentNode;
+    let textbox = parent.querySelector('p');
 
-   console.log(textbox)
-   if(textbox.hidden){
-    textbox.hidden = false;
-   }else{
-    textbox.hidden = true;
-   }
+    console.log(textbox);
+    if (textbox.hidden) {
+        textbox.hidden = false;
+        thing.textContent = "Read less";  
+    } else {
+        textbox.hidden = true;
+        thing.textContent = "Read more";  
+    }
 }
+
 
 //mode is you want to show all the questions, or make the questions have functionality
 async function getQuestions(mode) {
@@ -400,7 +402,7 @@ async function getQuestions(mode) {
 
 async function pdfing() {
     allTheData = new URLSearchParams();
-    allTheData.append("PDF","test")
+    allTheData.append("PDF", "test")
     //allTheData.append("QUESTIONS",await objQuestions)
     allTheData.append("ANSWERS", JSON.stringify(AnswerMem)) //not implemented
     //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
@@ -473,7 +475,7 @@ function submitAndSend() {
                 body: allTheData
             }).then(response => response.text()) //error handling from gpt, because of reasons
                 .then(data => {
-                    
+
                     window.location.href = "result.php"
                     //console.log(data)
                 })

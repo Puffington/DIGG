@@ -12,9 +12,6 @@ include("includes/templates/header.php");
     *{
         transition: 0.5s ease;
     }
-    .readmore{
-        background-color: aqua;
-    }
 
 </style>
 

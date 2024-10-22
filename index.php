@@ -25,17 +25,17 @@
             <div class="horizontal">
                 <div class="card">
                     <h2>Read more about AI guidelines</h2>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
+                    <p>What does it mean to get the Stamp of Quality? What is meant by high and low risk?</p>
                     <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >Guidelines</button>
                 </div>
                 <div class="card">
                     <h2>See our record of AI's</h2>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
+                    <p>We store all public administrations and their AI systems, read more about them here!</p>
                     <button type="button" class="menuButton" onclick="location.href='search.php';" >Our Record</button>
                 </div>
                 <div class="card">
                     <h2>Fill in the form</h2>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptate doloremque lantium, totam rem aperiam</p>
+                    <p>When you have filled in our form, we will check if your AI is aligned with the AI Act and laws of AI, and you might be able to get the Stamp of Quality!</p>
                     <button type="button" class="menuButton" onclick="location.href='create.php';" >The Form</button>
                 </div>
             </div>

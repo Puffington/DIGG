@@ -8,6 +8,7 @@
     box-sizing: border-box;
     color: #6E615A;
     font-family: "Ubuntu", sans-serif;
+    line-height: 24px;
 }
 
 /* Header styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
@@ -73,14 +74,13 @@
 
 /* Main body styles """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 body {
-    line-height: 1.6;
     background-color: #faf4f2;
 }
 
 .headline h1 {
     font-weight: bold;
     size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 33px;
     margin-top: 40px;
 }
 
@@ -129,6 +129,10 @@ body {
     border-radius: 10px;
     box-shadow: 3px 3px 7px 1px rgb(151, 151, 151);
 }
+.card p{
+    font-size: 17px;
+    margin-top: 15px
+}
 
 .horizontal {
     display: flex;
@@ -157,6 +161,10 @@ body {
     }
 }
 
+.guide_info h1{
+    /*font-size: 20px;*/
+    margin-bottom: 33px;
+}
 .textTrustModel {
     margin-right: 30px;
     padding: 20px;
@@ -186,15 +194,10 @@ body {
 /* Search body style """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
 /*Left side*/
-.searchList {
-    padding: 15px;
-    padding-left: 0px;
-}
-
 .search-input {
     margin-bottom: 7px;
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 50px;
     background-color: #ffffff;
     font-size: 18px;
     border: 1px solid #ddd;
@@ -207,19 +210,19 @@ body {
     scrollbar-color: #888 #f1f1f1;
 }
 #namelist::-webkit-scrollbar {
-    width: 8px; /* Adjust the width of the scrollbar */
+    width: 8px; 
 }
 #namelist::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Background of the track */
-    border-radius: 10px; /* Rounded edges for the track */
+    background: #f1f1f1; 
+    border-radius: 10px; 
 }
 #namelist::-webkit-scrollbar-thumb {
-    background-color: #888; /* Scrollbar color */
-    border-radius: 10px; /* Rounded edges for the thumb */
-    border: 2px solid #f1f1f1; /* Adds space around the thumb */
+    background-color: #888;
+    border-radius: 10px; 
+    border: 2px solid #f1f1f1; 
 }
 #namelist::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Darker color on hover */
+    background-color: #555; 
 }
 
 #nameList li a {
@@ -236,13 +239,14 @@ body {
 
 /*Right side*/
 .orgAIinfoList {
-    padding: 15px;
+    margin-left: 33px;
     float: left;
     width: 70%;
 }
 
 #aiList {
     overflow-x: auto;
+    margin-top: 18px;
     margin-bottom: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -286,32 +290,25 @@ body {
 }
 .category {
     padding: 15px;
-    color: #695F59;
+    color: #000000;
     font-size: 20px;
-    font-weight: bold;
     margin-bottom: 20px;
     border-radius: 10px;
-    box-shadow: 3px 3px 7px 1px rgb(151, 151, 151);
 }
 #cat1{
-    background-color: #F7E4E1;
-    border: 5px solid #F7E4E1;
+    background-color: #FFDCAA;
 }
 #cat2{
-    background-color: #F4E0CE;
-    border: 5px solid #F4E0CE;
+    background-color: #FBBD84;
 }
 #cat3{
-    background-color: #FBF0D0;
-    border: 5px solid #FBF0D0;
+    background-color: #F6A071;
 }
 #cat4{
-    background-color: #FFE5E5;
-    border: 5px solid #FFE5E5;
+    background-color: #FFCACA;
 }
 #cat5{
-    background-color: #FBD0D0;
-    border: 5px solid #FBD0D0;
+    background-color: #FFA6A6;
 }
 
 .categoryArea {
@@ -328,27 +325,29 @@ body {
     box-shadow: 3px 3px 7px 1px rgb(151, 151, 151);
 }
 .categoryArea h1{
+    margin-bottom: 33px;
+    margin-top: 15px;
     font-size: 30px;
 }
 #cat1Area{
-    border-left: 5px solid #F7E4E1;
-    border-top: 5px solid #F7E4E1;
+    border-left: 5px solid #FFDCAA;
+    border-top: 5px solid #FFDCAA;
 }
 #cat2Area{
-    border-left: 5px solid #F4E0CE;
-    border-top: 5px solid #F4E0CE;
+    border-left: 5px solid #FBBD84;
+    border-top: 5px solid #FBBD84;
 }
 #cat3Area{
-    border-left: 5px solid #FBF0D0;
-    border-top: 5px solid #FBF0D0;
+    border-left: 5px solid #F6A071;
+    border-top: 5px solid #F6A071;
 }
 #cat4Area{
-    border-left: 5px solid #FFE5E5;
-    border-top: 5px solid #FFE5E5;
+    border-left: 5px solid #FFCACA;
+    border-top: 5px solid #FFCACA;
 }
 #cat5Area{
-    border-left: 5px solid #FBD0D0;
-    border-top: 5px solid #FBD0D0;
+    border-left: 5px solid #FFA6A6;
+    border-top: 5px solid #FFA6A6;
 }
 
 form{
@@ -385,10 +384,39 @@ form{
 
 /*Bool*/
     .ynQ {
-        padding-right: 20px;
-        padding-left: 5px;
+        display: inline-block;
+        padding: 5px;
+        margin: 5px;
+        background-color: white;
+        color: #6E615A;
+        border: 2px solid white;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     }
-    /* Hide the default radio button */
+    /* When hovering over the button-like label */
+    .ynQ:hover {
+        text-decoration: underline;
+        border: 2px solid #6E615A;
+    }
+    /* Hide the actual radio input but keep its functionality */
+    input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    /* Style the selected label */
+    input[type="radio"]:checked + label {
+        background-color: #6E615A;
+        color: white;
+        border-color: #6E615A;
+    }
+
+    /* Bool - Button style */
+
+    /* Hide the default radio button
     input[type="radio"] {
         appearance: none; 
         -webkit-appearance: none;
@@ -416,16 +444,17 @@ form{
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-    }
+    } */
 /**/
 
-/*Dropdown*/
+/*Dropdown !!!!!!!!!! NEW ROW THINGY*/ 
     .dropdownQuestion select,
     .divtxtInput input{
-        border-radius: 14px;
+        border-radius: 50px;
         border: 1px solid #6E615A;
         background-color: white;
         padding: 5px;
+        padding-left: 10px;
         color: #6e615a;
         font-size: 17px;
     }
@@ -438,13 +467,14 @@ form{
 /*Multi*/
     .button-like {
         display: inline-block;
+        padding: 5px;
         padding-left: 20px;
         padding-right: 20px;
         margin-right: 25px;
         margin-bottom: 10px;
         border: 1px solid #6e615a7e;
         color: #6E615A;
-        border-radius: 14px;
+        border-radius: 50px;
         background-color: white;
         cursor: pointer;
         user-select: none;
@@ -463,6 +493,26 @@ form{
         border-color: #6E615A;
     }
 /**/
+
+/*The Read More Button + the text*/
+.readmore{
+    font-size: 15px;
+    color: black;
+}
+.readmoreButton{
+    font-size: 15px;
+    color: black;
+    border:none;
+    background-color: #ffffff;
+    margin-bottom: 3px;
+}
+.readmoreButton:hover{
+    text-decoration: underline;
+}
+.readmoreButton:checked:after{
+    background-color: #574C47;
+    color:white;
+}
 
 /* Create style END""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 
