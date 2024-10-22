@@ -121,6 +121,12 @@ function addToMem(type, id, value) {
 function checkIfNumber(event) {
     console.log("recieved " + event)
 
+    if(event.key === 'Backspace'){
+        let tempmem = structuredClone(event.target.value.slice(0,-1));
+        addToMem("0", event.target.id, tempmem)
+        return true;
+    }
+
     if (event.target.value.length >= 10) {
         return false
     }
@@ -130,12 +136,6 @@ function checkIfNumber(event) {
     if (isNaN(event.key) || event.key == " ") {
         passed = false;
         //console.log(event.target.value + event.key)
-    }
-
-    if(event.key === 'Backspace'){
-        let tempmem = structuredClone(event.target.value.slice(0,-1));
-        addToMem("0", event.target.id, tempmem)
-        return true;
     }
 
     if(passed){

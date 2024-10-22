@@ -27,21 +27,20 @@ window.addEventListener('load', async function () {
 
     //this part could be made more dynamically, but not necessary right now
     answerchecks = [[], [], [], [], []];
-    links = [];
+    links = []; //insert the id and in which category the thing is in
 
-    questions.forEach(element => {
-
-        if ("text" in element || element.type == "number" || element.id in links) { // don't count names and numbers
-        } else {
+    for(let i=0; i < questions.length;i++){
+    //questions.forEach(element => {
+        let element = questions[i]
+        if ("text" in element || element.type == "number" || links.some(a => a[0] === element.id)) { // don't count names/numbers and linked elements
+        }else{
             answerchecks[element.category - 1].push(element.id);
         }
-
         if (element.stamp == "1") { //checking that all these have been answered
             stamp.push(element.id)
         }
-
         if(element.linked.length != 0){
-            links.push(element.linked)
+            links.push([element.linked,element.category])
         }
 
         if (element.risk.length > 0) { //pushing all possible risks into array variables
@@ -53,7 +52,7 @@ window.addEventListener('load', async function () {
                 high.set(identification, element.risk[0][1]);
             }
         }
-    });
+    };
 
     answerMemory = structuredClone(answerchecks);
 
@@ -72,8 +71,14 @@ window.addEventListener('load', async function () {
                 answerchecks[thing].splice(answerchecks[thing].indexOf(key), 1);
             }
         }
-
         console.log("key:" + key + " val:" + answers[key])
+
+
+        let linkexistance = links.findIndex(sub => sub[0] == key);
+        if(linkexistance !== -1){
+            answerMemory[links[linkexistance][1] -1].push(links[linkexistance][0]) //add something to the category?
+        }
+        
         if (stamp.includes(key)) {
             stamp.splice(stamp.indexOf(key), 1);
         }
