@@ -193,7 +193,36 @@ function multiRevelio(select) {
     addToMem("3", parent.id, [select.value, boxes.length])
 }
 
+let lastClickedButton = null; // Track the last clicked button
+
 function radioRevelio(button) {
+    let parent = button.parentNode;
+    let linkedElement = document.getElementById(parent.getAttribute('data-linked'));
+
+    // If the same button is clicked again, deselect it
+    if (lastClickedButton === button) {
+        button.checked = false; // Deselect the radio button
+        lastClickedButton = null; // Clear the tracking
+        if (linkedElement) {
+            linkedElement.hidden = true; // Hide linked element, if any
+        }
+        addToMem("1", parent.id, null); // Handle the case where no value is selected
+    } else {
+        // If a different button is clicked, proceed normally
+        lastClickedButton = button;
+        if (button.getAttribute('data-activate') == 1) {
+            if (linkedElement) {
+                linkedElement.hidden = false; // Show linked element
+            }
+        } else {
+            if (linkedElement) {
+                linkedElement.hidden = true; // Hide linked element
+            }
+        }
+        addToMem("1", parent.id, button.value); // Track selected value
+    }
+}
+/*ORIGINAL: function radioRevelio(button) {
     let parent = button.parentNode;
     let link = parent.getAttribute('data-linked');
     //console.log(parent.getAttribute('data-linked'))
@@ -206,7 +235,7 @@ function radioRevelio(button) {
         }
     }
     addToMem("1", parent.id, button.value)
-}
+}*/
 
 function typing(event) {
     //console.log(event.target.value)
