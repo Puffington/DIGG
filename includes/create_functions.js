@@ -296,8 +296,8 @@ function builderOfElements(obj) {
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>" +
                 "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
 
-                "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "Y' class='ynQ'>Yes</label>" +
-                "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "N' class='ynQ'>No</label></div>";
+                "<div class='yn-div'><input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "Y' class='ynQ'>Yes</label></div>" +
+                "<div class='yn-div'><input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "N' class='ynQ'>No</label></div></div>";
 
             break;
 
