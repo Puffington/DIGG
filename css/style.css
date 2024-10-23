@@ -397,7 +397,6 @@ form{
     }
     /* When hovering over the button-like label */
     .ynQ:hover {
-        text-decoration: underline;
         border: 2px solid #6E615A;
     }
     /* Hide the actual radio input but keep its functionality */

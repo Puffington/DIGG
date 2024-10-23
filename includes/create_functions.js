@@ -424,6 +424,18 @@ async function pdfing() {
 // submitting and sending to the next page
 function submitAndSend() {
 
+    let goodTogGo = true;
+
+
+    if(!output.orgName || !output.aiName || !output.url || !output.orgnr){
+        goodTogGo = false; // change this value to remove the check
+
+        if(!goodTogGo){
+            alert("fill in all the text fields at the top of the form")
+            return 0
+        }
+    }
+
     output.answers = AnswerMem;
     //let sender = document.getElementById("submit")
 
