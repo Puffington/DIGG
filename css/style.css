@@ -252,7 +252,7 @@ body {
     border-top-right-radius: 10px;
 }
 
-#aiList li a {
+.aiList-a {
     padding: 15px;
     display: block;
     cursor: pointer;
@@ -260,7 +260,7 @@ body {
     background-color: #FFE5CC;
 }
 
-#aiList li a:hover {
+.aiList-a:hover {
     background-color: #f5d4cf;
 }
 
@@ -426,38 +426,6 @@ form{
         color: white;
         border-color: #6E615A;
     }
-
-    /* Bool - Button style */
-
-    /* Hide the default radio button
-    input[type="radio"] {
-        appearance: none; 
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-color: #fff;
-        border: 2px solid #6E615A;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-        position: relative;
-        margin-right: 10px;
-    }
-    input[type="radio"]:checked {
-        border-color: #ef8271;
-    }
-    input[type="radio"]:checked::before {
-        content: '';
-        display: block;
-        background-color: #ef8271;
-        border-radius: 50%;
-        width: 10px;
-        height: 10px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } */
 /**/
 
 /*Dropdown !!!!!!!!!! NEW ROW THINGY*/ 
@@ -578,7 +546,6 @@ form{
 }
 
 /* Base Styles Remain the Same */
-
 
 
 /* Responsive adjustments for screens smaller than 800px */
