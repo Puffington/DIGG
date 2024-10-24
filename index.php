@@ -19,7 +19,7 @@
             </nav>
             
             <div class="headline">
-                <h1>Welcome to the Trust Model!</h1>
+                <h1>Welocome to the Trust Model!</h1>
             </div>
 
             <div class="horizontal">
