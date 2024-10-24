@@ -66,11 +66,11 @@ include("includes/templates/header.php");
                     while ($ai = mysqli_fetch_assoc($result2)) {
                         if (!empty($ai)) {
                             echo "<ul id='aiList'><li>";
-                            echo "<a onclick=\"toggleAiInfo('ai-" . $ai['ID'] . "')\">" . $ai['NAME'] . "</a>";
+                            echo "<a class='aiList-a' onclick=\"toggleAiInfo('ai-" . $ai['ID'] . "')\">" . $ai['NAME'] . "</a>";
                             echo "<div id='ai-" . $ai['ID'] . "' class='ai-info' style='display:none;'>";
                             echo "<p>test" . $ai['ID'] . "</p>";
-                            echo "<p>URL: " . $ai['URL'] . "</p>";
-                            echo "<p>Date: " . $ai['CREATED_DATE'] . "</p>";
+                            echo "<p>URL: <a href=" . $ai['URL'] . " target='_blank'>" . $ai['URL'] . "</a></p>";
+                            echo "<p>Date: " . substr($ai['CREATED_DATE'], 0, -9) . "</p>";
                             echo "<button class='menuButton'>Download Answers</botton>";
                             echo "</div>";
                             echo "</li>";
