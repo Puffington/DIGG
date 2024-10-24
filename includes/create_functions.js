@@ -195,7 +195,36 @@ function multiRevelio(select) {
     addToMem("3", parent.id, [select.value, boxes.length])
 }
 
+let lastClickedButton = null; // Track the last clicked button
+
 function radioRevelio(button) {
+    let parent = button.parentNode;
+    let linkedElement = document.getElementById(parent.getAttribute('data-linked'));
+
+    // If the same button is clicked again, deselect it
+    if (lastClickedButton === button) {
+        button.checked = false; // Deselect the radio button
+        lastClickedButton = null; // Clear the tracking
+        if (linkedElement) {
+            linkedElement.hidden = true; // Hide linked element, if any
+        }
+        addToMem("1", parent.id, null); // Handle the case where no value is selected
+    } else {
+        // If a different button is clicked, proceed normally
+        lastClickedButton = button;
+        if (button.getAttribute('data-activate') == 1) {
+            if (linkedElement) {
+                linkedElement.hidden = false; // Show linked element
+            }
+        } else {
+            if (linkedElement) {
+                linkedElement.hidden = true; // Hide linked element
+            }
+        }
+        addToMem("1", parent.id, button.value); // Track selected value
+    }
+}
+/*ORIGINAL: function radioRevelio(button) {
     let parent = button.parentNode;
     let link = parent.getAttribute('data-linked');
     //console.log(parent.getAttribute('data-linked'))
@@ -208,7 +237,7 @@ function radioRevelio(button) {
         }
     }
     addToMem("1", parent.id, button.value)
-}
+}*/
 
 function typing(event) {
     //console.log(event.target.value)
@@ -303,15 +332,11 @@ function builderOfElements(obj) {
         // Bool
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>" +
-                "<div><p class='readmore' hidden='true' >" + obj.readmore + "</p><button onclick='readmore(this)'>readmore</button></div>" +
+                "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
 
-                "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" +
-                "<label for='" + obj.id + "Y' class='ynQ'>Yes</label>" +
-                "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0  onclick='radioRevelio(this)' >" +
-                "<label for='" + obj.id + "N' class='ynQ'>Nope</label></div>"
-                // "<input type='radio' id=" + obj.id + "U" + " name=" + obj.id + " value='2' data-activate=" + obj.linkActivation[2] + " data-inex=2  onclick='radioRevelio(this)' >" +
-                //"<label for='" + obj.id + "U' class='ynQ'>no answer</label></div>"
-                ;
+                "<div class='yn-div'><input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "Y' class='ynQ'>Yes</label></div>" +
+                "<div class='yn-div'><input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "N' class='ynQ'>No</label></div></div>";
+
             break;
 
         // Dropdown

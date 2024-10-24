@@ -252,7 +252,7 @@ body {
     border-top-right-radius: 10px;
 }
 
-#aiList li a {
+.aiList-a {
     padding: 15px;
     display: block;
     cursor: pointer;
@@ -260,7 +260,7 @@ body {
     background-color: #FFE5CC;
 }
 
-#aiList li a:hover {
+.aiList-a:hover {
     background-color: #f5d4cf;
 }
 
@@ -383,21 +383,35 @@ form{
 }
 
 /*Bool*/
+    .yn-div{
+        display: inline-block;
+        border: 3px solid white;
+        padding: none;
+        transition:none;
+    }
+    .yn-div:hover{
+        border: none;
+        transition:none;
+    }
     .ynQ {
         display: inline-block;
         padding: 5px;
         margin: 5px;
         background-color: white;
         color: #6E615A;
-        border: 2px solid white;
+        border: 1px solid #6E615A;
         border-radius: 50px;
         cursor: pointer;
+        user-select: none;
         font-size: 16px;
         transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     }
     /* When hovering over the button-like label */
     .ynQ:hover {
-        border: 2px solid #6E615A;
+        font-weight: bold;
+        border-width: 3px;
+        border: 3px solid #6E615A;
+        box-sizing: border-box;
     }
     /* Hide the actual radio input but keep its functionality */
     input[type="radio"] {
@@ -412,38 +426,6 @@ form{
         color: white;
         border-color: #6E615A;
     }
-
-    /* Bool - Button style */
-
-    /* Hide the default radio button
-    input[type="radio"] {
-        appearance: none; 
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-color: #fff;
-        border: 2px solid #6E615A;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-        position: relative;
-        margin-right: 10px;
-    }
-    input[type="radio"]:checked {
-        border-color: #ef8271;
-    }
-    input[type="radio"]:checked::before {
-        content: '';
-        display: block;
-        background-color: #ef8271;
-        border-radius: 50%;
-        width: 10px;
-        height: 10px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } */
 /**/
 
 /*Dropdown !!!!!!!!!! NEW ROW THINGY*/ 
@@ -563,3 +545,196 @@ form{
     margin-left: 20px;
 }
 
+/* Base Styles Remain the Same */
+
+
+/* Responsive adjustments for screens smaller than 800px */
+@media (max-width: 800px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    .header img {
+        margin-bottom: 10px;
+    }
+
+    .header .title-section h1 {
+        font-size: 16px;
+    }
+
+    .header .title-section h2 {
+        font-size: 12px;
+    }
+
+    .header nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .headline h1 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .breadcrums {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .menuButton {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+        height: auto;
+    }
+
+    .horizontal {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .textTrustModel {
+        font-size: 15px;
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+    .categoryArea {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .categoryArea h1 {
+        font-size: 22px;
+    }
+
+    form {
+        padding-left: 10px;
+    }
+
+    #formNav, .scroller {
+        width: 100%;
+    }
+
+    /* Adjusting button sizes */
+    #submitFormButton {
+        font-size: 16px;
+        padding: 15px 30px;
+    }
+
+    .ynQ {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .button-like {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .dropdownQuestion select,
+    .divtxtInput input {
+        font-size: 14px;
+        padding: 5px;
+        max-width: 100%;
+    }
+
+    /* Search bar and lists */
+    .search-input {
+        font-size: 16px;
+        padding: 8px;
+        width: 100%;
+    }
+
+    #nameList li a,
+    #aiList li a {
+        font-size: 16px;
+    }
+
+    #namelist {
+        height: auto;
+        max-height: 400px;
+    }
+
+    /* Adjusting result area */
+    #left_result {
+        width: 100%;
+        padding: 30px;
+        font-size: 18px;
+    }
+
+    #option_buttons {
+        bottom: 20px;
+        margin-left: 0;
+    }
+}
+
+/* Additional styles for even smaller screens (less than 480px) */
+@media (max-width: 480px) {
+    .header .title-section h1 {
+        font-size: 14px;
+    }
+
+    .header .title-section h2 {
+        font-size: 10px;
+    }
+
+    .header nav a {
+        font-size: 14px;
+    }
+
+    .menuButton {
+        font-size: 12px;
+    }
+
+    .headline h1 {
+        font-size: 16px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .textTrustModel {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .categoryArea {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .categoryArea h1 {
+        font-size: 20px;
+    }
+
+    .dropdownQuestion select,
+    .divtxtInput input {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    /* Make buttons smaller */
+    #submitFormButton {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .ynQ {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+
+    .button-like {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+}
