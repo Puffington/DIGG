@@ -355,8 +355,8 @@
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
-        "risk":[["h",0]],
-        "stamp":"1",
+        "risk":[],
+        "stamp":"",
         "readmore":"The AI Act encourages reproducibility to ensure reliability, especially in high-risk applications. Consistent results are critical for system validation and user trust.",
         "options": []
     },

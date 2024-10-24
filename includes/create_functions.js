@@ -197,6 +197,7 @@ function multiRevelio(select) {
 let lastClickedButton = null;
 function radioRevelio(button) {
     let parent = button.parentNode;
+        parent = parent.parentNode;
     let linkedElement = document.getElementById(parent.getAttribute('data-linked'));
 
     if (lastClickedButton === button) {
