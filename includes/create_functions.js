@@ -1,14 +1,23 @@
 //BUGS
 //recursive hiding of elements
+//going back when writing orgnr doesn't trigger event (should be prevented with having number maximum)
+//can't see linked variables?
 
 //IMPLEMENTATIONS
+// output name - done
+// output stuffs - done
+// output AI  - done
+// sometimes doesn't fill in the organisation_ID, it says it ha too long of a variable?
+// being able to double check, if Organisation already exists, if it does, don't resend
 // Question 5A: version? what type? (text/number)
 // 26A utveckla...
 // selected dropdown no answer?
-//you can actually get all the valuess from the textboxes when you submit. could help a lot---
+// one question has how the data is stored, another is about data security measures, if you answer not vasing, then question is useless 
 
 //Nikki
 // unmark a yes/no answer
+// css yes/no button
+// readmore button
 // 
 
 window.addEventListener('load', function () {
@@ -72,7 +81,7 @@ window.addEventListener('load', function () {
 
         // If we have an intersecting entry, apply the styles
         if (intersectingEntry) {
-            intersectingEntry.target.link.style.backgroundColor = "#6E615A";
+            intersectingEntry.target.link.style.backgroundColor = "#000000";
             intersectingEntry.target.link.style.color = "#FFFFFF";
         }
     }
@@ -121,29 +130,18 @@ function addToMem(type, id, value) {
 function checkIfNumber(event) {
     console.log("recieved " + event)
 
-    if (event.key === 'Backspace') {
-        let tempmem = structuredClone(event.target.value.slice(0, -1));
-        addToMem("0", event.target.id, tempmem)
-        return true;
-    }
-
     if (event.target.value.length >= 10) {
         return false
     }
-    let passed = true;
-    console.log(event.key)
 
     if (isNaN(event.key) || event.key == " ") {
-        passed = false;
-        //console.log(event.target.value + event.key)
-    }
-
-    if (passed) {
-        addToMem("0", event.target.id, event.target.value + event.key)
-        return true;
-    } else {
         console.log("NEIN, STAHP IT")
         return false;
+    } else {
+        //console.log("testing something: ")
+        //console.log(event.target.value + event.key)
+        addToMem("0", event.target.id, event.target.value + event.key)
+        return true;
     }
 }
 
@@ -215,13 +213,6 @@ function typing(event) {
     //print(event.target.)
     console.log("typing!!")
     console.log(event.target.dataset)
-
-    if (event.key === 'Backspace') {
-        let tempmem = structuredClone(event.target.value.slice(0, -1));
-        addToMem(event.target.dataset.texttype, event.target.id, tempmem)
-        return true;
-    }
-
     addToMem(event.target.dataset.texttype, event.target.id, event.target.value + event.key)
     return true;
 }
@@ -276,7 +267,7 @@ function builderOfElements(obj) {
     switch ((obj.type).toLowerCase()) {
         // Number
         case "number":
-            htmltxt = "<div class='divtxtInput'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>  <input type='number' name=" + obj.id + " onKeyDown='return checkIfNumber(event)' /><div>";
+            htmltxt = "<div class='divtxtInput'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             break;
 
         // Text
@@ -296,28 +287,24 @@ function builderOfElements(obj) {
                     tempElement = "1"
             }
 
-            htmltxt = "<div class='divtxtInput'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>  <input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onKeyDown='return typing(event)' /><div>";
+            htmltxt = "<div class='divtxtInput'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>  <input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
 
             break;
 
         // Bool
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>" +
-                "<div><p class='readmore' hidden='true' >" + obj.readmore + "</p><button onclick='readmore(this)'>readmore</button></div>" +
+                "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
 
-                "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" +
-                "<label for='" + obj.id + "Y' class='ynQ'>Yes</label>" +
-                "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0  onclick='radioRevelio(this)' >" +
-                "<label for='" + obj.id + "N' class='ynQ'>Nope</label></div>"
-                // "<input type='radio' id=" + obj.id + "U" + " name=" + obj.id + " value='2' data-activate=" + obj.linkActivation[2] + " data-inex=2  onclick='radioRevelio(this)' >" +
-                //"<label for='" + obj.id + "U' class='ynQ'>no answer</label></div>"
-                ;
+                "<input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "Y' class='ynQ'>Yes</label>" +
+                "<input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "N' class='ynQ'>No</label></div>";
+
             break;
 
         // Dropdown
         case "dropdown":
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + "><p>" + mandantoryQ + obj.id + ". " + obj.question + "</p></label> " +
-                "<div><p class='readmore' hidden='true' >" + obj.readmore + "</p><button onclick='readmore(this)'>readmore</button></div>" +
+                "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
                 "<select name=" + obj.id + " onchange='dropRevelio(this)' >";  // Default option;
             obj.options.forEach((opti, index) => {
                 htmltxt += "<option value=" + index + " data-activate=" + obj.linkActivation[index] + " >" + opti + "</option>";
@@ -328,7 +315,7 @@ function builderOfElements(obj) {
         // Multi
         case "multi":
             htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>" +
-                "<div><p class='readmore' hidden='true' >" + obj.readmore + "</p><button onclick='readmore(this)'>readmore</button></div>";
+                "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>";
             obj.options.forEach((opti, index) => {
                 if (obj.linkActivation.length == 0) {
                     htmltxt += "<input type='checkbox' id='" + obj.id + index + "' name='" + opti + "' value='" + index + "' onclick='multiRevelio(this)' hidden>" +
@@ -355,17 +342,20 @@ function reveal() {
 
 
 function readmore(thing) {
-    console.log("pressed")
-    let parent = thing.parentNode
-    let textbox = parent.querySelector('p')
+    console.log("pressed");
+    let parent = thing.parentNode;
+    let textbox = parent.querySelector('p');
 
-    console.log(textbox)
+    console.log(textbox);
     if (textbox.hidden) {
         textbox.hidden = false;
+        thing.textContent = "Read less";  
     } else {
         textbox.hidden = true;
+        thing.textContent = "Read more";  
     }
 }
+
 
 //mode is you want to show all the questions, or make the questions have functionality
 async function getQuestions(mode) {
@@ -409,6 +399,7 @@ async function getQuestions(mode) {
     console.log("you pressed correctly")
 }
 
+
 async function pdfing() {
     allTheData = new URLSearchParams();
     allTheData.append("PDF", "test")
@@ -422,16 +413,9 @@ async function pdfing() {
         method: 'POST', //or GET, your choice ---UPDATE
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData
-    }).then(response => response.blob()) //error handling from gpt, because of reasons
-        .then(blob => {
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'AIPDF.pdf';  // Name of the downloaded file
-            document.body.appendChild(a);
-            a.click();  // Trigger the download
-            a.remove();
-            //console.log(data)
+    }).then(response => response.text()) //error handling from gpt, because of reasons
+        .then(data => {
+            console.log(data)
         })
         .catch(error => console.error('Error:', error));
 }
@@ -443,10 +427,10 @@ function submitAndSend() {
     let goodTogGo = true;
 
 
-    if (!output.orgName || !output.aiName || !output.url || !output.orgnr) {
+    if(!output.orgName || !output.aiName || !output.url || !output.orgnr){
         goodTogGo = false; // change this value to remove the check
 
-        if (!goodTogGo) {
+        if(!goodTogGo){
             alert("fill in all the text fields at the top of the form")
             return 0
         }
@@ -492,7 +476,7 @@ function submitAndSend() {
 
             allTheData.append("URL", output.url) //works
             allTheData.append("VERSION", 1)
-            allTheData.append("STAMP", 0)
+            allTheData.append("STAMP", 1)
             allTheData.append("CREATED_DATE", currentDate) //works
             allTheData.append("ANSWERS", JSON.stringify(output.answers)) //not implemented
             //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
