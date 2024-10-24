@@ -383,6 +383,16 @@ form{
 }
 
 /*Bool*/
+    .yn-div{
+        display: inline-block;
+        border: 3px solid white;
+        padding: none;
+        transition:none;
+    }
+    .yn-div:hover{
+        border: none;
+        transition:none;
+    }
     .ynQ {
         display: inline-block;
         padding: 5px;
@@ -390,6 +400,7 @@ form{
         background-color: white;
         color: #6E615A;
         border: 2px solid white;
+        border: 1px solid #6E615A;
         border-radius: 50px;
         cursor: pointer;
         font-size: 16px;
@@ -398,6 +409,10 @@ form{
     /* When hovering over the button-like label */
     .ynQ:hover {
         border: 2px solid #6E615A;
+        font-weight: bold;
+        border-width: 3px;
+        border: 3px solid #6E615A;
+        box-sizing: border-box;
     }
     /* Hide the actual radio input but keep its functionality */
     input[type="radio"] {
@@ -562,6 +577,9 @@ form{
     padding: 20px;
     margin-left: 20px;
 }
+
+
+
 
 /********************************/
 /*PHONE*/
