@@ -147,7 +147,7 @@ window.addEventListener('load', async function () {
 
         // Create a Form button element
         let buttonForm = document.createElement("button");
-        buttonForm.textContent = "Go to The From";
+        buttonForm.textContent = "Go back to The Form";
         buttonForm.classList.add("menuButton");
         buttonForm.onclick = function () {
             window.location.href = "create.php";

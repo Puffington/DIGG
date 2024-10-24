@@ -194,49 +194,32 @@ function multiRevelio(select) {
 }
 
 
-let lastClickedButton = null; // Track the last clicked button
+let lastClickedButton = null;
 function radioRevelio(button) {
     let parent = button.parentNode;
     let linkedElement = document.getElementById(parent.getAttribute('data-linked'));
 
-    // If the same button is clicked again, deselect it
     if (lastClickedButton === button) {
-        button.checked = false; // Deselect the radio button
-        lastClickedButton = null; // Clear the tracking
+        button.checked = false; 
+        lastClickedButton = null; 
         if (linkedElement) {
-            linkedElement.hidden = true; // Hide linked element, if any
+            linkedElement.hidden = true; 
         }
-        addToMem("1", parent.id, null); // Handle the case where no value is selected
+        addToMem("1", parent.id, null); 
     } else {
-        // If a different button is clicked, proceed normally
         lastClickedButton = button;
         if (button.getAttribute('data-activate') == 1) {
             if (linkedElement) {
-                linkedElement.hidden = false; // Show linked element
+                linkedElement.hidden = false; 
             }
         } else {
             if (linkedElement) {
-                linkedElement.hidden = true; // Hide linked element
+                linkedElement.hidden = true;
             }
         }
-        addToMem("1", parent.id, button.value); // Track selected value
+        addToMem("1", parent.id, button.value);
     }
 }
-/*ORIGINAL: function radioRevelio(button) {
-    let parent = button.parentNode;
-    let link = parent.getAttribute('data-linked');
-    //console.log(parent.getAttribute('data-linked'))
-    //console.log("link length: ", link.length)
-    if (link.length != 0) {
-        if (button.getAttribute('data-activate') == 1) {
-            document.getElementById(parent.getAttribute('data-linked')).hidden = false;
-        } else {
-            document.getElementById(parent.getAttribute('data-linked')).hidden = true;
-        }
-    }
-    addToMem("1", parent.id, button.value)
-}
-}*/
 
 function typing(event) {
     //console.log(event.target.value)
@@ -297,7 +280,9 @@ function builderOfElements(obj) {
     switch ((obj.type).toLowerCase()) {
         // Number
         case "number":
-            htmltxt = "<div class='divtxtInput'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>  <input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
+            htmltxt = "<div class='divtxtInput'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>" +
+            "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+            "<input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             break;
 
         // Text
@@ -317,7 +302,9 @@ function builderOfElements(obj) {
                     tempElement = "1"
             }
 
-            htmltxt = "<div class='divtxtInput'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>  <input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
+            htmltxt = "<div class='divtxtInput'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>"+
+                "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                "<input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
 
             break;
 
@@ -439,7 +426,7 @@ async function pdfing() {
 
     console.log(AnswerMem)
 
-    fetch('includes/pdf_functions.php', {
+    fetch('pdf_functions.php', {
         method: 'POST', //or GET, your choice ---UPDATE
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData
