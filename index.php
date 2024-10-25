@@ -23,7 +23,7 @@ function toFOrm(abc){
     <main>
         <div class="breadcrums">
             <nav>
-                <i class="fa-solid fa-house"></i>&emsp;
+                <a href="index.php"><i class="fa-solid fa-house"></i> </a>&emsp;
                 <a href="index.php">The Trust Model</a>
             </nav>
             
