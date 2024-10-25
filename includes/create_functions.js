@@ -26,6 +26,9 @@ window.addEventListener('load', function () {
 
     getQuestions(1)
 
+    let modes = JSON.parse(sessionStorage.getItem("mode"));
+    console.log("mode is  " + modes);
+
     //linking objects
     A1 = document.getElementById("cat1Area");
     A2 = document.getElementById("cat2Area");
@@ -423,7 +426,7 @@ async function pdfing() {
 
     console.log(AnswerMem)
 
-    fetch('pdf_functions.php', {
+    fetch('includes/pdf-kod/pdf_functionss.php', {
         method: 'POST', //or GET, your choice ---UPDATE
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData

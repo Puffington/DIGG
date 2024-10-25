@@ -1,6 +1,8 @@
 <?php
 if(isset($_POST["PDF"])){
-    require('pdf-kod/fpdf186/fpdf.php'); 
+
+    echo("reached");
+    require('../include/pdf-kod/fpdf186/fpdf.php'); 
 
     $ANSWERS = json_decode($_POST["ANSWERS"], true);
     $QUESTIONS = json_decode(file_get_contents("questions.json"),true);

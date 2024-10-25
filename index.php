@@ -1,7 +1,18 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
+<script>
+function toFOrm(abc){
+
+    if(abc){
+        sessionStorage.setItem('mode', JSON.stringify("test"));
+        window.location.href = "create.php"
+    }else{
+        sessionStorage.setItem('mode', JSON.stringify("register"));
+        window.location.href = "create.php"
+    }
+}
+</script>
 
 <body>
 
@@ -36,7 +47,8 @@
                 <div class="card">
                     <h2>Fill in the form</h2>
                     <p>When you have filled in our form, we will check if your AI is aligned with the AI Act and laws of AI, and you might be able to get the Stamp of Quality!</p>
-                    <button type="button" class="menuButton" onclick="location.href='create.php';" >The Form</button>
+                    <button type="button" class="menuButton" onclick="toFOrm(0)"  >The Form</button>
+                    <button type="button" class="menuButton" onclick="toFOrm(1)" >The test Form</button>
                 </div>
             </div>
 
