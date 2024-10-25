@@ -98,7 +98,7 @@ window.addEventListener('load', function () {
 
 
 function scroller(CategoryButton) {
-    CategoryButton.link.scrollIntoView({ behavior: "smooth", block: "center", inline: 'start' });
+    CategoryButton.link.scrollIntoView({ behavior: "smooth", block: "start", inline: 'nearest' });
     //CategoryButton.parentNode.scrollTop = CategoryButton.offsetTop;
 }
 
