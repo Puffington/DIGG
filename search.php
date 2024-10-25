@@ -40,7 +40,7 @@ include("includes/templates/header.php");
 
                     // List all organizations
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<li><a href='?orgId=" . $row['ID'] . "'>" . $row['NAME'] . "</a></li>";
+                        echo "<li> <a href='?orgId=" . $row['ID'] . "'>" . $row['NAME'] . "</a></li>";
                     }
                     ?>
                 </ul>

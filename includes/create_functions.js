@@ -330,21 +330,21 @@ function builderOfElements(obj) {
                         tempElement = "1"
                 }
                 htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
-                    "<div><button class='readmoreButton' disabled onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                    "<div><button class='readmoreButton' disabled onclick='readmore(this)'><i class='fa-solid fa-circle-info'></i> Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
                     "<input type='text' disabled value='DISABLED' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
             }
             break;
         // Bool
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.id + ". " + obj.question + "</p>" +
-                "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                "<div><button class='readmoreButton' onclick='readmore(this)'><i class='fa-solid fa-circle-info'></i> Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
                 "<div class='yn-div'><input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "Y' class='ynQ'>Yes</label></div>" +
                 "<div class='yn-div'><input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "N' class='ynQ'>No!</label></div></div>";
             break;
         // Dropdown
         case "dropdown":
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + "><p>" + obj.id + ". " + obj.question + "</p></label> " +
-                "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                "<div><button class='readmoreButton' onclick='readmore(this)'><i class='fa-solid fa-circle-info'></i> Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
                 "<select name=" + obj.id + " onchange='dropRevelio(this)' >";  // Default option;
             obj.options.forEach((opti, index) => {
                 htmltxt += "<option value=" + index + " data-activate=" + obj.linkActivation[index] + " >" + opti + "</option>";
@@ -354,7 +354,7 @@ function builderOfElements(obj) {
         // Multi
         case "multi":
             htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + obj.id + ". " + obj.question + "</p>" +
-                "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>";
+                "<div><button class='readmoreButton' onclick='readmore(this)'><i class='fa-solid fa-circle-info'></i> Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>";
             obj.options.forEach((opti, index) => {
                 if (obj.linkActivation.length == 0) {
                     htmltxt += "<input type='checkbox' id='" + obj.id + index + "' name='" + opti + "' value='" + index + "' onclick='multiRevelio(this)' hidden>" +
