@@ -29,6 +29,12 @@ window.addEventListener('load', function () {
     let modes = JSON.parse(sessionStorage.getItem("mode"));
     console.log("mode is  " + modes);
 
+    //document.getElementById("submitFormButton").value = "någonting";
+
+    if(modes == "test"){
+        document.getElementById("submitFormButton").onclick = "submitAndTest()";
+    }
+    
     //linking objects
     A1 = document.getElementById("cat1Area");
     A2 = document.getElementById("cat2Area");

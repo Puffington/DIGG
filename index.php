@@ -3,7 +3,6 @@
 
 <script>
 function toFOrm(abc){
-
     if(abc){
         sessionStorage.setItem('mode', JSON.stringify("test"));
         window.location.href = "create.php"
@@ -15,7 +14,6 @@ function toFOrm(abc){
 </script>
 
 <body>
-
     <!-- Header Section -->
     <?php
         include("includes/templates/header.php");
