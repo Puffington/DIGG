@@ -27,8 +27,11 @@ window.addEventListener('load', function () {
     modes = JSON.parse(sessionStorage.getItem("mode"));
     console.log("mode is  " + modes);
     if (modes == "test") {
-        document.getElementById("submitFormButton").onclick = "submitAndTest(this)"; //this ???
-        document.getElementById("submitFormButton").value = "Submit!";
+        document.getElementById('submitFormButton').setAttribute('onclick','submitAndTest()')
+        document.getElementById("submitFormButton").value = "Submit!!!!";
+    }else{
+        document.getElementById('submitFormButton').setAttribute('onclick','submitAndSend()')
+        document.getElementById("submitFormButton").value = "Submit2222!!!!";
     }
 
     //linking objects
@@ -287,11 +290,11 @@ function builderOfElements(obj) {
         case "number":
             if (modes == "register") {
                 htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
-                readmorediv +
+                    readmorediv +
                     "<input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
-            }else{
+            } else {
                 htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
-                readmorediv +
+                    readmorediv +
                     "<input type='number' value='000' disabled name=" + obj.id + " onkeypress='return checkIfNumber(event)' value='Disabled'/><div>";
             }
             break;
@@ -313,9 +316,9 @@ function builderOfElements(obj) {
                         tempElement = "1"
                 }
                 htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
-                readmorediv +
+                    readmorediv +
                     "<input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
-            }else{
+            } else {
                 let tempElement;
                 switch (obj.text.toLowerCase()) {
                     case "url":
@@ -331,21 +334,21 @@ function builderOfElements(obj) {
                         tempElement = "1"
                 }
                 htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
-                readmorediv +
+                    readmorediv +
                     "<input type='text' disabled value='DISABLED' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
             }
             break;
         // Bool
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.id + ". " + obj.question + "</p>" +
-            readmorediv +
+                readmorediv +
                 "<div class='yn-div'><input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "Y' class='ynQ'>Yes</label></div>" +
                 "<div class='yn-div'><input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "N' class='ynQ'>No!</label></div></div>";
             break;
         // Dropdown
         case "dropdown":
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + "><p>" + obj.id + ". " + obj.question + "</p></label> " +
-            readmorediv +
+                readmorediv +
                 "<select name=" + obj.id + " onchange='dropRevelio(this)' >";  // Default option;
             obj.options.forEach((opti, index) => {
                 htmltxt += "<option value=" + index + " data-activate=" + obj.linkActivation[index] + " >" + opti + "</option>";
@@ -468,66 +471,12 @@ async function pdfing() {
 }
 
 
-function submitAnsTest() {
-
+function submitAndTest() {
+    console.log("weeey")
     output.answers = AnswerMem;
-    //let sender = document.getElementById("submit")
-
-    let t = new Date();
-
-    //this part is inefficient, but should work for now
-    let currentDate = t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds()
-    console.log(currentDate)
-    console.log("orgid::" + output.orgnr)
-
-    //sending to organisation
-    allTheData = new URLSearchParams();
-    allTheData.append("ORGANISATION", "")
-    allTheData.append("ORGN_NR", output.orgnr)
-    allTheData.append("NAME", output.orgName)
-
-    let temporaryID;
-
-    fetch('includes/db_functions.php', {
-        method: 'POST', //or GET, your choice
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: allTheData
-    }).then(response => response.text()) //error handling from gpt, because of reasons
-        .then(data => {
-            sessionStorage.setItem('output', JSON.stringify(output));
-            //window.location.href = "result.php"
-            console.log(data)
-            temporaryID = data;
-            allTheData = new URLSearchParams();
-
-            allTheData.append('AI', "somevalue")
-            //parameters.append("organisation","somevalue")
-            allTheData.append('NAME', output.aiName) //works
-            allTheData.append("ORGANISATION_ID", temporaryID) //works
-
-            console.log("tempidär:" + temporaryID);
-            sessionStorage.setItem('dbID', JSON.stringify(structuredClone(temporaryID)));
-
-            allTheData.append("URL", output.url) //works
-            allTheData.append("VERSION", 1)
-            allTheData.append("STAMP", 1)
-            allTheData.append("CREATED_DATE", currentDate) //works
-            allTheData.append("ANSWERS", JSON.stringify(output.answers)) //not implemented
-            //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
-
-            fetch('includes/db_functions.php', {
-                method: 'POST', //or GET, your choice ---UPDATE
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: allTheData
-            }).then(response => response.text()) //error handling from gpt, because of reasons
-                .then(data => {
-
-                    window.location.href = "result.php"
-                    //console.log(data)
-                })
-                .catch(error => console.error('Error:', error));
-        })
-        .catch(error => console.error('Error:', error));
+    sessionStorage.setItem('output', JSON.stringify(output));
+    sessionStorage.setItem('dbID', "");
+    window.location.href = "result.php"
 }
 
 // submitting and sending to the next page

@@ -51,9 +51,8 @@ include("includes/templates/header.php");
                 <div class="categoryArea" id="cat5Area">
                     <h1>Transparancy</h1>
                 </div> <!--  action="result.php" -->
-                <form type="hidden" onclick="submitAndSend(this)">
-                    <input type="button" class="menuButton" id="submitFormButton" value="Submit your answers!">
-                </form>
+                    <input type="button" onclick="" class="menuButton" id="submitFormButton" value="Submit your answers!">
+                
             </div>
         </div>
     </div>
