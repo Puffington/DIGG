@@ -194,6 +194,33 @@ window.addEventListener('load', async function () {
     //low risk / transparency req / minimal risk
 })
 
+async function pdfing() {
+    let output = JSON.parse(sessionStorage.getItem('output'));
+    let answers = output.answers
+    allTheData = new URLSearchParams();
+    allTheData.append("PDF", "test")
+    //allTheData.append("QUESTIONS",await objQuestions)
+    allTheData.append("ANSWERS", JSON.stringify(answers)) //not implemented
+    //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
+
+    fetch('../includes/pdf_functions.php', {
+        method: 'POST', //or GET, your choice ---UPDATE
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: allTheData
+    }).then(response => response.blob()) //error handling from gpt, because of reasons
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'AIPDF.pdf';  // Name of the downloaded file
+            document.body.appendChild(a);
+            a.click();  // Trigger the download
+            a.remove();
+            //console.log(blob)
+        })
+        .catch(error => console.error('Error:', error));
+}
+
 
 function qrCode(){
     console.log("hello")

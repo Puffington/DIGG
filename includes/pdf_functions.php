@@ -1,11 +1,9 @@
 <?php
-if(isset($_POST["PDF"])){
-
-    echo("reached");
-    require('../include/pdf-kod/fpdf186/fpdf.php'); 
+if (isset($_POST["PDF"])) {
+    require('../includes/pdf-kod/fpdf186/fpdf.php');
 
     $ANSWERS = json_decode($_POST["ANSWERS"], true);
-    $QUESTIONS = json_decode(file_get_contents("questions.json"),true);
+    $QUESTIONS = json_decode(file_get_contents("questions.json"), true);
 
     $pdf = new FPDF();
     $pdf->AddPage();
@@ -18,19 +16,28 @@ if(isset($_POST["PDF"])){
     if ($ANSWERS !== null && is_array($ANSWERS) && $QUESTIONS !== null && is_array($QUESTIONS)) {
         foreach ($ANSWERS as $key => $value) {
             foreach ($QUESTIONS as $question) {
+
                 if (isset($question['id']) && $question['id'] == $key) {
                     $pdf->SetFont('Arial', 'B', 12);
-                    $pdf->Cell(0, 10, "Question: " . $question['id']);
+                    $pdf->Cell(0, 10, "Question " . $question['id'] . ": " . $question['question']);
                     $pdf->Ln();
 
                     $pdf->SetFont('Arial', '', 12);
                     if (is_array($value)) {
-                        foreach ($value as $option) {
-                            $pdf->Cell(0, 10, "Answer: " . $option);
-                            $pdf->Ln();
+                        foreach ($value as $nr => $ans) {
+                            if ($ans == 1) {
+                                $pdf->Cell(0, 10, "Answer: " .  $question['options'][$nr]);
+                                $pdf->Ln();
+                            }
                         }
                     } else {
-                        $pdf->Cell(0, 10, "Answer: " . $value);
+
+                        if ($value == 1) {
+                            $pdf->Cell(0, 10, "Answer: YES");
+                        } else {
+                            $pdf->Cell(0, 10, "Answer: NO");
+                        }
+
                         $pdf->Ln();
                     }
                 }
@@ -40,21 +47,11 @@ if(isset($_POST["PDF"])){
         echo "Failed to decode JSON or no data available.";
     }
 
-    $pdf->Output('D', 'Trust_Model_Submission.pdf');
+    $pdf->Output();
 }
 
 
-
-
-
-
-
-
-
 /*
-
-
-
 if(isset($_POST["PDF"])){
     echo("you got to the right area!!! hosam can code here");
     
@@ -91,5 +88,3 @@ if(isset($_POST["PDF"])){
 
 
 */
-
-

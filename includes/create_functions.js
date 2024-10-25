@@ -432,13 +432,20 @@ async function pdfing() {
 
     console.log(AnswerMem)
 
-    fetch('includes/pdf-kod/pdf_functionss.php', {
+    fetch('../includes/pdf_functions.php', {
         method: 'POST', //or GET, your choice ---UPDATE
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData
-    }).then(response => response.text()) //error handling from gpt, because of reasons
-        .then(data => {
-            console.log(data)
+    }).then(response => response.blob()) //error handling from gpt, because of reasons
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'AIPDF.pdf';  // Name of the downloaded file
+            document.body.appendChild(a);
+            a.click();  // Trigger the download
+            a.remove();
+            //console.log(blob)
         })
         .catch(error => console.error('Error:', error));
 }
