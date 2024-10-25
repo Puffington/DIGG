@@ -281,16 +281,17 @@ function builderOfElementsAddBlueprint() {
 
 function builderOfElements(obj) {
     let htmltxt = "";
+    var readmorediv = "<div onclick='readmore(this)'> <i class='fa-solid fa-circle-info'></i> <button class='readmoreButton'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>";
     switch ((obj.type).toLowerCase()) {
         // Number
         case "number":
             if (modes == "register") {
                 htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
-                    "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                readmorediv +
                     "<input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             }else{
                 htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
-                    "<div><button class='readmoreButton' onclick='readmore(this)' disabled>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                readmorediv +
                     "<input type='number' value='000' disabled name=" + obj.id + " onkeypress='return checkIfNumber(event)' value='Disabled'/><div>";
             }
             break;
@@ -312,7 +313,7 @@ function builderOfElements(obj) {
                         tempElement = "1"
                 }
                 htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
-                    "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                readmorediv +
                     "<input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
             }else{
                 let tempElement;
@@ -330,21 +331,21 @@ function builderOfElements(obj) {
                         tempElement = "1"
                 }
                 htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
-                    "<div><button class='readmoreButton' disabled onclick='readmore(this)'><i class='fa-solid fa-circle-info'></i> Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                readmorediv +
                     "<input type='text' disabled value='DISABLED' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
             }
             break;
         // Bool
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.id + ". " + obj.question + "</p>" +
-                "<div><button class='readmoreButton' onclick='readmore(this)'><i class='fa-solid fa-circle-info'></i> Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+            readmorediv +
                 "<div class='yn-div'><input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "Y' class='ynQ'>Yes</label></div>" +
                 "<div class='yn-div'><input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "N' class='ynQ'>No!</label></div></div>";
             break;
         // Dropdown
         case "dropdown":
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + "><p>" + obj.id + ". " + obj.question + "</p></label> " +
-                "<div><button class='readmoreButton' onclick='readmore(this)'><i class='fa-solid fa-circle-info'></i> Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+            readmorediv +
                 "<select name=" + obj.id + " onchange='dropRevelio(this)' >";  // Default option;
             obj.options.forEach((opti, index) => {
                 htmltxt += "<option value=" + index + " data-activate=" + obj.linkActivation[index] + " >" + opti + "</option>";
@@ -354,7 +355,7 @@ function builderOfElements(obj) {
         // Multi
         case "multi":
             htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + obj.id + ". " + obj.question + "</p>" +
-                "<div><button class='readmoreButton' onclick='readmore(this)'><i class='fa-solid fa-circle-info'></i> Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>";
+                readmorediv;
             obj.options.forEach((opti, index) => {
                 if (obj.linkActivation.length == 0) {
                     htmltxt += "<input type='checkbox' id='" + obj.id + index + "' name='" + opti + "' value='" + index + "' onclick='multiRevelio(this)' hidden>" +
@@ -382,15 +383,16 @@ function reveal() {
 function readmore(thing) {
     console.log("pressed");
     let parent = thing.parentNode;
-    let textbox = parent.querySelector('p');
+    let textbox = thing.querySelector('p');
+    let botton = thing.querySelector('button');
 
     console.log(textbox);
     if (textbox.hidden) {
         textbox.hidden = false;
-        thing.textContent = "Read less";
+        botton.textContent = "Read less";
     } else {
         textbox.hidden = true;
-        thing.textContent = "Read more";
+        botton.textContent = "Read more";
     }
 }
 
