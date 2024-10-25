@@ -278,6 +278,7 @@ function builderOfElementsAddBlueprint() {
     document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
 }
 
+
 function builderOfElements(obj) {
     let htmltxt = "";
     switch ((obj.type).toLowerCase()) {
@@ -287,6 +288,10 @@ function builderOfElements(obj) {
                 htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
                     "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
                     "<input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
+            }else{
+                htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
+                    "<div><button class='readmoreButton' onclick='readmore(this)' disabled>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                    "<input type='number' value='000' disabled name=" + obj.id + " onkeypress='return checkIfNumber(event)' value='Disabled'/><div>";
             }
             break;
         // Text
@@ -309,6 +314,24 @@ function builderOfElements(obj) {
                 htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
                     "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
                     "<input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
+            }else{
+                let tempElement;
+                switch (obj.text.toLowerCase()) {
+                    case "url":
+                        tempElement = "6"
+                        break;
+                    case "ai":
+                        tempElement = "5"
+                        break;
+                    case "org":
+                        tempElement = "4"
+                        break;
+                    default:
+                        tempElement = "1"
+                }
+                htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
+                    "<div><button class='readmoreButton' disabled onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                    "<input type='text' disabled value='DISABLED' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
             }
             break;
         // Bool
