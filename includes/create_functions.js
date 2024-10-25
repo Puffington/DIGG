@@ -273,15 +273,11 @@ function builderOfElementsAddBlueprint() {
 
 function builderOfElements(obj) {
     let htmltxt = "";
-    let mandantoryQ = "";
-    if (obj.stamp == 1) {
-        mandantoryQ = "<span style='color:red;'>*</span>";
-    }
 
     switch ((obj.type).toLowerCase()) {
         // Number
         case "number":
-            htmltxt = "<div class='divtxtInput'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>" +
+            htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
             "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
             "<input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             break;
@@ -303,7 +299,7 @@ function builderOfElements(obj) {
                     tempElement = "1"
             }
 
-            htmltxt = "<div class='divtxtInput'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>"+
+            htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>"+
                 "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
                 "<input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
 
@@ -311,7 +307,7 @@ function builderOfElements(obj) {
 
         // Bool
         case "boolean":
-            htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>" +
+            htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.id + ". " + obj.question + "</p>" +
                 "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
                 
                 "<div class='yn-div'><input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "Y' class='ynQ'>Yes</label></div>" +
@@ -321,7 +317,7 @@ function builderOfElements(obj) {
 
         // Dropdown
         case "dropdown":
-            htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + "><p>" + mandantoryQ + obj.id + ". " + obj.question + "</p></label> " +
+            htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + "><p>" + obj.id + ". " + obj.question + "</p></label> " +
                 "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
                 "<select name=" + obj.id + " onchange='dropRevelio(this)' >";  // Default option;
             obj.options.forEach((opti, index) => {
@@ -332,7 +328,7 @@ function builderOfElements(obj) {
 
         // Multi
         case "multi":
-            htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + mandantoryQ + obj.id + ". " + obj.question + "</p>" +
+            htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + obj.id + ". " + obj.question + "</p>" +
                 "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>";
             obj.options.forEach((opti, index) => {
                 if (obj.linkActivation.length == 0) {
