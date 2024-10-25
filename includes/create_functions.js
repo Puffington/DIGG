@@ -15,9 +15,6 @@
 // one question has how the data is stored, another is about data security measures, if you answer not vasing, then question is useless 
 
 //Nikki
-// unmark a yes/no answer
-// css yes/no button
-// readmore button
 // 
 
 window.addEventListener('load', function () {
@@ -26,15 +23,14 @@ window.addEventListener('load', function () {
 
     getQuestions(1)
 
-    let modes = JSON.parse(sessionStorage.getItem("mode"));
+    //if we enter test mode
+    modes = JSON.parse(sessionStorage.getItem("mode"));
     console.log("mode is  " + modes);
-
-    //document.getElementById("submitFormButton").value = "någonting";
-
-    if(modes == "test"){
-        document.getElementById("submitFormButton").onclick = "submitAndTest()";
+    if (modes == "test") {
+        document.getElementById("submitFormButton").onclick = "submitAndTest(this)"; //this ???
+        document.getElementById("submitFormButton").value = "Submit!";
     }
-    
+
     //linking objects
     A1 = document.getElementById("cat1Area");
     A2 = document.getElementById("cat2Area");
@@ -206,21 +202,21 @@ function multiRevelio(select) {
 let lastClickedButton = null;
 function radioRevelio(button) {
     let parent = button.parentNode;
-        parent = parent.parentNode;
+    parent = parent.parentNode;
     let linkedElement = document.getElementById(parent.getAttribute('data-linked'));
 
     if (lastClickedButton === button) {
-        button.checked = false; 
-        lastClickedButton = null; 
+        button.checked = false;
+        lastClickedButton = null;
         if (linkedElement) {
-            linkedElement.hidden = true; 
+            linkedElement.hidden = true;
         }
-        addToMem("1", parent.id, null); 
+        addToMem("1", parent.id, null);
     } else {
         lastClickedButton = button;
         if (button.getAttribute('data-activate') == 1) {
             if (linkedElement) {
-                linkedElement.hidden = false; 
+                linkedElement.hidden = false;
             }
         } else {
             if (linkedElement) {
@@ -240,12 +236,14 @@ function typing(event) {
     return true;
 }
 
+// Maybe delete? //NIKKI
 function buttonClick() {
     console.log("you reached me!!")
 }
 // create html element dynamically, or use show hide
 //"let" variables are thrown out the window when outside bounds
 
+// Maybe delete? //NIKKI
 function builderOfElementsAddBlueprint() {
     blueprint = {};
     blueprint.question = "number plz?"
@@ -282,48 +280,44 @@ function builderOfElementsAddBlueprint() {
 
 function builderOfElements(obj) {
     let htmltxt = "";
-
     switch ((obj.type).toLowerCase()) {
         // Number
         case "number":
-            htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
-            "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
-            "<input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
+            if (modes == "register") {
+                htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
+                    "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                    "<input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
+            }
             break;
-
         // Text
         case "text":
-            let tempElement;
-            switch (obj.text.toLowerCase()) {
-                case "url":
-                    tempElement = "6"
-                    break;
-                case "ai":
-                    tempElement = "5"
-                    break;
-                case "org":
-                    tempElement = "4"
-                    break;
-                default:
-                    tempElement = "1"
+            if (modes == "register") {
+                let tempElement;
+                switch (obj.text.toLowerCase()) {
+                    case "url":
+                        tempElement = "6"
+                        break;
+                    case "ai":
+                        tempElement = "5"
+                        break;
+                    case "org":
+                        tempElement = "4"
+                        break;
+                    default:
+                        tempElement = "1"
+                }
+                htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
+                    "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
+                    "<input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
             }
-
-            htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>"+
-                "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
-                "<input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
-
             break;
-
         // Bool
         case "boolean":
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.id + ". " + obj.question + "</p>" +
                 "<div><button class='readmoreButton' onclick='readmore(this)'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>" +
-                
                 "<div class='yn-div'><input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "Y' class='ynQ'>Yes</label></div>" +
                 "<div class='yn-div'><input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "N' class='ynQ'>No!</label></div></div>";
-                
             break;
-
         // Dropdown
         case "dropdown":
             htmltxt = "<div class='dropdownQuestion' id=" + obj.id + " data-linked=" + obj.linked + "> <label  for=" + obj.id + "><p>" + obj.id + ". " + obj.question + "</p></label> " +
@@ -334,7 +328,6 @@ function builderOfElements(obj) {
             })
             htmltxt += "<option value='' hidden selected>Choose category</option></select></div>";
             break;
-
         // Multi
         case "multi":
             htmltxt = "<div class='multiQuestions' id='" + obj.id + "' data-linked='" + obj.linked + "'> <p>" + obj.id + ". " + obj.question + "</p>" +
@@ -349,7 +342,6 @@ function builderOfElements(obj) {
                 }
             });
             htmltxt += "</div>";
-
             break;
         default:
             alert("question id" + obj.id + " has a wrong questions type")
@@ -372,10 +364,10 @@ function readmore(thing) {
     console.log(textbox);
     if (textbox.hidden) {
         textbox.hidden = false;
-        thing.textContent = "Read less";  
+        thing.textContent = "Read less";
     } else {
         textbox.hidden = true;
-        thing.textContent = "Read more";  
+        thing.textContent = "Read more";
     }
 }
 
@@ -451,16 +443,78 @@ async function pdfing() {
 }
 
 
+function submitAnsTest() {
+
+    output.answers = AnswerMem;
+    //let sender = document.getElementById("submit")
+
+    let t = new Date();
+
+    //this part is inefficient, but should work for now
+    let currentDate = t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds()
+    console.log(currentDate)
+    console.log("orgid::" + output.orgnr)
+
+    //sending to organisation
+    allTheData = new URLSearchParams();
+    allTheData.append("ORGANISATION", "")
+    allTheData.append("ORGN_NR", output.orgnr)
+    allTheData.append("NAME", output.orgName)
+
+    let temporaryID;
+
+    fetch('includes/db_functions.php', {
+        method: 'POST', //or GET, your choice
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: allTheData
+    }).then(response => response.text()) //error handling from gpt, because of reasons
+        .then(data => {
+            sessionStorage.setItem('output', JSON.stringify(output));
+            //window.location.href = "result.php"
+            console.log(data)
+            temporaryID = data;
+            allTheData = new URLSearchParams();
+
+            allTheData.append('AI', "somevalue")
+            //parameters.append("organisation","somevalue")
+            allTheData.append('NAME', output.aiName) //works
+            allTheData.append("ORGANISATION_ID", temporaryID) //works
+
+            console.log("tempidär:" + temporaryID);
+            sessionStorage.setItem('dbID', JSON.stringify(structuredClone(temporaryID)));
+
+            allTheData.append("URL", output.url) //works
+            allTheData.append("VERSION", 1)
+            allTheData.append("STAMP", 1)
+            allTheData.append("CREATED_DATE", currentDate) //works
+            allTheData.append("ANSWERS", JSON.stringify(output.answers)) //not implemented
+            //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
+
+            fetch('includes/db_functions.php', {
+                method: 'POST', //or GET, your choice ---UPDATE
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: allTheData
+            }).then(response => response.text()) //error handling from gpt, because of reasons
+                .then(data => {
+
+                    window.location.href = "result.php"
+                    //console.log(data)
+                })
+                .catch(error => console.error('Error:', error));
+        })
+        .catch(error => console.error('Error:', error));
+}
+
 // submitting and sending to the next page
 function submitAndSend() {
 
     let goodTogGo = true;
 
 
-    if(!output.orgName || !output.aiName || !output.url || !output.orgnr){
+    if (!output.orgName || !output.aiName || !output.url || !output.orgnr) {
         goodTogGo = false; // change this value to remove the check
 
-        if(!goodTogGo){
+        if (!goodTogGo) {
             alert("fill in all the text fields at the top of the form")
             return 0
         }
