@@ -45,8 +45,13 @@ if (isset($_POST["AI"])) {
     $database->updateVariable($TABLE,$ID,$VARIABLE,$VALUE);
 }
 
-
-
+/// TABLE VARIABLE VALUE
+if(isset($_POST["GET"])){
+    $TABLE = $_POST["TABLE"];
+    $VARIABLE = $_POST["VARIABLE"];
+    $VALUE = $_POST["VALUE"];
+    $database->getSpecific($TABLE,$VARIABLE,$VALUE);
+}
 
 /*
 ///Requires (ID , VARIABLE, NewVALUE)

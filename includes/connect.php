@@ -86,6 +86,39 @@ class Connect
         }
     }
 
+    public function getSpecific($TABLE,$VARIABLE,$VALUE){
+        $sql = "SELECT * FROM $TABLE WHERE $VARIABLE = $VALUE";
+        $res = $this->conn->query($sql);
+
+        $objects = [];
+
+        if ($res->num_rows > 0) {
+            
+            while ($row = $res->fetch_assoc()){
+                $objects[] = $row;
+            }
+
+            echo(json_encode($objects));
+            return true;
+        } else {
+            echo "Error in the sql";
+            return false;
+        }
+    }
+/*
+        $sql = "SELECT id, name, email FROM users";
+        $result = $conn->query($sql);
+
+        $users = [];
+
+        if ($result->num_rows > 0) {
+            // Fetch all results into an array
+            while ($row = $result->fetch_assoc()) {
+                $users[] = $row;
+            }
+        }
+*/
+
     public function updateVariable($TABLE, $ID, $VARIABLE, $VALUE)
     {
         $sql = "UPDATE $TABLE SET $VARIABLE = $VALUE WHERE ID = '$ID'";

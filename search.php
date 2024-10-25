@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!-- Header Section -->
 <?php
 include("includes/templates/header.php");
@@ -71,7 +72,7 @@ include("includes/templates/header.php");
                             echo "<p>test" . $ai['ID'] . "</p>";
                             echo "<p>URL: <a href=" . $ai['URL'] . " target='_blank'>" . $ai['URL'] . "</a></p>";
                             echo "<p>Date: " . substr($ai['CREATED_DATE'], 0, -9) . "</p>";
-                            echo "<button class='menuButton'>Download Answers</botton>";
+                            echo "<button class='menuButton' onclick='pdfing(".$ai['ID'].")' >Download Answers</botton>";
                             echo "</div>";
                             echo "</li>";
                             echo "</ul>";
