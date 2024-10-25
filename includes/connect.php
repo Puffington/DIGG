@@ -20,12 +20,9 @@ class Connect
 
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error);
-        }
-        else{
+        } else {
             //echo "Connection successfully established!";
         }
-        
-        
     }
 
     public function getConnection()
@@ -34,13 +31,13 @@ class Connect
     }
 
     //$ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE
-    public function insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE,$ANSWERS)
+    public function insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $ANSWERS)
     {
         $sql = "INSERT INTO AI (ID, ORGANISATION_ID, NAME, URL, VERSION, STAMP, CREATED_DATE,ANSWERS) 
                     VALUES (?, ?, ?, ?, ?, ?, ?,?)";
         if ($stmt = $this->conn->prepare($sql)) {
-            $stmt->bind_param("iissssss", $ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE,$ANSWERS);
-            
+            $stmt->bind_param("iissssss", $ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $ANSWERS);
+
             if ($stmt->execute()) {
                 //echo "Data successfully inserted into AI table.";
                 $new_id = $this->conn->insert_id;
@@ -61,11 +58,11 @@ class Connect
         //check for duplicates first
         $check_sql = "SELECT ID FROM Organisation WHERE ORGN_NR = '$ORGN_NR'";
         $result = $this->conn->query($check_sql);
-        
-        if($result->num_rows > 0) {
+
+        if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $currentID = $row['ID'];
-            echo($currentID);
+            echo ($currentID);
             return $currentID;
         }
 
@@ -89,12 +86,16 @@ class Connect
         }
     }
 
-    //WILL ONLY UPDATE AI TABLE... hopefully...
-    public function updateVariable($ID,$VARIABLE,$VALUE){
-        $sql = "UPDATE ai SET $VARIABLE = $VALUE WHERE ID = '$ID'";
-        $this->conn->query($sql);
+    public function updateVariable($TABLE, $ID, $VARIABLE, $VALUE)
+    {
+        $sql = "UPDATE $TABLE SET $VARIABLE = $VALUE WHERE ID = '$ID'";
+        //"UPDATE `$TABLE` SET `$VARIABLE` = :value WHERE `id` = :id";
+        $stmt = $this->conn->prepare($sql);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            echo "Error executing query: " . $stmt->error;
+            return false;
+        }
     }
 }
-?>
-
-

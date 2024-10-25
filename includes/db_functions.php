@@ -37,6 +37,12 @@ if (isset($_POST["AI"])) {
         $database->insertIntoOrganisationTable($ID, $ORGN_NR, $NAME);
     }
     exit();
+}elseif( isset($_POST["CHANGE"]) ){
+    $TABLE = $_POST["CHANGE"];
+    $ID = $_POST['ID'];
+    $VARIABLE = $_POST['VARIABLE'];
+    $VALUE = $_POST['VALUE'];
+    $database->updateVariable($TABLE,$ID,$VARIABLE,$VALUE);
 }
 
 

@@ -556,11 +556,10 @@ function submitAndSend() {
             allTheData.append("ORGANISATION_ID", temporaryID) //works
 
             console.log("tempidär:" + temporaryID);
-            sessionStorage.setItem('dbID', JSON.stringify(structuredClone(temporaryID)));
 
             allTheData.append("URL", output.url) //works
             allTheData.append("VERSION", 1)
-            allTheData.append("STAMP", 1)
+            allTheData.append("STAMP", 0)
             allTheData.append("CREATED_DATE", currentDate) //works
             allTheData.append("ANSWERS", JSON.stringify(output.answers)) //not implemented
             //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
@@ -571,7 +570,7 @@ function submitAndSend() {
                 body: allTheData
             }).then(response => response.text()) //error handling from gpt, because of reasons
                 .then(data => {
-
+                    sessionStorage.setItem('dbID', JSON.stringify(data));
                     window.location.href = "result.php"
                     //console.log(data)
                 })

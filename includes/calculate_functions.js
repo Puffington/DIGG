@@ -164,6 +164,28 @@ window.addEventListener('load', async function () {
         img.width = 100;
         img.height = 120;
         document.getElementById("left_result").appendChild(img);
+
+        let dbID = JSON.parse(sessionStorage.getItem('dbID'));
+
+        //updating stamp
+        allTheData = new URLSearchParams();
+            allTheData.append("CHANGE", "AI")
+            //parameters.append("organisation","somevalue")
+            allTheData.append("ID", dbID) //works
+            allTheData.append("VARIABLE", "STAMP")
+            allTheData.append("VALUE", "1")
+
+            console.log("changing stamp " + dbID)
+
+            fetch('includes/db_functions.php', {
+                method: 'POST', //or GET, your choice ---UPDATE
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: allTheData
+            }).then(response => response.text()) //error handling from gpt, because of reasons
+                .then(data => {
+                    console.log(data)
+                })
+                .catch(error => console.error('Error:', error));
     }
 
     console.log(answerchecks)
