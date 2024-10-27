@@ -377,15 +377,26 @@ form{
 }
 
 /*When in test mode*/
-.divtxtInput-test {
-    padding-bottom: 25px;
-    color:#828282;
+.divtxtInput-test p, .divtxtInput-test i, .divtxtInput-test button{
+    color:#929292;
+}
+.divtxtInput-test input{
+    border-radius: 50px;
+    border: 1px solid #9b9b9b;
+    background-color: rgb(240, 240, 240);
+    padding: 5px;
+    padding-left: 10px;
+    color: #8d8d8d;
+    font-size: 17px;
+    max-width: 250px; 
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    white-space: nowrap; 
 }
 
 /* different divs of inputs */
-.divtxtInput, .radioQuestion, .dropdownQuestion, .multiQuestions {
+.divtxtInput, .divtxtInput-test, .radioQuestion, .dropdownQuestion, .multiQuestions {
     padding-bottom: 25px;
-    color:#6E615A;
 }
 
 /*Bool*/

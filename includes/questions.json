@@ -1,6 +1,6 @@
 [    
     { 
-        "question": "<span style='color:red;'>*</span>Registration number",
+        "question": "Registration number",
         "category":"1",
         "type": "number",
         "id": "1",
@@ -11,7 +11,7 @@
         "readmore":"This number identifies the organization responsible for developing or operating the AI system. It ensures traceability and accountability, which are key principles in the AI Act and GDPR regulations."
     },
     { 
-        "question": "<span style='color:red;'>*</span>Organization name",
+        "question": "Organization name",
         "category":"1",
         "type": "text",
         "text":"org",
@@ -24,7 +24,7 @@
 
     },
     { 
-        "question": "<span style='color:red;'>*</span>Name of AI system",
+        "question": "Name of AI system",
         "category":"1",
         "type": "text",
         "text":"AI",

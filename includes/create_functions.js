@@ -289,7 +289,7 @@ function builderOfElements(obj) {
         // Number
         case "number":
             if (modes == "register") {
-                htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
+                htmltxt = "<div class='divtxtInput'> <p>" + "<span style='color:red;'>*</span>" + obj.id + ". " + obj.question + "</p>" +
                     readmorediv +
                     "<input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             } else {
@@ -315,7 +315,7 @@ function builderOfElements(obj) {
                     default:
                         tempElement = "1"
                 }
-                htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
+                htmltxt = "<div class='divtxtInput'> <p>" + "<span style='color:red;'>*</span>" + obj.id + ". " + obj.question + "</p>" +
                     readmorediv +
                     "<input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
             } else {
