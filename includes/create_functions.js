@@ -79,6 +79,7 @@ window.addEventListener('load', function () {
 
         // Check all entries to see which one is intersecting
         entries.forEach((entry) => {
+            //entry.target.link.style.transition= "0.5s ease";
             if (entry.isIntersecting) {
                 intersectingEntry = entry;  // Store the intersecting entry
             } else {

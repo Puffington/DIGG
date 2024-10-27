@@ -293,6 +293,10 @@ body {
     margin-bottom: 20px;
     border-radius: 10px;
 }
+.category:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
 #cat1{
     background-color: #FFDCAA;
 }
