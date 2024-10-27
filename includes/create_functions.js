@@ -79,7 +79,7 @@ window.addEventListener('load', function () {
 
         // Check all entries to see which one is intersecting
         entries.forEach((entry) => {
-            //entry.target.link.style.transition= "0.5s ease";
+            entry.target.link.style.transition= "background-color 500ms linear";
             if (entry.isIntersecting) {
                 intersectingEntry = entry;  // Store the intersecting entry
             } else {
@@ -445,13 +445,13 @@ async function getQuestions(mode) {
     console.log("you pressed correctly")
 }
 
-
+/**
+ * Generates a pdf containing 
+ */
 async function pdfing() {
     allTheData = new URLSearchParams();
     allTheData.append("PDF", "test")
-    //allTheData.append("QUESTIONS",await objQuestions)
-    allTheData.append("ANSWERS", JSON.stringify(AnswerMem)) //not implemented
-    //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
+    allTheData.append("ANSWERS", JSON.stringify(AnswerMem))
 
     console.log(AnswerMem)
 
@@ -468,7 +468,6 @@ async function pdfing() {
             document.body.appendChild(a);
             a.click();  // Trigger the download
             a.remove();
-            //console.log(blob)
         })
         .catch(error => console.error('Error:', error));
 }
