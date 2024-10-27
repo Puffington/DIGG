@@ -17,24 +17,25 @@
 //Nikki
 // 
 
+
 window.addEventListener('load', function () {
     output = {};
     AnswerMem = {};
 
     getQuestions(1)
 
-    //if we enter test mode
+    // Check if we enter "Test mode" or "Register mode"
     modes = JSON.parse(sessionStorage.getItem("mode"));
     console.log("mode is  " + modes);
     if (modes == "test") {
-        document.getElementById('submitFormButton').setAttribute('onclick','submitAndTest()')
+        document.getElementById('submitFormButton').setAttribute('onclick', 'submitAndTest()')
         document.getElementById("submitFormButton").value = "Submit!!!!";
-    }else{
-        document.getElementById('submitFormButton').setAttribute('onclick','submitAndSend()')
+    } else {
+        document.getElementById('submitFormButton').setAttribute('onclick', 'submitAndSend()')
         document.getElementById("submitFormButton").value = "Submit2222!!!!";
     }
 
-    //linking objects
+    // Linking objects
     A1 = document.getElementById("cat1Area");
     A2 = document.getElementById("cat2Area");
     A3 = document.getElementById("cat3Area");
@@ -59,7 +60,6 @@ window.addEventListener('load', function () {
     cat5.link = A5;
 
     const options = {
-        //root: document.querySelector('.scroller'),
         threshold: 0.1,
     };
 
@@ -72,14 +72,18 @@ window.addEventListener('load', function () {
         observer.observe(Object)
     });
 
-    //change colours depending on intersection amount
+    /**
+     * Change colours depending on intersection amount
+     * @param {*} entries the category
+     * @param {*} observer the options
+     */
     function changeCategories(entries, observer) {
 
         let intersectingEntry = null;  // To track the currently intersecting entry
 
         // Check all entries to see which one is intersecting
         entries.forEach((entry) => {
-            entry.target.link.style.transition= "background-color 500ms linear";
+            entry.target.link.style.transition = "background-color 500ms linear";
             if (entry.isIntersecting) {
                 intersectingEntry = entry;  // Store the intersecting entry
             } else {
@@ -96,13 +100,21 @@ window.addEventListener('load', function () {
     }
 })
 
-
+/**
+ * Behaviour of the button-categories when scrolling
+ * @param {*} CategoryButton 
+ */
 function scroller(CategoryButton) {
     CategoryButton.link.scrollIntoView({ behavior: "smooth", block: "start", inline: 'nearest' });
     //CategoryButton.parentNode.scrollTop = CategoryButton.offsetTop;
 }
 
-/// (type of question, the id of the question, the value of the question)
+/**
+ * Saving a question and the answer to 'addToMem'
+ * @param {*} type type of question
+ * @param {*} id the id of the question
+ * @param {*} value the value of the question
+ */
 function addToMem(type, id, value) {
     console.log("addtomem:" + type + " " + id + " " + value)
     switch (type) {
@@ -136,32 +148,34 @@ function addToMem(type, id, value) {
     console.log(AnswerMem)
 }
 
+/**
+ * Saving the input of question type: Number
+ * @param {*} event the input of a user
+ * @returns only true if the input contains digits and has the length less than 11 digits
+ */
 function checkIfNumber(event) {
     console.log("recieved " + event)
-
     if (event.target.value.length >= 10) {
         return false
     }
-
     if (isNaN(event.key) || event.key == " ") {
         console.log("NEIN, STAHP IT")
         return false;
     } else {
-        //console.log("testing something: ")
-        //console.log(event.target.value + event.key)
         addToMem("0", event.target.id, event.target.value + event.key)
         return true;
     }
 }
 
+/**
+ * Saving the input of question type: Dropdown
+ * @param {*} selector 
+ */
 function dropRevelio(selector) {
-    //console.log(selector.linked)
-    //console.log(selector)
     console.log(selector.parentNode)
     console.log(selector.getAttribute("data-linked"))
     let options = selector.options
     let element = document.getElementById(selector.parentNode.getAttribute("data-linked"))
-
     if (options[selector.value].dataset.activate == "1") {
         element.hidden = false;
     } else {
@@ -169,20 +183,19 @@ function dropRevelio(selector) {
             element.hidden = true;
         }
     }
-
     let arraaay = Array(options.length).fill(0);
     arraaay[selector.value] = 1
-
     addToMem("2", selector.parentNode.id, arraaay)
 }
 
+/**
+ * Saving the input of question type: Multi
+ * @param {*} select 
+ */
 function multiRevelio(select) {
     let parent = select.parentNode
     let boxes = parent.querySelectorAll("input[type=checkbox]")
     let stay = 0;
-    //console.log(parent)
-    //console.log(boxes)
-    //console.log(parent.getAttribute("data-linked"))
 
     boxes.forEach(object => {
         if (object.checked) {
@@ -193,7 +206,7 @@ function multiRevelio(select) {
             }
         }
     })
-    //console.log("stay is " + stay)
+
     if (stay >= 1) {
         document.getElementById(parent.getAttribute("data-linked")).hidden = false;
     } else {
@@ -204,6 +217,10 @@ function multiRevelio(select) {
 
 
 let lastClickedButton = null;
+/**
+ * Saving the input of question type: Bool
+ * @param {*} button 
+ */
 function radioRevelio(button) {
     let parent = button.parentNode;
     parent = parent.parentNode;
@@ -231,71 +248,53 @@ function radioRevelio(button) {
     }
 }
 
+/**
+ * Saving the input of question type: Text
+ * @param {*} event 
+ * @returns 
+ */
 function typing(event) {
-    //console.log(event.target.value)
-    //print(event.target.)
     console.log("typing!!")
     console.log(event.target.dataset)
     addToMem(event.target.dataset.texttype, event.target.id, event.target.value + event.key)
     return true;
 }
 
-// Maybe delete? //NIKKI
-function buttonClick() {
-    console.log("you reached me!!")
-}
-// create html element dynamically, or use show hide
-//"let" variables are thrown out the window when outside bounds
+/**
+ * Displays/hides additional information about the question
+ * @param {*} thing the div that says "Show more information"
+ */
+function readmore(thing) {
+    console.log("pressed");
+    let textbox = thing.querySelector('p');
+    let botton = thing.querySelector('button');
 
-// Maybe delete? //NIKKI
-function builderOfElementsAddBlueprint() {
-    blueprint = {};
-    blueprint.question = "number plz?"
-    blueprint.type = "number"
-    blueprint.id = "0"
-    blueprint.linked = "3"
-    blueprint.options = ["yes", "no"];
-    document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
-
-    blueprint.question = "do you have eyes?"
-    blueprint.type = "boolean"
-    blueprint.id = "1"
-    blueprint.linked = "3"
-    blueprint.options = ["yes", "no"];
-    console.log("this is blueprint" + blueprint.question);
-    document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
-
-    blueprint.question = "how many eyes?"
-    blueprint.type = "dropdown"
-    blueprint.id = "2"
-    blueprint.linked = "0"
-    blueprint.options = ["seven", "thirteen", "zero"];
-    console.log("this is blueprint" + blueprint.question);
-    document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
-
-    blueprint.question = "how many eyes?"
-    blueprint.type = "multi"
-    blueprint.id = "2"
-    blueprint.linked = "0"
-    blueprint.options = ["seven", "thirteen", "zero"];
-    console.log("this is blueprint" + blueprint.question);
-    document.getElementById("examples").insertAdjacentHTML("beforeend", builderOfElements(blueprint));
+    console.log(textbox);
+    if (textbox.hidden) {
+        textbox.hidden = false;
+        //botton.textContent = "Show less information";
+    } else {
+        textbox.hidden = true;
+        //botton.textContent = "Show more information";
+    }
 }
 
-
-
-
+/**
+ * Generates html code for different types of questions (Number, Text, Bool, Multi, Dropdown)
+ * @param {*} obj a question from the file question.json
+ * @returns the html code for the specific type of question we want to print
+ */
 function builderOfElements(obj) {
     let htmltxt = "";
     var readmorediv = "<div onclick='readmore(this)'><button class='readmoreButton'> <i class='fa-solid fa-circle-info'></i> Show more information <i class='fa-solid fa-caret-down'></i> </button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>";
     switch ((obj.type).toLowerCase()) {
         // Number
         case "number":
-            if (modes == "register") {
+            if (modes == "register") { // register mode
                 htmltxt = "<div class='divtxtInput'> <p>" + "<span style='color:red;'>*</span>" + obj.id + ". " + obj.question + "</p>" +
                     readmorediv +
                     "<input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
-            } else {
+            } else { // test mode
                 htmltxt = "<div class='divtxtInput-test'> <p>" + obj.id + ". " + obj.question + "</p>" +
                     readmorediv +
                     "<input type='number' value='000' disabled name=" + obj.id + " onkeypress='return checkIfNumber(event)' value='Disabled'/><div>";
@@ -303,7 +302,7 @@ function builderOfElements(obj) {
             break;
         // Text
         case "text":
-            if (modes == "register") {
+            if (modes == "register") { // register mode
                 let tempElement;
                 switch (obj.text.toLowerCase()) {
                     case "url":
@@ -319,9 +318,8 @@ function builderOfElements(obj) {
                         tempElement = "1"
                 }
                 htmltxt = "<div class='divtxtInput'> <p>" + "<span style='color:red;'>*</span>" + obj.id + ". " + obj.question + "</p>" +
-                    readmorediv +
-                    "<input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
-            } else {
+                    readmorediv + "<input type='text' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
+            } else { // test mode
                 let tempElement;
                 switch (obj.text.toLowerCase()) {
                     case "url":
@@ -337,8 +335,7 @@ function builderOfElements(obj) {
                         tempElement = "1"
                 }
                 htmltxt = "<div class='divtxtInput-test'> <p>" + obj.id + ". " + obj.question + "</p>" +
-                    readmorediv +
-                    "<input type='text' disabled value='DISABLED' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
+                    readmorediv + "<input type='text' disabled value='DISABLED' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
             }
             break;
         // Bool
@@ -377,33 +374,13 @@ function builderOfElements(obj) {
             alert("question id" + obj.id + " has a wrong questions type")
             break;
     }
-    //console.log("question:" + obj.question);
     return htmltxt;
 }
 
-function reveal() {
-
-}
-
-
-function readmore(thing) {
-    console.log("pressed");
-    let parent = thing.parentNode;
-    let textbox = thing.querySelector('p');
-    let botton = thing.querySelector('button');
-
-    console.log(textbox);
-    if (textbox.hidden) {
-        textbox.hidden = false;
-        //botton.textContent = "Show less information";
-    } else {
-        textbox.hidden = true;
-        //botton.textContent = "Show more information";
-    }
-}
-
-
-//mode is you want to show all the questions, or make the questions have functionality
+/**
+ * 
+ * @param {boolean} mode 1 is you want to show all the questions, or make the questions have functionality
+ */
 async function getQuestions(mode) {
     let resp = fetch("includes/questions.json");
     console.log(resp);
@@ -412,21 +389,15 @@ async function getQuestions(mode) {
     }
 
     let obj = await (await resp).json(); //waiting for respons
-    //console.log(obj)
     let invisimaker = [];
 
     obj.forEach(object => {
         if (object.linked != "") {
             invisimaker.push(object.linked)
         }
-        //console.log("uh")
-        //console.log(object.category)
         cat = ("cat" + object.category + "Area")
         document.getElementById(cat).insertAdjacentHTML("beforeend", builderOfElements(object));
     });
-
-    //console.log("invisi:" + invisimaker)
-    //console.log("mode is" + mode)
 
     if (mode == "1") {
         console.log("INITIATING INVIBILITY")
@@ -436,17 +407,12 @@ async function getQuestions(mode) {
             //document.getElementById(invisId).style.backgroundColor = "black";
         })
     }
-
-    //different insertion methods
-    //document.getElementById(cat).innerHTML += builderOfElements();
     document.getElementById(cat).style.backgroundColor = "";
-
-    //document.getElementById(obj.category).append("<div>hello there</div>")
     console.log("you pressed correctly")
 }
 
 /**
- * Generates a pdf containing 
+ * Generates a pdf containing the answered questions and their answers
  */
 async function pdfing() {
     allTheData = new URLSearchParams();
@@ -472,7 +438,10 @@ async function pdfing() {
         .catch(error => console.error('Error:', error));
 }
 
-
+/**
+ * If 'Test Mode' is chosen
+ * @returns goes to the result page
+ */
 function submitAndTest() {
     console.log("weeey")
     output.answers = AnswerMem;
@@ -481,17 +450,20 @@ function submitAndTest() {
     window.location.href = "result.php"
 }
 
-// submitting and sending to the next page
+/**
+ * If 'Register Mode' is chosen
+ * submitting and sending to the next page and database
+ * @returns goes to the result page
+ */
 function submitAndSend() {
 
     let goodTogGo = true;
-
 
     if (!output.orgName || !output.aiName || !output.url || !output.orgnr) {
         goodTogGo = false; // change this value to remove the check
 
         if (!goodTogGo) {
-            alert("fill in all the text fields at the top of the form")
+            alert("Fill in the mandantory (*) text fields at the top of the form.")
             return 0
         }
     }
@@ -524,21 +496,18 @@ function submitAndSend() {
             //window.location.href = "result.php"
             console.log(data)
             temporaryID = data;
+            console.log("tempidär:" + temporaryID);
             allTheData = new URLSearchParams();
 
             allTheData.append('AI', "somevalue")
             //parameters.append("organisation","somevalue")
-            allTheData.append('NAME', output.aiName) //works
-            allTheData.append("ORGANISATION_ID", temporaryID) //works
-
-            console.log("tempidär:" + temporaryID);
-
-            allTheData.append("URL", output.url) //works
+            allTheData.append('NAME', output.aiName)
+            allTheData.append("ORGANISATION_ID", temporaryID)
+            allTheData.append("URL", output.url)
             allTheData.append("VERSION", 1)
             allTheData.append("STAMP", 0)
-            allTheData.append("CREATED_DATE", currentDate) //works
-            allTheData.append("ANSWERS", JSON.stringify(output.answers)) //not implemented
-            //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
+            allTheData.append("CREATED_DATE", currentDate)
+            allTheData.append("ANSWERS", JSON.stringify(output.answers))
 
             fetch('includes/db_functions.php', {
                 method: 'POST', //or GET, your choice ---UPDATE
@@ -548,33 +517,9 @@ function submitAndSend() {
                 .then(data => {
                     sessionStorage.setItem('dbID', JSON.stringify(data));
                     window.location.href = "result.php"
-                    //console.log(data)
                 })
                 .catch(error => console.error('Error:', error));
         })
         .catch(error => console.error('Error:', error));
-
-    /*
-    allTheData = new URLSearchParams();
-    allTheData.append("ID", "")
-    allTheData.append("VARIABLE", "URL")
-    allTheData.append("VALUE", "THINGAMABOB")
-
-    fetch('includes/db_functions.php', {
-        method: 'UPDATE', //or GET, your choice
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: allTheData
-    }).then(response => response.text()) //error handling from gpt, because of reasons
-        .then(data => {
-            console.log("orgdata:"+data)
-            sessionStorage.setItem('output', JSON.stringify(output));
-            //window.location.href = "result.php"
-        })
-        .catch(error => console.error('Error:', error));
-*/
-    //sender.submit() //will send data inside to anoteher php file
-    //console.log(JSON.stringify(output.answers))
-
-
 }
 
