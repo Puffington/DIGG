@@ -79,15 +79,15 @@ body {
 
 .headline h1 {
     font-weight: bold;
-    size: 20px;
+    font-size: 2vw;
     margin-bottom: 33px;
     margin-top: 40px;
 }
 
 .breadcrums {
     padding: 20px;
-    padding-left: 300px;
-    padding-right: 300px;
+    padding-left: 17vw;
+    padding-right: 17vw;
 }
 
 .breadcrums nav a {
@@ -147,13 +147,11 @@ body {
 }
 
 @media (max-width: 800px) {
-
     /* CSS that should be displayed if width is equal to or less than 800px goes here */
     .horizontal {
         flex-direction: column;
         align-items: center;
     }
-
     .card {
         width: 100%;
         margin-bottom: 20px;
