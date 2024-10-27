@@ -293,20 +293,32 @@ body {
     margin-bottom: 20px;
     border-radius: 10px;
 }
+.category:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
+#cat1:hover, #cat2:hover, #cat3:hover, #cat4:hover, #cat5:hover{
+    border: 2px solid #000000;
+}
 #cat1{
     background-color: #FFDCAA;
+    border: 2px solid #FFDCAA;
 }
 #cat2{
     background-color: #FBBD84;
+    border: 2px solid #FBBD84;
 }
 #cat3{
     background-color: #F6A071;
+    border: 2px solid #F6A071;
 }
 #cat4{
     background-color: #FFCACA;
+    border: 2px solid #FFCACA;
 }
 #cat5{
     background-color: #FFA6A6;
+    border: 2px solid #FFA6A6;
 }
 
 .categoryArea {
@@ -317,9 +329,7 @@ body {
     margin-bottom: 70px;
     margin-left: 10px;
     font-size: 20px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 10px;
     box-shadow: 3px 3px 7px 1px rgb(151, 151, 151);
 }
 .categoryArea h1{

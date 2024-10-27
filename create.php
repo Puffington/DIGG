@@ -8,13 +8,6 @@ include("includes/templates/header.php");
     <script src="includes\create_functions.js"></script>
 </head>
 
-<style>
-    *{
-        transition: 0.5s ease;
-    }
-
-</style>
-
 <!-- Main Content -->
 <main>
     <div class="breadcrums">
@@ -50,15 +43,11 @@ include("includes/templates/header.php");
                 </div>
                 <div class="categoryArea" id="cat5Area">
                     <h1>Transparancy</h1>
-                </div> <!--  action="result.php" -->
-                    <input type="button" onclick="" class="menuButton" id="submitFormButton" value="Submit your answers!">
-                
+                </div>
+                <input type="button" onclick="" class="menuButton" id="submitFormButton" value="Submit your answers!">
             </div>
         </div>
     </div>
-
-    <button onclick="pdfing()">hosams pdf</button>
-    <div id="examples"></div>
 </main>
 
 <!-- Footer Section -->
