@@ -1,4 +1,7 @@
-//Filter the list of organizations with the searchbar
+
+/**
+ * Filter the list of organizations with the searchbar
+ */
 function filterList() {
     let input = document.getElementById('searchBar').value.toLowerCase();
     let listItems = document.getElementById('nameList').getElementsByTagName('li');
@@ -13,33 +16,28 @@ function filterList() {
     }
 }
 
-
-//$query2 = "SELECT * FROM AI WHERE ID = $orgId";
-
+/**
+ * Creates and downloads a pdf containing all answers
+ * @param {*} leID the id of an AI from the database
+ */
 async function pdfing(leID) {
-
     allTheData = new URLSearchParams();
     allTheData.append('GET', "somevalue")
     allTheData.append('TABLE', "AI")
-    allTheData.append('VARIABLE', "ID") //works
-    allTheData.append("VALUE", leID) //works
+    allTheData.append('VARIABLE', "ID")
+    allTheData.append("VALUE", leID)
 
-    //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
     fetch('includes/db_functions.php', {
         method: 'POST', //or GET, your choice ---UPDATE
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: allTheData
     }).then(response => response.text()) //error handling from gpt, because of reasons
         .then(data => {
-            //console.log(data)
             let AI = JSON.parse(data)
-            //console.log(AI[0]["ANSWERS"])
-
             allTheData = new URLSearchParams();
             allTheData.append("PDF", "test")
-            //allTheData.append("QUESTIONS",await objQuestions)
-            allTheData.append("ANSWERS",AI[0]["ANSWERS"]) //not implemented
-            //allTheData.append("CATEGORIES",JSON.stringify(output)) //not implemented
+            allTheData.append("ANSWERS",AI[0]["ANSWERS"])
+
             fetch('../includes/pdf_functions.php', {
                 method: 'POST', //or GET, your choice ---UPDATE
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -60,7 +58,10 @@ async function pdfing(leID) {
         .catch(error => console.error('Error:', error));
 }
 
-//Displaying the info about an AI when clicked on
+/**
+ * Displaying the info about an AI when clicked on
+ * @param {*} aiId 
+ */
 function toggleAiInfo(aiId) {
     var x = document.getElementById(aiId);
     if (x.style.display === "none") {

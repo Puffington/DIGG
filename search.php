@@ -69,7 +69,7 @@ include("includes/templates/header.php");
                             echo "<ul id='aiList'><li>";
                             echo "<a class='aiList-a' onclick=\"toggleAiInfo('ai-" . $ai['ID'] . "')\">" . $ai['NAME'] . "</a>";
                             echo "<div id='ai-" . $ai['ID'] . "' class='ai-info' style='display:none;'>";
-                            echo "<p>test" . $ai['ID'] . "</p>";
+                            echo "<p>This AI-system is classified as '" . $ai['CATEGORIES'] . "' according to the AI ACT</p>";
                             echo "<p>URL: <a href=" . $ai['URL'] . " target='_blank'>" . $ai['URL'] . "</a></p>";
                             echo "<p>Date: " . substr($ai['CREATED_DATE'], 0, -9) . "</p>";
                             echo "<button class='menuButton' onclick='pdfing(".$ai['ID'].")' >Download Answers</botton>";
@@ -84,9 +84,7 @@ include("includes/templates/header.php");
                     echo "<p>Please select an organization from the list.</p>";
                 }
                 ?>
-
             </div>
-
         </div>
     </div>
 </main>
