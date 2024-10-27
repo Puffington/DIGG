@@ -282,6 +282,8 @@ function builderOfElementsAddBlueprint() {
 }
 
 
+
+
 function builderOfElements(obj) {
     let htmltxt = "";
     var readmorediv = "<div onclick='readmore(this)'><button class='readmoreButton'> <i class='fa-solid fa-circle-info'></i> Show more information <i class='fa-solid fa-caret-down'></i> </button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>";

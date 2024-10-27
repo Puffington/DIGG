@@ -31,12 +31,12 @@ class Connect
     }
 
     //$ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE
-    public function insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $CATEGORIES, $ANSWERS) // NIKKI TESTAR
+    public function insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $ANSWERS)
     {
-        $sql = "INSERT INTO AI (ID, ORGANISATION_ID, NAME, URL, VERSION, STAMP, CREATED_DATE, CATEGORIES, ANSWERS) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"; // NIKKI TESTAR
+        $sql = "INSERT INTO AI (ID, ORGANISATION_ID, NAME, URL, VERSION, STAMP, CREATED_DATE,ANSWERS) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?,?)";
         if ($stmt = $this->conn->prepare($sql)) {
-            $stmt->bind_param("iisssssss", $ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $CATEGORIES, $ANSWERS); // NIKKI TESTAR
+            $stmt->bind_param("iissssss", $ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $ANSWERS);
 
             if ($stmt->execute()) {
                 //echo "Data successfully inserted into AI table.";
@@ -89,7 +89,6 @@ class Connect
     public function getSpecific($TABLE,$VARIABLE,$VALUE){
         $sql = "SELECT * FROM $TABLE WHERE $VARIABLE = $VALUE";
         $res = $this->conn->query($sql);
-
         $objects = [];
 
         if ($res->num_rows > 0) {
@@ -97,7 +96,6 @@ class Connect
             while ($row = $res->fetch_assoc()){
                 $objects[] = $row;
             }
-
             echo(json_encode($objects));
             return true;
         } else {
@@ -105,23 +103,16 @@ class Connect
             return false;
         }
     }
-/*
-        $sql = "SELECT id, name, email FROM users";
-        $result = $conn->query($sql);
-
-        $users = [];
-
-        if ($result->num_rows > 0) {
-            // Fetch all results into an array
-            while ($row = $result->fetch_assoc()) {
-                $users[] = $row;
-            }
-        }
-*/
 
     public function updateVariable($TABLE, $ID, $VARIABLE, $VALUE)
     {
-        $sql = "UPDATE $TABLE SET $VARIABLE = $VALUE WHERE ID = '$ID'";
+        $temp = $VALUE;
+        if(!is_int($VALUE)){
+            $temp = "'$VALUE'";
+        }
+
+        $sql = "UPDATE $TABLE SET $VARIABLE = $temp WHERE ID = '$ID'";
+
         //"UPDATE `$TABLE` SET `$VARIABLE` = :value WHERE `id` = :id";
         $stmt = $this->conn->prepare($sql);
         if ($stmt->execute()) {

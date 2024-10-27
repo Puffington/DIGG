@@ -39,6 +39,7 @@ if (isset($_POST["AI"])) {
     }
     exit();
 }elseif( isset($_POST["CHANGE"]) ){
+    echo("you are changing things");
     $TABLE = $_POST["CHANGE"];
     $ID = $_POST['ID'];
     $VARIABLE = $_POST['VARIABLE'];
