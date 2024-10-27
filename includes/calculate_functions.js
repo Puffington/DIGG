@@ -277,6 +277,9 @@ window.addEventListener('load', async function () {
     //low risk / transparency req / minimal risk
 })
 
+/**
+ * Generates a pdf containing the answered questions and their answers
+*/
 async function pdfing() {
     let output = JSON.parse(sessionStorage.getItem('output'));
     let answers = output.answers

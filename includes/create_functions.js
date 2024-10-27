@@ -102,7 +102,7 @@ window.addEventListener('load', function () {
 
 /**
  * Behaviour of the button-categories when scrolling
- * @param {*} CategoryButton 
+ * @param {HTMLDivElement} CategoryButton 
  */
 function scroller(CategoryButton) {
     CategoryButton.link.scrollIntoView({ behavior: "smooth", block: "start", inline: 'nearest' });
@@ -112,8 +112,8 @@ function scroller(CategoryButton) {
 /**
  * Saving a question and the answer to 'addToMem'
  * @param {*} type type of question
- * @param {*} id the id of the question
- * @param {*} value the value of the question
+ * @param {number} id the id of the question
+ * @param {string} value the value of the question
  */
 function addToMem(type, id, value) {
     console.log("addtomem:" + type + " " + id + " " + value)
@@ -150,7 +150,7 @@ function addToMem(type, id, value) {
 
 /**
  * Saving the input of question type: Number
- * @param {*} event the input of a user
+ * @param {InputEvent} event the input of a user
  * @returns only true if the input contains digits and has the length less than 11 digits
  */
 function checkIfNumber(event) {
@@ -169,7 +169,7 @@ function checkIfNumber(event) {
 
 /**
  * Saving the input of question type: Dropdown
- * @param {*} selector 
+ * @param {HTMLSelectElement} selector 
  */
 function dropRevelio(selector) {
     console.log(selector.parentNode)
@@ -190,7 +190,7 @@ function dropRevelio(selector) {
 
 /**
  * Saving the input of question type: Multi
- * @param {*} select 
+ * @param {HTMLButtonElement} select 
  */
 function multiRevelio(select) {
     let parent = select.parentNode
@@ -409,33 +409,6 @@ async function getQuestions(mode) {
     }
     document.getElementById(cat).style.backgroundColor = "";
     console.log("you pressed correctly")
-}
-
-/**
- * Generates a pdf containing the answered questions and their answers
- */
-async function pdfing() {
-    allTheData = new URLSearchParams();
-    allTheData.append("PDF", "test")
-    allTheData.append("ANSWERS", JSON.stringify(AnswerMem))
-
-    console.log(AnswerMem)
-
-    fetch('../includes/pdf_functions.php', {
-        method: 'POST', //or GET, your choice ---UPDATE
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: allTheData
-    }).then(response => response.blob()) //error handling from gpt, because of reasons
-        .then(blob => {
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'AIPDF.pdf';  // Name of the downloaded file
-            document.body.appendChild(a);
-            a.click();  // Trigger the download
-            a.remove();
-        })
-        .catch(error => console.error('Error:', error));
 }
 
 /**
