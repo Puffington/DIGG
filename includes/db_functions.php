@@ -25,7 +25,7 @@ if (isset($_POST["AI"])) {
         $CATEGORIES = !empty($_POST["CATEGORIES"]) ? $_POST["CATEGORIES"] : NULL; // NIKKI TESTAR
         $ANSWERS = !empty($_POST["ANSWERS"]) ? $_POST["ANSWERS"] : NULL;
 
-        $database->insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $CATEGORIES, $ANSWERS); // NIKKI TESTAR
+        $database->insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE,  $ANSWERS); // NIKKI TESTAR
     }
     exit();
 } elseif (isset($_POST["ORGANISATION"])) {
