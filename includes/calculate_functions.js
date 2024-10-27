@@ -155,7 +155,7 @@ window.addEventListener('load', async function () {
         document.getElementById("option_buttons").appendChild(buttonForm);
     } else {
         this.document.getElementById("resultText").textContent = "YOUR AI HAS BEEN ACCEPTED!"//YE DID IT, GOOD ON YA!!
-        this.document.getElementById("explanationText").textContent = "Now, your AI-system can be found in our record. Feel free to use our Stamp of Quality." //Something more perhaps
+        this.document.getElementById("explanationText").textContent = "Your AI-system can be found in our record. Feel free to use our Stamp of Quality." //Something more perhaps
         //this.document.getElementById("suggestion").textContent = ""
 
         // Add an image
@@ -167,6 +167,10 @@ window.addEventListener('load', async function () {
 
         let dbID = JSON.parse(sessionStorage.getItem('dbID'));
 
+        var theRisk = "Low risk"; // NIKKI TESTAR
+        if(HIGHRISK.length > 0){ // NIKKI TESTAR
+            theRisk = "High risk"; // NIKKI TESTAR
+        } // NIKKI TESTAR
         //updating stamp
         allTheData = new URLSearchParams();
             allTheData.append("CHANGE", "AI")
@@ -174,6 +178,7 @@ window.addEventListener('load', async function () {
             allTheData.append("ID", dbID) //works
             allTheData.append("VARIABLE", "STAMP")
             allTheData.append("VALUE", "1")
+            allTheData.append("CATEGORIES", theRisk) // NIKKI TESTAR
 
             console.log("changing stamp " + dbID)
 

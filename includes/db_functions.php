@@ -22,9 +22,10 @@ if (isset($_POST["AI"])) {
         $VERSION = !empty($_POST["VERSION"]) ? $_POST["VERSION"] : NULL;
         $STAMP = !empty($_POST["STAMP"]) ? $_POST["STAMP"] : 0;
         $CREATED_DATE = !empty($_POST["CREATED_DATE"]) ? $_POST["CREATED_DATE"] : NULL;
+        $CATEGORIES = !empty($_POST["CATEGORIES"]) ? $_POST["CATEGORIES"] : NULL; // NIKKI TESTAR
         $ANSWERS = !empty($_POST["ANSWERS"]) ? $_POST["ANSWERS"] : NULL;
 
-        $database->insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $ANSWERS);
+        $database->insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $CATEGORIES, $ANSWERS); // NIKKI TESTAR
     }
     exit();
 } elseif (isset($_POST["ORGANISATION"])) {

@@ -31,12 +31,12 @@ class Connect
     }
 
     //$ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE
-    public function insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $ANSWERS)
+    public function insertIntoAiTable($ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $CATEGORIES, $ANSWERS) // NIKKI TESTAR
     {
-        $sql = "INSERT INTO AI (ID, ORGANISATION_ID, NAME, URL, VERSION, STAMP, CREATED_DATE,ANSWERS) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?,?)";
+        $sql = "INSERT INTO AI (ID, ORGANISATION_ID, NAME, URL, VERSION, STAMP, CREATED_DATE, CATEGORIES, ANSWERS) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"; // NIKKI TESTAR
         if ($stmt = $this->conn->prepare($sql)) {
-            $stmt->bind_param("iissssss", $ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $ANSWERS);
+            $stmt->bind_param("iisssssss", $ID, $ORGANISATION_ID, $NAME, $URL, $VERSION, $STAMP, $CREATED_DATE, $CATEGORIES, $ANSWERS); // NIKKI TESTAR
 
             if ($stmt->execute()) {
                 //echo "Data successfully inserted into AI table.";
