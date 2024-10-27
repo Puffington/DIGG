@@ -140,7 +140,7 @@
         "id": "9",
         "linked":"",
         "linkActivation":["0","0"],
-        "risk":[["h",1]],
+        "risk":[["H",1]],
         "stamp":"1",
         "readmore":"Processing sensitive data (e.g., racial or health data) requires strict safeguards under the GDPR and AI Act, including impact assessments and user consent.",
         "options": []
@@ -153,7 +153,7 @@
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0"],
-        "risk":[["h",0]],
+        "risk":[["H",0]],
         "stamp":"1",
         "readmore":"AI systems should be evaluated for potential bias and discrimination, as mandated by both the AI Act and national discrimination laws, ensuring fairness for vulnerable or marginalized groups.",
         "options": []
@@ -416,7 +416,7 @@
         "id": "29",
         "linked":"",
         "linkActivation":[],
-        "risk":[],
+        "risk":[["HX",0]],
         "stamp":"1",
         "readmore":"Contingency plans are essential under the AI Act for high-risk systems, ensuring that malfunctions are handled without compromising user safety or rights.",
         "options": []
