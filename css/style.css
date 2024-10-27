@@ -376,6 +376,12 @@ form{
     margin: 5px;
 }
 
+/*When in test mode*/
+.divtxtInput-test {
+    padding-bottom: 25px;
+    color:#828282;
+}
+
 /* different divs of inputs */
 .divtxtInput, .radioQuestion, .dropdownQuestion, .multiQuestions {
     padding-bottom: 25px;
@@ -427,41 +433,9 @@ form{
         color: white;
         border-color: #6E615A;
     }
-
-    /* Bool - Button style */
-
-    /* Hide the default radio button
-    input[type="radio"] {
-        appearance: none; 
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-color: #fff;
-        border: 2px solid #6E615A;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-        position: relative;
-        margin-right: 10px;
-    }
-    input[type="radio"]:checked {
-        border-color: #ef8271;
-    }
-    input[type="radio"]:checked::before {
-        content: '';
-        display: block;
-        background-color: #ef8271;
-        border-radius: 50%;
-        width: 10px;
-        height: 10px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } */
 /**/
 
-/*Dropdown !!!!!!!!!! NEW ROW THINGY*/ 
+/*Dropdown*/ 
     .dropdownQuestion select,
     .divtxtInput input{
         border-radius: 50px;
@@ -523,10 +497,10 @@ form{
     color: black;
     border:none;
     background-color: #ffffff;
-    margin-bottom: 3px;
 }
 .readmoreButton:hover{
     text-decoration: underline;
+    cursor: pointer;
 }
 .readmoreButton:checked:after{
     background-color: #574C47;

@@ -284,7 +284,7 @@ function builderOfElementsAddBlueprint() {
 
 function builderOfElements(obj) {
     let htmltxt = "";
-    var readmorediv = "<div onclick='readmore(this)'> <i class='fa-solid fa-circle-info'></i> <button class='readmoreButton'>Read more</button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>";
+    var readmorediv = "<div onclick='readmore(this)'><button class='readmoreButton'> <i class='fa-solid fa-circle-info'></i> Show more information <i class='fa-solid fa-caret-down'></i> </button><p class='readmore' hidden='true' >" + obj.readmore + "</p></div>";
     switch ((obj.type).toLowerCase()) {
         // Number
         case "number":
@@ -293,7 +293,7 @@ function builderOfElements(obj) {
                     readmorediv +
                     "<input type='number' name=" + obj.id + " onkeypress='return checkIfNumber(event)' /><div>";
             } else {
-                htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
+                htmltxt = "<div class='divtxtInput-test'> <p>" + obj.id + ". " + obj.question + "</p>" +
                     readmorediv +
                     "<input type='number' value='000' disabled name=" + obj.id + " onkeypress='return checkIfNumber(event)' value='Disabled'/><div>";
             }
@@ -333,7 +333,7 @@ function builderOfElements(obj) {
                     default:
                         tempElement = "1"
                 }
-                htmltxt = "<div class='divtxtInput'> <p>" + obj.id + ". " + obj.question + "</p>" +
+                htmltxt = "<div class='divtxtInput-test'> <p>" + obj.id + ". " + obj.question + "</p>" +
                     readmorediv +
                     "<input type='text' disabled value='DISABLED' maxlength=200' data-texttype=" + tempElement + " name=" + obj.id + " onkeypress='return typing(event)' /><div>";
             }
@@ -392,10 +392,10 @@ function readmore(thing) {
     console.log(textbox);
     if (textbox.hidden) {
         textbox.hidden = false;
-        botton.textContent = "Read less";
+        //botton.textContent = "Show less information";
     } else {
         textbox.hidden = true;
-        botton.textContent = "Read more";
+        //botton.textContent = "Show more information";
     }
 }
 
