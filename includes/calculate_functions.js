@@ -13,7 +13,6 @@
 
 /* 
 RISK EXPLANATION
-
 the general basis is that in the questions.json the "risk" category has a few options to input
 
 it's a simple array pair, with the first being the mode, and the second being the quetion number
@@ -60,7 +59,9 @@ window.addEventListener('load', async function () {
     questions = await (await questions).json(); //waiting for respons
     let output = JSON.parse(sessionStorage.getItem('output'));
     let answers = output.answers
-    let high = new Map();
+
+    let highmode = new Map();
+    let highDeny = new Map();
     let unnaceptable = new Map();
     let stamp = [];
 
@@ -87,10 +88,17 @@ window.addEventListener('load', async function () {
         if (element.risk.length > 0) { //pushing all possible risks into array variables
             //temporarily one question can only have one unacc or h
             let identification = element.id
-            if (element.risk[0][0] == "u") {
-                unnaceptable.set(identification, element.risk[0][1]);
-            } else {
-                high.set(identification, element.risk[0][1]);
+
+            for (k =0; k< element.risk.length; k++){
+                if (element.risk[k][0].toUpperCase() == "U") {
+                    unnaceptable.set(identification, element.risk[0][1]);
+                }  
+                if(element.risk[k][0].toUpperCase() == "H") {
+                    highmode.set(identification, element.risk[0][1]);
+                } 
+                if(element.risk[k][0].toUpperCase() == "HX"){
+                    highDeny.set(identification, element.risk[0][1])
+                }
             }
         }
     };
@@ -100,8 +108,10 @@ window.addEventListener('load', async function () {
     console.log("hello world")
     console.log(answers)
 
-    let HIGHRISK = [];
+    let HIGHMODE = [];
+    let HIGHDENY = [];
     let UNACCEPTABLE = [];
+
 
     //for (const key in OBJECT)
 
@@ -124,23 +134,41 @@ window.addEventListener('load', async function () {
             stamp.splice(stamp.indexOf(key), 1);
         }
 
-        if (high.has(key)) {
-            console.log(answers[key][high.get(key)])
+        if (highmode.has(key)) {
+            console.log(answers[key][highmode.get(key)])
             if (answers[key].length == 1) {
-                if (answers[key] == high.get(key)) {
-                    console.log("HIGH RISK DETECTED!!!")
+                if (answers[key] == highmode.get(key)) {
+                    console.log("HIGH RISK mode activated")
                     console.log("it has id:" + key)
-                    HIGHRISK.push(key);
+                    HIGHMODE.push(key);
                 }
             } else {
-
-                if (answers[key][high.get(key)] == "1") {
-                    console.log("HIGH RISK DETECTED!!!")
+                if (answers[key][highmode.get(key)] == "1") {
+                    console.log("HIGH RISK mode activated")
                     console.log("it has id:" + key)
-                    HIGHRISK.push(key);
+                    HIGHMODE.push(key);
                 }
             }
         }
+
+        if (highDeny.has(key)) {
+            console.log(answers[key][highDeny.get(key)])
+            if (answers[key].length == 1) {
+                if (answers[key] == highDeny.get(key)) {
+                    console.log("HIGH RISK DANGER ACTIVATED")
+                    console.log("it has id:" + key)
+                    HIGHDENY.push(key);
+                }
+            } else {
+
+                if (answers[key][highDeny.get(key)] == "1") {
+                    console.log("HIGH RISK DANGER ACTIVATED")
+                    console.log("it has id:" + key)
+                    HIGHDENY.push(key);
+                }
+            }
+        }
+            
         if (unnaceptable.has(key)) {
             if (answers[key].length == 1) {
                 if (answers[key] == unnaceptable.get(key)) {
@@ -159,9 +187,14 @@ window.addEventListener('load', async function () {
         }
     }
 
+
     //will now check what parts worked... or not
 
     let cats = ["cat1", "cat2", "cat3", "cat4", "cat5"];
+    
+    if(HIGHMODE.length > 0 && HIGHDENY.length > 0){
+        console.log("YOU HAVE BEEN DENIED BECAUSE HIGH RIK AI REQUIRES MORE STUFF")
+    }
 
     for (let i = 0; i < cats.length; i++) {
         //htmlTxt = "<div>" +answerMemory[i].length +" / "+ answerchecks[i].length +"</div>";
@@ -209,7 +242,7 @@ window.addEventListener('load', async function () {
         let dbID = JSON.parse(sessionStorage.getItem('dbID'));
 
         var theRisk = "Low risk"; // NIKKI TESTAR
-        if (HIGHRISK.length > 0) { // NIKKI TESTAR
+        if (HIGHMODE.length > 0) { // NIKKI TESTAR
             theRisk = "High risk"; // NIKKI TESTAR
         } // NIKKI TESTAR
         //updating stamp
@@ -251,12 +284,12 @@ window.addEventListener('load', async function () {
 
     console.log(answerchecks)
 
-    if (HIGHRISK.length > 0) {
-        //it is highrisk
+    if (HIGHMODE.length > 0) {
+        //it is HIGHMODE
         htmlTxt = "<div> This AI has been deemed high risk because of question ";
 
-        for (val in HIGHRISK) {
-            htmlTxt += HIGHRISK[val] + " ";
+        for (val in HIGHMODE) {
+            htmlTxt += HIGHMODE[val] + " ";
         }
 
         htmlTxt += "</div>";
