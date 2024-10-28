@@ -172,6 +172,11 @@ function checkIfNumber(event) {
  * @param {HTMLSelectElement} selector 
  */
 function dropRevelio(selector) {
+    if(selector.value){
+        selector.style.backgroundColor = '#6E615A';
+        selector.style.border = '1px solid #6E615A';
+        selector.style.color = '#FFFFFF';
+    }
     console.log(selector.parentNode)
     console.log(selector.getAttribute("data-linked"))
     let options = selector.options

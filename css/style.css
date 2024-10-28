@@ -474,6 +474,9 @@ form{
         border-color: white;
         overflow-y: auto;
     }
+    .dropdownQuestion option{
+        background-color: white;
+    }
 /**/
 
 /*Multi*/
