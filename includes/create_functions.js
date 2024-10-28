@@ -172,7 +172,7 @@ function checkIfNumber(event) {
  * @param {HTMLSelectElement} selector 
  */
 function dropRevelio(selector) {
-    if(selector.value){
+    if (selector.value) {
         selector.style.backgroundColor = '#6E615A';
         selector.style.border = '1px solid #6E615A';
         selector.style.color = '#FFFFFF';
@@ -211,12 +211,14 @@ function multiRevelio(select) {
             }
         }
     })
-
-    if (stay >= 1) {
-        document.getElementById(parent.getAttribute("data-linked")).hidden = false;
-    } else {
-        document.getElementById(parent.getAttribute("data-linked")).hidden = true;
+    if (parent.dataset.linked != "") {
+        if (stay >= 1) {
+            document.getElementById(parent.getAttribute("data-linked")).hidden = false;
+        } else {
+            document.getElementById(parent.getAttribute("data-linked")).hidden = true;
+        }
     }
+
     addToMem("3", parent.id, [select.value, boxes.length])
 }
 

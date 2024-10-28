@@ -169,7 +169,6 @@ window.addEventListener('load', async function () {
                 }
             }
         }
-            
         if (unnaceptable.some(ele => ele[0] === key)) {
             for(index =0 ; index < unnaceptable.length ; index++){
                 if(key != unnaceptable[index][0]){
