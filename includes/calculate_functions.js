@@ -60,9 +60,9 @@ window.addEventListener('load', async function () {
     let output = JSON.parse(sessionStorage.getItem('output'));
     let answers = output.answers
 
-    let highmode = new Map();
-    let highDeny = new Map();
-    let unnaceptable = new Map();
+    let highmode = [];
+    let highDeny = [];
+    let unnaceptable = [];
     let stamp = [];
 
     let fail = false;
@@ -91,13 +91,13 @@ window.addEventListener('load', async function () {
 
             for (k =0; k< element.risk.length; k++){
                 if (element.risk[k][0].toUpperCase() == "U") {
-                    unnaceptable.set(identification, element.risk[0][1]);
+                    unnaceptable.push([identification, element.risk[k][1]]);
                 }  
                 if(element.risk[k][0].toUpperCase() == "H") {
-                    highmode.set(identification, element.risk[0][1]);
+                    highmode.push([identification, element.risk[k][1]]);
                 } 
                 if(element.risk[k][0].toUpperCase() == "HX"){
-                    highDeny.set(identification, element.risk[0][1])
+                    highDeny.push([identification, element.risk[k][1]])
                 }
             }
         }
@@ -116,7 +116,6 @@ window.addEventListener('load', async function () {
     //for (const key in OBJECT)
 
     for (const key in answers) {
-
         for (let thing in answerchecks) {  //checks all available answers, and if answered
             if (answerchecks[thing].includes(key)) {
                 answerchecks[thing].splice(answerchecks[thing].indexOf(key), 1);
@@ -134,54 +133,56 @@ window.addEventListener('load', async function () {
             stamp.splice(stamp.indexOf(key), 1);
         }
 
-        if (highmode.has(key)) {
-            console.log(answers[key][highmode.get(key)])
-            if (answers[key].length == 1) {
-                if (answers[key] == highmode.get(key)) {
-                    console.log("HIGH RISK mode activated")
-                    console.log("it has id:" + key)
-                    HIGHMODE.push(key);
+
+        //high risk check
+        if (highmode.some(ele => ele[0] === key)) {
+            for(index =0 ; index < highmode.length ; index++){
+                if(key != highmode[index][0]){
+                    continue;
                 }
-            } else {
-                if (answers[key][highmode.get(key)] == "1") {
-                    console.log("HIGH RISK mode activated")
-                    console.log("it has id:" + key)
-                    HIGHMODE.push(key);
+                if(answers[key].length == 1){   
+                    if(answers[key] == highmode[index][1]){
+                        HIGHMODE.push(key);
+                    }
+                }else{
+                    ans =answers[key][highmode[index][1]] 
+                    if(answers[key][highmode[index][1]]){
+                        HIGHMODE.push(key);
+                    }
                 }
             }
         }
 
-        if (highDeny.has(key)) {
-            console.log(answers[key][highDeny.get(key)])
-            if (answers[key].length == 1) {
-                if (answers[key] == highDeny.get(key)) {
-                    console.log("HIGH RISK DANGER ACTIVATED")
-                    console.log("it has id:" + key)
-                    HIGHDENY.push(key);
+        if (highDeny.some(ele => ele[0] === key)) {
+            for(index =0 ; index < highDeny.length ; index++){
+                if(key != highDeny[index][0]){
+                    continue;
                 }
-            } else {
-
-                if (answers[key][highDeny.get(key)] == "1") {
-                    console.log("HIGH RISK DANGER ACTIVATED")
-                    console.log("it has id:" + key)
-                    HIGHDENY.push(key);
+                if(answers[key].length == 1){   
+                    if(answers[key] == highDeny[index][1]){
+                        HIGHDENY.push(key);
+                    }
+                }else{
+                    if(answers[key][highDeny[index][1]]){
+                        HIGHDENY.push(key);
+                    }
                 }
             }
         }
             
-        if (unnaceptable.has(key)) {
-            if (answers[key].length == 1) {
-                if (answers[key] == unnaceptable.get(key)) {
-                    console.log("UNACC DETECTED!!!")
-                    console.log("it has id:" + key)
-                    UNACCEPTABLE.push(key)
+        if (unnaceptable.some(ele => ele[0] === key)) {
+            for(index =0 ; index < unnaceptable.length ; index++){
+                if(key != unnaceptable[index][0]){
+                    continue;
                 }
-            } else {
-
-                if (answers[key][unnaceptable.get(key)] == "1") {
-                    console.log("UNACC DETECTED!!!")
-                    console.log("it has id:" + key)
-                    UNACCEPTABLE.push(key)
+                if(answers[key].length == 1){   
+                    if(answers[key] == unnaceptable[index][1]){
+                        UNACCEPTABLE.push(key);
+                    }
+                }else{
+                    if(answers[key][unnaceptable[index][1]]){
+                        UNACCEPTABLE.push(key);
+                    }
                 }
             }
         }
@@ -193,7 +194,7 @@ window.addEventListener('load', async function () {
     let cats = ["cat1", "cat2", "cat3", "cat4", "cat5"];
     
     if(HIGHMODE.length > 0 && HIGHDENY.length > 0){
-        console.log("YOU HAVE BEEN DENIED BECAUSE HIGH RIK AI REQUIRES MORE STUFF")
+        console.log("YOU HAVE BEEN DENIED BECAUSE HIGH RISK AI REQUIRES MORE STUFF")
     }
 
     for (let i = 0; i < cats.length; i++) {
