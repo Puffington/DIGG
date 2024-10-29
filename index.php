@@ -45,8 +45,8 @@ function toFOrm(abc){
                 <div class="card">
                     <h2>Complete the Form</h2>
                     <p>After submitting our form, we’ll assess your AI’s compliance with the AI Act and relevant laws. You may be eligible for the Stamp of Quality!</p>
-                    <button type="button" class="menuButton" onclick="toFOrm(0)"  >The Form</button>
-                    <button type="button" class="menuButton" onclick="toFOrm(1)" >The test Form</button>
+                    <button type="button" class="menuButton" onclick="toFOrm(0)"  >Register your AI</button>
+                    <button type="button" class="menuButton" onclick="toFOrm(1)" >Test the Form</button>
                 </div>
             </div>
 
