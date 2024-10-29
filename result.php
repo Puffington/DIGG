@@ -53,7 +53,7 @@ include("includes/templates/header.php");
                 <!-- Options depending on the result -->
                 <div id="option_buttons">
                     <button class='menuButton'onclick="pdfing()" >Download Answers</botton>
-                    <button class='menuButton' onclick="qrCode()" >QR CODE!!!!</botton>
+                    <button class='menuButton' onclick="qrCode()" >QR CODE</botton>
                 </div>
 
                 

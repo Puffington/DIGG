@@ -29,10 +29,10 @@ window.addEventListener('load', function () {
     console.log("mode is  " + modes);
     if (modes == "test") {
         document.getElementById('submitFormButton').setAttribute('onclick', 'submitAndTest()')
-        document.getElementById("submitFormButton").value = "Submit!!!!";
+        document.getElementById("submitFormButton").value = "Submit";
     } else {
         document.getElementById('submitFormButton').setAttribute('onclick', 'submitAndSend()')
-        document.getElementById("submitFormButton").value = "Submit2222!!!!";
+        document.getElementById("submitFormButton").value = "Submit and register";
     }
 
     // Linking objects

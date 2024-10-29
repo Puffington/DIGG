@@ -26,7 +26,7 @@ include("includes/templates/header.php");
                 <div class="category" id="cat2" onclick="scroller(this)">Law and Justice</div>
                 <div class="category" id="cat3" onclick="scroller(this)">Security</div>
                 <div class="category" id="cat4" onclick="scroller(this)">Performance</div>
-                <div class="category" id="cat5" onclick="scroller(this)">Transparancy</div>
+                <div class="category" id="cat5" onclick="scroller(this)">Transparency</div>
             </nav>
             <div class="scroller">
                 <div class="categoryArea" id="cat1Area">
