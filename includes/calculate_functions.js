@@ -169,7 +169,6 @@ window.addEventListener('load', async function () {
                 }
             }
         }
-            
         if (unnaceptable.some(ele => ele[0] === key)) {
             for(index =0 ; index < unnaceptable.length ; index++){
                 if(key != unnaceptable[index][0]){
@@ -192,10 +191,7 @@ window.addEventListener('load', async function () {
     //will now check what parts worked... or not
 
     let cats = ["cat1", "cat2", "cat3", "cat4", "cat5"];
-    
-    if(HIGHMODE.length > 0 && HIGHDENY.length > 0){
-        console.log("YOU HAVE BEEN DENIED BECAUSE HIGH RISK AI REQUIRES MORE STUFF")
-    }
+
 
     for (let i = 0; i < cats.length; i++) {
         //htmlTxt = "<div>" +answerMemory[i].length +" / "+ answerchecks[i].length +"</div>";
@@ -206,9 +202,26 @@ window.addEventListener('load', async function () {
     console.log(stamp);
     console.log("THE STAMP LENGTH" + stamp.length);
 
-    if (stamp.length != 0 || UNACCEPTABLE.length > 0) {
+    let check = true;
+    let message = "";
+
+    if(HIGHMODE.length > 0 && HIGHDENY.length > 0){
+        console.log("YOU HAVE BEEN DENIED BECAUSE HIGH RISK AI REQUIRES MORE STUFF");
+        message = "high risk extra restrictions not implemented properly";
+        check = false;
+    }
+    if(stamp.length != 0 ){
+        check = false;
+        message = "not enough information to validate the AI"
+    }
+    if(UNACCEPTABLE.length > 0){
+        check = false;
+        message = "breaks basic AI act principles"
+    }
+
+    if (!check) {
         this.document.getElementById("resultText").textContent = "YOUR AI HAS BEEN DENIED."//ALL STAMPS ARE NOT DONE, YE SHOITE
-        this.document.getElementById("explanationText").textContent = "Your AI-system is not fulfilling all requirements." //Something more perhaps
+        this.document.getElementById("explanationText").textContent = message //Something more perhaps
         this.document.getElementById("suggestion").textContent = "Retake the test or go back to main."
 
         // Create a Home button element
@@ -297,7 +310,7 @@ window.addEventListener('load', async function () {
         document.getElementById("messageHolder").insertAdjacentHTML("beforeend", htmlTxt);
     }
     if (UNACCEPTABLE.length > 0) {
-        htmlTxt = "<div> This AI has been deemed AN UNACCEPTABLE RISK because of question ";
+        htmlTxt = "<div> This AI has been deemed an UNACCEPTABLE RISK because of question ";
         for (val in UNACCEPTABLE) {
             htmlTxt += UNACCEPTABLE[val] + " ";
         }
