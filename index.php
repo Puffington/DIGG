@@ -33,18 +33,18 @@ function toFOrm(abc){
 
             <div class="horizontal">
                 <div class="card">
-                    <h2>Read more about AI guidelines</h2>
-                    <p>What does it mean to get the Stamp of Quality? What is meant by high and low risk?</p>
+                    <h2>Learn About AI Guidelines</h2>
+                    <p>What does it mean to receive the Stamp of Quality? Discover the distinctions between high-risk and low-risk AI systems.</p>
                     <button type="button" class="menuButton" onclick="location.href='guidelines.php';" >Guidelines</button>
                 </div>
                 <div class="card">
-                    <h2>See our record of AI's</h2>
-                    <p>We store all public administrations and their AI systems, read more about them here!</p>
+                    <h2>Explore Our AI Registry</h2>
+                    <p>We maintain a comprehensive record of public administrations and their AI systems. Click here to learn more!</p>
                     <button type="button" class="menuButton" onclick="location.href='search.php';" >Our Record</button>
                 </div>
                 <div class="card">
-                    <h2>Fill in the form</h2>
-                    <p>When you have filled in our form, we will check if your AI is aligned with the AI Act and laws of AI, and you might be able to get the Stamp of Quality!</p>
+                    <h2>Complete the Form</h2>
+                    <p>After submitting our form, we’ll assess your AI’s compliance with the AI Act and relevant laws. You may be eligible for the Stamp of Quality!</p>
                     <button type="button" class="menuButton" onclick="toFOrm(0)"  >The Form</button>
                     <button type="button" class="menuButton" onclick="toFOrm(1)" >The test Form</button>
                 </div>

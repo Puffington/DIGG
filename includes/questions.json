@@ -1,6 +1,6 @@
 [    
     { 
-        "question": "Registration number",
+        "question": "Organization number",
         "category":"1",
         "type": "number",
         "id": "1",
@@ -37,7 +37,7 @@
     },
     
     { 
-        "question": "URL",
+        "question": "URL to were you save information about the AI-system",
         "category":"1",
         "type": "text",
         "text":"url",
@@ -367,7 +367,7 @@
         "options": []
     },
     {
-        "question": "Is it possible, if one tries, to repeat and reproduce the design/realization and get the same result?",
+        "question": "Does the AI reporoduce the same results if given the exact same input?",
         "category":"4",
         "type": "dropdown",
         "id": "24",
@@ -390,7 +390,7 @@
         "risk":[],
         "stamp":"0",
         "readmore":"Proper training metrics ensure that AI systems perform reliably. The AI Act requires regular performance evaluations for high-risk systems, using established methods like confusion matrices.",
-        "options": ["Confusion Matrix","Lift-curve","ROC-curve","Accuracy Score"]
+        "options": ["Confusion Matrix","Lift-curve","ROC-curve","Accuracy", "Precision", "Recall", "F1 score"]
     },
     {
         "question": "Are there results from system tests with users of the system?",
