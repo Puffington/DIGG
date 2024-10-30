@@ -1,3 +1,5 @@
+Download the zip-file and extrac it to get the image.
+
 "Relation between Questions and AI act"
 
 Left side - contains the AI act
