@@ -1,0 +1,311 @@
+"question": "Select AI System",
+
+"type": "dropdown",
+
+"id": "5",
+
+"options": ["Question Answering Models",
+
+"Image Recognition Models",
+
+"Natural Language Processing",
+
+"Sentiment Analysis Models",
+
+"Image Generation Models",
+
+"Speech recognition Models",
+
+"Reinforcement Learning Models",
+
+"Generative Adversarial Networks",
+
+"Machine Translation Models",
+
+"Object Detection Models",
+
+"None of the above"]
+
+"question": "Which Groups will be affected by the AI system?",
+
+"id": "6",
+
+"type": "multi"
+
+"options": ["The general public",
+
+"Children and young people (under 18)",
+
+"Elderly persons (65+)",
+
+"People with disabilities",
+
+"Ethnic minorities",
+
+"Low-income individuals",
+
+"Public sector (e.g., municipality, authority)",
+
+"Private sector (companies)",
+
+"Sensitive professional groups (e.g., healthcare staff, teachers)",
+
+"Law enforcement authorities",
+
+"Employees within the organization",
+
+"Students or pupils",
+
+"Individuals seeking jobs",
+
+"Individuals applying for housing or social services",
+
+"Individuals in migration management",
+
+"No specific groups"]
+
+"question": "Is the AI system used to manipulate the target group?",
+
+"type": "boolean",
+
+"id": "6A",
+
+"question": "Will individuals and businesses be informed about how the AI 
+
+"type": "boolean",
+
+"id": "7",
+
+"question": "Is it legally established that you can use the data you want to use when developing, training, or using your AI system?",
+
+"type": "boolean",
+
+"id": "8",
+
+"question": "Do you process sensitive personal data when developing, training, or using your AI system?",
+
+"category":"2",
+
+"type": "boolean",
+
+"id": "9",
+
+"question": "Have you conducted a risk analysis regarding the risk of discrimination under the Discrimination Act, of those individuals who will develop, train, and evaluate the AI system?",
+
+"type": "Boolean",
+
+"id": "10",
+
+"question": "Does the AI system involve social scoring (ranking of individuals based on their behavior, characteristics, or traits)?",
+
+"type": "Boolean",
+
+"id": "11",
+
+"question": "Does the AI system use biometric identification (e.g.facial recognition) in public spaces for real-time monitoring?",
+
+"type": "Boolean",
+
+"id": "12",
+
+"question": "The AI system is used in: ",
+
+"type": "dropdown",
+
+"id": "13",
+
+"options": ["Critical infrastructure (e.g., energy, water supply) where a failure could jeopardize life or health?",
+
+"Educational or vocational training programs that affect access to education or job opportunities?",
+
+" Labor market, personnel management or to determine access to essential services (e.g., bank, housing)?",
+
+" Law enforcement, the justice system, or migration management?",
+
+"None of the above"]
+
+"question": "Have you conducted an analysis of the AI system from an information security perspective?",
+
+"type": "Boolean",
+
+"id": "14",
+
+"question": "Have you clarified and documented other requirements that are placed for planning, documentation, measurements, testing, verification, and traceability for development and operation?",
+
+"type": "Boolean",
+
+"id": "15",
+
+"question":"Are there other components (or regulations) built into the IT system that interact with the AI system/model's results and affect the final outcome?",
+
+"type": "Boolean",
+
+"id": "16",
+
+"question": "Will the collected data be shared with third parties?",
+
+"type": "Boolean",
+
+"id": "17",
+
+"question": "Can you ensure the data is not misused?",
+
+"type": "Boolean",
+
+"question": "What is the availability of usable data like?",
+
+"type": "multi",
+
+"id": "18",
+
+"options": ["Data is continuously available and unrestricted",
+
+"Data is available but can only be used for a limited time (how long?)",
+
+"There is a risk that the content of the data source may change over time",
+
+"Data is not complete or representative for the task",
+
+"None of the above"]
+
+"question": "How is the data stored?",
+
+"type": "dropdown",
+
+"id": "19",
+
+"options": ["Own servers",
+
+"From third parties",
+
+"On the user's device",
+
+"We do not store any data",
+
+"None of the above"]
+
+"question": "What methods are used to protect data?",
+
+"type": "dropdown",
+
+"id": "20",
+
+"options": [
+
+"Encryption during storage and transmission",
+
+"Access control and authorization management",
+
+"Anonymization or pseudonymization of sensitive data",
+
+"Regular security audits and monitoring",
+
+"None of the above"
+
+]
+
+"question": "Are there requirements for data to be deleted?",
+
+"type": "Boolean",
+
+"id": "21",
+
+"question": "Is there a risk that the data contains collection bias?",
+
+"type": "Boolean",
+
+"id": "22",
+
+"question": "Is the AI system updated automatically via new data?",
+
+"type": "Boolean",
+
+"id": "23",
+
+"question": "Is it possible, if one tries, to repeat and reproduce the design/realization and get the same result?",
+
+"type": "Boolean",
+
+"id": "24",
+
+"question": "How do you measure that the AI system is sufficiently trained?",
+
+"type": "multi",
+
+"options": ["Confusion Matrix","Lift-curve","ROC-curve"]
+
+"question": "Are there results from system tests with users of the system?",
+
+"type": "Boolean",
+
+"id": "26",
+
+"question": "Is there a systematic way to ensure traceability, monitoring, and results for the AI system?",
+
+"type": "Boolean",
+
+"id": "27",
+
+"question": "Are there any licenses associated with the AI systems or AI models included in the IT system?",
+
+"type": "Boolean",
+
+"id": "28",
+
+"question": "Is there planning for how to act when the AI system does not function as it should?",
+
+"type": "Boolean",
+
+"id": "29",
+
+"question": "Is the AI-system optimzed after initial training/test?",
+
+"type": "Boolean",
+
+"id": "30",
+
+"question": "Does the model inform that users are interacting with an AI?",
+
+"type": "Boolean",
+
+"id": "31",
+
+"question": "Does the model inform that it's generated content (if it does generate) is made by an AI?",
+
+"type": "dropdown",
+
+"id": "32",
+
+"options": ["Yes, the user is informed", "No, the user is not informed", "Ai model does not generate content"]
+
+"question": "Is the AI system designed to give explanations for its decisions (explainability)?",
+
+"category":"5",
+
+"type": "Boolean",
+
+"id": "33",
+
+"question": "How will the AI system be used in decision-making?",
+
+"type": "dropdown",
+
+"id": "34",
+
+"options": [" To support a decision made by a human",
+
+"To independently make automated decisions",
+
+"None of the above"]
+
+"question": "Is there a documented process for informing users or affected individuals when AI is used in decision-making?",
+
+"type": "boolean",
+
+"id": "34A",
+
+"question": "Is the system subject to human oversight to intervene or override decisions?",
+
+"type": "boolean",
+
+"id": "35",
