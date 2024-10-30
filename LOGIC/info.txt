@@ -1,0 +1,5 @@
+"Relation between Questions and AI act"
+
+Left side - contains the AI act
+Middle - contains all questions and some of their logic
+Right side - contaions articles, laws and other scourses supporting the question
