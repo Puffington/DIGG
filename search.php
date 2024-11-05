@@ -38,9 +38,24 @@ include("includes/templates/header.php");
                     $query = "SELECT * FROM Organisation";
                     $result = mysqli_query($database->getConnection(), $query);
 
+                    $query22 = "SELECT * FROM AI";
+                    $result22 = mysqli_query($database->getConnection(), $query22);
+                    
                     // List all organizations
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<li> <a href='?orgId=" . $row['ID'] . "'>" . $row['NAME'] . "</a></li>";
+                        $id = $row['ID'];
+                        
+                        mysqli_data_seek($result22, 0);
+                        $counter = 0;
+                        while ($ai = mysqli_fetch_assoc($result22)) {
+                            if ($ai['STAMP'] == 1 && $ai['ORGANISATION_ID'] == $id){
+                                $counter++;
+                            }
+                        }
+                        if($counter != 0){
+                            echo "<li> <a href='?orgId=" . $row['ID'] . "'>" . $row['NAME'] . "</a></li>";
+                            $counter = 0;
+                        }
                     }
                     ?>
                 </ul>
@@ -65,7 +80,7 @@ include("includes/templates/header.php");
                     $query2 = "SELECT * FROM AI WHERE ORGANISATION_ID = $orgId";
                     $result2 = mysqli_query($database->getConnection(), $query2);
                     while ($ai = mysqli_fetch_assoc($result2)) {
-                        if (!empty($ai)) {
+                        if ($ai['STAMP']) {
                             echo "<ul id='aiList'><li>";
                             echo "<a class='aiList-a' onclick=\"toggleAiInfo('ai-" . $ai['ID'] . "')\">" . $ai['NAME'] . "</a>";
                             echo "<div id='ai-" . $ai['ID'] . "' class='ai-info' style='display:none;'>";
@@ -76,9 +91,7 @@ include("includes/templates/header.php");
                             echo "</div>";
                             echo "</li>";
                             echo "</ul>";
-                        } else {
-                            echo "<p>No AI systems found for this organization.</p>";
-                        }
+                        } 
                     }
                 } else {
                     echo "<p>Please select an organization from the list.</p>";
