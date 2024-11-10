@@ -19,8 +19,40 @@ if (isset($_POST["PDF"])) {
 
                 if (isset($question['id']) && $question['id'] == $key) {
                     $pdf->SetFont('Arial', 'B', 12);
-                    $pdf->Cell(0, 10, "Question " . $question['id'] . ": " . $question['question']);
-                    $pdf->Ln();
+
+                    //echo("<script>console.log('PHP: " . "hello buddy" . "');</script>");
+
+                    $len = 80;
+                    if(strlen($question['question']) > $len){
+                       # substr();
+                        $totLen = strlen($question['question']);
+                        $done = false;
+                        $step =0;
+                        $text = "";
+                        while (!$done) {
+                            # code...
+                            if($step == 0){
+                                $text = $text . "question ". $question['id'] .": ";
+                            }
+
+                            if(($step + $len) > $totLen){
+                                $done = true;
+                            }
+
+                            if($done){
+                                $text = $text . substr($question['question'],$step,);
+                            }else{
+                                $text = $text . substr($question['question'],$step,$len);
+                            }
+                            $pdf -> Cell(0,10,$text);
+                            $pdf->Ln();
+                            $step += $len;
+                            $text = "";
+                        }
+                    }else{
+                        $pdf->Cell(0, 10, "Question " . $question['id'] . ": " . $question['question']);
+                        $pdf->Ln();
+                    }
 
                     $pdf->SetFont('Arial', '', 12);
                     if (is_array($value)) {

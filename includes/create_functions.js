@@ -505,7 +505,7 @@ function submitAndSend() {
             }).then(response => response.text()) //error handling from gpt, because of reasons
                 .then(data => {
                     sessionStorage.setItem('dbID', JSON.stringify(data));
-                    //window.location.href = "result.php"
+                    window.location.href = "result.php"
                 })
                 .catch(error => console.error('Error:', error));
         })

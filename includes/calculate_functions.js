@@ -362,6 +362,6 @@ function qrCode() {
     console.log(leID);
     //JSON.parse(sessionStorage.getItem('output'));
     htmlTxt = "<h3>Here is a qr code for your database ID</h3>"
-    htmlTxt += "<img src='https://api.qrserver.com/v1/create-qr-code/?data=" + "http://195.26.252.179/DIGG/search.php?orgId=" + leID + "&amp;size=100x100' alt='' title='' />"
+    htmlTxt += "<img src='https://api.qrserver.com/v1/create-qr-code/?data=http://195.26.252.179/DIGG/index.php &amp;size=100x100' alt='' title='' />"
     document.getElementById("left_result").insertAdjacentHTML("beforeend", htmlTxt)
 }
