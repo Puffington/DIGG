@@ -296,19 +296,15 @@
     {
         "question": "Can you ensure the data is not misused?",
         "category":"3",
-        "type": "dropdown",
+        "type": "Boolean",
         "id": "19A",
         "backgroundColor": "lightyellow",
         "linked":"",
         "linkActivation":["0","0","0"],
         "risk":[["HX",0]],
         "stamp":"0",
-        "readmore":"Data storage methods must comply with GDPR and the AI Act, ensuring security, transparency, and protection against unauthorized access or data breaches.",
-        "options": ["Own servers",
-        "From third parties",
-        "On the user's device",
-        "We do not store any data",
-        "None of the above"]
+        "readmore":"By having continous and proper oversight of the data being shared, one can ensure a safe usage of vital information",
+        "options": []
     },
     {
         "question": "What methods are used to protect data?",
@@ -326,7 +322,7 @@
             "Anonymization or pseudonymization of sensitive data",
             "Regular security audits and monitoring",
             "No methods are used",
-            "F. Method is not defined in the options available"
+            "Method is not defined in the options available"
         ]
     },
     {

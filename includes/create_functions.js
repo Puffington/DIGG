@@ -350,7 +350,7 @@ function builderOfElements(obj) {
             htmltxt = "<div class='radioQuestion' data-linked='" + obj.linked + "' id=" + obj.id + "><p>" + obj.id + ". " + obj.question + "</p>" +
                 readmorediv +
                 "<div class='yn-div'><input type='radio' id=" + obj.id + "Y" + " name=" + obj.id + " value='1' data-activate=" + obj.linkActivation[0] + " data-inex=1 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "Y' class='ynQ'>Yes</label></div>" +
-                "<div class='yn-div'><input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "N' class='ynQ'>No!</label></div></div>";
+                "<div class='yn-div'><input type='radio' id=" + obj.id + "N" + " name=" + obj.id + " value='0' data-activate=" + obj.linkActivation[1] + " data-inex=0 onclick='radioRevelio(this)'>" + "<label for='" + obj.id + "N' class='ynQ'>No&nbsp</label></div></div>";
             break;
         // Dropdown
         case "dropdown":
@@ -441,11 +441,20 @@ function submitAndSend() {
 
     if (!output.orgName || !output.aiName || !output.url || !output.orgnr) {
         goodTogGo = false; // change this value to remove the check
-
-        if (!goodTogGo) {
-            alert("Fill in the mandantory (*) text fields at the top of the form.")
-            return 0
+        alert("Fill in the mandantory (*) text fields at the top of the form. \n Copy pasting is not permitted")
+    }else{
+        //querySelector("input[type=text]")
+        testing = document.getElementsByName("1");
+        output.orgnr = testing[0].value;   
+        
+        if(output.orgnr.length > 10){
+            alert("too long organisation number");
+            goodTogGo = false;
         }
+    }
+
+    if (!goodTogGo) {
+        return 0
     }
 
     output.answers = AnswerMem;
@@ -496,7 +505,7 @@ function submitAndSend() {
             }).then(response => response.text()) //error handling from gpt, because of reasons
                 .then(data => {
                     sessionStorage.setItem('dbID', JSON.stringify(data));
-                    window.location.href = "result.php"
+                    //window.location.href = "result.php"
                 })
                 .catch(error => console.error('Error:', error));
         })
