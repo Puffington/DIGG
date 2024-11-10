@@ -146,7 +146,7 @@ body {
     margin-bottom: 70px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) {/*maybe change to 800*/
     /* CSS that should be displayed if width is equal to or less than 800px goes here */
     .horizontal {
         flex-direction: column;
