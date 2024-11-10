@@ -25,11 +25,11 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="#">Data & API:er</a>
+        <!--<a href="#">Data & API:er</a>
         <a href="#">Support and tools</a>
         <a href="#">Good examples</a>
         <a href="#">Search</a>
-        <a href="#">Menu</a>
+        <a href="#">Menu</a>-->
     </nav>
 </header>
 
